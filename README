@@ -1,10 +1,10 @@
 Welcome to Boxroom
 ==================
 
-Boxroom is a Rails 3 application that aims to be a simple interface for people
-who want to share files in their browser. To make this possible the application
-lets users create folders and upload and download files. For admins it is possible
-to create users, groups and the CRU/D rights these groups have on folders.
+Boxroom is a Rails 3 application that aims to be a simple interface for sharing
+files in a web browser. To make this possible the application lets users create
+folders and upload and download files. For admins it is possible to create users,
+groups and the CRU/D rights these groups have on folders.
 
 For more info go to:
 http://boxroom.rubyforge.org/
@@ -29,6 +29,6 @@ Follow the these steps:
  1. Extract boxroom.zip and cd to the newly created folder
  2. Update your bundle: $ bundle
  3. Create a database and schema: $ rake db:migrate
- 4. Start the webserver: $ rails server
+ 4. Start the server: $ rails server
  5. Point your browser to http://localhost:3000/
  6. Enjoy!
