@@ -1,0 +1,20 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+	<title>Boxroom</title>
+	<%= stylesheet_link_tag :all %>
+	<%= javascript_include_tag :defaults %>
+	<%= csrf_meta_tag %>
+	<meta http-equiv="content-type" content="text/html;charset=UTF-8">
+</head>
+<body>
+	<div id="container">
+		<%= render(:partial => 'shared/header') %>
+		<%= render(:partial => 'shared/menu') %>
+		<div id="content">
+			<%= yield %>
+		</div>
+		<%= render(:partial => 'shared/footer') %>
+	</div>
+</body>
+</html>

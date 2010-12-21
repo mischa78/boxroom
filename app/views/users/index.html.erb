@@ -1,0 +1,30 @@
+<h1>Users</h1>
+<% if flash[:error] -%>
+<p class="error">
+	<%= flash[:error] %>
+</p>
+<% end -%>
+<p>
+	<%= link_to 'Create a new user', new_user_path %>
+</p>
+<table>
+	<tr>
+		<th></th>
+		<th>Name</th>
+		<th>Email</th>
+		<th></th>
+	</tr>
+<% @users.each do |user| -%>
+	<tr class="<%= cycle('even','odd') %>">
+		<td><%= image_tag('user.png') %></td>
+		<td class="user_name"><%= user.name %></td>
+		<td class="user_email"><%= user.email %></td>
+		<td>
+			<%= link_to image_tag('edit.png', :alt => 'Edit'), edit_user_path(user), :title => 'Edit' %>&nbsp;
+		<% unless user.is_admin -%>
+			<%= link_to image_tag('delete.png', :alt => 'Delete'), user_path(user), :method => 'delete', :confirm => 'Are you sure?', :title => 'Delete' %>
+		<% end -%>
+		</td>
+	</tr>
+<% end -%>
+</table>

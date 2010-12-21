@@ -1,0 +1,13 @@
+<div id="menu">
+	<p class="menu">
+	<% if signed_in? -%>
+		<%= link_to 'Folders', folders_path %> &nbsp; &nbsp;
+	<% if current_user.member_of_admins? -%>
+		<%= link_to 'Users', users_path %> &nbsp; &nbsp;
+		<%= link_to 'Groups', groups_path %> &nbsp; &nbsp;
+	<% end -%>
+	<% else -%>
+		<%= link_to 'Sign in', new_session_path %> &nbsp; &nbsp;
+	<% end -%>
+	</p>
+</div>

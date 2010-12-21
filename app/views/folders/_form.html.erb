@@ -1,0 +1,9 @@
+<%= f.error_messages %>
+<p>
+	<%= f.label :name %>:<br>
+	<%= f.text_field :name, { :class => 'text_input' } %>
+</p>
+<p>
+	<%= f.submit 'Save' %> &nbsp; &mdash; &nbsp;
+	<%= link_to 'Back', folder_url(@folder.parent) %>
+</p>

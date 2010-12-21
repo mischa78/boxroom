@@ -1,0 +1,32 @@
+<h1>Groups</h1>
+<% if flash[:error] -%>
+<p class="error">
+	<%= flash[:error] %>
+</p>
+<% end -%>
+<p>
+	<%= link_to 'Create a new group', new_group_path %>
+</p>
+<table>
+	<tr>
+		<th></th>
+		<th>Name</th>
+		<th></th>
+	</tr>
+<% @groups.each do |group| -%>
+	<tr class="<%= cycle('even','odd') %>">
+	<% if group.admins_group? -%>
+		<td><%= image_tag('group_grey.png') %></td>
+		<td class="group_name disabled"><%= group.name %></td>
+		<td></td>
+	<% else -%>
+		<td><%= image_tag('group.png') %></td>
+		<td class="group_name"><%= group.name %></td>
+		<td>
+			<%= link_to image_tag('edit.png', :alt => 'Edit'), edit_group_path(group), :title => 'Edit' %>&nbsp;
+			<%= link_to image_tag('delete.png', :alt => 'Delete'), group_path(group), :method => 'delete', :confirm => 'Are you sure?', :title => 'Delete' %>
+		</td>
+	<% end -%>
+	</tr>
+<% end -%>
+</table>

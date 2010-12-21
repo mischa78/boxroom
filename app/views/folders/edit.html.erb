@@ -1,0 +1,9 @@
+<h1>Rename folder</h1>
+<% if flash[:notice] -%>
+<p class="notice">
+	<%= flash[:notice] %>
+</p>
+<% end -%>
+<%= form_for @folder, :url => { :action => 'update' } do |f| %>
+	<%= render :partial => 'form', :locals => { :f => f } %>
+<% end %>

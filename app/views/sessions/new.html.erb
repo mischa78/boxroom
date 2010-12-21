@@ -1,0 +1,29 @@
+<h1>Sign in</h1>
+<% if flash[:notice] -%>
+<p class="notice">
+	<%= flash[:notice] %>
+</p>
+<% end -%>
+<% if flash[:error] -%>
+<p class="error">
+	<%= flash[:error] %>
+</p>
+<% end -%>
+<%= form_tag(sessions_path) do %>
+	<p>
+		<%= label_tag :username %>:<br>
+		<%= text_field_tag :username, nil, :class => 'text_input' %>
+	</p>
+	<p>
+		<%= label_tag :password %>:<br>
+		<%= password_field_tag :password, nil, :class => 'text_input' %>
+	</p>
+	<p>
+		<%= check_box_tag :remember_me, 'true' %>
+		<%= label_tag :remember_me %>
+	</p>
+	<p>
+		<%= submit_tag 'Sign in' %> &nbsp; &mdash; &nbsp;
+		<%= link_to 'Reset password', new_reset_password_path %>
+	</p>
+<% end %>

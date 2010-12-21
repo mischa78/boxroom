@@ -1,0 +1,26 @@
+<h1>Create admin</h1>
+<p>
+	Boxroom does not have an administrator yet. Create one here.
+</p>
+<%= form_for @user, :url => { :action => 'create' } do |f| %>
+	<%= f.error_messages %>
+	<p>
+		<%= f.label :name %>:<br>
+		<%= f.text_field :name, { :class => 'text_input' } %>
+	</p>
+	<p>
+		<%= f.label :email %>:<br>
+		<%= f.text_field :email, { :class => 'text_input' } %>
+	</p>
+	<p>
+		<%= label_tag :password %>:<br>
+		<%= f.password_field :password, { :class => 'text_input' } %>
+	</p>
+	<p>
+		<%= label_tag :confirm_password %>:<br>
+		<%= f.password_field :password_confirmation, { :class => 'text_input' } %>
+	</p>
+	<p>
+		<%= f.submit 'Create admin account' %>
+	</p>
+<% end %>

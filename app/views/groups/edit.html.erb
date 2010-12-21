@@ -1,0 +1,9 @@
+<h1>Rename group</h1>
+<% if flash[:notice] -%>
+<p class="notice">
+	<%= flash[:notice] %>
+</p>
+<% end -%>
+<%= form_for @group, :url => { :action => 'update' } do |f| %>
+	<%= render :partial => 'form', :locals => { :f => f } %>
+<% end %>
