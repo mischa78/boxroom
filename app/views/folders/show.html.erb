@@ -30,6 +30,15 @@
 			<th>Date modified</th>
 			<th></th>
 		</tr>
+	<% unless @folder.is_root? -%>
+		<tr class="<%= cycle('even','odd') %>">
+			<td><%= image_tag('folder.png') %></td>
+			<td class="file_name">&uarr; <%= link_to 'up', folder_path(@folder.parent), :title => @folder.parent.name %></td>
+			<td class="file_size">--</td>
+			<td class="file_modified">--</td>
+			<td></td>
+		</tr>
+	<% end -%>
 	<% @folder.children.each do |folder| -%>
 		<% if current_user.can_read(folder) -%>
 		<tr class="<%= cycle('even','odd') %>">
@@ -51,7 +60,7 @@
 	<% @folder.user_files.each do |file| -%>
 		<% if current_user.can_read(@folder) -%>
 		<tr class="<%= cycle('even','odd') %>">
-			<td><%= image_tag('file.png') %></td>
+			<td><%= image_tag(file_icon(file.extension)) %></td>
 			<td class="file_name"><%= link_to file.attachment_file_name, file_path(file) %></td>
 			<td class="file_size"><%= number_to_human_size(file.attachment_file_size) %></td>
 			<td class="file_modified"><%= file.updated_at.to_s(:long_ordinal) %></td>
