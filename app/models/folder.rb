@@ -1,7 +1,6 @@
 class Folder < ActiveRecord::Base
   acts_as_tree :order => 'name'
 
-  belongs_to :user
   has_many :user_files, :dependent => :destroy, :order => 'attachment_file_name'
   has_many :permissions, :dependent => :destroy
 
