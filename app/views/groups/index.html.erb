@@ -1,4 +1,6 @@
-<h1>Groups</h1>
+<% content_for :title, 'Groups' -%>
+
+<h1><%= content_for :title %></h1>
 <% if flash[:error] -%>
 <p class="error">
 	<%= flash[:error] %>

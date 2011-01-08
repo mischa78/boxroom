@@ -1,4 +1,6 @@
-<h1><%= @folder.name %></h1>
+<% content_for :title, @folder.name -%>
+
+<h1><%= content_for :title %></h1>
 <% unless @folder.is_root? -%>
 <p>
 	<%= breadcrumbs(@folder) %>

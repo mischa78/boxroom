@@ -1,4 +1,6 @@
-<h1>Rename file</h1>
+<% content_for :title, 'Rename file' -%>
+
+<h1><%= content_for :title %></h1>
 <% if flash[:notice] -%>
 <p class="notice">
 	<%= flash[:notice] %>
