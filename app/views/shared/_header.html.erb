@@ -3,7 +3,7 @@
 	<div class="user_welcome">
 		<p>
 			Hello, <%= current_user.name %>!<br>
-			<%= link_to 'Settings', edit_user_path(current_user) %> | <%= link_to 'Sign out', '/signout' %>
+			<%= link_to 'Settings', edit_user_path(current_user) %> | <%= link_to 'Sign out', signout_path %>
 		</p>
 	</div>
 	<% end -%>
