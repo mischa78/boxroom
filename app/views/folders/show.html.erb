@@ -7,9 +7,9 @@
 	<span class="breadcrumb nowrap"><%= @folder.name %></span>
 </p>
 <% end -%>
-<% if flash[:error] -%>
+<% if flash[:alert] -%>
 <p class="error">
-	<%= flash[:error] %>
+	<%= flash[:alert] %>
 </p>
 <% end -%>
 <p>
