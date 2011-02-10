@@ -1,0 +1,14 @@
+<!-- разрешение для всех -->
+<cross-domain-policy>
+  <allow-access-from domain="*" to-ports="80"/>
+</cross-domain-policy>
+
+<!-- разрешение для специальных доменов
+<cross-domain-policy>
+  <allow-access-from domain="*.sitename.ru" to-ports="80"/>
+  <allow-access-from domain="sitename.ru" to-ports="80"/>
+  <allow-access-from domain="*.diary.ru" to-ports="80"/>
+  <allow-access-from domain="*.li.ru" to-ports="80"/>
+</cross-domain-policy>
+-->
+

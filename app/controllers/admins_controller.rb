@@ -27,3 +27,4 @@ class AdminsController < ApplicationController
     redirect_to new_session_url unless User.no_admin_yet?
   end
 end
+

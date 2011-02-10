@@ -12,7 +12,7 @@ class ResetPasswordController < ApplicationController
 
     unless user.nil?
       user.refresh_reset_password_token
-      UserMailer.reset_password_email(user).deliver 
+      UserMailer.reset_password_email(user).deliver
       flash[:notice] = 'Email with instructions sent successfully. Please check your email.'
     else
       flash[:error] = "There is no user with email address '#{params[:email]}'. Please try again."
@@ -47,3 +47,4 @@ class ResetPasswordController < ApplicationController
     end
   end
 end
+

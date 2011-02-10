@@ -31,3 +31,4 @@ class PermissionsController < ApplicationController
     end
   end
 end
+

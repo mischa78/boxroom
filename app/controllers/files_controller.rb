@@ -64,3 +64,4 @@ class FilesController < ApplicationController
     redirect_to folder_url(Folder.root)
   end
 end
+
