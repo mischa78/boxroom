@@ -43,3 +43,14 @@ class Group < ActiveRecord::Base
     raise "Can't delete admins group" if admins_group?
   end
 end
+
+# == Schema Information
+#
+# Table name: groups
+#
+#  id         :integer         not null, primary key
+#  name       :string(255)
+#  created_at :datetime
+#  updated_at :datetime
+#
+
