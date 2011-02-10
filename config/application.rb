@@ -38,5 +38,10 @@ module Boxroom
 
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
+
+    # Reduce logging
+    config.log_level = :warn
+
   end
 end
+

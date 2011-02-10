@@ -1,4 +1,7 @@
+.bundle
+bin/
 db/*.sqlite3
 log/*
 uploads/*
 tmp/*
+config/database.yml

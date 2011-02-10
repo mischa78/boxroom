@@ -1,14 +1,21 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.3'
+gem 'rails', '~> 3.0.0'
 gem 'dynamic_form'
 gem 'acts_as_tree'
 gem 'paperclip'
 
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
+group :development do
+  gem "annotate"
+end
 
-gem 'sqlite3-ruby', :require => 'sqlite3'
+group :production do
+  gem "pg"
+end
+
+group :test do
+  gem 'sqlite3-ruby', :require => 'sqlite3'
+end
 
 # Use unicorn as the web server
 # gem 'unicorn'
@@ -31,3 +38,4 @@ gem 'sqlite3-ruby', :require => 'sqlite3'
 # group :development, :test do
 #   gem 'webrat'
 # end
+
