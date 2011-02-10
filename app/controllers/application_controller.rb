@@ -25,6 +25,18 @@ class ApplicationController < ActionController::Base
   end
 
   def require_login
+    if params[:controller] == "files" && params[:action] == "show"
+      begin
+        @file = UserFile.find(params[:id])
+      rescue
+        redirect_to new_session_url and return
+      else
+        permissions = @file.folder.permissions.map(&:can_read).uniq
+        if permissions.length == 1 && permissions[0] == true
+          send_file @file.attachment.path, :filename => @file.attachment_file_name and return
+        end
+      end
+    end
     if current_user.nil?
       unless cookies[:auth_token].blank?
         user = User.find_by_remember_token(cookies[:auth_token])
@@ -63,3 +75,4 @@ class ApplicationController < ActionController::Base
     end
   end
 end
+
