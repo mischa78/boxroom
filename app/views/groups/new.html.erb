@@ -1,4 +1,6 @@
-<h1>New group</h1>
+<% content_for :title, 'New group' -%>
+
+<h1><%= content_for :title %></h1>
 <%= form_for @group, :url => { :action => 'create' } do |f| %>
 	<%= render :partial => 'form', :locals => { :f => f } %>
 <% end %>

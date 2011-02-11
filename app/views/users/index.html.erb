@@ -1,7 +1,9 @@
-<h1>Users</h1>
-<% if flash[:error] -%>
+<% content_for :title, 'Users' -%>
+
+<h1><%= content_for :title %></h1>
+<% if flash[:alert] -%>
 <p class="error">
-	<%= flash[:error] %>
+	<%= flash[:alert] %>
 </p>
 <% end -%>
 <p>

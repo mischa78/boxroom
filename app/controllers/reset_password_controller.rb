@@ -15,7 +15,7 @@ class ResetPasswordController < ApplicationController
       UserMailer.reset_password_email(user).deliver
       flash[:notice] = 'Email with instructions sent successfully. Please check your email.'
     else
-      flash[:error] = "There is no user with email address '#{params[:email]}'. Please try again."
+      flash[:alert] = "There is no user with email address '#{params[:email]}'. Please try again."
     end
 
     redirect_to new_reset_password_url
@@ -29,8 +29,7 @@ class ResetPasswordController < ApplicationController
   # PUT /reset_password/:id
   def update
     if @user.update_attributes(params[:user].merge({ :password_required => true }))
-      flash[:notice] = 'Your password was reset successfully. You can now sign in.'
-      redirect_to new_session_url
+      redirect_to new_session_url, :notice => 'Your password was reset successfully. You can now sign in.'
     else
       render :action => 'edit'
     end
@@ -42,8 +41,7 @@ class ResetPasswordController < ApplicationController
     @user = User.find_by_reset_password_token(params[:id])
 
     if @user.nil? || @user.reset_password_token_expires_at < Time.now
-      flash[:error] = 'The URL for resetting your password expired. Please try again.'
-      redirect_to new_reset_password_url
+      redirect_to new_reset_password_url, :alert => 'The URL for resetting your password expired. Please try again.'
     end
   end
 end

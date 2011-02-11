@@ -45,8 +45,7 @@ class FoldersController < ApplicationController
   # Note: @folder is set in require_existing_folder
   def update
     if @folder.update_attributes(params[:folder])
-      flash[:notice] = 'Your changes were saved successfully.'
-      redirect_to edit_folder_url(@folder)
+      redirect_to edit_folder_url(@folder), :notice => 'Your changes were saved successfully.'
     else
       render :action => 'edit'
     end
@@ -65,22 +64,19 @@ class FoldersController < ApplicationController
   def require_existing_folder
     @folder = Folder.find(params[:id])
   rescue ActiveRecord::RecordNotFound
-    flash[:error] = 'Someone else deleted this folder. Your action was cancelled.'
-    redirect_to folder_url(Folder.root)
+    redirect_to folder_url(Folder.root), :alert => 'Someone else deleted this folder. Your action was cancelled.'
   end
 
   def require_folder_isnt_root_folder
     if @folder.is_root?
-      flash[:error] = 'The root folder cannot be deleted or renamed.'
-      redirect_to folder_url(Folder.root)
+      redirect_to folder_url(Folder.root), :alert => 'The root folder cannot be deleted or renamed.'
     end
   end
 
   # Overrides require_delete_permission in ApplicationController
   def require_delete_permission
     unless current_user.can_delete(@folder) || @folder.is_root?
-      flash[:error] = "You don't have delete permissions for this folder."
-      redirect_to folder_url(@folder.parent)
+      redirect_to folder_url(@folder.parent), :alert => "You don't have delete permissions for this folder."
     else
       require_delete_permissions_for(@folder.children)
     end
@@ -89,8 +85,7 @@ class FoldersController < ApplicationController
   def require_delete_permissions_for(folders)
     folders.each do |folder|
       unless current_user.can_delete(folder)
-        flash[:error] = "You don't have delete permissions for one of the subfolders."
-        redirect_to folder_url(@folder.parent)
+        redirect_to folder_url(@folder.parent), :alert => "You don't have delete permissions for one of the subfolders."
       else
         # Recursive...
         require_delete_permissions_for(folder.children)

@@ -1,4 +1,6 @@
-<h1>Upload file</h1>
+<% content_for :title, 'Upload file' -%>
+
+<h1><%= content_for :title %></h1>
 <%= form_for [@parent_folder, @file], :url => { :action => 'create' }, :html => { :multipart => true } do |f| %>
 	<%= f.error_messages %>
 	<p>

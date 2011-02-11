@@ -8,8 +8,7 @@ class PermissionsController < ApplicationController
     update_children(folder.children, permissions) if params[:recursive] && folder.has_children?
     redirect_to folder_url(folder)
   rescue ActiveRecord::RecordNotFound # Folder was deleted, so permissions are gone too
-    flash[:error] = 'Someone else deleted this folder. Your action was cancelled.'
-    redirect_to folder_url(Folder.root)
+    redirect_to folder_url(Folder.root), :alert => 'Someone else deleted this folder. Your action was cancelled.'
   end
 
   private

@@ -1,12 +1,14 @@
-<h1>Sign in</h1>
+<% content_for :title, 'Sign in' -%>
+
+<h1><%= content_for :title %></h1>
 <% if flash[:notice] -%>
 <p class="notice">
 	<%= flash[:notice] %>
 </p>
 <% end -%>
-<% if flash[:error] -%>
+<% if flash[:alert] -%>
 <p class="error">
-	<%= flash[:error] %>
+	<%= flash[:alert] %>
 </p>
 <% end -%>
 <%= form_tag(sessions_path) do %>

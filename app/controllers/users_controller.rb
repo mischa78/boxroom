@@ -35,8 +35,7 @@ class UsersController < ApplicationController
   def update
     if @user.update_attributes(params[:user].merge({ :password_required => false }))
       set_groups
-      flash[:notice] = 'Your changes were saved successfully.'
-      redirect_to edit_user_url(@user)
+      redirect_to edit_user_url(@user), :notice => 'Your changes were saved successfully.'
     else
       render :action => 'edit'
     end
@@ -60,14 +59,12 @@ class UsersController < ApplicationController
       @user = current_user
     end
   rescue ActiveRecord::RecordNotFound
-    flash[:error] = 'Someone else deleted the user. Your action was cancelled.'
-    redirect_to users_url
+    redirect_to users_url, :alert => 'Someone else deleted the user. Your action was cancelled.'
   end
 
   def require_deleted_user_isnt_admin
     if @user.is_admin
-      flash[:error] = 'The admin user cannot be deleted.'
-      redirect_to users_url
+      redirect_to users_url, :alert => 'The admin user cannot be deleted.'
     end
   end
 

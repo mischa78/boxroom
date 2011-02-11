@@ -1,6 +1,4 @@
 class User < ActiveRecord::Base
-  has_many :folders
-  has_many :user_files
   has_and_belongs_to_many :groups
 
   attr_accessor :password_confirmation, :password_required, :dont_clear_reset_password_token
@@ -80,7 +78,7 @@ class User < ActiveRecord::Base
   end
 
   def create_root_folder_and_admins_group
-    Folder.create(:name => 'Root folder', :user_id => id)
+    Folder.create(:name => 'Root folder')
     groups << Group.create(:name => 'Admins')
   end
 end

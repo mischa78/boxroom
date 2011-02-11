@@ -33,8 +33,7 @@ class GroupsController < ApplicationController
   # Note: @group is set in require_existing_group
   def update
     if @group.update_attributes(params[:group])
-      flash[:notice] = 'Your changes were saved successfully.'
-      redirect_to edit_group_url(@group)
+      redirect_to edit_group_url(@group), :notice => 'Your changes were saved successfully.'
     else
       render :action => 'edit'
     end
@@ -52,14 +51,12 @@ class GroupsController < ApplicationController
   def require_existing_group
     @group = Group.find(params[:id])
   rescue ActiveRecord::RecordNotFound
-    flash[:error] = 'Someone else deleted this group. Your action was cancelled.'
-    redirect_to groups_url
+    redirect_to groups_url, :alert => 'Someone else deleted this group. Your action was cancelled.'
   end
 
   def require_group_isnt_admins_group
     if @group.admins_group?
-      flash[:error] = 'The admins group cannot be deleted or renamed.'
-      redirect_to groups_url
+      redirect_to groups_url, :alert => 'The admins group cannot be deleted or renamed.'
     end
   end
 end
