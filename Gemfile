@@ -14,6 +14,7 @@ end
 group :production do
   gem 'racc'
   gem 'pg'
+  gem 'exception_notification_rails3', :require => 'exception_notifier'
 end
 
 group :test do

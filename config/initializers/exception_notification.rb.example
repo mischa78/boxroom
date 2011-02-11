@@ -1,0 +1,5 @@
+Boxroom::Application.config.middleware.use ExceptionNotifier,
+  :email_prefix => "[Boxroom error] ",
+  :sender_address => %{"notifier" <notifier@example.com>},
+  :exception_recipients => %w{exceptions@example.com}
+

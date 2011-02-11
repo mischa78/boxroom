@@ -61,3 +61,4 @@ Boxroom::Application.configure do
   # From address
   # ActionMailer::Base.default :from => 'Boxroom <yourname@yourdomain.com>'
 end
+
