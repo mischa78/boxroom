@@ -5,11 +5,14 @@ gem 'dynamic_form'
 gem 'acts_as_tree'
 gem 'paperclip'
 
+gem 'compass'
+
 group :development do
   gem "annotate"
 end
 
 group :production do
+  gem "racc"
   gem "pg"
 end
 
