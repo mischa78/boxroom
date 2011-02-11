@@ -8,12 +8,12 @@ gem 'paperclip'
 gem 'compass'
 
 group :development do
-  gem "annotate"
+  gem 'annotate'
 end
 
 group :production do
-  gem "racc"
-  gem "pg"
+  gem 'racc'
+  gem 'pg'
 end
 
 group :test do

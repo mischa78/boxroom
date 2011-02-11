@@ -1,11 +1,11 @@
-<% content_for :title, 'Groups' -%>
+<% content_for :title, 'Groups' %>
 
 <h1><%= content_for :title %></h1>
-<% if flash[:alert] -%>
+<% if flash[:alert] %>
 <p class="error">
 	<%= flash[:alert] %>
 </p>
-<% end -%>
+<% end %>
 <p>
 	<%= link_to 'Create a new group', new_group_path %>
 </p>
@@ -15,20 +15,20 @@
 		<th>Name</th>
 		<th></th>
 	</tr>
-<% @groups.each do |group| -%>
+<% @groups.each do |group| %>
 	<tr class="<%= cycle('even','odd') %>">
-	<% if group.admins_group? -%>
+	<% if group.admins_group? %>
 		<td><%= image_tag('group_grey.png') %></td>
 		<td class="group_name disabled"><%= group.name %></td>
 		<td></td>
-	<% else -%>
+	<% else %>
 		<td><%= image_tag('group.png') %></td>
 		<td class="group_name"><%= group.name %></td>
 		<td>
 			<%= link_to image_tag('edit.png', :alt => 'Edit'), edit_group_path(group), :title => 'Edit' %>&nbsp;
 			<%= link_to image_tag('delete.png', :alt => 'Delete'), group_path(group), :method => 'delete', :confirm => 'Are you sure?', :title => 'Delete' %>
 		</td>
-	<% end -%>
+	<% end %>
 	</tr>
-<% end -%>
+<% end %>
 </table>

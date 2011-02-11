@@ -4,4 +4,8 @@ db/*.sqlite3
 log/*
 uploads/*
 tmp/*
+
+public/stylesheets/*.css
+
 config/database.yml
+config/initializers/setup_mail.rb

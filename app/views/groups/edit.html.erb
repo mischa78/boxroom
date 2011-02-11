@@ -1,11 +1,11 @@
-<% content_for :title, 'Rename group' -%>
+<% content_for :title, 'Rename group' %>
 
 <h1><%= content_for :title %></h1>
-<% if flash[:notice] -%>
+<% if flash[:notice] %>
 <p class="notice">
 	<%= flash[:notice] %>
 </p>
-<% end -%>
+<% end %>
 <%= form_for @group, :url => { :action => 'update' } do |f| %>
 	<%= render :partial => 'form', :locals => { :f => f } %>
 <% end %>

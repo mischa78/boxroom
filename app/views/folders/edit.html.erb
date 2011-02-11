@@ -1,11 +1,11 @@
-<% content_for :title, 'Rename folder' -%>
+<% content_for :title, 'Rename folder' %>
 
 <h1><%= content_for :title %></h1>
-<% if flash[:notice] -%>
+<% if flash[:notice] %>
 <p class="notice">
 	<%= flash[:notice] %>
 </p>
-<% end -%>
+<% end %>
 <%= form_for @folder, :url => { :action => 'update' } do |f| %>
 	<%= render :partial => 'form', :locals => { :f => f } %>
 <% end %>

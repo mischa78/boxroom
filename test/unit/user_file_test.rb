@@ -7,6 +7,7 @@ class UserFileTest < ActiveSupport::TestCase
   end
 end
 
+
 # == Schema Information
 #
 # Table name: user_files
@@ -17,7 +18,6 @@ end
 #  attachment_file_size    :integer
 #  attachment_updated_at   :datetime
 #  folder_id               :integer
-#  user_id                 :integer
 #  created_at              :datetime
 #  updated_at              :datetime
 #

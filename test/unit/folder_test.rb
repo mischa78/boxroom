@@ -7,13 +7,13 @@ class FolderTest < ActiveSupport::TestCase
   end
 end
 
+
 # == Schema Information
 #
 # Table name: folders
 #
 #  id         :integer         not null, primary key
 #  name       :string(255)
-#  user_id    :integer
 #  parent_id  :integer
 #  created_at :datetime
 #  updated_at :datetime

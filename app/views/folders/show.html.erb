@@ -1,27 +1,27 @@
-<% content_for :title, @folder.name -%>
+<% content_for :title, @folder.name %>
 
 <h1><%= content_for :title %></h1>
-<% unless @folder.is_root? -%>
+<% unless @folder.is_root? %>
 <p>
 	<%= breadcrumbs(@folder) %>
 	<span class="breadcrumb nowrap"><%= @folder.name %></span>
 </p>
-<% end -%>
-<% if flash[:alert] -%>
+<% end %>
+<% if flash[:alert] %>
 <p class="error">
 	<%= flash[:alert] %>
 </p>
-<% end -%>
+<% end %>
 <p>
-<% if current_user.can_create(@folder) -%>
+<% if current_user.can_create(@folder) %>
 	<%= link_to 'Create a new folder', new_folder_folder_path(@folder) %> or
 	<%= link_to 'Upload a file', new_folder_file_path(@folder) %>
-<% end -%>
-<% if current_user.member_of_admins? -%>
+<% end %>
+<% if current_user.member_of_admins? %>
 	&nbsp;|&nbsp;
 	<%= link_to_function 'Edit permissions', 'show_permissions();', :id => 'show_permissions_link' %>
 	<%= link_to_function 'Back to folder', 'hide_permissions();', { :id => 'hide_permissions_link', :style => 'display:none;' } %>
-<% end -%>
+<% end %>
 </p>
 <div id="files_and_folders">
 	<table>
@@ -32,7 +32,7 @@
 			<th>Date modified</th>
 			<th></th>
 		</tr>
-	<% unless @folder.is_root? -%>
+	<% unless @folder.is_root? %>
 		<tr class="<%= cycle('even','odd') %>">
 			<td><%= image_tag('folder.png') %></td>
 			<td class="file_name">&uarr; <%= link_to 'up', folder_path(@folder.parent), :title => @folder.parent.name %></td>
@@ -40,46 +40,46 @@
 			<td class="file_modified">--</td>
 			<td></td>
 		</tr>
-	<% end -%>
-	<% @folder.children.each do |folder| -%>
-		<% if current_user.can_read(folder) -%>
+	<% end %>
+	<% @folder.children.each do |folder| %>
+		<% if current_user.can_read(folder) %>
 		<tr class="<%= cycle('even','odd') %>">
 			<td><%= image_tag('folder.png') %></td>
 			<td class="file_name"><%= link_to folder.name, folder_path(folder) %></td>
 			<td class="file_size">--</td>
 			<td class="file_modified"><%= folder.updated_at.to_s(:long_ordinal) %></td>
 			<td>
-			<% if current_user.can_update(folder) -%>
+			<% if current_user.can_update(folder) %>
 				<%= link_to image_tag('edit.png', :alt => 'Edit'), edit_folder_path(folder), :title => 'Edit' %>&nbsp;
-			<% end -%>
-			<% if current_user.can_delete(folder) -%>
+			<% end %>
+			<% if current_user.can_delete(folder) %>
 				<%= link_to image_tag('delete.png', :alt => 'Delete'), folder_path(folder), :method => 'delete', :confirm => 'Are you sure?', :title => 'Delete' %>
-			<% end -%>
+			<% end %>
 			</td>
 		</tr>
-		<% end -%>
-	<% end -%>
-	<% @folder.user_files.each do |file| -%>
-		<% if current_user.can_read(@folder) -%>
+		<% end %>
+	<% end %>
+	<% @folder.user_files.each do |file| %>
+		<% if current_user.can_read(@folder) %>
 		<tr class="<%= cycle('even','odd') %>">
 			<td><%= image_tag(file_icon(file.extension)) %></td>
 			<td class="file_name"><%= link_to file.attachment_file_name, file_path(file), :title => "Download #{file.attachment_file_name}" %></td>
 			<td class="file_size"><%= number_to_human_size(file.attachment_file_size) %></td>
 			<td class="file_modified"><%= file.updated_at.to_s(:long_ordinal) %></td>
 			<td>
-			<% if current_user.can_update(file.folder) -%>
+			<% if current_user.can_update(file.folder) %>
 				<%= link_to image_tag('edit.png', :alt => 'Edit'), edit_file_path(file), :title => 'Edit' %>&nbsp;
-			<% end -%>
-			<% if current_user.can_delete(file.folder) -%>
+			<% end %>
+			<% if current_user.can_delete(file.folder) %>
 				<%= link_to image_tag('delete.png', :alt => 'Delete'), file_path(file), :method => 'delete', :confirm => 'Are you sure?', :title => 'Delete' %>
-			<% end -%>
+			<% end %>
 			</td>
 		</tr>
-		<% end -%>
-	<% end -%>
+		<% end %>
+	<% end %>
 	</table>
 </div>
-<% if current_user.member_of_admins? -%>
+<% if current_user.member_of_admins? %>
 <div id="permissions" style="display:none;">
 	<%= form_tag update_multiple_permissions_path do %>
 		<%= hidden_field_tag '_method', 'put' %>
@@ -92,32 +92,32 @@
 				<th class="permission_column">Update</th>
 				<th class="permission_column">Delete</th>
 			</tr>
-			<% @folder.permissions.each do |permission| -%>
+			<% @folder.permissions.each do |permission| %>
 			<%= fields_for "permissions[]", permission do |f| %>
 			<tr class="<%= cycle('even','odd') %>">
-				<% if permission.group.admins_group? -%>
+				<% if permission.group.admins_group? %>
 					<td><%= image_tag('group_grey.png') %></td>
 					<td class="disabled"><%= permission.group.name %></td>
 					<td class="permission_column"><input type="checkbox" checked="checked" disabled="disabled" /></td>
 					<td class="permission_column"><input type="checkbox" checked="checked" disabled="disabled" /></td>
 					<td class="permission_column"><input type="checkbox" checked="checked" disabled="disabled" /></td>
 					<td class="permission_column"><input type="checkbox" checked="checked" disabled="disabled" /></td>
-				<% else -%>
+				<% else %>
 					<td><%= image_tag('group.png') %></td>
 					<td><%= permission.group.name %></td>
 					<td class="permission_column"><%= f.check_box :can_create %></td>
 					<td class="permission_column"><%= f.check_box :can_read %></td>
 					<td class="permission_column"><%= f.check_box :can_update %></td>
 					<td class="permission_column"><%= f.check_box :can_delete %></td>
-				<% end -%>
+				<% end %>
 			</tr>
-			<% end -%>
-			<% end -%>
+			<% end %>
+			<% end %>
 		</table>
 		<p class="permissions_button">
 			<%= submit_tag 'Save', :class => 'button' %>
 			<%= check_box_tag :recursive, true %> Apply changes to subfolders
 		</p>
-	<% end -%>
+	<% end %>
 </div>
-<% end -%>
+<% end %>

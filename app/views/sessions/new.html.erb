@@ -1,16 +1,16 @@
-<% content_for :title, 'Sign in' -%>
+<% content_for :title, 'Sign in' %>
 
 <h1><%= content_for :title %></h1>
-<% if flash[:notice] -%>
+<% if flash[:notice] %>
 <p class="notice">
 	<%= flash[:notice] %>
 </p>
-<% end -%>
-<% if flash[:alert] -%>
+<% end %>
+<% if flash[:alert] %>
 <p class="error">
 	<%= flash[:alert] %>
 </p>
-<% end -%>
+<% end %>
 <%= form_tag(sessions_path) do %>
 	<p>
 		<%= label_tag :username %>:<br>
