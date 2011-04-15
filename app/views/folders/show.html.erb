@@ -14,13 +14,13 @@
 <% end -%>
 <p>
 <% if current_user.can_create(@folder) -%>
-	<%= link_to 'Create a new folder', new_folder_folder_path(@folder) %> or
-	<%= link_to 'Upload a file', new_folder_file_path(@folder) %>
+	<%= image_tag('folder_add.png', :alt => 'Create a new folder') %> <%= link_to 'Create a new folder', new_folder_folder_path(@folder) %> &nbsp;or&nbsp;
+	<%= image_tag('file_add.png', :alt => 'Upload a file') %> <%= link_to 'Upload a file', new_folder_file_path(@folder) %>
 <% end -%>
 <% if current_user.member_of_admins? -%>
 	&nbsp;|&nbsp;
 	<%= link_to_function 'Edit permissions', 'show_permissions();', :id => 'show_permissions_link' %>
-	<%= link_to_function 'Back to folder', 'hide_permissions();', { :id => 'hide_permissions_link', :style => 'display:none;' } %>
+	<%= link_to_function 'Back to folder', 'show_folder();', { :id => 'show_folder_link', :style => 'display:none;' } %>
 <% end -%>
 </p>
 <div id="files_and_folders">
