@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.3'
+gem 'rails'
 gem 'dynamic_form'
 gem 'acts_as_tree'
 gem 'paperclip'
