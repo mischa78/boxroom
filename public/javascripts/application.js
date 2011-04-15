@@ -4,14 +4,14 @@ function show_permissions()
 {
 	Effect.BlindUp('files_and_folders');
 	Effect.BlindDown('permissions', { delay: 1.0 });
-	$('hide_permissions_link').toggle();
+	$('show_folder_link').toggle();
 	$('show_permissions_link').toggle();
 }
 
-function hide_permissions()
+function show_folder()
 {
 	Effect.BlindUp('permissions');
 	Effect.BlindDown('files_and_folders', { delay: 1.0 });
-	$('hide_permissions_link').toggle();
+	$('show_folder_link').toggle();
 	$('show_permissions_link').toggle();
 }
