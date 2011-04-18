@@ -68,8 +68,7 @@
 	<p>
 		<span class="back">
 			<%= button_to 'Clear clipboard',
-				{ :controller => :clipboard, :action => :reset, :folder_id => @folder, :authenticity_token => form_authenticity_token },
-				:method => :put
+				{ :controller => :clipboard, :action => :reset, :folder_id => @folder, :authenticity_token => form_authenticity_token }, :method => :put
 			%>
 			&nbsp; &mdash; &nbsp;
 			<%= link_to_function 'Back', 'show_folder();' %>
