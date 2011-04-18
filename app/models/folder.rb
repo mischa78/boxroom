@@ -13,13 +13,22 @@ class Folder < ActiveRecord::Base
   after_create :create_permissions
 
   def copy(target_folder, originally_copied_folder = nil)
+    # We skip callback, because we need original permissions, not parent's 
+    Folder.skip_callback(:create, :after, :create_permissions)
+
     new_folder = self.clone
     new_folder.parent = target_folder
     new_folder.save!
 
     originally_copied_folder = new_folder if originally_copied_folder.nil?
 
-    # Copy files
+    # Copy original folder's permissions
+    self.permissions.each do |permission|
+      new_permission = permission.clone
+      new_permission.folder = new_folder
+      new_permission.save!
+    end
+
     self.user_files.each do |file|
       file.copy(new_folder)
     end
