@@ -14,6 +14,7 @@ Boxroom::Application.routes.draw do
   resources :clipboard, :only => [:create, :destroy] do
     post 'copy', :on => :member
     post 'move', :on => :member
+    put 'reset', :on => :member
   end
 
   # Update a collection of permissions

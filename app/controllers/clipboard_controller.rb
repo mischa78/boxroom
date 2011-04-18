@@ -1,5 +1,5 @@
 class ClipboardController < ApplicationController
-  before_filter :require_existing_item
+  before_filter :require_existing_item, :except => :reset
   before_filter :require_existing_target_folder, :only => [:copy, :move]
   before_filter :require_target_is_not_child, :only => :move
   before_filter :require_create_permission, :only => [:copy, :move]
@@ -13,6 +13,11 @@ class ClipboardController < ApplicationController
 
   def destroy
     clipboard.remove(@item)
+    redirect_to folder_url(params[:folder_id])
+  end
+
+  def reset
+    clipboard.reset
     redirect_to folder_url(params[:folder_id])
   end
 

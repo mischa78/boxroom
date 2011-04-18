@@ -14,4 +14,8 @@ class Clipboard
   def remove(item)
     @items.delete(item)
   end
+
+  def reset
+    @items = []
+  end
 end
