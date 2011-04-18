@@ -53,7 +53,7 @@ hr { border: 0; width: 800px; margin: 15px 0 10px 15px; color: #CCC; background-
 .permissions_button, .back { display: inline-block; margin-top: 15px; }
 .clipboard_empty { display: inline-block; width: 755px; margin-top: 15px; padding: 10px; border: 5px solid #CCC; font-size: 14pt; color: #777; background-color: #EEE; }
 .clipboard_info_image { float: left; margin: 3px 12px 0 3px; }
-.button_to, .button_to div  { display: inline; }
+.button_to, .button_to div { display: inline; }
 
 .error, .notice { display: inline-block; font-size: 16pt; color: #FFF; border: 6px double #FFF; background-repeat: no-repeat; background-position: 10px 7px; }
 .error { background-color: #F00; background-image: url(../images/exclamation.png); }
