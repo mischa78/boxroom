@@ -4,19 +4,18 @@ class Folder < ActiveRecord::Base
   has_many :user_files, :dependent => :destroy, :order => 'attachment_file_name'
   has_many :permissions, :dependent => :destroy
 
+  attr_accessor :is_copied_folder
   attr_accessible :name, :user_id
 
   validates_uniqueness_of :name, :scope => :parent_id
   validates_presence_of :name
 
   before_save :check_for_parent
-  after_create :create_permissions
+  after_create :create_permissions, :unless => :is_copied_folder
 
   def copy(target_folder, originally_copied_folder = nil)
-    # We skip callback, because we need original permissions, not parent's 
-    Folder.skip_callback(:create, :after, :create_permissions)
-
     new_folder = self.clone
+    new_folder.is_copied_folder = true
     new_folder.parent = target_folder
     new_folder.save!
 
