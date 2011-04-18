@@ -7,21 +7,24 @@
 	<span class="breadcrumb nowrap"><%= @folder.name %></span>
 </p>
 <% end -%>
-<% if flash[:alert] -%>
-<p class="error">
-	<%= flash[:alert] %>
+<% if flash[:notice] -%>
+<p class="notice" id="notice">
+	<%= flash[:notice] %>
 </p>
 <% end -%>
-<p>
+<% if flash[:alert] -%>
+<p class="error" id="alert">
+	<%= flash[:alert] %>
+</p>
+<% end -%><p>
 <% if current_user.can_create(@folder) -%>
-	<%= image_tag('folder_add.png', :alt => 'Create a new folder') %> <%= link_to 'Create a new folder', new_folder_folder_path(@folder) %> &nbsp;or&nbsp;
-	<%= image_tag('file_add.png', :alt => 'Upload a file') %> <%= link_to 'Upload a file', new_folder_file_path(@folder) %>
+	<span class="folder_menu"><%= image_tag('folder_add.png', :alt => 'Create a new folder') %> <%= link_to 'Create a new folder', new_folder_folder_path(@folder) %></span>
+	<span class="folder_menu"><%= image_tag('file_add.png', :alt => 'Upload a file') %> <%= link_to 'Upload a file', new_folder_file_path(@folder) %></span>
 <% end -%>
 <% if current_user.member_of_admins? -%>
-	&nbsp;|&nbsp;
-	<%= link_to_function 'Edit permissions', 'show_permissions();', :id => 'show_permissions_link' %>
-	<%= link_to_function 'Back to folder', 'show_folder();', { :id => 'show_folder_link', :style => 'display:none;' } %>
+	<span class="folder_menu" id="show_permissions_link"><span><%= image_tag('permissions.png', :alt => 'Permissions') %> <%= link_to_function 'Permissions', 'show_permissions();' %></span></span>
 <% end -%>
+	<span class="folder_menu" id="show_clipboard_link"><span><%= image_tag('clipboard.png', :alt => 'Clipboard') %> <%= link_to_function 'Clipboard', 'show_clipboard();' %></span></span>
 </p>
 <div id="files_and_folders">
 	<table>
@@ -53,8 +56,12 @@
 				<%= link_to image_tag('edit.png', :alt => 'Edit'), edit_folder_path(folder), :title => 'Edit' %>&nbsp;
 			<% end -%>
 			<% if current_user.can_delete(folder) -%>
-				<%= link_to image_tag('delete.png', :alt => 'Delete'), folder_path(folder), :method => 'delete', :confirm => 'Are you sure?', :title => 'Delete' %>
+				<%= link_to image_tag('delete.png', :alt => 'Delete'), folder_path(folder), :method => 'delete', :confirm => 'Are you sure?', :title => 'Delete' %>&nbsp;
 			<% end -%>
+				<%= link_to image_tag('clipboard_add.png', :alt => 'Add to clipboard'),
+					{ :controller => :clipboard, :action => :create, :id => folder.id, :type => 'folder', :folder_id => @folder, :authenticity_token => form_authenticity_token },
+					:method => :post, :title => 'Add to clipboard'
+				%>
 			</td>
 		</tr>
 		<% end -%>
@@ -71,8 +78,12 @@
 				<%= link_to image_tag('edit.png', :alt => 'Edit'), edit_file_path(file), :title => 'Edit' %>&nbsp;
 			<% end -%>
 			<% if current_user.can_delete(file.folder) -%>
-				<%= link_to image_tag('delete.png', :alt => 'Delete'), file_path(file), :method => 'delete', :confirm => 'Are you sure?', :title => 'Delete' %>
+				<%= link_to image_tag('delete.png', :alt => 'Delete'), file_path(file), :method => 'delete', :confirm => 'Are you sure?', :title => 'Delete' %>&nbsp;
 			<% end -%>
+				<%= link_to image_tag('clipboard_add.png', :alt => 'Add to clipboard'),
+					{ :controller => :clipboard, :action => :create, :id => file.id, :type => 'file', :folder_id => @folder, :authenticity_token => form_authenticity_token },
+					:method => :post, :title => 'Add to clipboard'
+				%>
 			</td>
 		</tr>
 		<% end -%>
@@ -81,43 +92,9 @@
 </div>
 <% if current_user.member_of_admins? -%>
 <div id="permissions" style="display:none;">
-	<%= form_tag update_multiple_permissions_path do %>
-		<%= hidden_field_tag '_method', 'put' %>
-		<table>
-			<tr>
-				<th></th>
-				<th></th>
-				<th class="permission_column">Create</th>
-				<th class="permission_column">Read</th>
-				<th class="permission_column">Update</th>
-				<th class="permission_column">Delete</th>
-			</tr>
-			<% @folder.permissions.each do |permission| -%>
-			<%= fields_for "permissions[]", permission do |f| %>
-			<tr class="<%= cycle('even','odd') %>">
-				<% if permission.group.admins_group? -%>
-					<td><%= image_tag('group_grey.png') %></td>
-					<td class="disabled"><%= permission.group.name %></td>
-					<td class="permission_column"><input type="checkbox" checked="checked" disabled="disabled" /></td>
-					<td class="permission_column"><input type="checkbox" checked="checked" disabled="disabled" /></td>
-					<td class="permission_column"><input type="checkbox" checked="checked" disabled="disabled" /></td>
-					<td class="permission_column"><input type="checkbox" checked="checked" disabled="disabled" /></td>
-				<% else -%>
-					<td><%= image_tag('group.png') %></td>
-					<td><%= permission.group.name %></td>
-					<td class="permission_column"><%= f.check_box :can_create %></td>
-					<td class="permission_column"><%= f.check_box :can_read %></td>
-					<td class="permission_column"><%= f.check_box :can_update %></td>
-					<td class="permission_column"><%= f.check_box :can_delete %></td>
-				<% end -%>
-			</tr>
-			<% end -%>
-			<% end -%>
-		</table>
-		<p class="permissions_button">
-			<%= submit_tag 'Save', :class => 'button' %>
-			<%= check_box_tag :recursive, true %> Apply changes to subfolders
-		</p>
-	<% end -%>
+	<%= render :partial => 'permissions/form' %>
 </div>
 <% end -%>
+<div id="clipboard" style="display:none;">
+	<%= render :partial => 'clipboard/show' %>
+</div>

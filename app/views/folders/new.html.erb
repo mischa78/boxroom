@@ -1,6 +1,6 @@
 <% content_for :title, 'New folder' -%>
 
 <h1><%= content_for :title %></h1>
-<%= form_for [@parent_folder, @folder], :url => { :action => 'create' } do |f| %>
+<%= form_for [@target_folder, @folder], :url => { :action => 'create' } do |f| %>
 	<%= render :partial => 'form', :locals => { :f => f } %>
 <% end %>

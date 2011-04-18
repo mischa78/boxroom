@@ -2,12 +2,12 @@
 
 <h1><%= content_for :title %></h1>
 <% if flash[:alert] -%>
-<p class="error">
+<p class="error" id="alert">
 	<%= flash[:alert] %>
 </p>
 <% end -%>
 <p>
-	<%= image_tag('user_add.png', :alt => 'Create a new user') %> <%= link_to 'Create a new user', new_user_path %>
+	<span class="user_menu"><%= image_tag('user_add.png', :alt => 'Create a new user') %> <%= link_to 'Create a new user', new_user_path %></span>
 </p>
 <table>
 	<tr>

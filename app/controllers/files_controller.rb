@@ -1,6 +1,6 @@
 class FilesController < ApplicationController
   before_filter :require_existing_file, :only => [:show, :edit, :update, :destroy]
-  before_filter :require_existing_parent_folder, :only => [:new, :create]
+  before_filter :require_existing_target_folder, :only => [:new, :create]
 
   before_filter :require_create_permission, :only => [:new, :create]
   before_filter :require_read_permission, :only => :show
@@ -14,18 +14,18 @@ class FilesController < ApplicationController
   end
 
   # GET /folders/:id/files/new
-  # Note: @parent_folder is set in require_existing_parent_folder
+  # Note: @target_folder is set in require_existing_target_folder
   def new
-    @file = @parent_folder.user_files.build
+    @file = @target_folder.user_files.build
   end
 
   # POST /folders/:id/files
-  # Note: @parent_folder is set in require_existing_parent_folder
+  # Note: @target_folder is set in require_existing_target_folder
   def create
-    @file = @parent_folder.user_files.build(params[:user_file])
+    @file = @target_folder.user_files.build(params[:user_file])
 
     if @file.save
-      redirect_to folder_url(@parent_folder)
+      redirect_to folder_url(@target_folder)
     else
       render :action => 'new'
     end
@@ -49,6 +49,7 @@ class FilesController < ApplicationController
   # DELETE /files/:id
   # Note: @file and @folder are set in require_existing_file
   def destroy
+    clipboard.remove(@file)
     @file.destroy
     redirect_to folder_url(@folder)
   end

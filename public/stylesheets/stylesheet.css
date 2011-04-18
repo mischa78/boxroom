@@ -22,7 +22,7 @@ hr { border: 0; width: 800px; margin: 15px 0 10px 15px; color: #CCC; background-
 #menu { background-color: rgb(0,24,49); border-bottom: 4px solid #BA303A; }
 #content { position: relative; width: 850px; margin-left: auto; margin-right: auto; padding-bottom: 60px; }
 #content p { padding: 0 15px 0 15px; margin-bottom: 10px; }
-#content p.error, #content p.notice { padding: 10px; }
+#content p.error, #content p.notice { padding: 10px 15px 10px 50px; margin: 0 0 15px 15px; }
 #content ul { padding-top: 0; }
 #footer { position: absolute; bottom: 0; width: 100%; background-color: rgb(0,24,49); color: #FFF; border-top: 4px solid #BA303A; }
 
@@ -40,24 +40,34 @@ hr { border: 0; width: 800px; margin: 15px 0 10px 15px; color: #CCC; background-
 .user_welcome a { color: #FFF; text-decoration: underline; }
 .user_groups { margin-right: 200px; display: block; }
 .user_name { min-width: 180px; }
-.user_email, .group_name { min-width: 370px; }
+.user_email, .group_name, .clipboard_item { min-width: 370px; }
 .group { margin-right: 15px; }
 .file_name { min-width: 250px; }
 .file_name a { color: #000; text-decoration: underline; }
 .file_size { min-width: 100px; }
 .file_modified {  }
 .disabled { color: #999; }
-.breadcrumb { padding: 4px; font-size: 11pt; background-color: #F6F6F6; border: 1px solid #DDD; border-bottom-color: #AAA; border-right-color: #CCC; display: inline-block; }
+.breadcrumb { margin-bottom: 5px; padding: 4px; font-size: 11pt; background-color: #F6F6F6; border: 1px solid #DDD; border-bottom-color: #AAA; border-right-color: #CCC; display: inline-block; }
 .nowrap { white-space: nowrap; }
 .permission_column { width: 75px; text-align: center; }
 .permissions_button { margin-top: 15px; }
+.back { margin-top: 20px; }
+.clipboard_empty { display: inline-block; width: 755px; margin-top: 15px; padding: 10px; border: 5px solid #CCC; font-size: 14pt; color: #777; background-color: #EEE; }
+.clipboard_info_image { float: left; margin: 3px 12px 0 3px; }
 
-.error, .notice { display: inline-block; margin-left: 15px; padding: 15px; background-color: #f0f0f0; }
-.error { color: #F00; border: 3px double #F00;  }
-.notice { color: #008000; border: 3px double #008000; }
+.error, .notice { display: inline-block; font-size: 16pt; color: #FFF; border: 6px double #FFF; background-repeat: no-repeat; background-position: 10px 7px; }
+.error { background-color: #F00; background-image: url(../images/exclamation.png); }
+.notice { background-color: rgb(0,165,0);  background-image: url(../images/information.png); }
 
 span.field_with_errors input { background-color: #FDD; }
 #errorExplanation { width: 500px; border: 2px solid #c00; padding: 7px 7px 15px 7px; margin: 10px 0 10px 15px; background-color: #f0f0f0; }
 #errorExplanation p { padding-left: 8px; }
 #errorExplanation h2 { text-align: left; font-weight: bold; padding: 5px 5px 5px 15px; margin: -7px; margin-bottom: 7px; background-color: #c00; color: #fff; }
 #errorExplanation ul li { list-style: square; }
+
+.folder_menu, .user_menu, .group_menu { padding: 7px 14px 7px 14px; }
+.folder_menu a, .user_menu a, .group_menu a { outline: none; }
+
+.highlight { display: inline-block; margin: -7px 0 -7px 0; padding-left: 14px; background-color: #BA303A; background-image: url(../images/left.png); background-repeat: no-repeat; background-position: top left; }
+.highlight span { display: inline-block; height: 27px; padding: 7px 14px 0 0; background-image: url(../images/right.png); background-repeat: no-repeat; background-position: top right; }
+.highlight a { text-decoration: none; color: #FFF; outline: none; }

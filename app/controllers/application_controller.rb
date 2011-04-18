@@ -4,9 +4,13 @@ class ApplicationController < ActionController::Base
   before_filter :require_admin_in_system
   before_filter :require_login
 
-  helper_method :current_user, :signed_in?
+  helper_method :clipboard, :current_user, :signed_in?
 
   protected
+
+  def clipboard
+    session[:clipboard] ||= Clipboard.new
+  end
 
   def current_user
     @current_user ||= User.find_by_id(session[:user_id])
@@ -21,7 +25,7 @@ class ApplicationController < ActionController::Base
   end
 
   def require_admin
-    redirect_to root unless current_user.member_of_admins?
+    redirect_to :root unless current_user.member_of_admins?
   end
 
   def require_login
@@ -40,15 +44,15 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def require_existing_parent_folder
-    @parent_folder = Folder.find(params[:folder_id])
+  def require_existing_target_folder
+    @target_folder = Folder.find(params[:folder_id])
   rescue ActiveRecord::RecordNotFound
     redirect_to folder_url(Folder.root), :alert =>'Someone else deleted this folder. Your action was cancelled.'
   end
 
   def require_create_permission
-    unless current_user.can_create(@parent_folder)
-      redirect_to folder_url(@parent_folder), :alert =>"You don't have create permissions for this folder."
+    unless current_user.can_create(@target_folder)
+      redirect_to folder_url(@target_folder), :alert =>"You don't have create permissions for this folder."
     end
   end
 

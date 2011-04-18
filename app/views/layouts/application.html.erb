@@ -13,12 +13,12 @@
 </head>
 <body>
 	<div id="container">
-		<%= render(:partial => 'shared/header') %>
-		<%= render(:partial => 'shared/menu') %>
+		<%= render :partial => 'shared/header' %>
+		<%= render :partial => 'shared/menu' %>
 		<div id="content">
 			<%= yield %>
 		</div>
-		<%= render(:partial => 'shared/footer') %>
+		<%= render :partial => 'shared/footer' %>
 	</div>
 </body>
 </html>

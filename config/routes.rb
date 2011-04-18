@@ -11,6 +11,11 @@ Boxroom::Application.routes.draw do
   resources :groups, :except => :show
   resources :files, :except => [:index, :new, :create]
 
+  resources :clipboard, :only => [:create, :destroy] do
+    post 'copy', :on => :member
+    post 'move', :on => :member
+  end
+
   # Update a collection of permissions
   resources :permissions, :only => :update_multiple do
     collection do

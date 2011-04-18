@@ -12,8 +12,42 @@ class Folder < ActiveRecord::Base
   before_save :check_for_parent
   after_create :create_permissions
 
+  def copy(target_folder, originally_copied_folder = nil)
+    new_folder = self.clone
+    new_folder.parent = target_folder
+    new_folder.save!
+
+    originally_copied_folder = new_folder if originally_copied_folder.nil?
+
+    # Copy files
+    self.user_files.each do |file|
+      file.copy(new_folder)
+    end
+
+    # Copy sub-folders recursively
+    self.children.each do |folder|
+      folder.copy(new_folder, originally_copied_folder) unless folder == originally_copied_folder
+    end
+  end
+
+  def move(target_folder)
+    self.parent = target_folder
+    save!
+  end
+
+  def parent_of?(folder)
+    self.children.each do |child|
+      if child == folder
+        return true
+      else
+        return child.parent_of?(folder)
+      end
+    end
+    false
+  end
+
   def readonly?
-    true if is_root? && !new_record?
+    is_root? && !new_record?
   end
 
   def is_root?

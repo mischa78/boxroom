@@ -2,12 +2,12 @@
 
 <h1><%= content_for :title %></h1>
 <% if flash[:alert] -%>
-<p class="error">
+<p class="error" id="alert">
 	<%= flash[:alert] %>
 </p>
 <% end -%>
 <p>
-	<%= image_tag('group_add.png', :alt => 'Create a new group') %> <%= link_to 'Create a new group', new_group_path %>
+	<span class="group_menu"><%= image_tag('group_add.png', :alt => 'Create a new group') %> <%= link_to 'Create a new group', new_group_path %></span>
 </p>
 <table>
 	<tr>

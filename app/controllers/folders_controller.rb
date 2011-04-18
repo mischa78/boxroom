@@ -1,6 +1,6 @@
 class FoldersController < ApplicationController
   before_filter :require_existing_folder, :only => [:show, :edit, :update, :destroy]
-  before_filter :require_existing_parent_folder, :only => [:new, :create]
+  before_filter :require_existing_target_folder, :only => [:new, :create]
   before_filter :require_folder_isnt_root_folder, :only => [:edit, :update, :destroy]
 
   before_filter :require_create_permission, :only => [:new, :create]
@@ -19,18 +19,18 @@ class FoldersController < ApplicationController
   end
 
   # GET /folders/:id/folders/new
-  # Note: @parent_folder is set in require_existing_parent_folder
+  # Note: @target_folder is set in require_existing_target_folder
   def new
-    @folder = @parent_folder.children.build
+    @folder = @target_folder.children.build
   end
 
   # POST /folders/:id/folders
-  # Note: @parent_folder is set in require_existing_parent_folder
+  # Note: @target_folder is set in require_existing_target_folder
   def create
-    @folder = @parent_folder.children.build(params[:folder])
+    @folder = @target_folder.children.build(params[:folder])
 
     if @folder.save
-      redirect_to folder_url(@parent_folder)
+      redirect_to folder_url(@target_folder)
     else
       render :action => 'new'
     end
@@ -54,9 +54,10 @@ class FoldersController < ApplicationController
   # DELETE /folder/:id
   # Note: @folder is set in require_existing_folder
   def destroy
-    parent_folder = @folder.parent
+    clipboard.remove(@folder)
+    target_folder = @folder.parent
     @folder.destroy
-    redirect_to folder_url(parent_folder)
+    redirect_to folder_url(target_folder)
   end
 
   private

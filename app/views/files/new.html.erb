@@ -1,7 +1,7 @@
 <% content_for :title, 'Upload file' -%>
 
 <h1><%= content_for :title %></h1>
-<%= form_for [@parent_folder, @file], :url => { :action => 'create' }, :html => { :multipart => true } do |f| %>
+<%= form_for [@target_folder, @file], :url => { :action => 'create' }, :html => { :multipart => true } do |f| %>
 	<%= f.error_messages %>
 	<p>
 		<%= f.label :select_file %>:<br>
@@ -9,6 +9,6 @@
 	</p>
 	<p>
 		<%= f.submit 'Upload' %> &nbsp; &mdash; &nbsp;
-		<%= link_to 'Back', folder_url(@parent_folder) %>
+		<%= link_to 'Back', folder_url(@target_folder) %>
 	</p>
 <% end %>
