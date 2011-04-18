@@ -1,0 +1,71 @@
+<% if clipboard.items.empty? -%>
+	<p>
+		<span class="clipboard_empty">
+			<%= image_tag('information.png', :alt => 'Notice', :class => 'clipboard_info_image') %>
+			The clipboard is empty. Go <%= link_to_function 'back', 'show_folder();' %> and use the
+			'Add to clipboard' button (<%= image_tag('clipboard_add.png', :alt => 'Add to clipboard') %>)
+			to add files or folders to the clipboard.
+		</span>
+	</p>
+<% else -%>
+	<table id="clipboard_table">
+		<tr>
+			<th></th>
+			<th>Name</th>
+			<th></th>
+		</tr>
+	<% reset_cycle -%>
+	<% clipboard.items.each do |item| -%>
+		<% if item.class == Folder -%>
+		<tr class="<%= cycle('even','odd') %>">
+			<td><%= image_tag('folder.png') %></td>
+			<td class="clipboard_item"><%= item.name %></td>
+			<td>
+			<% if current_user.can_create(@folder) -%>
+				<%= link_to image_tag('copy.png', :alt => 'Copy'),
+					{ :controller => :clipboard, :action => :copy, :id => item.id, :type => 'folder', :folder_id => @folder, :authenticity_token => form_authenticity_token },
+					:method => :post, :title => 'Copy folder'
+				%>&nbsp;
+			<% end -%>
+			<% if current_user.can_create(@folder) && current_user.can_delete(item) -%>
+				<%= link_to image_tag('move.png', :alt => 'Move'),
+					{ :controller => :clipboard, :action => :move, :id => item.id, :type => 'folder', :folder_id => @folder, :authenticity_token => form_authenticity_token },
+					:method => :post, :title => 'Move folder', :confirm => 'Are you sure?'
+				%>&nbsp;
+			<% end -%>
+				<%= link_to image_tag('delete.png', :alt => 'Delete'),
+					{ :controller => :clipboard, :action => :destroy, :id => item.id, :type => 'folder', :folder_id => @folder, :authenticity_token => form_authenticity_token },
+					:method => :delete, :title => 'Remove from clipboard'
+				%>
+			</td>
+		</tr>
+		<% else -%>
+		<tr class="<%= cycle('even', 'odd') %>">
+			<td><%= image_tag(file_icon(item.extension)) %></td>
+			<td class="clipboard_item"><%= item.attachment_file_name %></td>
+			<td>
+			<% if current_user.can_create(@folder) -%>
+				<%= link_to image_tag('copy.png', :alt => 'Copy'),
+					{ :controller => :clipboard, :action => :copy, :id => item.id, :type => 'file', :folder_id => @folder, :authenticity_token => form_authenticity_token },
+					:method => :post, :title => 'Copy file'
+				%>&nbsp;
+			<% end -%>
+			<% if current_user.can_create(@folder) && current_user.can_delete(item.folder) -%>
+				<%= link_to image_tag('move.png', :alt => 'Move'),
+					{ :controller => :clipboard, :action => :move, :id => item.id, :type => 'file', :folder_id => @folder, :authenticity_token => form_authenticity_token },
+					:method => :post, :title => 'Move file', :confirm => 'Are you sure?'
+				%>&nbsp;
+			<% end -%>
+				<%= link_to image_tag('delete.png', :alt => 'Delete'),
+					{ :controller => :clipboard, :action => :destroy, :id => item.id, :type => 'file', :folder_id => @folder, :authenticity_token => form_authenticity_token },
+					:method => :delete, :title => 'Remove from clipboard'
+				%>
+			</td>
+		</tr>
+		<% end -%>
+	<% end -%>
+	</table>
+	<p class="back">
+		<%= link_to_function 'Back', 'show_folder();' %>
+	</p>
+<% end -%>
