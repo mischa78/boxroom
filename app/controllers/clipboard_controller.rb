@@ -6,11 +6,13 @@ class ClipboardController < ApplicationController
   before_filter :require_read_permission, :only => :create
   before_filter :require_delete_permission, :only => :move
 
+  # @item is set in require_existing_item
   def create
     clipboard.add(@item)
     redirect_to folder_url(params[:folder_id]), :notice => 'Successfully added to clipboard.'
   end
 
+  # @item is set in require_existing_item
   def destroy
     clipboard.remove(@item)
     redirect_to folder_url(params[:folder_id])
@@ -21,6 +23,8 @@ class ClipboardController < ApplicationController
     redirect_to folder_url(params[:folder_id])
   end
 
+  # @item is set in require_existing_item
+  # @target_folder is set in require_existing_target_folder
   def copy
     @item.copy(@target_folder)
     clipboard.remove(@item)
@@ -29,6 +33,8 @@ class ClipboardController < ApplicationController
     redirect_to folder_url(params[:folder_id]), :alert => "Couldn't copy. A #{params[:type]} with the same name exists already."
   end
 
+  # @item is set in require_existing_item
+  # @target_folder is set in require_existing_target_folder
   def move
     @item.move(@target_folder)
     clipboard.remove(@item)

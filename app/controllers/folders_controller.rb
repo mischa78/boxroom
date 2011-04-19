@@ -8,23 +8,19 @@ class FoldersController < ApplicationController
   before_filter :require_update_permission, :only => [:edit, :update]
   before_filter :require_delete_permission, :only => :destroy
 
-  # GET /folder
   def index
     redirect_to folder_url(Folder.root)
   end
 
-  # GET /folders/:id
   # Note: @folder is set in require_existing_folder
   def show
   end
 
-  # GET /folders/:id/folders/new
   # Note: @target_folder is set in require_existing_target_folder
   def new
     @folder = @target_folder.children.build
   end
 
-  # POST /folders/:id/folders
   # Note: @target_folder is set in require_existing_target_folder
   def create
     @folder = @target_folder.children.build(params[:folder])
@@ -36,12 +32,10 @@ class FoldersController < ApplicationController
     end
   end
 
-  # GET /folders/:id/edit
   # Note: @folder is set in require_existing_folder
   def edit
   end
 
-  # PUT /folders/:id
   # Note: @folder is set in require_existing_folder
   def update
     if @folder.update_attributes(params[:folder])
@@ -51,7 +45,6 @@ class FoldersController < ApplicationController
     end
   end
 
-  # DELETE /folder/:id
   # Note: @folder is set in require_existing_folder
   def destroy
     clipboard.remove(@folder)

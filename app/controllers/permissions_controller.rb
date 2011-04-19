@@ -1,7 +1,6 @@
 class PermissionsController < ApplicationController
   before_filter :require_admin
 
-  # PUT /permissions/update_multiple
   def update_multiple
     permissions = Permission.update(params[:permissions].keys, params[:permissions].values)
     folder = permissions.first.folder

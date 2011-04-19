@@ -3,17 +3,14 @@ class UsersController < ApplicationController
   before_filter :require_existing_user, :only => [:edit, :update, :destroy]
   before_filter :require_deleted_user_isnt_admin, :only => :destroy
 
-  # GET /users
   def index
     @users = User.all(:order => 'name')
   end
 
-  # GET /users/new
   def new
     @user = User.new
   end
 
-  # POST /users
   def create
     @user = User.new(params[:user].merge({ :password_required => true }))
 
@@ -25,12 +22,10 @@ class UsersController < ApplicationController
     end
   end
 
-  # GET /users/:id/edit
   # Note: @user is set in require_existing_user
   def edit
   end
 
-  # PUT /users/:id
   # Note: @user is set in require_existing_user
   def update
     if @user.update_attributes(params[:user].merge({ :password_required => false }))
@@ -41,7 +36,6 @@ class UsersController < ApplicationController
     end
   end
 
-  # DELETE /user/:id
   # Note: @user is set in require_existing_user
   def destroy
     @user.destroy

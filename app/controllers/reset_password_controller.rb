@@ -2,11 +2,9 @@ class ResetPasswordController < ApplicationController
   before_filter :require_valid_token, :only => [:edit, :update]
   skip_before_filter :require_login
 
-  # GET /reset_password/new
   def new
   end
 
-  # POST /reset_password
   def create
     user = User.find_by_email(params[:email])
 
@@ -21,12 +19,12 @@ class ResetPasswordController < ApplicationController
     redirect_to new_reset_password_url
   end
 
-  # GET /reset_password/:id/edit
+  # @user is set in require_valid_token
   def edit
     @user.password_required = true
   end
 
-  # PUT /reset_password/:id
+  # @user is set in require_valid_token
   def update
     if @user.update_attributes(params[:user].merge({ :password_required => true }))
       redirect_to new_session_url, :notice => 'Your password was reset successfully. You can now sign in.'

@@ -2,12 +2,10 @@ class AdminsController < ApplicationController
   skip_before_filter :require_admin_in_system, :require_login
   before_filter :require_no_admin
 
-  # GET /admins/new
   def new
     @user = User.new
   end
 
-  # POST /admins
   def create
     @user = User.new(params[:user])
     @user.password_required = true

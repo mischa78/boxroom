@@ -3,17 +3,14 @@ class GroupsController < ApplicationController
   before_filter :require_existing_group, :only => [:edit, :update, :destroy]
   before_filter :require_group_isnt_admins_group, :only => [:edit, :update, :destroy]
 
-  # GET /groups
   def index
     @groups = Group.all(:order => 'name')
   end
 
-  # GET /groups/new
   def new
     @group = Group.new
   end
 
-  # POST /groups
   def create
     @group = Group.new(params[:group])
 
@@ -24,12 +21,10 @@ class GroupsController < ApplicationController
     end
   end
 
-  # GET /groups/:id/edit
   # Note: @group is set in require_existing_group
   def edit
   end
 
-  # PUT /groups/:id
   # Note: @group is set in require_existing_group
   def update
     if @group.update_attributes(params[:group])
@@ -39,7 +34,6 @@ class GroupsController < ApplicationController
     end
   end
 
-  # DELETE /group/:id
   # Note: @group is set in require_existing_group
   def destroy
     @group.destroy

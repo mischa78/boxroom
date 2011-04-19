@@ -7,20 +7,17 @@ class FilesController < ApplicationController
   before_filter :require_update_permission, :only => [:edit, :update]
   before_filter :require_delete_permission, :only => :destroy
 
-  # GET /files/:id
-  # Note: @file and @folder are set in require_existing_file
+  # @file and @folder are set in require_existing_file
   def show
     send_file @file.attachment.path, :filename => @file.attachment_file_name
   end
 
-  # GET /folders/:id/files/new
-  # Note: @target_folder is set in require_existing_target_folder
+  # @target_folder is set in require_existing_target_folder
   def new
     @file = @target_folder.user_files.build
   end
 
-  # POST /folders/:id/files
-  # Note: @target_folder is set in require_existing_target_folder
+  # @target_folder is set in require_existing_target_folder
   def create
     @file = @target_folder.user_files.build(params[:user_file])
 
@@ -31,13 +28,11 @@ class FilesController < ApplicationController
     end
   end
 
-  # GET /files/:id/edit
-  # Note: @file and @folder are set in require_existing_file
+  # @file and @folder are set in require_existing_file
   def edit
   end
 
-  # PUT /files/:id
-  # Note: @file and @folder are set in require_existing_file
+  # @file and @folder are set in require_existing_file
   def update
     if @file.update_attributes(params[:user_file])
       redirect_to edit_file_url(@file), :notice => 'Your changes were saved successfully.'
@@ -46,8 +41,7 @@ class FilesController < ApplicationController
     end
   end
 
-  # DELETE /files/:id
-  # Note: @file and @folder are set in require_existing_file
+  # @file and @folder are set in require_existing_file
   def destroy
     clipboard.remove(@file)
     @file.destroy
