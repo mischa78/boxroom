@@ -4,11 +4,14 @@ gem 'rails'
 gem 'dynamic_form'
 gem 'acts_as_tree'
 gem 'paperclip'
+gem 'sqlite3'
+
+group :test do
+  gem 'factory_girl_rails'
+end
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
-
-gem 'sqlite3-ruby', :require => 'sqlite3'
 
 # Use unicorn as the web server
 # gem 'unicorn'
