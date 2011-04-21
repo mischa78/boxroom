@@ -28,7 +28,7 @@ class Clipboard
   end
 
   def empty?
-    @folders.empty? && @files.empty?
+    (@folders.empty? || folders.empty?) && (@files.empty? || files.empty?)
   end
 
   def reset
