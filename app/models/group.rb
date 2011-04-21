@@ -1,5 +1,5 @@
 class Group < ActiveRecord::Base
-  has_many :permissions
+  has_many :permissions, :dependent => :destroy
   has_and_belongs_to_many :users
 
   validates_uniqueness_of :name
@@ -16,13 +16,15 @@ class Group < ActiveRecord::Base
   private
 
   def create_admin_permissions
-    Permission.create! do |p|
-      p.group = self
-      p.folder = Folder.find_by_name_and_parent_id('Root folder', nil)
-      p.can_create = true
-      p.can_read = true
-      p.can_update = true
-      p.can_delete = true
+    Folder.all.each do |folder|
+      Permission.create! do |p|
+        p.group = self
+        p.folder = folder
+        p.can_create = true
+        p.can_read = true
+        p.can_update = true
+        p.can_delete = true
+      end
     end
   end
 
