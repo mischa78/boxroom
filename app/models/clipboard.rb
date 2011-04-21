@@ -1,21 +1,43 @@
 class Clipboard
   def initialize
-    @items = []
+    setup
   end
 
-  def items
-    @items.each { |item| item.reload unless item.changed? }
+  def folders
+    Folder.find_all_by_id(@folders)
+  end
+
+  def files
+    UserFile.find_all_by_id(@files)
   end
 
   def add(item)
-    @items << item unless @items.find { |i| i.id == item.id && i.class == item.class }
+    if item.class == Folder
+      @folders << item.id unless @folders.include?(item.id)
+    else
+      @files << item.id unless @files.include?(item.id)
+    end
   end
 
   def remove(item)
-    @items.delete(item)
+    if item.class == Folder
+      @folders.delete(item.id)
+    else
+      @files.delete(item.id)
+    end
+  end
+
+  def empty?
+    @folders.empty? && @files.empty?
   end
 
   def reset
-    @items = []
+    setup
+  end
+
+  private
+
+  def setup
+    @folders, @files = [], []
   end
 end

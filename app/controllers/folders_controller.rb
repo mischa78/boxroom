@@ -47,7 +47,6 @@ class FoldersController < ApplicationController
 
   # Note: @folder is set in require_existing_folder
   def destroy
-    clipboard.remove(@folder)
     target_folder = @folder.parent
     @folder.destroy
     redirect_to folder_url(target_folder)

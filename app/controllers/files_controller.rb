@@ -43,7 +43,6 @@ class FilesController < ApplicationController
 
   # @file and @folder are set in require_existing_file
   def destroy
-    clipboard.remove(@file)
     @file.destroy
     redirect_to folder_url(@folder)
   end
