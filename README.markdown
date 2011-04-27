@@ -6,10 +6,10 @@ files in a web browser. To make this possible the application lets users create
 folders and upload and download files. For admins it is possible to create users,
 groups and the CRU/D rights these groups have on folders.
 
-For more info go to:
+For more info go to:  
 http://boxroom.rubyforge.org/
 
-Bugs and/or feature requests:
+Bugs and/or feature requests:  
 http://rubyforge.org/tracker/?group_id=1611
 
 
