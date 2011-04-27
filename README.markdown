@@ -27,8 +27,8 @@ Installation
 Follow the these steps:
 
  1. Extract boxroom.zip and cd to the newly created folder
- 2. Update your bundle: $ bundle
- 3. Create a database and schema: $ rake db:migrate
- 4. Start the server: $ rails server
+ 2. Update your bundle: `$ bundle`
+ 3. Create a database and schema: `$ rake db:migrate`
+ 4. Start the server: `$ rails server`
  5. Point your browser to http://localhost:3000/
  6. Enjoy!
