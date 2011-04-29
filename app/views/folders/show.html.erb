@@ -18,27 +18,27 @@
 </p>
 <% end -%><p>
 <% if current_user.can_create(@folder) -%>
-	<span class="folder_menu"><%= image_tag('folder_add.png', :alt => 'Create a new folder') %> <%= link_to 'Create a new folder', new_folder_folder_path(@folder) %></span>
-	<span class="folder_menu"><%= image_tag('file_add.png', :alt => 'Upload a file') %> <%= link_to 'Upload a file', new_folder_file_path(@folder) %></span>
+	<span class="folder_menu"><%= image_tag('folder_add.png', :alt => t(:create_a_new_folder)) %> <%= link_to t(:create_a_new_folder), new_folder_folder_path(@folder) %></span>
+	<span class="folder_menu"><%= image_tag('file_add.png', :alt => t(:upload_a_file)) %> <%= link_to t(:upload_a_file), new_folder_file_path(@folder) %></span>
 <% end -%>
 <% if current_user.member_of_admins? -%>
-	<span class="folder_menu" id="show_permissions_link"><span><%= image_tag('permissions.png', :alt => 'Permissions') %> <%= link_to_function 'Permissions', 'show_permissions();' %></span></span>
+	<span class="folder_menu" id="show_permissions_link"><span><%= image_tag('permissions.png', :alt => t(:permissions)) %> <%= link_to_function t(:permissions), 'show_permissions();' %></span></span>
 <% end -%>
-	<span class="folder_menu" id="show_clipboard_link"><span><%= image_tag('clipboard.png', :alt => 'Clipboard') %> <%= link_to_function 'Clipboard', 'show_clipboard();' %></span></span>
+	<span class="folder_menu" id="show_clipboard_link"><span><%= image_tag('clipboard.png', :alt => t(:clipboard)) %> <%= link_to_function t(:clipboard), 'show_clipboard();' %></span></span>
 </p>
 <div id="files_and_folders">
 	<table>
 		<tr>
 			<th></th>
-			<th>Name</th>
-			<th>Size</th>
-			<th>Date modified</th>
+			<th><%=t :name %></th>
+			<th><%=t :size %></th>
+			<th><%=t :date_modified %></th>
 			<th></th>
 		</tr>
 	<% unless @folder.is_root? -%>
 		<tr class="<%= cycle('even','odd') %>">
 			<td><%= image_tag('folder.png') %></td>
-			<td class="file_name">&uarr; <%= link_to 'up', folder_path(@folder.parent), :title => @folder.parent.name %></td>
+			<td class="file_name">&uarr; <%= link_to t(:up), folder_path(@folder.parent), :title => @folder.parent.name %></td>
 			<td class="file_size">--</td>
 			<td class="file_modified">--</td>
 			<td></td>
@@ -53,14 +53,14 @@
 			<td class="file_modified"><%= folder.updated_at.to_s(:long_ordinal) %></td>
 			<td>
 			<% if current_user.can_update(folder) -%>
-				<%= link_to image_tag('edit.png', :alt => 'Edit'), edit_folder_path(folder), :title => 'Edit' %>&nbsp;
+				<%= link_to image_tag('edit.png', :alt => t(:edit)), edit_folder_path(folder), :title => t(:edit) %>&nbsp;
 			<% end -%>
 			<% if current_user.can_delete(folder) -%>
-				<%= link_to image_tag('delete.png', :alt => 'Delete'), folder_path(folder), :method => 'delete', :confirm => 'Are you sure?', :title => 'Delete' %>&nbsp;
+				<%= link_to image_tag('delete.png', :alt => t(:delete)), folder_path(folder), :method => 'delete', :confirm => t(:are_you_sure), :title => t(:delete) %>&nbsp;
 			<% end -%>
-				<%= link_to image_tag('clipboard_add.png', :alt => 'Add to clipboard'),
+				<%= link_to image_tag('clipboard_add.png', :alt => t(:add_to_clipboard)),
 					{ :controller => :clipboard, :action => :create, :id => folder.id, :type => 'folder', :folder_id => @folder, :authenticity_token => form_authenticity_token },
-					:method => :post, :title => 'Add to clipboard'
+					:method => :post, :title => t(:add_to_clipboard)
 				%>
 			</td>
 		</tr>
@@ -70,19 +70,19 @@
 		<% if current_user.can_read(@folder) -%>
 		<tr class="<%= cycle('even','odd') %>">
 			<td><%= image_tag(file_icon(file.extension)) %></td>
-			<td class="file_name"><%= link_to file.attachment_file_name, file_path(file), :title => "Download #{file.attachment_file_name}" %></td>
-			<td class="file_size"><%= number_to_human_size(file.attachment_file_size) %></td>
+			<td class="file_name"><%= link_to file.attachment_file_name, file_path(file), :title => "#{t(:download)} #{file.attachment_file_name}" %></td>
+			<td class="file_size"><%= number_to_human_size(file.attachment_file_size, :locale=>I18n.locale) %></td>
 			<td class="file_modified"><%= file.updated_at.to_s(:long_ordinal) %></td>
 			<td>
 			<% if current_user.can_update(file.folder) -%>
-				<%= link_to image_tag('edit.png', :alt => 'Edit'), edit_file_path(file), :title => 'Edit' %>&nbsp;
+				<%= link_to image_tag('edit.png', :alt => t(:edit)), edit_file_path(file), :title => t(:edit) %>&nbsp;
 			<% end -%>
 			<% if current_user.can_delete(file.folder) -%>
-				<%= link_to image_tag('delete.png', :alt => 'Delete'), file_path(file), :method => 'delete', :confirm => 'Are you sure?', :title => 'Delete' %>&nbsp;
+				<%= link_to image_tag('delete.png', :alt => t(:delete)), file_path(file), :method => 'delete', :confirm => t(:are_you_sure), :title => t(:delete) %>&nbsp;
 			<% end -%>
-				<%= link_to image_tag('clipboard_add.png', :alt => 'Add to clipboard'),
+				<%= link_to image_tag('clipboard_add.png', :alt => t(:add_to_clipboard)),
 					{ :controller => :clipboard, :action => :create, :id => file.id, :type => 'file', :folder_id => @folder, :authenticity_token => form_authenticity_token },
-					:method => :post, :title => 'Add to clipboard'
+					:method => :post, :title => t(:add_to_clipboard)
 				%>
 			</td>
 		</tr>

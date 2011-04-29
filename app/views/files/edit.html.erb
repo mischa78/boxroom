@@ -1,4 +1,4 @@
-<% content_for :title, 'Rename file' -%>
+<% content_for :title, t(:rename_file) -%>
 
 <h1><%= content_for :title %></h1>
 <% if flash[:notice] -%>
@@ -13,7 +13,7 @@
 		<%= f.text_field :attachment_file_name %>
 	</p>
 	<p>
-		<%= f.submit 'Save' %> &nbsp; &mdash; &nbsp;
-		<%= link_to 'Back', folder_url(@folder) %>
+		<%= f.submit t(:save) %> &nbsp; &mdash; &nbsp;
+		<%= link_to t(:back), folder_url(@folder) %>
 	</p>
 <% end %>

@@ -1,8 +1,8 @@
-<% content_for :title, 'Create admin' -%>
+<% content_for :title, t(:create_admin) -%>
 
 <h1><%= content_for :title %></h1>
 <p>
-	Boxroom does not have an administrator yet. Create one here.
+	<%=t :no_administrator_yet %>
 </p>
 <%= form_for @user, :url => { :action => 'create' } do |f| %>
 	<%= f.error_messages %>
@@ -23,6 +23,6 @@
 		<%= f.password_field :password_confirmation, { :class => 'text_input' } %>
 	</p>
 	<p>
-		<%= f.submit 'Create admin account' %>
+		<%= f.submit <%=t :create_admin_account %>
 	</p>
 <% end %>

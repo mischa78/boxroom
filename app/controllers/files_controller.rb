@@ -35,7 +35,7 @@ class FilesController < ApplicationController
   # @file and @folder are set in require_existing_file
   def update
     if @file.update_attributes(params[:user_file])
-      redirect_to edit_file_url(@file), :notice => 'Your changes were saved successfully.'
+      redirect_to edit_file_url(@file), :notice => t(:your_changes_were_saved)
     else
       render :action => 'edit'
     end
@@ -53,6 +53,6 @@ class FilesController < ApplicationController
     @file = UserFile.find(params[:id])
     @folder = @file.folder
   rescue ActiveRecord::RecordNotFound
-    redirect_to folder_url(Folder.root), :alert =>'Someone else deleted this file. Your action was cancelled.'
+    redirect_to folder_url(Folder.root), :alert => t(:file_already_deleted)
   end
 end
