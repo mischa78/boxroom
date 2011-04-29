@@ -292,6 +292,7 @@ nl:
 
   #users/_form
   member_of_these_groups: Lid van deze groepen
+  confirm_password: Bevestig wachtwoord
 
   #users/index
   create_a_new_user: Nieuwe gebruiker aanmaken

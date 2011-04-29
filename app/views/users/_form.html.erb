@@ -8,11 +8,11 @@
 	<%= f.text_field :email, { :class => 'text_input' } %>
 </p>
 <p>
-	<%= label_tag :password %>:<br>
+	<%= f.label :password %>:<br>
 	<%= f.password_field :password, { :class => 'text_input' } %>
 </p>
 <p>
-	<%= label_tag :confirm_password %>:<br>
+	<%= label_tag t(:confirm_password) %>:<br>
 	<%= f.password_field :password_confirmation, { :class => 'text_input' } %>
 </p>
 <% if current_user.member_of_admins? -%>

@@ -283,6 +283,7 @@
 
   #users/_form
   member_of_these_groups: Member of these groups
+  confirm_password: Confirm password
 
   #users/index
   create_a_new_user: Create a new user
