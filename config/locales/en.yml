@@ -1,8 +1,331 @@
-# Sample localization file for English. Add more files in this directory for other locales.
-# See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+# US English translations for Ruby on Rails
+#
+# Use this as the base for the locale file of your language.
+# see: https://github.com/svenfuchs/rails-i18n/blob/master/rails/locale/en-US.yml
 
-en:
+# US English translations for Ruby on Rails
+#
+# Use this as the base for the locale file of your language.
+
+"en":
+  date:
+    formats:
+      default: "%Y-%m-%d"
+      short: "%b %d"
+      long: "%B %d, %Y"
+
+    day_names: [Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday]
+    abbr_day_names: [Sun, Mon, Tue, Wed, Thu, Fri, Sat]
+
+    month_names: [~, January, February, March, April, May, June, July, August, September, October, November, December]
+    abbr_month_names: [~, Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec]
+    order:
+      - :year
+      - :month
+      - :day
+
+  time:
+    formats:
+      default: "%a, %d %b %Y %H:%M:%S %z"
+      short: "%d %b %H:%M"
+      long: "%B %d, %Y %H:%M"
+    am: "am"
+    pm: "pm"
+
+  support:
+    array:
+      words_connector: ", "
+      two_words_connector: " and "
+      last_word_connector: ", and "
+
+    select:
+      prompt: "Please select"
+
+  number:
+    format:
+      separator: "."
+      delimiter: ","
+      precision: 3
+      significant: false
+      strip_insignificant_zeros: false
+
+    currency:
+      format:
+        format: "%u%n"
+        unit: "$"
+        separator: "."
+        delimiter: ","
+        precision: 2
+        significant: false
+        strip_insignificant_zeros: false
+
+    percentage:
+      format:
+        delimiter: ""
+
+    precision:
+      format:
+        delimiter: ""
+
+    human:
+      format:
+        delimiter: ""
+        precision: 3
+        significant: true
+        strip_insignificant_zeros: true
+      storage_units:
+        format: "%n %u"
+        units:
+          byte:
+            one: "Byte"
+            other: "Bytes"
+          kb: "KB"
+          mb: "MB"
+          gb: "GB"
+          tb: "TB"
+      decimal_units:
+        format: "%n %u"
+        units:
+          unit: ""
+          thousand: Thousand
+          million: Million
+          billion: Billion
+          trillion: Trillion
+          quadrillion: Quadrillion
+
+  datetime:
+    distance_in_words:
+      half_a_minute: "half a minute"
+      less_than_x_seconds:
+        one: "less than 1 second"
+        other: "less than %{count} seconds"
+      x_seconds:
+        one: "1 second"
+        other: "%{count} seconds"
+      less_than_x_minutes:
+        one: "less than a minute"
+        other: "less than %{count} minutes"
+      x_minutes:
+        one: "1 minute"
+        other: "%{count} minutes"
+      about_x_hours:
+        one: "about 1 hour"
+        other: "about %{count} hours"
+      x_days:
+        one: "1 day"
+        other: "%{count} days"
+      about_x_months:
+        one: "about 1 month"
+        other: "about %{count} months"
+      x_months:
+        one: "1 month"
+        other: "%{count} months"
+      about_x_years:
+        one: "about 1 year"
+        other: "about %{count} years"
+      over_x_years:
+        one: "over 1 year"
+        other: "over %{count} years"
+      almost_x_years:
+        one: "almost 1 year"
+        other: "almost %{count} years"
+    prompts:
+      year: "Year"
+      month: "Month"
+      day: "Day"
+      hour: "Hour"
+      minute: "Minute"
+      second: "Seconds"
+
+  helpers:
+    select:
+      prompt: "Please select"
+
+    submit:
+      create: 'Create %{model}'
+      update: 'Update %{model}'
+      submit: 'Save %{model}'
+
+  errors:
+    format: "%{attribute} %{message}"
+
+    messages: &errors_messages
+      inclusion: "is not included in the list"
+      exclusion: "is reserved"
+      invalid: "is invalid"
+      confirmation: "doesn't match confirmation"
+      accepted: "must be accepted"
+      empty: "can't be empty"
+      blank: "can't be blank"
+      too_long: "is too long (maximum is %{count} characters)"
+      too_short: "is too short (minimum is %{count} characters)"
+      wrong_length: "is the wrong length (should be %{count} characters)"
+      not_a_number: "is not a number"
+      not_an_integer: "must be an integer"
+      greater_than: "must be greater than %{count}"
+      greater_than_or_equal_to: "must be greater than or equal to %{count}"
+      equal_to: "must be equal to %{count}"
+      less_than: "must be less than %{count}"
+      less_than_or_equal_to: "must be less than or equal to %{count}"
+      odd: "must be odd"
+      even: "must be even"
+
   activerecord:
+    errors:
+      template:
+        header:
+          one: "1 error prohibited this %{model} from being saved"
+          other: "%{count} errors prohibited this %{model} from being saved"
+        body: "There were problems with the following fields:"
+
+      messages:
+        taken: "has already been taken"
+        record_invalid: "Validation failed: %{errors}"
+        <<: *errors_messages
+
+      full_messages:
+        format: "%{attribute} %{message}"
+
     attributes:
       user_file:
         attachment_file_name: 'File'
+
+  # APPLICATION SPECIFIC
+  # general
+  back: Back
+  save: Save
+  name: Name
+  email: Email 
+  submit: Submit
+
+  # admins/new
+  create_admin: Create admin
+  no_administrator_yet: Boxroom does not have an administrator yet. Create one here.
+  create_admin_account: Create admin account
+
+  # clipboard/_show
+  copy: Copy 
+  copy_folder: Copy folder
+  copy_file: Copy file
+  move: Move
+  move_folder: Move folder
+  move_file: Move file
+  are_you_sure: Are you sure?
+  delete: Delete
+  remove_from_clipboard: Remove from clipboard
+  clear_clipboard: Clear clipboard
+
+  # files/edit
+  rename_file: Rename file
+
+  # files/new 
+  upload_file: Upload file
+  upload: Upload
+
+  #folders/edit
+  rename_folder: Rename folder
+
+  #folders/new
+  new_folder: New folder
+
+  #folders/show
+  create_a_new_folder: Create a new folder
+  upload_a_file: Upload a file
+  permissions: Permissions
+  clipboard: Clipboard
+  #name: Name 
+  size: Size
+  date_modified: Date modified
+  up: up
+  #delete: Delete
+  edit: Edit 
+  add_to_clipboard: Add to clipboard
+  download: Download
+
+  #groups/edit
+  rename_group: Rename group
+
+  #groups/index
+  groups: Groups
+  create_a_new_group: Create a new group
+
+  #groups/new
+  new_group: New group
+
+  #permissions/form
+  create: Create
+  read: Read
+  update: Update
+  #delete: Delete
+  apply_changes_to_subfolders: Apply changes to subfolders
+  
+  #reset_password/edit	
+  reset_password: Reset password
+
+  #sessions
+  sign_in: Sign in
+
+  #shared/_header
+  hello: Hello
+  settings: Settings
+  sign_out: Sign out
+
+  #shared/_menu
+  folders: Folders
+  users: Users
+
+  #users/_form
+  member_of_these_groups: Member of these groups
+
+  #users/index
+  create_a_new_user: Create a new user
+
+  #users/new
+  new_user: New user
+
+  #admins/controller
+  admin_user_created_sucessfully: The admin user was created successfully. You can now sign in.
+
+  #application_controller
+  folder_already_deleted: Someone else deleted this folder. Your action was cancelled.
+  no_create_permissions: "You don't have create permissions for this folder."
+  no_permissions_for_this_folder: "You don't have %{method} permissions for this folder."
+
+  # clipboard_controller
+  added_to_clipboard: Successfully added to clipboard.
+  could_not_copy: "Couldn't copy. A %{type} with the same name exists already."
+  could_not_move: "Couldn't move. A %{type} with the same name exists already."
+  could_not_delete: Someone else deleted this %{type}. Your action was cancelled.
+  cannot_move_to_own_subfolder: You cannot move a folder to its own sub-folder.
+  no_permissions_for_this_type: "You don't have %{method} permissions for this %{type}."
+
+  # files_controller
+  your_changes_were_saved: Your changes were saved successfully.
+  file_already_deleted: Someone else deleted this file. Your action was cancelled.
+
+  # folders_controller
+  cannot_delete_root_folder: The root folder cannot be deleted or renamed.
+  no_delete_permissions_for_folder: "You don't have delete permissions for this folder."
+  no_delete_permissions_for_subfolder: "You don't have delete permissions for one of the subfolders."
+
+  # groups_controller
+  group_already_deleted: Someone else deleted this group. Your action was cancelled.
+  admins_group_cannot_be_deleted: The admins group cannot be deleted or renamed.
+
+  # reset_password_controller
+  instruction_email_sent: Email with instructions sent successfully. Please check your email.
+  no_user_with_this_email: "There is no user with email address '%{email}'. Please try again."
+  password_reset_successfully: Your password was reset successfully. You can now sign in.
+  reset_url_expired: The URL for resetting your password expired. Please try again.
+
+  # sessions_controller
+  credentials_incorrect: Username and/or password were incorrect. Try again.
+ 
+  # users_controller
+  user_already_deleted: Someone else deleted the user. Your action was cancelled.
+  admin_user_cannot_be_deleted: The admin user cannot be deleted.
+  edit_user: Edit user
+  account_settings: Account settings
+  
+  # mailers/user_mailer
+  password_reset_subject: "[Boxroom] Password reset instructions"
