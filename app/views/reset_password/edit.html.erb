@@ -1,4 +1,4 @@
-<% content_for :title, 'Reset password' -%>
+<% content_for :title, t(:reset_password) -%>
 
 <h1><%= content_for :title %></h1>
 <%= form_for @user, :url => { :action => 'update' } do |f| %>
@@ -12,6 +12,6 @@
 		<%= f.password_field :password_confirmation, { :class => 'text_input' } %>
 	</p>
 	<p>
-		<%= f.submit 'Reset password' %>
+		<%= f.submit t(:reset_password) %>
 	</p>
 <% end %>

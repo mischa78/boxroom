@@ -1,4 +1,4 @@
-<% content_for :title, 'Groups' -%>
+<% content_for :title, t(:groups) -%>
 
 <h1><%= content_for :title %></h1>
 <% if flash[:alert] -%>
@@ -7,12 +7,12 @@
 </p>
 <% end -%>
 <p>
-	<span class="group_menu"><%= image_tag('group_add.png', :alt => 'Create a new group') %> <%= link_to 'Create a new group', new_group_path %></span>
+	<span class="group_menu"><%= image_tag('group_add.png', :alt => t(:create_a_new_group)) %> <%= link_to t(:create_a_new_group), new_group_path %></span>
 </p>
 <table>
 	<tr>
 		<th></th>
-		<th>Name</th>
+		<th><%t :name %></th>
 		<th></th>
 	</tr>
 <% @groups.each do |group| -%>
@@ -25,8 +25,8 @@
 		<td><%= image_tag('group.png') %></td>
 		<td class="group_name"><%= group.name %></td>
 		<td>
-			<%= link_to image_tag('edit.png', :alt => 'Edit'), edit_group_path(group), :title => 'Edit' %>&nbsp;
-			<%= link_to image_tag('delete.png', :alt => 'Delete'), group_path(group), :method => 'delete', :confirm => 'Are you sure?', :title => 'Delete' %>
+			<%= link_to image_tag('edit.png', :alt => t(:edit)), edit_group_path(group), :title => t(:edit) %>&nbsp;
+			<%= link_to image_tag('delete.png', :alt => t(:delete)), group_path(group), :method => 'delete', :confirm => t(:are_you_sure), :title => t(:delete) %>
 		</td>
 	<% end -%>
 	</tr>

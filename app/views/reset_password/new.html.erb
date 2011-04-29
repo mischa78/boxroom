@@ -1,4 +1,4 @@
-<% content_for :title, 'Reset password' -%>
+<% content_for :title, t(:reset_password) -%>
 
 <h1><%= content_for :title %></h1>
 <% if flash[:notice] -%>
@@ -12,8 +12,7 @@
 </p>
 <% end -%>
 <p>
-	Submit your email address and we will send you an email<br>
-	with instructions on how to reset your password.
+	<%= render '_message' %>
 </p>
 <%= form_tag(reset_password_index_path) do %>
 	<p>
@@ -21,6 +20,6 @@
 		<%= text_field_tag :email, nil, :class => 'text_input' %>
 	</p>
 	<p>
-		<%= submit_tag 'Submit' %>
+		<%= submit_tag t(:submit) %>
 	</p>
 <% end %>
