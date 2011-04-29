@@ -197,12 +197,15 @@ nl:
     attributes:
       folder:
         name: Naam
+      group:
+        name: Naam
       user:
         email: Email 
         name: Naam
         password: Wachtwoord
       user_file:
-        attachment_file_name: 'File'
+        name: Naam 
+        attachment_file_name: Bestand
 
   # APPLICATION SPECIFIC
 

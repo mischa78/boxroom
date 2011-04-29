@@ -186,15 +186,25 @@
       full_messages:
         format: "%{attribute} %{message}"
 
-    attributes:
-      user_file:
-        attachment_file_name: 'File'
     models:
       clipboard: Clipboard 
       folder: Folder
       group: Group 
       permission: Permission 
       user: User 
+
+    attributes:
+      folder:
+        name: Name
+      group:
+        name: Name
+      user:
+        email: Email 
+        name: Name
+        password: Password 
+      user_file:
+        name: Name 
+        attachment_file_name: File 
 
   # APPLICATION SPECIFIC
   # general
