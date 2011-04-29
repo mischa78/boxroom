@@ -278,6 +278,7 @@
   
   #reset_password/edit	
   reset_password: Reset password
+  send_email: Send 
 
   #sessions
   sign_in: Sign in

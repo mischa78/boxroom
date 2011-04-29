@@ -280,6 +280,7 @@ nl:
   
   #reset_password/edit	
   reset_password: Wachtwoord resetten
+  send_email: Verzenden
 
   #sessions
   sign_in: Inloggen 

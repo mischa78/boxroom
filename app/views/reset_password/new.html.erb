@@ -12,7 +12,7 @@
 </p>
 <% end -%>
 <p>
-	<%= render '_message' %>
+	<%= render 'message' %>
 </p>
 <%= form_tag(reset_password_index_path) do %>
 	<p>
@@ -20,6 +20,6 @@
 		<%= text_field_tag :email, nil, :class => 'text_input' %>
 	</p>
 	<p>
-		<%= submit_tag t(:submit) %>
+		<%= submit_tag t(:send_email) %>
 	</p>
 <% end %>
