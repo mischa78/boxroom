@@ -187,8 +187,20 @@ nl:
 
       full_messages:
         format: "%{attribute} %{message}"
+    models:
+      clipboard: Plakbord
+      folder: Map
+      group: Groep
+      permission: Permissie
+      user: Gebruiker
 
     attributes:
+      folder:
+        name: Naam
+      user:
+        email: Email 
+        name: Naam
+        password: Wachtwoord
       user_file:
         attachment_file_name: 'File'
 
@@ -222,6 +234,7 @@ nl:
   rename_file: Bestand hernoemen 
 
   # files/new 
+  select_file: Selecteer bestand
   upload_file: Bestand uploaden 
   upload: Uploaden
 

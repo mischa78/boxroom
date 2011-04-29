@@ -189,6 +189,12 @@
     attributes:
       user_file:
         attachment_file_name: 'File'
+    models:
+      clipboard: Clipboard 
+      folder: Folder
+      group: Group 
+      permission: Permission 
+      user: User 
 
   # APPLICATION SPECIFIC
   # general
@@ -219,6 +225,7 @@
   rename_file: Rename file
 
   # files/new 
+  select_file: Select file
   upload_file: Upload file
   upload: Upload
 

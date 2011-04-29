@@ -4,7 +4,7 @@
 <%= form_for [@target_folder, @file], :url => { :action => 'create' }, :html => { :multipart => true } do |f| %>
 	<%= f.error_messages %>
 	<p>
-		<%= f.label :select_file %>:<br>
+		<%= f.label t(:select_file) %>:<br>
 		<%= f.file_field :attachment %>
 	</p>
 	<p>
