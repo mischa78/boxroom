@@ -260,10 +260,10 @@
   new_group: New group
 
   #permissions/form
-  create: Create
-  read: Read
-  update: Update
-  #delete: Delete
+  create_permission: Create
+  read_permission: Read
+  update_permission: Update
+  delete_permission: Delete
   apply_changes_to_subfolders: Apply changes to subfolders
   
   #reset_password/edit	

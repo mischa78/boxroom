@@ -269,10 +269,10 @@ nl:
   new_group: Nieuwe groep
 
   #permissions/form
-  create: Aanmaken 
-  read: Lezen 
-  update: Wijzigen 
-  #delete: Delete
+  create_permission: Aanmaken 
+  read_permission: Lezen 
+  update_permission: Wijzigen 
+  delete_permission: Verwijderen 
   apply_changes_to_subfolders: Toepassen op submappen
   
   #reset_password/edit	

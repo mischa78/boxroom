@@ -4,10 +4,10 @@
 		<tr>
 			<th></th>
 			<th></th>
-			<th class="permission_column"><%=t :can_create %></th>
-			<th class="permission_column"><%=t :can_read %></th>
-			<th class="permission_column"><%=t :can_update %></th>
-			<th class="permission_column"><%=t :can_delete %></th>
+			<th class="permission_column"><%=t :create_permission %></th>
+			<th class="permission_column"><%=t :read_permission %></th>
+			<th class="permission_column"><%=t :update_permission %></th>
+			<th class="permission_column"><%=t :delete_permission %></th>
 		</tr>
 		<% reset_cycle -%>
 		<% @folder.permissions.each do |permission| -%>
