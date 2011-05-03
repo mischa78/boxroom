@@ -216,6 +216,7 @@
   create_admin: Create admin
   no_administrator_yet: Boxroom does not have an administrator yet. Create one here.
   create_admin_account: Create admin account
+  admin_user_created_successfully: The admin user was created successfully. You can now sign in.
 
   # clipboard/_show
   copy: Copy

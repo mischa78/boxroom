@@ -220,6 +220,7 @@ nl:
   create_admin: Admin aanmaken
   no_administrator_yet: Boxroom heeft nog geen administrator. Deze kunt u nu aanmaken.
   create_admin_account: Admin account aanmaken
+  admin_user_created_successfully: De admin gebruiker is aangemaakt. U kunt nu inloggen.
 
   # clipboard/_show
   copy: Copieer
