@@ -13,16 +13,16 @@
 <% end -%>
 <%= form_tag(sessions_path) do %>
 	<p>
-		<%= label_tag :username %>:<br>
+		<%= label_tag :username, t(:username) %>:<br>
 		<%= text_field_tag :username, nil, :class => 'text_input' %>
 	</p>
 	<p>
-		<%= label_tag :password %>:<br>
+		<%= label_tag :password, t(:password) %>:<br>
 		<%= password_field_tag :password, nil, :class => 'text_input' %>
 	</p>
 	<p>
 		<%= check_box_tag :remember_me, 'true' %>
-		<%= label_tag :remember_me %>
+		<%= label_tag :remember_me, t(:remember_me) %>
 	</p>
 	<p>
 		<%= submit_tag t(:sign_in) %> &nbsp; &mdash; &nbsp;

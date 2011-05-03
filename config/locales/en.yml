@@ -278,11 +278,14 @@
   delete_permission: Delete
   apply_changes_to_subfolders: Apply changes to subfolders
   
-  #reset_password/edit	
+  #reset_password/edit
+  password: Password
   reset_password: Reset password
   send_email: Send 
 
   #sessions
+  username: Username
+  remember_me: Remember me
   sign_in: Sign in
 
   #shared/_header

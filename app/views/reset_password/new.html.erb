@@ -16,7 +16,7 @@
 </p>
 <%= form_tag(reset_password_index_path) do %>
 	<p>
-		<%= label_tag :email %>:<br>
+		<%= label_tag :email, t(:email) %>:<br>
 		<%= text_field_tag :email, nil, :class => 'text_input' %>
 	</p>
 	<p>
