@@ -30,7 +30,7 @@ class UsersController < ApplicationController
   def update
     if @user.update_attributes(params[:user].merge({ :password_required => false }))
       set_groups
-      redirect_to edit_user_url(@user), :notice => 'Your changes were saved successfully.'
+      redirect_to edit_user_url(@user), :notice => t(:your_changes_were_saved)
     else
       render :action => 'edit'
     end
@@ -46,19 +46,19 @@ class UsersController < ApplicationController
 
   def require_existing_user
     if current_user.member_of_admins? && params[:id] != current_user.id.to_s
-      @title = 'Edit user'
+      @title = t(:edit_user)
       @user = User.find(params[:id])
     else
-      @title = 'Account settings'
+      @title = t(:account_settings)
       @user = current_user
     end
   rescue ActiveRecord::RecordNotFound
-    redirect_to users_url, :alert => 'Someone else deleted the user. Your action was cancelled.'
+    redirect_to users_url, :alert => t(:user_already_deleted)
   end
 
   def require_deleted_user_isnt_admin
     if @user.is_admin
-      redirect_to users_url, :alert => 'The admin user cannot be deleted.'
+      redirect_to users_url, :alert => t(:admin_user_cannot_be_deleted)
     end
   end
 

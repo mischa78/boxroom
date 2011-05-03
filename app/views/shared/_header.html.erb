@@ -2,8 +2,8 @@
 	<% if signed_in? -%>
 	<div class="user_welcome">
 		<p>
-			Hello, <%= current_user.name %>!<br>
-			<%= link_to 'Settings', edit_user_path(current_user) %> | <%= link_to 'Sign out', signout_path %>
+			<%=t :hello %>, <%= current_user.name %>!<br>
+			<%= link_to t(:settings), edit_user_path(current_user) %> | <%= link_to t(:sign_out), signout_path %>
 		</p>
 	</div>
 	<% end -%>

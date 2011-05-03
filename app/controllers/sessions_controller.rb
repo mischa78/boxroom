@@ -18,7 +18,7 @@ class SessionsController < ApplicationController
       session[:return_to] = nil
     else
       log_failed_sign_in_attempt(Time.now, params[:username], request.remote_ip)
-      redirect_to new_session_url, :alert => 'Username and/or password were incorrect. Try again.'
+      redirect_to new_session_url, :alert => t(:credentials_incorrect)
     end
   end
 

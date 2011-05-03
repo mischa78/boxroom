@@ -1,4 +1,4 @@
-<% content_for :title, 'Sign in' -%>
+<% content_for :title, t(:sign_in) -%>
 
 <h1><%= content_for :title %></h1>
 <% if flash[:notice] -%>
@@ -25,7 +25,7 @@
 		<%= label_tag :remember_me %>
 	</p>
 	<p>
-		<%= submit_tag 'Sign in' %> &nbsp; &mdash; &nbsp;
-		<%= link_to 'Reset password', new_reset_password_path %>
+		<%= submit_tag t(:sign_in) %> &nbsp; &mdash; &nbsp;
+		<%= link_to t(:reset_password), new_reset_password_path %>
 	</p>
 <% end %>

@@ -9,7 +9,7 @@ class ClipboardController < ApplicationController
   # @item is set in require_existing_item
   def create
     clipboard.add(@item)
-    redirect_to folder_url(params[:folder_id]), :notice => 'Successfully added to clipboard.'
+    redirect_to folder_url(params[:folder_id]), :notice => t(:added_to_clipboard)
   end
 
   # @item is set in require_existing_item
@@ -30,7 +30,7 @@ class ClipboardController < ApplicationController
     clipboard.remove(@item)
     redirect_to folder_url(params[:folder_id])
   rescue ActiveRecord::RecordInvalid
-    redirect_to folder_url(params[:folder_id]), :alert => "Couldn't copy. A #{params[:type]} with the same name exists already."
+    redirect_to folder_url(params[:folder_id]), :alert => t(:could_not_copy, :type => params[:type])
   end
 
   # @item is set in require_existing_item
@@ -40,7 +40,7 @@ class ClipboardController < ApplicationController
     clipboard.remove(@item)
     redirect_to folder_url(params[:folder_id])
   rescue ActiveRecord::RecordInvalid
-    redirect_to folder_url(params[:folder_id]), :alert => "Couldn't move. A #{params[:type]} with the same name exists already."
+    redirect_to folder_url(params[:folder_id]), :alert => t(:could_not_move, :type => params[:type])
   end
 
   private
@@ -53,13 +53,13 @@ class ClipboardController < ApplicationController
       @folder = @item.folder
     end
   rescue ActiveRecord::RecordNotFound
-    redirect_to folder_url(params[:folder_id]), :alert => "Someone else deleted this #{params[:type]}. Your action was cancelled."
+    redirect_to folder_url(params[:folder_id]), :alert => t(:could_not_delete, :type => params[:type])
   end
 
   def require_target_is_not_child
     if params[:type] == 'folder'
       if @folder == @target_folder || @folder.parent_of?(@target_folder)
-        redirect_to folder_url(params[:folder_id]), :alert => 'You cannot move a folder to its own sub-folder.'
+        redirect_to folder_url(params[:folder_id]), :alert => t(:cannot_move_to_own_subfolder)
       end
     end
   end
@@ -67,7 +67,7 @@ class ClipboardController < ApplicationController
   ['read', 'delete'].each do |method|
     define_method "require_#{method}_permission" do
       unless current_user.send("can_#{method}", @folder)
-        redirect_to folder_url(params[:folder_id]), :alert => "You don't have #{method} permissions for this #{params[:type]}."
+        redirect_to folder_url(params[:folder_id]), :alert => t(:no_permissions_for_this_type, :method => method, :type => params[:type])
       end
     end
   end

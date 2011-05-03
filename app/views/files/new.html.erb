@@ -1,14 +1,14 @@
-<% content_for :title, 'Upload file' -%>
+<% content_for :title, t(:upload_file) -%>
 
 <h1><%= content_for :title %></h1>
 <%= form_for [@target_folder, @file], :url => { :action => 'create' }, :html => { :multipart => true } do |f| %>
 	<%= f.error_messages %>
 	<p>
-		<%= f.label :select_file %>:<br>
+		<%= f.label t(:select_file) %>:<br>
 		<%= f.file_field :attachment %>
 	</p>
 	<p>
-		<%= f.submit 'Upload' %> &nbsp; &mdash; &nbsp;
-		<%= link_to 'Back', folder_url(@target_folder) %>
+		<%= f.submit t(:upload) %> &nbsp; &mdash; &nbsp;
+		<%= link_to t(:back), folder_url(@target_folder) %>
 	</p>
 <% end %>
