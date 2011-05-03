@@ -50,7 +50,7 @@
 			<td><%= image_tag('folder.png') %></td>
 			<td class="file_name"><%= link_to folder.name, folder_path(folder) %></td>
 			<td class="file_size">--</td>
-			<td class="file_modified"><%= folder.updated_at.to_s(:long_ordinal) %></td>
+			<td class="file_modified"><%= l folder.updated_at, :format => :long %></td>
 			<td>
 			<% if current_user.can_update(folder) -%>
 				<%= link_to image_tag('edit.png', :alt => t(:edit)), edit_folder_path(folder), :title => t(:edit) %>&nbsp;
@@ -72,7 +72,7 @@
 			<td><%= image_tag(file_icon(file.extension)) %></td>
 			<td class="file_name"><%= link_to file.attachment_file_name, file_path(file), :title => "#{t(:download)} #{file.attachment_file_name}" %></td>
 			<td class="file_size"><%= number_to_human_size(file.attachment_file_size, :locale=>I18n.locale) %></td>
-			<td class="file_modified"><%= file.updated_at.to_s(:long_ordinal) %></td>
+			<td class="file_modified"><%= l file.updated_at, :format => :long %></td>
 			<td>
 			<% if current_user.can_update(file.folder) -%>
 				<%= link_to image_tag('edit.png', :alt => t(:edit)), edit_file_path(file), :title => t(:edit) %>&nbsp;
