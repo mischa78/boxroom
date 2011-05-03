@@ -343,7 +343,7 @@ nl:
   instruction_email_sent: Een e-mail met instructies is verzonden. Controleer uw e-mail.
   no_user_with_this_email: "Er is geen gebruiker bekend met het e-mailadres '%{email}'. Probeer het opnieuw."
   password_reset_successfully: Uw wachtwoord is successvol gereset. U kunt nu inloggen.
-  reset_url_expired: De URL om uw wachtwoord te resetten is verloppen. Probeer het nogmaals.
+  reset_url_expired: De URL om uw wachtwoord te resetten is ongeldig. Probeer het nogmaals.
 
   # sessions_controller
   credentials_incorrect: Gebruikersnaam en/of wachtwoord was incorrect. Probeer het nogmaals.
