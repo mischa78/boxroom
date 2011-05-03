@@ -157,6 +157,7 @@
       accepted: "must be accepted"
       empty: "can't be empty"
       blank: "can't be blank"
+      exists_already: 'exists already'
       too_long: "is too long (maximum is %{count} characters)"
       too_short: "is too short (minimum is %{count} characters)"
       wrong_length: "is the wrong length (should be %{count} characters)"
@@ -169,6 +170,7 @@
       less_than_or_equal_to: "must be less than or equal to %{count}"
       odd: "must be odd"
       even: "must be even"
+      invalid_characters: 'cannot contain any of these characters: < > : " / \ | ? *'
 
   activerecord:
     errors:

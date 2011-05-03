@@ -159,6 +159,7 @@ nl:
       accepted: "moet worden geaccepteerd"
       empty: "  mag niet leeg zijn"
       blank: "mag niet leeg zijn"
+      exists_already: 'bestaat al'
       too_long: "is te lang (maximaal %{count} tekens)"
       too_short: "is te kort (minimaal %{count} tekens)"
       wrong_length: "heeft onjuiste lengte (moet %{count} tekens lang zijn)"
@@ -171,6 +172,7 @@ nl:
       less_than_or_equal_to: "moet minder dan of gelijk zijn aan %{count}"
       odd: "moet oneven zijn"
       even: "moet even zijn"
+      invalid_characters: 'mag geen van deze tekens bevatten: < > : " / \ | ? *'
 
   activerecord:
     errors:
