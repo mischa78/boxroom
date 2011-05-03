@@ -306,7 +306,7 @@ nl:
   new_user: Nieuwe gebruiker
 
   #admins/controller
-  admin_user_created_sucessfully: De admin gebruiker is successvol aangemaakt. U kunt nu inloggen.
+  admin_user_created_sucessfully: De admin gebruiker is aangemaakt. U kunt nu inloggen.
 
   #application_controller
   folder_already_deleted: Iemand anders heeft deze map verwijderd. De actie is afgebroken.
@@ -314,9 +314,9 @@ nl:
   no_permissions_for_this_folder: "U heeft geen %{method} bevoegdheden voor deze map."
 
   # clipboard_controller
-  added_to_clipboard: Successvol toegevoegd aan het klembord.
-  could_not_copy: "Kopiëren mislukt. Een %{type} met dezelfde naam bestaat reeds."
-  could_not_move: "Verplaatsen mislukt. Een %{type} met dezelfde naam bestaat reeds."
+  added_to_clipboard: Succesvol toegevoegd aan klembord.
+  could_not_copy: "Kopiëren mislukt. Een %{type} met dezelfde naam bestaat al."
+  could_not_move: "Verplaatsen mislukt. Een %{type} met dezelfde naam bestaat al."
   could_not_delete: "Iemand anders heeft reeds dit %{type} verwijderd. De actie is afgebroken."
   cannot_move_to_own_subfolder: U kunt een map niet verplaatsen naar een onderliggend map.
   no_permissions_for_this_type: "U heeft geen %{method} bevoegdheden voor dit %{type}."
@@ -337,7 +337,7 @@ nl:
   # reset_password_controller
   instruction_email_sent: Een e-mail met instructies is verzonden. Controleer uw e-mail.
   no_user_with_this_email: "Er is geen gebruiker bekend met e-mailadres '%{email}'. Probeer het opnieuw."
-  password_reset_successfully: Uw wachtwoord is successvol gereset. U kunt nu inloggen.
+  password_reset_successfully: Uw wachtwoord is gereset. U kunt nu inloggen.
   reset_url_expired: De URL om uw wachtwoord te resetten is ongeldig. Probeer het nogmaals.
 
   # sessions_controller
