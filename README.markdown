@@ -37,7 +37,7 @@ Follow the these steps:
 Language
 --------
 
-Thanks to [Rob Halff](https://github.com/rhalff) Boxroom is now available in Dutch too.
+Thanks to [Rob Halff](https://github.com/rhalff) Boxroom is now available in Dutch.
 To use Boxroom in Dutch, open `config/application.rb` and uncomment this line:
 
     # config.i18n.default_locale = :nl
