@@ -41,3 +41,5 @@ Thanks to [Rob Halff](https://github.com/rhalff) Boxroom is now available in Dut
 To use Boxroom in Dutch, open `config/application.rb` and uncomment this line:
 
     # config.i18n.default_locale = :nl
+
+It would be great to have many more languages. I am waiting for your pull requests! ;-)
