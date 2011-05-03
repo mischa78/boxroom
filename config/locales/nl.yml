@@ -145,7 +145,7 @@ nl:
 
     submit:
       create: '%{model} toevoegen'
-      update: '%{model} bewaren'
+      update: '%{model} opslaan'
       submit: '%{model} opslaan'
 
   errors:
@@ -157,8 +157,8 @@ nl:
       invalid: "is ongeldig"
       confirmation: "komt niet met de bevestiging overeen"
       accepted: "moet worden geaccepteerd"
-      empty: "moet opgegeven zijn"
-      blank: "moet opgegeven zijn"
+      empty: "  mag niet leeg zijn"
+      blank: "mag niet leeg zijn"
       too_long: "is te lang (maximaal %{count} tekens)"
       too_short: "is te kort (minimaal %{count} tekens)"
       wrong_length: "heeft onjuiste lengte (moet %{count} tekens lang zijn)"
@@ -176,8 +176,8 @@ nl:
     errors:
       template:
         header:
-          one: "%{model} niet opgeslagen: 1 fout gevonden"
-          other: "%{model} niet opgeslagen: %{count} fouten gevonden"
+          one: "1 fout gevonden: %{model} niet opgeslagen"
+          other: "%{count} fouten gevonden: %{model} niet opgeslagen"
         body: "Controleer de volgende velden:"
 
       messages:
@@ -188,11 +188,12 @@ nl:
       full_messages:
         format: "%{attribute} %{message}"
     models:
-      clipboard: Plakbord
+      clipboard: Klembord
       folder: Map
       group: Groep
       permission: Permissie
       user: Gebruiker
+      user_file: Bestand
 
     attributes:
       folder:
@@ -211,7 +212,7 @@ nl:
 
   # general
   back: Terug
-  save: Bewaren
+  save: Opslaan
   name: Naam
   email: Email 
   submit: Opslaan 
@@ -230,11 +231,11 @@ nl:
   move_file: Bestand verplaatsen 
   are_you_sure: Weet u het zeker?
   delete: Verwijder 
-  remove_from_clipboard: Verwijder uit plakbord
-  clear_clipboard: Plakbord legen 
+  remove_from_clipboard: Verwijder van klembord
+  clear_clipboard: Klembord legen 
 
   # files/edit
-  rename_file: Bestand hernoemen 
+  rename_file: Bestandsnaam wijzigen 
 
   # files/new 
   select_file: Selecteer bestand
@@ -242,7 +243,7 @@ nl:
   upload: Uploaden
 
   #folders/edit
-  rename_folder: Map hernoemen 
+  rename_folder: Mapnaam wijzigen 
 
   #folders/new
   new_folder: Nieuwe map 
@@ -250,19 +251,19 @@ nl:
   #folders/show
   create_a_new_folder: Nieuwe map aanmaken
   upload_a_file: Bestand uploaden
-  permissions: Permissies
-  clipboard: Plakbord 
+  permissions: Bevoegdheden
+  clipboard: Klembord 
   #name: Naam 
   size: Grootte 
   date_modified: Datum gewijzigd
   up: omhoog 
   #delete: Verwijder 
   edit: Wijzigen
-  add_to_clipboard: Op plakbord plaatsen
+  add_to_clipboard: Op klembord plaatsen
   download: Download
 
   #groups/edit
-  rename_group: Groep hernoemen
+  rename_group: Groepnaam wijzigen
 
   #groups/index
   groups: Groepen
@@ -310,24 +311,24 @@ nl:
   #application_controller
   folder_already_deleted: Iemand anders heeft deze map verwijderd. De actie is afgebroken.
   no_create_permissions: "U heeft geen aanmaakrechten voor deze map."
-  no_permissions_for_this_folder: "U heeft geen %{method} permissies voor deze map."
+  no_permissions_for_this_folder: "U heeft geen %{method} bevoegdheden voor deze map."
 
   # clipboard_controller
-  added_to_clipboard: Successvol toegevoegd aan het plakbord.
+  added_to_clipboard: Successvol toegevoegd aan het klembord.
   could_not_copy: "Kopiëren mislukt. Een %{type} met dezelfde naam bestaat reeds."
   could_not_move: "Verplaatsen mislukt. Een %{type} met dezelfde naam bestaat reeds."
   could_not_delete: Iemand anders heeft reeds dit %{type} verwijderd. De actie is afgebroken.
   cannot_move_to_own_subfolder: U kunt een map niet verplaatsen naar een onderliggend map.
-  no_permissions_for_this_type: "U heeft geen %{method} permissies voor dit %{type}."
+  no_permissions_for_this_type: "U heeft geen %{method} bevoegdheden voor dit %{type}."
 
   # files_controller
-  your_changes_were_saved: Uw aanpassingen zijn successvol bewaard.
+  your_changes_were_saved: Uw wijzigingen zijn opgeslagen.
   file_already_deleted: Iemand anders heeft dit bestand verwijderd. De actie is afgebroken.
 
   # folders_controller
   cannot_delete_root_folder: De root map kan niet worden verwijderd of hernoemd.
-  no_delete_permissions_for_folder: U heeft geen permissies om deze map te verwijderen
-  no_delete_permissions_for_subfolder: U heeft geen verwijder permissies voor een van de submappen.
+  no_delete_permissions_for_folder: U heeft geen bevoegdheden om deze map te verwijderen
+  no_delete_permissions_for_subfolder: U heeft geen verwijder bevoegdheden voor een van de submappen.
 
   # groups_controller
   group_already_deleted: Iemand anders heeft deze groep verwijderd. De actie is afgebroken.
