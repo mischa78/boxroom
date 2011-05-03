@@ -12,7 +12,7 @@ class AdminsController < ApplicationController
     @user.is_admin = true
 
     if @user.save
-      redirect_to new_session_url, :notice => 'The admin user was created successfully. You can now sign in.'
+      redirect_to new_session_url, :notice => t(:admin_user_created_successfully)
     else
       render :action => 'new'
     end

@@ -1,4 +1,4 @@
-<% content_for :title, 'New folder' -%>
+<% content_for :title, t(:new_folder) -%>
 
 <h1><%= content_for :title %></h1>
 <%= form_for [@target_folder, @folder], :url => { :action => 'create' } do |f| %>

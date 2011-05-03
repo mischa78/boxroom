@@ -39,7 +39,7 @@ class FoldersController < ApplicationController
   # Note: @folder is set in require_existing_folder
   def update
     if @folder.update_attributes(params[:folder])
-      redirect_to edit_folder_url(@folder), :notice => 'Your changes were saved successfully.'
+      redirect_to edit_folder_url(@folder), :notice => t(:your_changes_were_saved)
     else
       render :action => 'edit'
     end
@@ -57,19 +57,19 @@ class FoldersController < ApplicationController
   def require_existing_folder
     @folder = Folder.find(params[:id])
   rescue ActiveRecord::RecordNotFound
-    redirect_to folder_url(Folder.root), :alert => 'Someone else deleted this folder. Your action was cancelled.'
+    redirect_to folder_url(Folder.root), :alert => t(:folder_already_deleted)
   end
 
   def require_folder_isnt_root_folder
     if @folder.is_root?
-      redirect_to folder_url(Folder.root), :alert => 'The root folder cannot be deleted or renamed.'
+      redirect_to folder_url(Folder.root), :alert => t(:cannot_delete_root_folder)
     end
   end
 
   # Overrides require_delete_permission in ApplicationController
   def require_delete_permission
     unless current_user.can_delete(@folder) || @folder.is_root?
-      redirect_to folder_url(@folder.parent), :alert => "You don't have delete permissions for this folder."
+      redirect_to folder_url(@folder.parent), :alert => t(:no_delete_permissions_for_folder)
     else
       require_delete_permissions_for(@folder.children)
     end
@@ -78,7 +78,7 @@ class FoldersController < ApplicationController
   def require_delete_permissions_for(folders)
     folders.each do |folder|
       unless current_user.can_delete(folder)
-        redirect_to folder_url(@folder.parent), :alert => "You don't have delete permissions for one of the subfolders."
+        redirect_to folder_url(@folder.parent), :alert => t(:no_delete_permissions_for_subfolder)
       else
         # Recursive...
         require_delete_permissions_for(folder.children)

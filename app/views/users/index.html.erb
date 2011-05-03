@@ -1,4 +1,4 @@
-<% content_for :title, 'Users' -%>
+<% content_for :title, t(:users) -%>
 
 <h1><%= content_for :title %></h1>
 <% if flash[:alert] -%>
@@ -7,13 +7,13 @@
 </p>
 <% end -%>
 <p>
-	<span class="user_menu"><%= image_tag('user_add.png', :alt => 'Create a new user') %> <%= link_to 'Create a new user', new_user_path %></span>
+	<span class="user_menu"><%= image_tag('user_add.png', :alt => t(:create_a_new_user)) %> <%= link_to t(:create_a_new_user), new_user_path %></span>
 </p>
 <table>
 	<tr>
 		<th></th>
-		<th>Name</th>
-		<th>Email</th>
+		<th><%=t :name %></th>
+		<th><%=t :email %></th>
 		<th></th>
 	</tr>
 <% @users.each do |user| -%>
@@ -22,9 +22,9 @@
 		<td class="user_name"><%= user.name %></td>
 		<td class="user_email"><%= user.email %></td>
 		<td>
-			<%= link_to image_tag('edit.png', :alt => 'Edit'), edit_user_path(user), :title => 'Edit' %>&nbsp;
+			<%= link_to image_tag('edit.png', :alt => t(:edit)), edit_user_path(user), :title => t(:edit) %>&nbsp;
 		<% unless user.is_admin -%>
-			<%= link_to image_tag('delete.png', :alt => 'Delete'), user_path(user), :method => 'delete', :confirm => 'Are you sure?', :title => 'Delete' %>
+			<%= link_to image_tag('delete.png', :alt => t(:delete)), user_path(user), :method => 'delete', :confirm => t(:are_you_sure), :title => t(:delete) %>
 		<% end -%>
 		</td>
 	</tr>
