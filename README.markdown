@@ -32,3 +32,12 @@ Follow the these steps:
  4. Start the server: `$ rails server`
  5. Point your browser to http://localhost:3000/
  6. Enjoy!
+
+
+Language
+--------
+
+Thanks to [Rob Halff](https://github.com/rhalff) Boxroom is now available in Dutch too.
+To use Boxroom in Dutch, open `config/application.rb` and uncomment this line:
+
+    # config.i18n.default_locale = :nl
