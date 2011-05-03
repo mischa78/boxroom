@@ -1,6 +1,3 @@
-# Sample localization file for English. Add more files in this directory for other locales.
-# See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
-
 # Dutch translations for Ruby on Rails, based on US English template
 # Original version by Ariejan de Vroom <ariejan@ariejan.net>
 # - Sponsored by Kabisa ICT - http://kabisa.nl
@@ -203,11 +200,11 @@ nl:
       group:
         name: Naam
       user:
-        email: E-mail 
+        email: E-mail
         name: Naam
         password: Wachtwoord
       user_file:
-        name: Naam 
+        name: Naam
         attachment_file_name: Bestand
 
   # APPLICATION SPECIFIC
@@ -216,11 +213,11 @@ nl:
   back: Terug
   save: Opslaan
   name: Naam
-  email: E-mail 
-  submit: Opslaan 
+  email: E-mail
+  submit: Opslaan
 
   # admins/new
-  create_admin: Admin aanmaken 
+  create_admin: Admin aanmaken
   no_administrator_yet: Boxroom heeft nog geen administrator. Deze kunt u nu aanmaken.
   create_admin_account: Admin account aanmaken
 
@@ -228,38 +225,36 @@ nl:
   copy: Copieer
   copy_folder: Map kopiëren
   copy_file: Bestand kopiëren
-  move: Verplaatsen 
-  move_folder: Map verplaatsen 
-  move_file: Bestand verplaatsen 
+  move: Verplaatsen
+  move_folder: Map verplaatsen
+  move_file: Bestand verplaatsen
   are_you_sure: Weet u het zeker?
-  delete: Verwijder 
+  delete: Verwijder
   remove_from_clipboard: Verwijder van klembord
-  clear_clipboard: Klembord legen 
+  clear_clipboard: Klembord legen
 
   # files/edit
-  rename_file: Bestandsnaam wijzigen 
+  rename_file: Bestandsnaam wijzigen
 
-  # files/new 
+  # files/new
   select_file: Selecteer bestand
-  upload_file: Bestand uploaden 
+  upload_file: Bestand uploaden
   upload: Uploaden
 
   #folders/edit
-  rename_folder: Mapnaam wijzigen 
+  rename_folder: Mapnaam wijzigen
 
   #folders/new
-  new_folder: Nieuwe map 
+  new_folder: Nieuwe map
 
   #folders/show
   create_a_new_folder: Nieuwe map aanmaken
   upload_a_file: Bestand uploaden
   permissions: Bevoegdheden
-  clipboard: Klembord 
-  #name: Naam 
-  size: Grootte 
+  clipboard: Klembord
+  size: Grootte
   date_modified: Datum gewijzigd
-  up: omhoog 
-  #delete: Verwijder 
+  up: omhoog
   edit: Wijzigen
   add_to_clipboard: Op klembord plaatsen
   download: Download
@@ -275,12 +270,12 @@ nl:
   new_group: Nieuwe groep
 
   #permissions/form
-  create_permission: Aanmaken 
-  read_permission: Lezen 
-  update_permission: Wijzigen 
-  delete_permission: Verwijderen 
+  create_permission: Aanmaken
+  read_permission: Lezen
+  update_permission: Wijzigen
+  delete_permission: Verwijderen
   apply_changes_to_subfolders: Toepassen op submappen
-  
+
   #reset_password/edit	
   password: Wachtwoord
   reset_password: Wachtwoord resetten
@@ -293,12 +288,12 @@ nl:
 
   #shared/_header
   hello: Hallo
-  settings: Instelllingen 
-  sign_out: Uitloggen 
+  settings: Instelllingen
+  sign_out: Uitloggen
 
   #shared/_menu
-  folders: Mappen 
-  users: Gebruikers 
+  folders: Mappen
+  users: Gebruikers
 
   #users/_form
   member_of_these_groups: Lid van deze groepen
@@ -322,7 +317,7 @@ nl:
   added_to_clipboard: Successvol toegevoegd aan het klembord.
   could_not_copy: "Kopiëren mislukt. Een %{type} met dezelfde naam bestaat reeds."
   could_not_move: "Verplaatsen mislukt. Een %{type} met dezelfde naam bestaat reeds."
-  could_not_delete: Iemand anders heeft reeds dit %{type} verwijderd. De actie is afgebroken.
+  could_not_delete: "Iemand anders heeft reeds dit %{type} verwijderd. De actie is afgebroken."
   cannot_move_to_own_subfolder: U kunt een map niet verplaatsen naar een onderliggend map.
   no_permissions_for_this_type: "U heeft geen %{method} bevoegdheden voor dit %{type}."
 
@@ -347,12 +342,12 @@ nl:
 
   # sessions_controller
   credentials_incorrect: Gebruikersnaam en/of wachtwoord was incorrect. Probeer het nogmaals.
- 
+
   # users_controller
   user_already_deleted: Iemand anders heeft deze gebruiker reeds verwijderd. De actie is afgebroken.
   admin_user_cannot_be_deleted: Het beheeraccount kan niet worden verwijderd.
-  edit_user: Gebruiker wijzigen 
+  edit_user: Gebruiker wijzigen
   account_settings: Account instellingen
-  
+
   # mailers/user_mailer
   password_reset_subject: "[Boxroom] Instructies om uw wachtwoord te resetten"

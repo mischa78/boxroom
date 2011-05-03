@@ -3,10 +3,6 @@
 # Use this as the base for the locale file of your language.
 # see: https://github.com/svenfuchs/rails-i18n/blob/master/rails/locale/en-US.yml
 
-# US English translations for Ruby on Rails
-#
-# Use this as the base for the locale file of your language.
-
 "en":
   date:
     formats:
@@ -189,11 +185,11 @@
         format: "%{attribute} %{message}"
 
     models:
-      clipboard: Clipboard 
+      clipboard: Clipboard
       folder: Folder
-      group: Group 
-      permission: Permission 
-      user: User 
+      group: Group
+      permission: Permission
+      user: User
 
     attributes:
       folder:
@@ -201,19 +197,19 @@
       group:
         name: Name
       user:
-        email: Email 
+        email: Email
         name: Name
-        password: Password 
+        password: Password
       user_file:
-        name: Name 
-        attachment_file_name: File 
+        name: Name
+        attachment_file_name: File
 
   # APPLICATION SPECIFIC
   # general
   back: Back
   save: Save
   name: Name
-  email: Email 
+  email: Email
   submit: Submit
 
   # admins/new
@@ -222,7 +218,7 @@
   create_admin_account: Create admin account
 
   # clipboard/_show
-  copy: Copy 
+  copy: Copy
   copy_folder: Copy folder
   copy_file: Copy file
   move: Move
@@ -236,7 +232,7 @@
   # files/edit
   rename_file: Rename file
 
-  # files/new 
+  # files/new
   select_file: Select file
   upload_file: Upload file
   upload: Upload
@@ -252,12 +248,10 @@
   upload_a_file: Upload a file
   permissions: Permissions
   clipboard: Clipboard
-  #name: Name 
   size: Size
   date_modified: Date modified
   up: up
-  #delete: Delete
-  edit: Edit 
+  edit: Edit
   add_to_clipboard: Add to clipboard
   download: Download
 
@@ -277,11 +271,11 @@
   update_permission: Update
   delete_permission: Delete
   apply_changes_to_subfolders: Apply changes to subfolders
-  
+
   #reset_password/edit
   password: Password
   reset_password: Reset password
-  send_email: Send 
+  send_email: Send
 
   #sessions
   username: Username
@@ -319,7 +313,7 @@
   added_to_clipboard: Successfully added to clipboard.
   could_not_copy: "Couldn't copy. A %{type} with the same name exists already."
   could_not_move: "Couldn't move. A %{type} with the same name exists already."
-  could_not_delete: Someone else deleted this %{type}. Your action was cancelled.
+  could_not_delete: "Someone else deleted this %{type}. Your action was cancelled."
   cannot_move_to_own_subfolder: You cannot move a folder to its own sub-folder.
   no_permissions_for_this_type: "You don't have %{method} permissions for this %{type}."
 
@@ -344,12 +338,12 @@
 
   # sessions_controller
   credentials_incorrect: Username and/or password were incorrect. Try again.
- 
+
   # users_controller
   user_already_deleted: Someone else deleted the user. Your action was cancelled.
   admin_user_cannot_be_deleted: The admin user cannot be deleted.
   edit_user: Edit user
   account_settings: Account settings
-  
+
   # mailers/user_mailer
   password_reset_subject: "[Boxroom] Password reset instructions"
