@@ -223,6 +223,10 @@ nl:
   admin_user_created_successfully: De admin gebruiker is aangemaakt. U kunt nu inloggen.
 
   # clipboard/_show
+  folder: map
+  file: bestand
+  this_folder: deze map
+  this_file: dit bestand
   copy: Copieer
   copy_folder: Map kopiëren
   copy_file: Bestand kopiëren
@@ -277,6 +281,11 @@ nl:
   delete_permission: Verwijderen
   apply_changes_to_subfolders: Toepassen op submappen
 
+  create: aanmaak
+  read: lees
+  update: wijzig
+  delete: verwijder
+
   #reset_password/edit	
   password: Wachtwoord
   reset_password: Wachtwoord resetten
@@ -311,7 +320,7 @@ nl:
 
   #application_controller
   folder_already_deleted: Iemand anders heeft deze map verwijderd. De actie is afgebroken.
-  no_create_permissions: "U heeft geen aanmaakrechten voor deze map."
+  no_create_permissions: U heeft geen aanmaak bevoegdheden voor deze map.
   no_permissions_for_this_folder: "U heeft geen %{method} bevoegdheden voor deze map."
 
   # clipboard_controller
@@ -320,7 +329,7 @@ nl:
   could_not_move: "Verplaatsen mislukt. Een %{type} met dezelfde naam bestaat al."
   could_not_delete: "Iemand anders heeft reeds dit %{type} verwijderd. De actie is afgebroken."
   cannot_move_to_own_subfolder: U kunt een map niet verplaatsen naar een onderliggend map.
-  no_permissions_for_this_type: "U heeft geen %{method} bevoegdheden voor dit %{type}."
+  no_permissions_for_this_type: "U heeft geen %{method} bevoegdheden voor %{type}."
 
   # files_controller
   your_changes_were_saved: Uw wijzigingen zijn opgeslagen.

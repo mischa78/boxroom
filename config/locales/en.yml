@@ -205,6 +205,7 @@
         attachment_file_name: File
 
   # APPLICATION SPECIFIC
+
   # general
   back: Back
   save: Save
@@ -219,6 +220,10 @@
   admin_user_created_successfully: The admin user was created successfully. You can now sign in.
 
   # clipboard/_show
+  folder: folder
+  file: file
+  this_folder: this folder
+  this_file: this file
   copy: Copy
   copy_folder: Copy folder
   copy_file: Copy file
@@ -272,6 +277,11 @@
   update_permission: Update
   delete_permission: Delete
   apply_changes_to_subfolders: Apply changes to subfolders
+
+  create: create
+  read: read
+  update: update
+  delete: delete
 
   #reset_password/edit
   password: Password

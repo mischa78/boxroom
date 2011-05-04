@@ -30,7 +30,7 @@ class ClipboardController < ApplicationController
     clipboard.remove(@item)
     redirect_to folder_url(params[:folder_id])
   rescue ActiveRecord::RecordInvalid
-    redirect_to folder_url(params[:folder_id]), :alert => t(:could_not_copy, :type => params[:type])
+    redirect_to folder_url(params[:folder_id]), :alert => t(:could_not_copy, :type => t(params[:type]))
   end
 
   # @item is set in require_existing_item
@@ -40,7 +40,7 @@ class ClipboardController < ApplicationController
     clipboard.remove(@item)
     redirect_to folder_url(params[:folder_id])
   rescue ActiveRecord::RecordInvalid
-    redirect_to folder_url(params[:folder_id]), :alert => t(:could_not_move, :type => params[:type])
+    redirect_to folder_url(params[:folder_id]), :alert => t(:could_not_move, :type => t(params[:type]))
   end
 
   private
@@ -67,7 +67,7 @@ class ClipboardController < ApplicationController
   ['read', 'delete'].each do |method|
     define_method "require_#{method}_permission" do
       unless current_user.send("can_#{method}", @folder)
-        redirect_to folder_url(params[:folder_id]), :alert => t(:no_permissions_for_this_type, :method => method, :type => params[:type])
+        redirect_to folder_url(params[:folder_id]), :alert => t(:no_permissions_for_this_type, :method => t(method), :type => t("this_#{params[:type]}"))
       end
     end
   end
