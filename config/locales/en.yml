@@ -213,6 +213,9 @@
   email: Email
   submit: Submit
 
+  your_changes_were_saved: Your changes were saved successfully.
+  already_deleted: "Someone else deleted %{type}. Your action was cancelled."
+
   # admins/new
   create_admin: Create admin
   no_administrator_yet: Boxroom does not have an administrator yet. Create one here.
@@ -316,26 +319,17 @@
   admin_user_created_sucessfully: The admin user was created successfully. You can now sign in.
 
   #application_controller
-  folder_already_deleted: Someone else deleted this folder. Your action was cancelled.
-  no_create_permissions: "You don't have create permissions for this folder."
-  no_permissions_for_this_folder: "You don't have %{method} permissions for this folder."
+  no_permissions_for_this_type: "You don't have %{method} permissions for %{type}."
 
   # clipboard_controller
   added_to_clipboard: Successfully added to clipboard.
   could_not_copy: "Couldn't copy. A %{type} with the same name exists already."
   could_not_move: "Couldn't move. A %{type} with the same name exists already."
-  could_not_delete: "Someone else deleted this %{type}. Your action was cancelled."
   cannot_move_to_own_subfolder: You cannot move a folder to its own sub-folder.
-  no_permissions_for_this_type: "You don't have %{method} permissions for this %{type}."
-
-  # files_controller
-  your_changes_were_saved: Your changes were saved successfully.
-  file_already_deleted: Someone else deleted this file. Your action was cancelled.
 
   # folders_controller
   cannot_delete_root_folder: The root folder cannot be deleted or renamed.
-  no_delete_permissions_for_folder: "You don't have delete permissions for this folder."
-  no_delete_permissions_for_subfolder: "You don't have delete permissions for one of the subfolders."
+  no_delete_permissions_for_subfolder: You don't have delete permissions for one of the subfolders.
 
   # groups_controller
   group_already_deleted: Someone else deleted this group. Your action was cancelled.

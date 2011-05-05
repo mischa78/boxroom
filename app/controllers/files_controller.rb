@@ -53,6 +53,6 @@ class FilesController < ApplicationController
     @file = UserFile.find(params[:id])
     @folder = @file.folder
   rescue ActiveRecord::RecordNotFound
-    redirect_to folder_url(Folder.root), :alert => t(:file_already_deleted)
+    redirect_to folder_url(Folder.root), :alert => t(:already_deleted, :type => t(:this_file))
   end
 end

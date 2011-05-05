@@ -53,7 +53,7 @@ class ClipboardController < ApplicationController
       @folder = @item.folder
     end
   rescue ActiveRecord::RecordNotFound
-    redirect_to folder_url(params[:folder_id]), :alert => t(:could_not_delete, :type => params[:type])
+    redirect_to folder_url(params[:folder_id]), :alert => t(:already_deleted, :type => t("this_#{params[:type]}"))
   end
 
   def require_target_is_not_child

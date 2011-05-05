@@ -216,10 +216,13 @@ nl:
   email: E-mail
   submit: Opslaan
 
+  your_changes_were_saved: Uw wijzigingen zijn opgeslagen.
+  already_deleted: "Iemand anders heeft %{type} verwijderd. De actie is afgebroken."
+
   # admins/new
   create_admin: Admin aanmaken
   no_administrator_yet: Boxroom heeft nog geen administrator. Deze kunt u nu aanmaken.
-  create_admin_account: Admin account aanmaken
+  create_admin_account: Admin gebruiker aanmaken
   admin_user_created_successfully: De admin gebruiker is aangemaakt. U kunt nu inloggen.
 
   # clipboard/_show
@@ -227,7 +230,7 @@ nl:
   file: bestand
   this_folder: deze map
   this_file: dit bestand
-  copy: Copieer
+  copy: Kopieer
   copy_folder: Map kopiëren
   copy_file: Bestand kopiëren
   move: Verplaatsen
@@ -298,7 +301,7 @@ nl:
 
   #shared/_header
   hello: Hallo
-  settings: Instelllingen
+  settings: Instellingen
   sign_out: Uitloggen
 
   #shared/_menu
@@ -319,30 +322,21 @@ nl:
   admin_user_created_sucessfully: De admin gebruiker is aangemaakt. U kunt nu inloggen.
 
   #application_controller
-  folder_already_deleted: Iemand anders heeft deze map verwijderd. De actie is afgebroken.
-  no_create_permissions: U heeft geen aanmaak bevoegdheden voor deze map.
-  no_permissions_for_this_folder: "U heeft geen %{method} bevoegdheden voor deze map."
+  no_permissions_for_this_type: "U heeft geen %{method} bevoegdheden voor %{type}."
 
   # clipboard_controller
   added_to_clipboard: Succesvol toegevoegd aan klembord.
   could_not_copy: "Kopiëren mislukt. Een %{type} met dezelfde naam bestaat al."
   could_not_move: "Verplaatsen mislukt. Een %{type} met dezelfde naam bestaat al."
-  could_not_delete: "Iemand anders heeft reeds dit %{type} verwijderd. De actie is afgebroken."
-  cannot_move_to_own_subfolder: U kunt een map niet verplaatsen naar een onderliggend map.
-  no_permissions_for_this_type: "U heeft geen %{method} bevoegdheden voor %{type}."
-
-  # files_controller
-  your_changes_were_saved: Uw wijzigingen zijn opgeslagen.
-  file_already_deleted: Iemand anders heeft dit bestand verwijderd. De actie is afgebroken.
+  cannot_move_to_own_subfolder: U kunt een map niet verplaatsen naar zijn eigen submap.
 
   # folders_controller
-  cannot_delete_root_folder: De root map kan niet worden verwijderd of hernoemd.
-  no_delete_permissions_for_folder: U heeft geen bevoegdheden om deze map te verwijderen
-  no_delete_permissions_for_subfolder: U heeft geen verwijder bevoegdheden voor een van de submappen.
+  cannot_delete_root_folder: Root folder kan niet verwijderd of gewijzigd worden.
+  no_delete_permissions_for_subfolder: U heeft geen bevoegdheden om één van de submappen te verwijderen.
 
   # groups_controller
   group_already_deleted: Iemand anders heeft deze groep verwijderd. De actie is afgebroken.
-  admins_group_cannot_be_deleted: De admin groep kan niet hernoemd of verwijderd worden.
+  admins_group_cannot_be_deleted: De admin groep kan niet verwijderd of gewijzigd worden.
 
   # reset_password_controller
   instruction_email_sent: Een e-mail met instructies is verzonden. Controleer uw e-mail.
@@ -354,10 +348,10 @@ nl:
   credentials_incorrect: Gebruikersnaam en/of wachtwoord was incorrect. Probeer het nogmaals.
 
   # users_controller
-  user_already_deleted: Iemand anders heeft deze gebruiker reeds verwijderd. De actie is afgebroken.
-  admin_user_cannot_be_deleted: Het beheeraccount kan niet worden verwijderd.
+  user_already_deleted: Iemand anders heeft deze gebruiker verwijderd. De actie is afgebroken.
+  admin_user_cannot_be_deleted: De admin gebruiker kan niet verwijderd worden.
   edit_user: Gebruiker wijzigen
-  account_settings: Account instellingen
+  account_settings: Mijn instellingen
 
   # mailers/user_mailer
   password_reset_subject: "[Boxroom] Instructies om uw wachtwoord te resetten"

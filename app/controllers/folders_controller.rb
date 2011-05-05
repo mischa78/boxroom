@@ -57,7 +57,7 @@ class FoldersController < ApplicationController
   def require_existing_folder
     @folder = Folder.find(params[:id])
   rescue ActiveRecord::RecordNotFound
-    redirect_to folder_url(Folder.root), :alert => t(:folder_already_deleted)
+    redirect_to folder_url(Folder.root), :alert => t(:already_deleted, :type => t(:this_folder))
   end
 
   def require_folder_isnt_root_folder
@@ -69,7 +69,7 @@ class FoldersController < ApplicationController
   # Overrides require_delete_permission in ApplicationController
   def require_delete_permission
     unless current_user.can_delete(@folder) || @folder.is_root?
-      redirect_to folder_url(@folder.parent), :alert => t(:no_delete_permissions_for_folder)
+      redirect_to folder_url(@folder.parent), :alert => t(:no_permissions_for_this_type, :method => t(:delete), :type =>t(:this_folder))
     else
       require_delete_permissions_for(@folder.children)
     end
