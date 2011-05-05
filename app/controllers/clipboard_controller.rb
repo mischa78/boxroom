@@ -64,6 +64,9 @@ class ClipboardController < ApplicationController
     end
   end
 
+  # Overrides require_#{method}_permission in ApplicationController.
+  # Check if @folder can be read or deleted and returns to the
+  # current folder (identified by params[:folder_id]) if not.
   ['read', 'delete'].each do |method|
     define_method "require_#{method}_permission" do
       unless current_user.send("can_#{method}", @folder)
