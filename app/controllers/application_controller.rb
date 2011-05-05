@@ -48,19 +48,23 @@ class ApplicationController < ActionController::Base
   def require_existing_target_folder
     @target_folder = Folder.find(params[:folder_id])
   rescue ActiveRecord::RecordNotFound
-    redirect_to folder_url(Folder.root), :alert => t(:folder_already_deleted)
+    redirect_to folder_url(Folder.root), :alert => t(:already_deleted, :type => t(:this_folder))
   end
 
   def require_create_permission
     unless current_user.can_create(@target_folder)
-      redirect_to folder_url(@target_folder), :alert => t(:no_create_permissions)
+      redirect_to folder_url(@target_folder), :alert => t(:no_permissions_for_this_type, :method => t(:create), :type => t(:this_folder))
     end
   end
 
   ['read', 'update', 'delete'].each do |method|
     define_method "require_#{method}_permission" do
-      unless current_user.send("can_#{method}", @folder) || @folder.is_root?
-        redirect_to folder_url(@folder.parent), :alert => t(:no_permissions_for_this_folder, :method => t(method))
+      unless current_user.send("can_#{method}", @folder) || (method == 'read' && @folder.is_root?)
+        if @folder.parent.nil?
+          redirect_to folder_url(Folder.root), :alert => t(:no_permissions_for_this_type, :method => t(:create), :type => t(:this_folder))
+        else
+          redirect_to folder_url(@folder.parent), :alert => t(:no_permissions_for_this_type, :method => t(:create), :type => t(:this_folder))
+        end
       end
     end
   end
