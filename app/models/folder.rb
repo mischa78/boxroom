@@ -79,7 +79,7 @@ class Folder < ActiveRecord::Base
   end
 
   def self.check_target_folder(target_folder)
-    raise 'Target is nil or not a Folder' if target_folder.nil? || target_folder.class != Folder
+    raise 'Target is not a folder.' if target_folder.class != Folder
   end
 
   private
