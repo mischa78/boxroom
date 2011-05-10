@@ -1,7 +1,6 @@
 Boxroom::Application.routes.draw do
-  match '/signin',  :to => 'sessions#new'
-  match '/signout', :to => 'sessions#destroy'
-  match '/folders/:id/new', :to => 'folders#new'
+  get '/signin',  :to => 'sessions#new'
+  delete '/signout', :to => 'sessions#destroy'
 
   # Resources
   resources :admins, :only => [:new, :create]
@@ -19,9 +18,7 @@ Boxroom::Application.routes.draw do
 
   # Update a collection of permissions
   resources :permissions, :only => :update_multiple do
-    collection do
-      put :update_multiple
-    end
+    put :update_multiple, :on => :collection
   end
 
   # Nested resources
