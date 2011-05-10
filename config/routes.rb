@@ -1,5 +1,5 @@
 Boxroom::Application.routes.draw do
-  get '/signin',  :to => 'sessions#new'
+  get '/signin', :to => 'sessions#new'
   delete '/signout', :to => 'sessions#destroy'
 
   # Resources
