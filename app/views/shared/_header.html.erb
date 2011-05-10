@@ -3,7 +3,7 @@
 	<div class="user_welcome">
 		<p>
 			<%=t :hello %>, <%= current_user.name %>!<br>
-			<%= link_to t(:settings), edit_user_path(current_user) %> | <%= link_to t(:sign_out), signout_path %>
+			<%= link_to t(:settings), edit_user_path(current_user) %> | <%= link_to t(:sign_out), signout_path, :method => :delete %>
 		</p>
 	</div>
 	<% end -%>
