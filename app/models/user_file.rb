@@ -1,5 +1,5 @@
 class UserFile < ActiveRecord::Base
-  has_attached_file :attachment, :path => ':rails_root/uploads/:id/:style/:id'
+  has_attached_file :attachment, :path => ':rails_root/uploads/:rails_env/:id/:style/:id'
 
   belongs_to :folder
 
@@ -8,19 +8,16 @@ class UserFile < ActiveRecord::Base
   validates_format_of :attachment_file_name, :with => /^[^\/\\\?\*:|"<>]+$/, :message => I18n.t(:invalid_characters, :scope => [:activerecord, :errors, :messages])
 
   def copy(target_folder)
-    Folder.check_target_folder(target_folder)
-
     new_file = self.clone
     new_file.folder = target_folder
     new_file.save!
 
-    path = "#{Rails.root}/uploads/#{new_file.id}/original"
+    path = "#{Rails.root}/uploads/#{Rails.env}/#{new_file.id}/original"
     FileUtils.mkdir_p path
     FileUtils.cp_r self.attachment.path, "#{path}/#{new_file.id}"
   end
 
   def move(target_folder)
-    Folder.check_target_folder(target_folder)
     self.folder = target_folder
     save!
   end
