@@ -14,8 +14,6 @@ class Folder < ActiveRecord::Base
   after_create :create_permissions, :unless => :is_copied_folder
 
   def copy(target_folder, originally_copied_folder = nil)
-    Folder.check_target_folder(target_folder)
-
     new_folder = self.clone
     new_folder.is_copied_folder = true
     new_folder.parent = target_folder
@@ -41,8 +39,6 @@ class Folder < ActiveRecord::Base
   end
 
   def move(target_folder)
-    Folder.check_target_folder(target_folder)
-
     unless target_folder == self || self.parent_of?(target_folder)
       self.parent = target_folder
       save!
@@ -62,12 +58,8 @@ class Folder < ActiveRecord::Base
     false
   end
 
-  def readonly?
-    is_root? && !new_record?
-  end
-
   def is_root?
-    parent.nil?
+    parent.nil? && !new_record?
   end
 
   def has_children?
@@ -76,10 +68,6 @@ class Folder < ActiveRecord::Base
 
   def self.root
     find_by_name_and_parent_id('Root folder', nil)
-  end
-
-  def self.check_target_folder(target_folder)
-    raise 'Target is not a folder.' if target_folder.class != Folder
   end
 
   private
