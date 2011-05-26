@@ -36,6 +36,8 @@ class Folder < ActiveRecord::Base
     self.children.each do |folder|
       folder.copy(new_folder, originally_copied_folder) unless folder == originally_copied_folder
     end
+
+    new_folder
   end
 
   def move(target_folder)
