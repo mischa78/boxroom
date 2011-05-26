@@ -4,17 +4,21 @@ class UserFile < ActiveRecord::Base
   belongs_to :folder
 
   validates_attachment_presence :attachment, :message => I18n.t(:blank, :scope => [:activerecord, :errors, :messages])
+  validates_presence_of :folder_id
   validates_uniqueness_of :attachment_file_name, :scope => 'folder_id', :message => I18n.t(:exists_already, :scope => [:activerecord, :errors, :messages])
   validates_format_of :attachment_file_name, :with => /^[^\/\\\?\*:|"<>]+$/, :message => I18n.t(:invalid_characters, :scope => [:activerecord, :errors, :messages])
 
   def copy(target_folder)
     new_file = self.clone
+    new_file.instance_eval { @errors = nil }
     new_file.folder = target_folder
     new_file.save!
 
     path = "#{Rails.root}/uploads/#{Rails.env}/#{new_file.id}/original"
     FileUtils.mkdir_p path
     FileUtils.cp_r self.attachment.path, "#{path}/#{new_file.id}"
+
+    new_file
   end
 
   def move(target_folder)
