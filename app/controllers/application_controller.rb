@@ -59,12 +59,9 @@ class ApplicationController < ActionController::Base
 
   ['read', 'update', 'delete'].each do |method|
     define_method "require_#{method}_permission" do
-      unless current_user.send("can_#{method}", @folder) || (method == 'read' && @folder.is_root?)
-        if @folder.parent.nil?
-          redirect_to folder_url(Folder.root), :alert => t(:no_permissions_for_this_type, :method => t(:create), :type => t(:this_folder))
-        else
-          redirect_to folder_url(@folder.parent), :alert => t(:no_permissions_for_this_type, :method => t(:create), :type => t(:this_folder))
-        end
+      unless (method == 'read' && @folder.is_root?) || current_user.send("can_#{method}", @folder)
+        redirect_folder = @folder.parent.nil? ? Folder.root : @folder.parent
+        redirect_to folder_url(redirect_folder), :alert => t(:no_permissions_for_this_type, :method => t(:create), :type => t(:this_folder))
       end
     end
   end
