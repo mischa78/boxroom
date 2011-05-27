@@ -68,7 +68,7 @@ class FoldersController < ApplicationController
 
   # Overrides require_delete_permission in ApplicationController
   def require_delete_permission
-    unless current_user.can_delete(@folder) || @folder.is_root?
+    unless @folder.is_root? || current_user.can_delete(@folder)
       redirect_to folder_url(@folder.parent), :alert => t(:no_permissions_for_this_type, :method => t(:delete), :type =>t(:this_folder))
     else
       require_delete_permissions_for(@folder.children)
