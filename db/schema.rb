@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110106045414) do
+ActiveRecord::Schema.define(:version => 20110529123402) do
 
   create_table "folders", :force => true do |t|
     t.string   "name"
@@ -55,7 +55,6 @@ ActiveRecord::Schema.define(:version => 20110106045414) do
     t.string   "hashed_password"
     t.string   "password_salt"
     t.string   "is_admin"
-    t.string   "access_key"
     t.string   "remember_token"
     t.string   "reset_password_token"
     t.datetime "reset_password_token_expires_at"
