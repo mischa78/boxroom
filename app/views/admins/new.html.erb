@@ -2,7 +2,7 @@
 
 <h1><%= content_for :title %></h1>
 <p>
-	<%=t :no_administrator_yet %>
+	<%= t :no_administrator_yet %>
 </p>
 <%= form_for @user, :url => { :action => 'create' } do |f| %>
 	<%= f.error_messages %>

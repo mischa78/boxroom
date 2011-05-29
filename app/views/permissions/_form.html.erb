@@ -4,10 +4,10 @@
 		<tr>
 			<th></th>
 			<th></th>
-			<th class="permission_column"><%=t :create_permission %></th>
-			<th class="permission_column"><%=t :read_permission %></th>
-			<th class="permission_column"><%=t :update_permission %></th>
-			<th class="permission_column"><%=t :delete_permission %></th>
+			<th class="permission_column"><%= t :create_permission %></th>
+			<th class="permission_column"><%= t :read_permission %></th>
+			<th class="permission_column"><%= t :update_permission %></th>
+			<th class="permission_column"><%= t :delete_permission %></th>
 		</tr>
 		<% reset_cycle -%>
 		<% @folder.permissions.each do |permission| -%>
@@ -34,7 +34,7 @@
 	</table>
 	<p class="permissions_button">
 		<%= submit_tag t(:save) %>
-		<%= check_box_tag :recursive, true %> <%=t :apply_changes_to_subfolders %>
+		<%= check_box_tag :recursive, true %> <%= t :apply_changes_to_subfolders %>
 		&nbsp; &mdash; &nbsp;
 		<%= link_to_function t(:back), 'show_folder();' %>
 	</p>
