@@ -13,8 +13,9 @@ class User < ActiveRecord::Base
 
   before_save :clear_reset_password_token, :unless => :dont_clear_reset_password_token
   after_create :create_root_folder_and_admins_group, :if => :is_admin
+  before_destroy :dont_destroy_admin
 
-  ['create', 'read', 'update', 'delete'].each do |method|
+  %w{create read update delete}.each do |method|
     define_method "can_#{method}" do |folder|
       has_permission = false
       groups.each do |group|
@@ -80,5 +81,9 @@ class User < ActiveRecord::Base
   def create_root_folder_and_admins_group
     Folder.create(:name => 'Root folder')
     groups << Group.create(:name => 'Admins')
+  end
+
+  def dont_destroy_admin
+    raise "Can't delete original admin user" if is_admin
   end
 end

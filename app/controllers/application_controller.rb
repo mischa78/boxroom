@@ -57,7 +57,7 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  ['read', 'update', 'delete'].each do |method|
+  %w{read update delete}.each do |method|
     define_method "require_#{method}_permission" do
       unless (method == 'read' && @folder.is_root?) || current_user.send("can_#{method}", @folder)
         redirect_folder = @folder.parent.nil? ? Folder.root : @folder.parent

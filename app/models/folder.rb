@@ -12,6 +12,7 @@ class Folder < ActiveRecord::Base
 
   before_save :check_for_parent
   after_create :create_permissions, :unless => :is_copied_folder
+  before_destroy :dont_destroy_root_folder
 
   def copy(target_folder, originally_copied_folder = nil)
     new_folder = self.clone
@@ -91,5 +92,9 @@ class Folder < ActiveRecord::Base
         end
       end
     end
+  end
+
+  def dont_destroy_root_folder
+    raise "Can't delete Root folder" if is_root?
   end
 end
