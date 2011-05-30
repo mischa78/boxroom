@@ -21,6 +21,7 @@ Factory.define :user do |f|
   f.password_required true
   f.reset_password_token ''
   f.dont_clear_reset_password_token false
+  f.remember_token ''
   f.is_admin false
 end
 
