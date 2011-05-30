@@ -187,7 +187,7 @@ class UserTest < ActiveSupport::TestCase
 
     user.forget_me
     assert user.remember_token.blank?
-    assert !user.changed? # There are no unsaved changes, so `forget_me` saved the record
+    assert !user.changed? # There are no unsaved changes: `forget_me` saved the record
   end
 
   test 'authentication' do
