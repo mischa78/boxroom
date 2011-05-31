@@ -68,7 +68,7 @@
 				{ :controller => :clipboard, :action => :reset, :folder_id => @folder, :authenticity_token => form_authenticity_token }, :method => :put
 			%>
 			&nbsp; &mdash; &nbsp;
-			<%= link_to_function t(:back), 'show_folder();' %>
+			<%= link_to_function t(:back), "show_element('files_and_folders')" %>
 		</span>
 	</p>
 <% end -%>

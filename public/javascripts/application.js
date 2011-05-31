@@ -11,37 +11,19 @@ function fadeout(element)
 	}
 }
 
-function show_permissions()
+function show_element(element)
 {
-	if($('permissions').visible()) { show_folder(); return; }
-	if($('files_and_folders').visible()) { Effect.BlindUp('files_and_folders', { duration: 0.5 }); }
-	if($('clipboard').visible()) { Effect.BlindUp('clipboard', { duration: 0.5 }); }
+	elements = ['files_and_folders', 'permissions', 'clipboard'];
+	elements.splice(elements.indexOf(element), 1);
 
-	Effect.BlindDown('permissions', { delay: 0.5, duration: 0.5 });
+	elements.each(function(e) {
+		if($(e) != undefined && $(e).visible()) { Effect.BlindUp(e, { duration: 0.5 }); }
+	})
 
-	$('show_permissions_link').className = 'highlight';
-	$('show_clipboard_link').className = 'folder_menu';
-}
+	Effect.BlindDown(element, { delay: 0.5, duration: 0.5 });
+	if($('show_' + element + '_link') != undefined) { $('show_' + element + '_link').className = 'highlight'; }
 
-function show_folder()
-{
-	if($('permissions') != undefined && $('permissions').visible()) { Effect.BlindUp('permissions', { duration: 0.5 }); }
-	if($('clipboard').visible()) { Effect.BlindUp('clipboard', { duration: 0.5 }); }
-
-	Effect.BlindDown('files_and_folders', { delay: 0.5, duration: 0.5 });
-
-	if($('show_permissions_link') != undefined) { $('show_permissions_link').className = 'folder_menu'; }
-	$('show_clipboard_link').className = 'folder_menu';
-}
-
-function show_clipboard()
-{
-	if($('clipboard').visible()) { show_folder(); return; }
-	if($('permissions') != undefined && $('permissions').visible()) { Effect.BlindUp('permissions', { duration: 0.5 }); }
-	if($('files_and_folders').visible()) { Effect.BlindUp('files_and_folders', { duration: 0.5 }); }
-
-	Effect.BlindDown('clipboard', { delay: 0.5, duration: 0.5 });
-
-	$('show_clipboard_link').className = 'highlight';
-	if($('show_permissions_link') != undefined) { $('show_permissions_link').className = 'folder_menu'; }
+	elements.each(function(e) {
+		if($('show_' + e + '_link') != undefined) { $('show_' + e + '_link').className = 'folder_menu'; }
+	})
 }
