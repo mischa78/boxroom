@@ -6,6 +6,4 @@
 	<%= flash[:notice] %>
 </p>
 <% end -%>
-<%= form_for @group, :url => { :action => 'update' } do |f| %>
-	<%= render :partial => 'form', :locals => { :f => f } %>
-<% end %>
+<%= render 'form' %>

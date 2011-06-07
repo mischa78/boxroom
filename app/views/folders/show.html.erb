@@ -92,9 +92,9 @@
 </div>
 <% if current_user.member_of_admins? -%>
 <div id="permissions" style="display:none;">
-	<%= render :partial => 'permissions/form' %>
+	<%= render 'permissions/form' %>
 </div>
 <% end -%>
 <div id="clipboard" style="display:none;">
-	<%= render :partial => 'clipboard/show' %>
+	<%= render 'clipboard/show' %>
 </div>
