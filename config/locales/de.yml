@@ -1,0 +1,363 @@
+# German translations for Boxroom
+# Original Rails translation by Clemens Kofler (clemens@railway.at)
+# and Alexander Dreher - http://github.com/alexdreher - Rails 3 update
+#
+# see: https://github.com/svenfuchs/rails-i18n/blob/master/rails/locale/de.yml
+
+de:
+  date:
+    formats:
+      default: "%d.%m.%Y"
+      short: "%e. %b"
+      long: "%e. %B %Y"
+      only_day: "%e"
+
+    day_names: [Sonntag, Montag, Dienstag, Mittwoch, Donnerstag, Freitag, Samstag]
+    abbr_day_names: [So, Mo, Di, Mi, Do, Fr, Sa]
+    month_names: [~, Januar, Februar, März, April, Mai, Juni, Juli, August, September, Oktober, November, Dezember]
+    abbr_month_names: [~, Jan, Feb, Mär, Apr, Mai, Jun, Jul, Aug, Sep, Okt, Nov, Dez]
+    order:
+      - :day
+      - :month
+      - :year
+
+  time:
+    formats:
+      default: "%A, %d. %B %Y, %H:%M Uhr"
+      short: "%d. %B, %H:%M Uhr"
+      long: "%A, %d. %B %Y, %H:%M Uhr"
+      time: "%H:%M"
+
+    am: "vormittags"
+    pm: "nachmittags"
+
+  datetime:
+    distance_in_words:
+      half_a_minute: 'eine halbe Minute'
+      less_than_x_seconds:
+        one: 'weniger als eine Sekunde'
+        other: 'weniger als %{count} Sekunden'
+      x_seconds:
+        one: 'eine Sekunde'
+        other: '%{count} Sekunden'
+      less_than_x_minutes:
+        one: 'weniger als eine Minute'
+        other: 'weniger als %{count} Minuten'
+      x_minutes:
+        one: 'eine Minute'
+        other: '%{count} Minuten'
+      about_x_hours:
+        one: 'etwa eine Stunde'
+        other: 'etwa %{count} Stunden'
+      x_days:
+        one: 'ein Tag'
+        other: '%{count} Tage'
+      about_x_months:
+        one: 'etwa ein Monat'
+        other: 'etwa %{count} Monate'
+      x_months:
+        one: 'ein Monat'
+        other: '%{count} Monate'
+      almost_x_years:
+        one: 'fast ein Jahr'
+        other: 'fast %{count} Jahre'
+      about_x_years:
+        one: 'etwa ein Jahr'
+        other: 'etwa %{count} Jahre'
+      over_x_years:
+        one: 'mehr als ein Jahr'
+        other: 'mehr als %{count} Jahre'
+    prompts:
+      second: "Sekunden"
+      minute: "Minuten"
+      hour: "Stunden"
+      day: "Tag"
+      month: "Monat"
+      year: "Jahr"
+
+  number:
+    format:
+      precision: 2
+      separator: ','
+      delimiter: '.'
+      significant: false
+      strip_insignificant_zeros: false
+    currency:
+      format:
+        unit: '€'
+        format: '%n%u'
+        separator: ","
+        delimiter: ""
+        precision: 2
+        significant: false
+        strip_insignificant_zeros: false
+    percentage:
+      format:
+        delimiter: ""
+    precision:
+      format:
+        delimiter: ""
+    human:
+      format:
+        delimiter: ""
+        precision: 1
+        significant: true
+        strip_insignificant_zeros: true
+      storage_units:
+        # Storage units output formatting.
+        # %u is the storage unit, %n is the number (default: 2 MB)
+        format: "%n %u"
+        units:
+          byte:
+            one:   "Byte"
+            other: "Bytes"
+          kb: "KB"
+          mb: "MB"
+          gb: "GB"
+          tb: "TB"
+      decimal_units:
+        format: "%n %u"
+        units:
+          unit: ""
+          thousand: Tausend
+          million: Millionen
+          billion:
+            one: Milliarde
+            others: Milliarden
+          trillion: Billionen
+          quadrillion:
+            one: Billiarde
+            others: Billiarden
+
+  support:
+    array:
+      words_connector: ", "
+      two_words_connector: " und "
+      last_word_connector: " und "
+    select:
+      prompt: "Bitte wählen:"
+
+  activemodel:
+    errors:
+      template:
+        header:
+          one:    "Konnte %{model} nicht speichern: ein Fehler."
+          other:  "Konnte %{model} nicht speichern: %{count} Fehler."
+        body: "Bitte überprüfen Sie die folgenden Felder:"
+  helpers:
+    select:
+      prompt: "Bitte wählen"
+
+    submit:
+      create: '%{model} erstellen'
+      update: '%{model} aktualisieren'
+      submit: '%{model} speichern'
+
+  errors:
+    format: "%{attribute} %{message}"
+
+    messages: &errors_messages
+      inclusion: "ist kein gültiger Wert"
+      exclusion: "ist nicht verfügbar"
+      invalid: "ist nicht gültig"
+      confirmation: "stimmt nicht mit der Bestätigung überein"
+      accepted: "muss akzeptiert werden"
+      empty: "muss ausgefüllt werden"
+      blank: "muss ausgefüllt werden"
+      too_long: "ist zu lang (nicht mehr als %{count} Zeichen)"
+      too_short: "ist zu kurz (nicht weniger als %{count} Zeichen)"
+      wrong_length: "hat die falsche Länge (muss genau %{count} Zeichen haben)"
+      not_a_number: "ist keine Zahl"
+      greater_than: "muss größer als %{count} sein"
+      greater_than_or_equal_to: "muss größer oder gleich %{count} sein"
+      equal_to: "muss genau %{count} sein"
+      less_than: "muss kleiner als %{count} sein"
+      less_than_or_equal_to: "muss kleiner oder gleich %{count} sein"
+      odd: "muss ungerade sein"
+      even: "muss gerade sein"
+      not_an_integer: "muss ganzzahlig sein"
+
+  activerecord:
+    errors:
+      template:
+        header:
+          one:    "Konnte %{model} nicht speichern: ein Fehler."
+          other:  "Konnte %{model} nicht speichern: %{count} Fehler."
+        body: "Bitte überprüfen Sie die folgenden Felder:"
+
+      messages:
+        taken: "ist bereits vergeben"
+        record_invalid: "Gültigkeitsprüfung ist fehlgeschlagen: %{errors}"
+        <<: *errors_messages
+
+      full_messages:
+        format: "%{attribute} %{message}"
+
+    models:
+      clipboard: Zwischenablage
+      folder: Ordner
+      group: Gruppe
+      permission: Berechtigung
+      user: Benutzer
+
+    attributes:
+      folder:
+        name: Name
+      group:
+        name: Name
+      user:
+        email: Email
+        name: Name
+        password: Kennwort
+      user_file:
+        name: Name
+        attachment_file_name: Datei
+
+  # APPLICATION SPECIFIC
+
+  # general
+  back: Zurück
+  save: Speichern
+  name: Name
+  email: Email
+  submit: Senden
+
+  your_changes_were_saved: Ihre Einstellungen wurden erfolgreich gespeichert.
+  already_deleted: "Jemand hat %{type} bereits gelöscht. Die Aktion wurde abgebrochen."
+
+  # admins/new
+  create_admin: Administrator-Zugang erstellen
+  no_administrator_yet: Es gibt noch keinen Administrator-Zugang zu Boxroom. Hier können Sie einen anlegen.
+  create_admin_account: Konto erstellen
+  admin_user_created_successfully: Das Konto wurde erfolgreich erstellt. Sie können sich nun einloggen.
+
+  # clipboard/_show
+  folder: Ordner
+  file: Datei
+  this_folder: dieser Ordner
+  this_file: diese Datei
+  copy: Kopieren
+  copy_folder: Ordner kopieren
+  copy_file: Datei kopieren
+  move: Verschieben
+  move_folder: Ordner verschieben
+  move_file: Datei verschieben
+  are_you_sure: Sind Sie sicher?
+  delete: Löschen
+  remove_from_clipboard: Aus der Zwischenablage entfernen
+  clear_clipboard: Zwischenablage leeren
+
+  # files/edit
+  rename_file: Datei umbenennen
+
+  # files/new
+  select_file: Datei wählen
+  upload_file: Datei hochladen
+  upload: Hochladen
+
+  #folders/edit
+  rename_folder: Ordner umbenennen
+
+  #folders/new
+  new_folder: Neuen Ordner anlegen
+
+  #folders/show
+  create_a_new_folder: Neuen Ordner anlegen
+  upload_a_file: Datei hochladen
+  permissions: Berechtigungen
+  clipboard: Zwischenablage
+  size: Größe
+  date_modified: Letzte Änderung
+  up: nach oben
+  edit: Bearbeiten
+  add_to_clipboard: Zur Zwischenablage hinzufügen
+  download: Herunterladen
+
+  #groups/edit
+  rename_group: Gruppe umbenennen
+
+  #groups/index
+  groups: Gruppen
+  create_a_new_group: Neue Gruppe anlegen
+
+  #groups/new
+  new_group: Neue Gruppe anlegen
+
+  #permissions/form
+  create_permission: Erstellen
+  read_permission: Lesen
+  update_permission: Aktualisieren
+  delete_permission: Löschen
+  apply_changes_to_subfolders: Änderungen auf Unterordner anwenden
+
+  create: Erstellen
+  read: Lesen
+  update: Aktualisieren
+  delete: Löschen
+
+  #reset_password/edit
+  password: Kennwort
+  reset_password: Kennwort zurücksetzen
+  send_email: Absenden
+
+  #sessions
+  username: Benutzername
+  remember_me: Angemeldet bleiben
+  sign_in: Anmelden
+
+  #shared/_header
+  hello: Hallo
+  settings: Einstellungen
+  sign_out: Abmelden
+
+  #shared/_menu
+  folders: Ordner
+  users: Benutzer
+
+  #users/_form
+  member_of_these_groups: Mitglied in diesen Gruppen
+  confirm_password: Kennwort bestätigen
+
+  #users/index
+  create_a_new_user: Neuen Benutzer anlegen
+
+  #users/new
+  new_user: Neuen Benutzer anlegen
+
+  #admins/controller
+  admin_user_created_sucessfully: Der Administrator-Zugang wurde erfolgreich angelegt. Sie können sich nun anmelden.
+
+  #application_controller
+  no_permissions_for_this_type: "Sie haben keine Berechtigung um %{type} zu %{method}."
+
+  # clipboard_controller
+  added_to_clipboard: Erfolgreich zur Zwischenablage hinzugefügt.
+  could_not_copy: "Kopieren fehlgeschlagen. Ein %{type} dieses Namens existiert bereits."
+  could_not_move: "Verschieben fehlgeschlagen. Ein %{type} dieses Namens existiert bereits."
+  cannot_move_to_own_subfolder: Sie können einen Ordner nicht in einen seiner Unterordner verschieben.
+
+  # folders_controller
+  cannot_delete_root_folder: Das Haupt-Verzeichnis kann nicht gelöscht oder umbenannt werden.
+  no_delete_permissions_for_subfolder: "Sie haben keine Berechtigung, einen der Unterordner zu löschen."
+
+  # groups_controller
+  group_already_deleted: Jemand hat diese Gruppe bereits gelöscht. Die Aktion wurde abgebrochen.
+  admins_group_cannot_be_deleted: Die Administrator-Gruppe kann nicht gelöscht werden.
+
+  # reset_password_controller
+  instruction_email_sent: E-Mail erfolgreich verschickt. Bitte prüfen Sie Ihren Posteingang.
+  no_user_with_this_email: "Es existiert kein Benutzer mit der E-Mail Adresse '%{email}'. Bitte versuchen Sie es noch einmal."
+  password_reset_successfully: Ihr Kennwort wurde erfolgreich zurückgesetzt. Sie können sich nun anmelden.
+  reset_url_expired: Die URL zum Rücksetzen des Kennworts ist leider abgelaufen. Bitte probieren Sie es nochmals.
+
+  # sessions_controller
+  credentials_incorrect: Benutzername und/oder Kennwort falsch. Bitte probieren Sie es nochmals.
+
+  # users_controller
+  user_already_deleted: Jemand hat diesen Benutzer bereits gelöscht. Die Aktion wurde abgebrochen.
+  admin_user_cannot_be_deleted: Der Administrator-Zugang kann nicht gelöscht werden.
+  edit_user: Benutzer bearbeiten
+  account_settings: Kontoeinstellungen
+
+  # mailers/user_mailer
+  password_reset_subject: "[Boxroom] Anleitung zum Ändern Ihres Kennworts"
