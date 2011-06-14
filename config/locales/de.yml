@@ -206,7 +206,7 @@ de:
       group:
         name: Name
       user:
-        email: Email
+        email: E-Mail
         name: Name
         password: Kennwort
       user_file:
@@ -219,7 +219,7 @@ de:
   back: Zurück
   save: Speichern
   name: Name
-  email: Email
+  email: E-Mail
   submit: Senden
 
   your_changes_were_saved: Ihre Einstellungen wurden erfolgreich gespeichert.
