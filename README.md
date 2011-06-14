@@ -13,7 +13,7 @@ Report bugs here:
 https://github.com/mischa78/boxroom/issues/new
 
 Feature requests:  
-http://rubyforge.org/tracker/?group_id=1611
+http://rubyforge.org/tracker/?atid=6303&group_id=1611&func=browse
 
 
 Requirements
