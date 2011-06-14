@@ -34,12 +34,27 @@ Follow the these steps:
  6. Enjoy!
 
 
-Language
---------
+Languages
+---------
 
-Thanks to [Rob Halff](https://github.com/rhalff) Boxroom is now available in Dutch.
+Thanks to [Rob Halff](https://github.com/rhalff) and [Marcus Ilgner](https://github.com/milgner)
+Boxroom is now available in Dutch and German.
+
 To use Boxroom in Dutch, open `config/application.rb` and uncomment this line:
 
     # config.i18n.default_locale = :nl
 
+To use Boxroom in German, add the following line to `config/application.rb`:
+
+    config.i18n.default_locale = :de
+
 It would be great to have many more languages. I am waiting for your pull requests! ;-)
+
+
+Downloaded files are empty
+--------------------------
+
+If you encounter an issue with Boxroom where downloaded files are always empty,
+it may help to uncomment the following line in `config/environments/production.rb`:
+
+    # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect'
