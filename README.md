@@ -9,7 +9,10 @@ groups and the CRU/D rights these groups have on folders.
 For more info go to:  
 http://boxroom.rubyforge.org/
 
-Bugs and/or feature requests:  
+Report bugs here:  
+https://github.com/mischa78/boxroom/issues/new
+
+Feature requests:  
 http://rubyforge.org/tracker/?group_id=1611
 
 
@@ -36,7 +39,6 @@ Follow the these steps:
 
 Languages
 ---------
-
 Thanks to [Rob Halff](https://github.com/rhalff) and [Marcus Ilgner](https://github.com/milgner)
 Boxroom is now available in Dutch and German.
 
@@ -53,7 +55,6 @@ It would be great to have many more languages. I am waiting for your pull reques
 
 Downloaded files are empty
 --------------------------
-
 If you encounter an issue with Boxroom where downloaded files are always empty,
 it may help to uncomment the following line in `config/environments/production.rb`:
 
