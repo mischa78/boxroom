@@ -10,7 +10,7 @@ class ResetPasswordController < ApplicationController
 
     unless user.nil?
       user.refresh_reset_password_token
-      UserMailer.reset_password_email(user).deliver 
+      UserMailer.reset_password_email(user).deliver
       flash[:notice] = t(:instruction_email_sent)
     else
       flash[:alert] = t(:no_user_with_this_email, :email => params[:email]);
@@ -19,12 +19,12 @@ class ResetPasswordController < ApplicationController
     redirect_to new_reset_password_url
   end
 
-  # @user is set in require_valid_token
+  # Note: @user is set in require_valid_token
   def edit
     @user.password_required = true
   end
 
-  # @user is set in require_valid_token
+  # Note: @user is set in require_valid_token
   def update
     if @user.update_attributes(params[:user].merge({ :password_required => true }))
       redirect_to new_session_url, :notice => t(:password_reset_successfully)
