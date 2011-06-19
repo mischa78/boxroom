@@ -18,7 +18,7 @@
 	</p>
 	<% if current_user.member_of_admins? -%>
 	<p>
-		<%= t(:member_of_these_groups) %>:
+		<%= t :member_of_these_groups %>:
 		<span class="user_groups">
 		<% Group.all.each do |group| -%>
 		<% if @user.is_admin && group.admins_group? -%>
