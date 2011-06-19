@@ -7,6 +7,11 @@ Factory.define :group do |f|
   f.sequence(:name) { |i| "test#{i}" }
 end
 
+Factory.define :share_link do |f|
+  f.emails 'email1@domain.com, email2@domain.com'
+  f.link_expires_at { 2.weeks.from_now.end_of_day }
+end
+
 Factory.define :user_file do |f|
   f.attachment { fixture_file }
   f.sequence(:attachment_file_name) { |i| "test#{i}.txt" }

@@ -25,6 +25,7 @@ de:
     formats:
       default: "%A, %d. %B %Y, %H:%M Uhr"
       short: "%d. %B, %H:%M Uhr"
+      very_short: "%d. %B %Y"
       long: "%A, %d. %B %Y, %H:%M Uhr"
       time: "%H:%M"
 
@@ -198,13 +199,18 @@ de:
       folder: Ordner
       group: Gruppe
       permission: Berechtigung
+      share_link: Share link
       user: Benutzer
+      user_file: Datei
 
     attributes:
       folder:
         name: Name
       group:
         name: Name
+      share_link:
+        emails: Email addresses
+        expires_at: Expires
       user:
         email: E-Mail
         name: Name
@@ -272,6 +278,7 @@ de:
   edit: Bearbeiten
   add_to_clipboard: Zur Zwischenablage hinzufügen
   download: Herunterladen
+  share: Share
 
   #groups/edit
   rename_group: Gruppe umbenennen
@@ -305,6 +312,35 @@ de:
   remember_me: Angemeldet bleiben
   sign_in: Anmelden
 
+  #share_links/index
+  unshare: Unshare
+
+  #share_links/show
+  share_link_expired: This download link expired already.
+
+  #share_links/new
+  this_share_link: this share link
+  share_files: Share files
+  you_are_about_to_share_the_following_file: You are about to share the following file
+  emails_to_share_with: Email addresses of the people you wish to share this file with
+  comma_seperated: Comma seperated
+  number_of_charachters: Number of characters
+  link_expires: Expiry date of the link we will send
+  tomorrow: Tomorrow
+  three_days_from_now: Three days from now
+  one_week_from_now: A week from now
+  ten_days_from_now: Ten days from now
+  two_weeks_from_now: Two weeks from now
+  three_weeks_from_now: Three weeks from now
+  one_month_from_now: A month from now
+  two_months_from_now: Two months from now
+  three_months_from_now: Three months from now
+  half_year_from_now: A half year from now
+  download_link_could_not_be_sent: The download link could not be sent
+  are_invalid_due_to: "is invalid due to %{email}"
+  download_link_email_subject: '[Boxroom] Someone shared a file with you'
+  shared_successfully: The file was shared successfully.
+
   #shared/_header
   hello: Hallo
   settings: Einstellungen
@@ -313,6 +349,7 @@ de:
   #shared/_menu
   folders: Ordner
   users: Benutzer
+  shared_files: Shared files
 
   #users/_form
   member_of_these_groups: Mitglied in diesen Gruppen
@@ -360,4 +397,4 @@ de:
   account_settings: Kontoeinstellungen
 
   # mailers/user_mailer
-  password_reset_subject: "[Boxroom] Anleitung zum Ändern Ihres Kennworts"
+  reset_password_email_subject: "[Boxroom] Anleitung zum Ändern Ihres Kennworts"

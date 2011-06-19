@@ -83,7 +83,8 @@
 				<%= link_to image_tag('clipboard_add.png', :alt => t(:add_to_clipboard)),
 					{ :controller => :clipboard, :action => :create, :id => file.id, :type => 'file', :folder_id => @folder, :authenticity_token => form_authenticity_token },
 					:method => :post, :title => t(:add_to_clipboard)
-				%>
+				%>&nbsp;
+				<%= link_to image_tag('share.png', :alt => t(:share)), new_file_share_link_path(file), :title => t(:share) %>
 			</td>
 		</tr>
 		<% end -%>

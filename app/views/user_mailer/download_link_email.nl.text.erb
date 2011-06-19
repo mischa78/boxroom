@@ -1,0 +1,9 @@
+Geachte ontvanger,
+
+Gebruiker <%= @user.name %> (<%= @user.email %>) heeft een bestand met u gedeeld.
+
+Gebruik onderstaande URL om het bestand te downloaden:
+
+    <%= share_link_url(:id => @share_link.link_token) %>
+
+De vervaldatum van bovenstaande URL is <%= l @share_link.link_expires_at, :format => :long %>.

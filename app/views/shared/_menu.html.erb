@@ -5,6 +5,7 @@
 	<% if current_user.member_of_admins? -%>
 		<%= link_to t(:users), users_path %> &nbsp; &nbsp;
 		<%= link_to t(:groups), groups_path %> &nbsp; &nbsp;
+		<%= link_to t(:shared_files), share_links_path %>
 	<% end -%>
 	<% end -%>
 		&nbsp;

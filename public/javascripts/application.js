@@ -27,3 +27,9 @@ function show_element(element)
 		if($('show_' + e + '_link') != undefined) { $('show_' + e + '_link').className = 'folder_menu'; }
 	})
 }
+
+function update_counter(element, counter)
+{
+	$(counter).innerHTML = element.value.length;
+	$(counter).style.color = element.value.length > 256 ? '#F00' : '#000';
+}

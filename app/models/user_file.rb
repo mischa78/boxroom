@@ -2,6 +2,7 @@ class UserFile < ActiveRecord::Base
   has_attached_file :attachment, :path => ':rails_root/uploads/:rails_env/:id/:style/:id'
 
   belongs_to :folder
+  has_many :share_links, :dependent => :destroy
 
   validates_attachment_presence :attachment, :message => I18n.t(:blank, :scope => [:activerecord, :errors, :messages])
   validates_presence_of :folder_id

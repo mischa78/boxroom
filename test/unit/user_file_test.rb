@@ -1,6 +1,27 @@
 require 'test_helper'
 
 class UserFileTest < ActiveSupport::TestCase
+  test 'dependent share links get deleted' do
+    file1 = Factory(:user_file)
+    assert_equal UserFile.all.count, 1
+
+    3.times { Factory(:share_link, :user_file => file1) }
+    assert_equal file1.share_links.count, 3
+
+    file2 = Factory(:user_file)
+    assert_equal UserFile.all.count, 2
+
+    5.times { Factory(:share_link, :user_file => file2) }
+    assert_equal file2.share_links.count, 5
+    assert_equal ShareLink.all.count, 8
+
+    file1.destroy
+    assert_equal ShareLink.all.count, 5
+
+    file2.destroy
+    assert_equal ShareLink.all.count, 0
+  end
+
   test 'attachment is not empty' do
     folder = Factory(:folder)
     file = UserFile.new(:folder => folder)

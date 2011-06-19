@@ -9,6 +9,7 @@ Boxroom::Application.routes.draw do
   resources :users, :except => :show
   resources :groups, :except => :show
   resources :files, :except => [:index, :new, :create]
+  resources :share_links, :only => [:index, :show, :destroy]
 
   resources :clipboard, :only => [:create, :destroy] do
     post 'copy', :on => :member
@@ -25,6 +26,10 @@ Boxroom::Application.routes.draw do
   resources :folders, :shallow => true, :except => [:new, :create] do
     resources :folders, :only => [:new, :create]
     resources :files, :only => [:new, :create]
+  end
+
+  resources :files, :shallow => :true, :only => :show do
+    resources :share_links, :only => [:new, :create]
   end
 
   # You can have the root of your site routed with "root"

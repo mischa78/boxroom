@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110529123402) do
+ActiveRecord::Schema.define(:version => 20110616215033) do
 
   create_table "folders", :force => true do |t|
     t.string   "name"
@@ -37,6 +37,15 @@ ActiveRecord::Schema.define(:version => 20110529123402) do
     t.boolean "can_read"
     t.boolean "can_update"
     t.boolean "can_delete"
+  end
+
+  create_table "share_links", :force => true do |t|
+    t.string   "emails"
+    t.string   "link_token"
+    t.datetime "link_expires_at"
+    t.integer  "user_file_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "user_files", :force => true do |t|

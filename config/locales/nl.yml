@@ -25,6 +25,7 @@ nl:
     formats:
       default: "%a %d %b %Y %H:%M:%S %Z"
       short: "%d %b %H:%M"
+      very_short: "%d %b %Y"
       long: "%d %B %Y %H:%M"
       time: "%H:%M"
       only_second: "%S"
@@ -190,7 +191,8 @@ nl:
       clipboard: Klembord
       folder: Map
       group: Groep
-      permission: Permissie
+      permission: Bevoegdheid
+      share_link: Gedeelde link
       user: Gebruiker
       user_file: Bestand
 
@@ -199,6 +201,9 @@ nl:
         name: Naam
       group:
         name: Naam
+      share_link:
+        emails: E-mailadressen
+        expires_at: Vervaldatum
       user:
         email: E-mail
         name: Naam
@@ -266,6 +271,7 @@ nl:
   edit: Wijzigen
   add_to_clipboard: Op klembord plaatsen
   download: Download
+  share: Delen
 
   #groups/edit
   rename_group: Groepnaam wijzigen
@@ -299,6 +305,35 @@ nl:
   remember_me: Onthoud mij
   sign_in: Inloggen
 
+  #share_links/index
+  unshare: Delen ongedaan maken
+
+  #share_links/show
+  share_link_expired: De vervaldatum van deze download link is al verstreken.
+
+  #share_links/new
+  this_share_link: this share link
+  share_file: Bestand delen
+  you_are_about_to_share_the_following_file: U staat op het punt het volgende bestand te delen
+  emails_to_share_with: E-mailadressen van de mensen waarmee u dit bestand wilt delen
+  comma_seperated: Gescheiden door komma's
+  number_of_charachters: Aantal tekens
+  link_expires: Vervaldatum
+  tomorrow: Morgen
+  three_days_from_now: Over drie dagen
+  one_week_from_now: Over een week
+  ten_days_from_now: Over tien dagen
+  two_weeks_from_now: Over twee weken
+  three_weeks_from_now: Over drie weken
+  one_month_from_now: Over een maand
+  two_months_from_now: Over twee maanden
+  three_months_from_now: Over drie maanden
+  half_year_from_now: Over een half jaar
+  download_link_could_not_be_sent: De download link kon niet verstuurd worden
+  are_invalid_due_to: "is ongeldig vanwege %{email}"
+  download_link_email_subject: '[Boxroom] Iemand heeft en bestand met u gedeeld'
+  shared_successfully: De download link is verstuurd.
+
   #shared/_header
   hello: Hallo
   settings: Instellingen
@@ -307,6 +342,7 @@ nl:
   #shared/_menu
   folders: Mappen
   users: Gebruikers
+  shared_files: Gedeelde bestanden
 
   #users/_form
   member_of_these_groups: Lid van deze groepen
@@ -354,4 +390,4 @@ nl:
   account_settings: Mijn instellingen
 
   # mailers/user_mailer
-  password_reset_subject: "[Boxroom] Instructies om uw wachtwoord te resetten"
+  reset_password_email_subject: "[Boxroom] Instructies om uw wachtwoord te resetten"
