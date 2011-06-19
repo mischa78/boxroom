@@ -45,7 +45,7 @@ class User < ActiveRecord::Base
   end
 
   def refresh_reset_password_token
-    self.reset_password_token = SecureRandom.hex(16)
+    self.reset_password_token = SecureRandom.hex(10)
     self.reset_password_token_expires_at = 1.hour.from_now
     self.dont_clear_reset_password_token = true
     save(:validate => false)
