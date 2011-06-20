@@ -6,7 +6,7 @@ files in a web browser. To make this possible the application lets users create
 folders and upload and download files. For admins it is possible to create users,
 groups and the CRU/D rights these groups have on folders.
 
-For more info go to:  
+Website:  
 http://boxroom.rubyforge.org/
 
 Report bugs here:  
@@ -42,13 +42,17 @@ Languages
 Thanks to [Rob Halff](https://github.com/rhalff) and [Marcus Ilgner](https://github.com/milgner)
 Boxroom is now available in Dutch and German.
 
-To use Boxroom in Dutch, open `config/application.rb` and uncomment this line:
+English is the default. To change the language, open `config/application.rb` and change the following line:
 
-    # config.i18n.default_locale = :nl
+    config.i18n.default_locale = :en
 
-To use Boxroom in German, add the following line to `config/application.rb`:
+to:
 
-    config.i18n.default_locale = :de
+    config.i18n.default_locale = :nl # Dutch
+
+or:
+
+    config.i18n.default_locale = :de # German
 
 It would be great to have many more languages. I am waiting for your pull requests! ;-)
 
