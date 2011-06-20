@@ -40,10 +40,10 @@ Follow the these steps:
 Mail settings
 -------------
 Boxroom sends email when users want to reset their password or when they share files.
-For this to work, you have op to open `config/environments/production.rb`, uncomment
+For this to work, depending on your environment, you have op to open
+`config/environments/development.rb` or `config/environments/production.rb`, uncomment
 the following lines and fill in the correct settings of your mail server:
 
-    # config.action_mailer.default_url_options = { :host => 'localhost:3000' }
     # config.action_mailer.delivery_method = :smtp
     # config.action_mailer.smtp_settings = {
     #   :address => 'mailhost',
@@ -52,6 +52,11 @@ the following lines and fill in the correct settings of your mail server:
     #   :password => 'password',
     #   :authentication => 'plain'
     # }
+
+In order for Boxroom to send a user to the correct URL for either downloading a shared
+file or resetting passwords, you have to uncomment and update the following:
+
+    # config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 
 You also have to choose a from address for the emails that will be sent. You can do
 this by uncommenting and adjusting the following line:
