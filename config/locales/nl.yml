@@ -331,7 +331,7 @@ nl:
   half_year_from_now: Over een half jaar
   download_link_could_not_be_sent: De download link kon niet verstuurd worden
   are_invalid_due_to: "is ongeldig vanwege %{email}"
-  download_link_email_subject: '[Boxroom] Iemand heeft en bestand met u gedeeld'
+  download_link_email_subject: '[Boxroom] Iemand heeft een bestand met u gedeeld'
   shared_successfully: De download link is verstuurd.
 
   #shared/_header
