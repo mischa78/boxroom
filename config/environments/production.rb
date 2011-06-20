@@ -48,7 +48,6 @@ Boxroom::Application.configure do
   config.active_support.deprecation = :notify
 
   # Mail settings
-  # config.action_mailer.default_url_options = { :host => 'localhost:3000' }
   # config.action_mailer.delivery_method = :smtp
   # config.action_mailer.smtp_settings = {
   #   :address => 'mailhost',
@@ -57,6 +56,9 @@ Boxroom::Application.configure do
   #   :password => 'password',
   #   :authentication => 'plain'
   # }
+
+  # Host
+  # config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 
   # From address
   # ActionMailer::Base.default :from => 'Boxroom <yourname@yourdomain.com>'
