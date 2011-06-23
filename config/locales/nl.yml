@@ -187,6 +187,7 @@ nl:
 
       full_messages:
         format: "%{attribute} %{message}"
+
     models:
       clipboard: Klembord
       folder: Map
