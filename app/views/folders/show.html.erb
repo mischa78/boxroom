@@ -56,7 +56,7 @@
 				<%= link_to image_tag('edit.png', :alt => t(:edit)), edit_folder_path(folder), :title => t(:edit) %>&nbsp;
 			<% end -%>
 			<% if current_user.can_delete(folder) -%>
-				<%= link_to image_tag('delete.png', :alt => t(:delete)), folder_path(folder), :method => 'delete', :confirm => t(:are_you_sure), :title => t(:delete) %>&nbsp;
+				<%= link_to image_tag('delete.png', :alt => t(:delete_item)), folder_path(folder), :method => :delete, :confirm => t(:are_you_sure), :title => t(:delete_item) %>&nbsp;
 			<% end -%>
 				<%= link_to image_tag('clipboard_add.png', :alt => t(:add_to_clipboard)),
 					{ :controller => :clipboard, :action => :create, :id => folder.id, :type => 'folder', :folder_id => @folder, :authenticity_token => form_authenticity_token },
@@ -78,7 +78,7 @@
 				<%= link_to image_tag('edit.png', :alt => t(:edit)), edit_file_path(file), :title => t(:edit) %>&nbsp;
 			<% end -%>
 			<% if current_user.can_delete(file.folder) -%>
-				<%= link_to image_tag('delete.png', :alt => t(:delete)), file_path(file), :method => 'delete', :confirm => t(:are_you_sure), :title => t(:delete) %>&nbsp;
+				<%= link_to image_tag('delete.png', :alt => t(:delete_item)), file_path(file), :method => :delete, :confirm => t(:are_you_sure), :title => t(:delete_item) %>&nbsp;
 			<% end -%>
 				<%= link_to image_tag('clipboard_add.png', :alt => t(:add_to_clipboard)),
 					{ :controller => :clipboard, :action => :create, :id => file.id, :type => 'file', :folder_id => @folder, :authenticity_token => form_authenticity_token },

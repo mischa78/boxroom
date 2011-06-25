@@ -243,7 +243,7 @@ nl:
   move_folder: Map verplaatsen
   move_file: Bestand verplaatsen
   are_you_sure: Weet u het zeker?
-  delete: Verwijder
+  delete_item: Verwijderen
   remove_from_clipboard: Verwijder van klembord
   clear_clipboard: Klembord legen
 

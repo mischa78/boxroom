@@ -26,7 +26,7 @@
 		<td class="group_name"><%= group.name %></td>
 		<td>
 			<%= link_to image_tag('edit.png', :alt => t(:edit)), edit_group_path(group), :title => t(:edit) %>&nbsp;
-			<%= link_to image_tag('delete.png', :alt => t(:delete)), group_path(group), :method => 'delete', :confirm => t(:are_you_sure), :title => t(:delete) %>
+			<%= link_to image_tag('delete.png', :alt => t(:delete_item)), group_path(group), :method => :delete, :confirm => t(:are_you_sure), :title => t(:delete_item) %>
 		</td>
 	<% end -%>
 	</tr>

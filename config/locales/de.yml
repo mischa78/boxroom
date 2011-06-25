@@ -249,7 +249,7 @@ de:
   move_folder: Ordner verschieben
   move_file: Datei verschieben
   are_you_sure: Sind Sie sicher?
-  delete: Löschen
+  delete_item: Löschen
   remove_from_clipboard: Aus der Zwischenablage entfernen
   clear_clipboard: Zwischenablage leeren
 

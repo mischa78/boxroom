@@ -240,7 +240,7 @@
   move_folder: Move folder
   move_file: Move file
   are_you_sure: Are you sure?
-  delete: Delete
+  delete_item: Delete
   remove_from_clipboard: Remove from clipboard
   clear_clipboard: Clear clipboard
 
