@@ -2,7 +2,7 @@
 
 <h1><%= content_for :title %></h1>
 <%= form_for [@file, @share_link], :url => { :action => 'create' } do |f| %>
-	<%= f.error_messages :header_message => t(:download_link_could_not_be_sent) %>
+	<%= f.error_messages :header_message => t(:share_link_could_not_be_sent) %>
 	<p>
 		<%= t :you_are_about_to_share_the_following_file %>:<br>
 		<span class="shared_file">

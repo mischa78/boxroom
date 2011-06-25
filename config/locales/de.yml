@@ -336,9 +336,9 @@ de:
   two_months_from_now: Two months from now
   three_months_from_now: Three months from now
   half_year_from_now: A half year from now
-  download_link_could_not_be_sent: The download link could not be sent
+  share_link_could_not_be_sent: The download link could not be sent
   are_invalid_due_to: "is invalid due to %{email}"
-  download_link_email_subject: '[Boxroom] Someone shared a file with you'
+  share_link_email_subject: '[Boxroom] Someone shared a file with you'
   shared_successfully: The file was shared successfully.
 
   #shared/_header

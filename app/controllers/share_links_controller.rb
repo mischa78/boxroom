@@ -24,7 +24,7 @@ class ShareLinksController < ApplicationController
     @share_link = @file.share_links.build(params[:share_link])
 
     if @share_link.save
-      UserMailer.download_link_email(current_user, @share_link).deliver
+      UserMailer.share_link_email(current_user, @share_link).deliver
       redirect_to folder_url(@folder), :notice => t(:shared_successfully)
     else
       render :action => 'new'
