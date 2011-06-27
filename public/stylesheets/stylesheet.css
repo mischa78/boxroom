@@ -55,6 +55,8 @@ hr { border: 0; width: 800px; margin: 15px 0 10px 15px; color: #CCC; background-
 .clipboard_empty { display: inline-block; width: 755px; margin-top: 15px; padding: 10px; border: 5px solid #CCC; font-size: 14pt; color: #777; background-color: #EEE; }
 .clipboard_info_image { float: left; margin: 3px 12px 0 3px; }
 .button_to, .button_to div { display: inline; }
+.button_to { margin-left: 15px; }
+.clear_and_back { margin-top: 15px; }
 .emails_to_share_with { height: 39px; width: 722px; }
 .shared_file { display: inline-block; min-width: 400px; padding: 15px; background-color: #EEE; }
 .shared_file img { margin-right: 8px; }
