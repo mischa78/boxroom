@@ -209,8 +209,8 @@ de:
       group:
         name: Name
       share_link:
-        emails: Email addresses
-        expires_at: Expires
+        emails: E-Mail Adressen
+        expires_at: Läuft ab am
       user:
         email: E-Mail
         name: Name
@@ -278,7 +278,7 @@ de:
   edit: Bearbeiten
   add_to_clipboard: Zur Zwischenablage hinzufügen
   download: Herunterladen
-  share: Share
+  share: Freigeben
 
   #groups/edit
   rename_group: Gruppe umbenennen
@@ -313,33 +313,33 @@ de:
   sign_in: Anmelden
 
   #share_links/index
-  unshare: Unshare
+  unshare: Freigabe aufheben
 
   #share_links/show
-  share_link_expired: This download link expired already.
+  share_link_expired: Dieser Download-Link ist bereits abgelaufen.
 
   #share_links/new
-  this_share_link: this share link
-  share_file: Share file
-  you_are_about_to_share_the_following_file: You are about to share the following file
-  emails_to_share_with: Email addresses of the people you wish to share this file with
-  comma_seperated: Comma seperated
-  number_of_charachters: Number of characters
-  link_expires: Expiry date of the link we will send
-  tomorrow: Tomorrow
-  three_days_from_now: Three days from now
-  one_week_from_now: A week from now
-  ten_days_from_now: Ten days from now
-  two_weeks_from_now: Two weeks from now
-  three_weeks_from_now: Three weeks from now
-  one_month_from_now: A month from now
-  two_months_from_now: Two months from now
-  three_months_from_now: Three months from now
-  half_year_from_now: A half year from now
-  download_link_could_not_be_sent: The download link could not be sent
-  are_invalid_due_to: "is invalid due to %{email}"
-  download_link_email_subject: '[Boxroom] Someone shared a file with you'
-  shared_successfully: The file was shared successfully.
+  this_share_link: Dieser Freigabe-Link
+  share_file: Datei freigeben
+  you_are_about_to_share_the_following_file: Sie möchten die folgende Datei freigeben
+  emails_to_share_with: E-Mail Adressen, für welche die Datei freigegeben werden soll
+  comma_seperated: Komma-separiert
+  number_of_charachters: Anzahl d. Zeichen
+  link_expires: Ablaufdatum
+  tomorrow: Morgen
+  three_days_from_now: In drei Tagen
+  one_week_from_now: In einer Woche
+  ten_days_from_now: In zehn Tagen
+  two_weeks_from_now: In zwei Wochen
+  three_weeks_from_now: In drei Wochen
+  one_month_from_now: In einem Monat
+  two_months_from_now: In zwei Monaten
+  three_months_from_now: In drei Monaten
+  half_year_from_now: In einem halben Jahr
+  download_link_could_not_be_sent: Die Download-URL konnte nicht versendet werden.
+  are_invalid_due_to: "Die Adresse %{email} ist ungültig."
+  download_link_email_subject: '[Boxroom] Jemand möchte Ihnen eine Datei freigeben'
+  shared_successfully: Die Datei wurde erfolgreich freigegeben.
 
   #shared/_header
   hello: Hallo
@@ -349,7 +349,7 @@ de:
   #shared/_menu
   folders: Ordner
   users: Benutzer
-  shared_files: Shared files
+  shared_files: Freigegebene Dateien
 
   #users/_form
   member_of_these_groups: Mitglied in diesen Gruppen
