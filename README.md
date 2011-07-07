@@ -9,11 +9,8 @@ groups and the CRU/D rights these groups have on folders.
 Website:  
 http://boxroom.rubyforge.org/
 
-Report bugs here:  
+Bug reports and feature requests:  
 https://github.com/mischa78/boxroom/issues/new
-
-Feature requests:  
-http://rubyforge.org/tracker/?atid=6303&group_id=1611&func=browse
 
 
 Requirements
