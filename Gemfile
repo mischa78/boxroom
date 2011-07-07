@@ -1,5 +1,6 @@
 source 'http://rubygems.org'
 
+gem 'rake', '0.8.7'
 gem 'rails'
 gem 'dynamic_form'
 gem 'acts_as_tree'
