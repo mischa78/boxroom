@@ -1,9 +1,9 @@
-Dear recipient,
+Gentile utente,
 
-User <%= @user.name %> (<%= @user.email %>) has shared a file with you.
+L'utente <%= @user.name %> (<%= @user.email %>) ha condiviso un file con te.
 
-Use the link following URL to download your file:
+Clicca sul seguente URL per scaricare il file:
 
     <%= share_link_url(:id => @share_link.link_token) %>
 
-The URL above will expire at <%= l @share_link.link_expires_at, :format => :long %>.
+L'URL indicato sopra scadrà <%= l @share_link.link_expires_at, :format => :long %>.
