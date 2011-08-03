@@ -40,7 +40,7 @@
 
   number:
     format:
-			precision: 2
+      precision: 2
       separator: ","
       delimiter: "."
       significant: false
