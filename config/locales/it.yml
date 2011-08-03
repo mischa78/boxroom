@@ -48,7 +48,7 @@
 
     currency:
       format:
-				unit: "€"
+        unit: "€"
         format: "%u%n"
         separator: ","
         delimiter: "."
@@ -86,17 +86,17 @@
           unit: ""
           thousand: Mille
           million: 
-						one: Milione
-						others: Milioni
-          billion: 
-						one: Miliardo
-						others: Miliardi
+            one: Milione
+            others: Milioni
+          billion:
+            one: Miliardo
+            others: Miliardi
           trillion:
-						one: Trilione
-						others: Trilioni
+            one: Trilione
+            others: Trilioni
           quadrillion:
-						one: Quadrilione
-						others: Quadrilioni
+            one: Quadrilione
+            others: Quadrilioni
 
   datetime:
     distance_in_words:
