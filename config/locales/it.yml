@@ -29,15 +29,13 @@
     am: "am"
     pm: "pm"
 
-#------------------------------------------------------------------------------------------------ fin qui sistemato 
-
   support:
     array:
       words_connector: ", "
-      two_words_connector: " e "   #----------------------------------------------------------------------blocco modificato
+      two_words_connector: " e "
       last_word_connector: ", e "
 
-    select: #----------------------------------------------------------------------blocco modificato
+    select:
       prompt: "Seleziona"
 
   number:
@@ -92,7 +90,7 @@
           trillion: Trillion
           quadrillion: Quadrillion
 
-  datetime:  #----------------------------------------------------------------------blocco modificato
+  datetime:
     distance_in_words:
       half_a_minute: "mezzo minuto"
       less_than_x_seconds:
@@ -136,19 +134,17 @@
       minute: "Minuto"
       second: "Secondi"
 
-  helpers: #----------------------------------------------------------------------blocco modificato
+  helpers:
     select:
       prompt: "Seleziona"
 
-    submit: #----------------------------------------------------------------------blocco modificato
+    submit:
       create: 'Crea %{model}'
       update: 'Carica %{model}'
       submit: 'Salva %{model}'
 
-  errors:    #------------------------------------------------------------------rimane tale
+  errors:
     format: "%{attribute} %{message}"
-
-      #----------------------------------------------------------------------blocco modificato------------------
 
     messages: &errors_messages
       inclusion: "non è incluso nella lista"
@@ -189,8 +185,8 @@
       full_messages:
         format: "%{attribute} %{message}"
 
-    models:      #--------------------blocco modificato------------------
-      clipboard: Clipboard        #rivedi
+    models:
+      clipboard: Clipboard
       folder: Cartella
       group: Gruppo
       permission: Permessi
@@ -216,7 +212,7 @@
 
   # APPLICATION SPECIFIC
 
-  # general    --------------------blocco modificato------------------
+  # general
   back: Indietro
   save: Salva
   name: Nome
@@ -245,83 +241,82 @@
   move_file: Sposta file
   are_you_sure: Sei sicuro?
   delete_item: Elimina
-  remove_from_clipboard: Remove from clipboard     #rivedi
-  clear_clipboard: Clear clipboard								 #rivedi
+  remove_from_clipboard: Remove from clipboard
+  clear_clipboard: Clear clipboard
 
-  # files/edit		--------------------blocco modificato------------------
+  # files/edit
   rename_file: Rinomina file
 
-  # files/new		--------------------blocco modificato ????------------------
+  # files/new
   select_file: Seleziona file
   upload_file: Carica file
   upload: Carica
 
-  #folders/edit		--------------------blocco modificato------------------
+  #folders/edit
   rename_folder: Rinomina cartella
 
-  #folders/new		--------------------blocco modificato------------------
+  #folders/new
   new_folder: Nuova cartella
 
   #folders/show
   create_a_new_folder: Crea una nuova cartella
   upload_a_file: Carica un file
-  permissions: Permessi     
-  clipboard: Clipboard				    #rivedi
-  size: Dimensione								   
+  permissions: Permessi
+  clipboard: Clipboard
+  size: Dimensione
   date_modified: Data modifica
-  up: up												    #rivedi
-  edit: Edit										    #rivedi
-  add_to_clipboard: Add to clipboard        #rivedi
+  up: up
+  edit: Edit
+  add_to_clipboard: Add to clipboard
   download: Scarica
   share: Condividi
 
-  #groups/edit		--------------------blocco modificato------------------
+  #groups/edit
   rename_group: Rinomina gruppo
 
-  #groups/index		--------------------blocco modificato------------------
+  #groups/index
   groups: Gruppi
   create_a_new_group: Aggiungi un nuovo gruppo
 
-  #groups/new 	--------------------blocco modificato------------------
+  #groups/new
   new_group: Nuovo gruppo
 
-  #permissions/form  	--------------------blocco modificato------------------
+  #permissions/form
   create_permission: Aggiungi
   read_permission: Leggi
   update_permission: Aggiorna
   delete_permission: Elimina
   apply_changes_to_subfolders: Applica modifiche alle sottocartelle
 
-#					 	--------------------blocco modificato------------------
   create: aggiungi
   read: leggi
   update: aggiorna
   delete: elimina
 
-  #reset_password/edit    	--------------------blocco modificato------------------
+  #reset_password/edit
   password: Password
   reset_password: Modifica password
   send_email: Invia
 
-  #sessions     	--------------------blocco modificato------------------
+  #sessions
   username: Username
   remember_me: Ricordami
   sign_in: Accedi
 
-  #share_links/index       	--------------------blocco modificato------------------
+  #share_links/index
   unshare: Annulla la condivisione
 
-  #share_links/show  	--------------------blocco modificato------------------
+  #share_links/show
   share_link_expired: Questo link per il download è già scaduto.
 
-  #share_links/new   	--------------------blocco modificato------------------
-  this_share_link: this share link					    #rivedi
+  #share_links/new
+  this_share_link: this share link
   share_file: Condividi file
-  you_are_about_to_share_the_following_file: Stai per condividere il seguente file			
-  emails_to_share_with: Inserisci gli indirizzi email con i quali vuoi condividere il file					   
-  comma_seperated: Separati da una virgola					 
+  you_are_about_to_share_the_following_file: Stai per condividere il seguente file
+  emails_to_share_with: Inserisci gli indirizzi email con i quali vuoi condividere il file
+  comma_seperated: Separati da una virgola
   number_of_charachters: Numero di caratteri
-  link_expires: Scadenza			              
+  link_expires: Scadenza
   tomorrow: Domani
   three_days_from_now: Tre giorni da adesso
   one_week_from_now: Una settimana da adesso
@@ -331,36 +326,36 @@
   one_month_from_now: Un mese da adesso
   two_months_from_now: Due mesi da adesso
   three_months_from_now: Tre mesi da adesso
-  half_year_from_now: Sei mesi da adesso 
-  share_link_could_not_be_sent: Il link per il download non è stato inviato
-  are_invalid_due_to: "is invalid due to %{email}"                         #rivedi
-  share_link_email_subject: '[Boxroom] Qualcuno ha condiviso un file con te'               
+  half_year_from_now: Sei mesi da adesso
+  share_link_could_not_be_sent: Il link per il download non è stato inviat
+  are_invalid_due_to: "is invalid due to %{email}"
+  share_link_email_subject: '[Boxroom] Qualcuno ha condiviso un file con te'
   shared_successfully: Il file è stato condiviso con successo.
 
-  #shared/_header    	--------------------blocco modificato------------------
+  #shared/_header
   hello: Salve
   settings: Impostazioni
   sign_out: Esci
 
-  #shared/_menu     	--------------------blocco modificato------------------
+  #shared/_menu
   folders: Cartelle
   users: Utenti
   shared_files: Condivisione files
 
-  #users/_form   	--------------------blocco modificato------------------
+  #users/_form
   member_of_these_groups: Membri di questi gruppi
   confirm_password: Conferma password
 
-  #users/index   	--------------------blocco modificato------------------
+  #users/index
   create_a_new_user: Aggiungi un nuovo utente
 
-  #users/new   	--------------------blocco modificato------------------
+  #users/new
   new_user: Nuovo utente
 
-  #admins/controller   	--------------------blocco modificato------------------
+  #admins/controller
   admin_user_created_sucessfully: "L'utente amministratore è stato aggiunto con successo! Ora puoi accedere."
 
-  #application_controller    --------------------blocco modificato-----------------
+  #application_controller
   no_permissions_for_this_type: "Non hai %{method} i permessi per %{type}."
 
   # clipboard_controller
@@ -373,24 +368,24 @@
   cannot_delete_root_folder: The root folder cannot be deleted or renamed.
   no_delete_permissions_for_subfolder: "You don't have delete permissions for one of the subfolders."
 
-  # groups_controller     	--------------------blocco modificato------------------
+  # groups_controller
   group_already_deleted: Qualcuno ha cancellato questo gruppo. Le tue azioni sono state cancellate.
   admins_group_cannot_be_deleted: Il gruppo amministratore non può essere cancellato o rinominato.
 
-  # reset_password_controller         	--------------------blocco modificato------------------
+  # reset_password_controller
   instruction_email_sent: "L'email con le istruzioni è stata inviata. Controlla le tue email."
   no_user_with_this_email: "Non esiste un utente con questo indirizzo '%{email}'. Riprova."
   password_reset_successfully: La password è stata modificata con successo. Ora puoi accedere.
-  reset_url_expired: The URL for resetting your password expired. Please try again.                  #--------------------rivedi
+  reset_url_expired: The URL for resetting your password expired. Please try again.
 
-  # sessions_controller    	--------------------blocco modificato------------------
+  # sessions_controller
   credentials_incorrect: Username e/o password errati. Riprova.
 
-  # users_controller     --------------------blocco modificato------------------
+  # users_controller
   user_already_deleted: "Qualcuno ha cancellato l'utente. Le tue azioni sono state cancellate."
   admin_user_cannot_be_deleted: "L'utente amministratore non può essere cancellato."
   edit_user: Inserisci utente
   account_settings: Impostazioni account
 
-  # mailers/user_mailer    --------------------blocco modificato------------------
+  # mailers/user_mailer
   reset_password_email_subject: "[Boxroom] Istruzioni per modificare la password"
