@@ -3,6 +3,7 @@
 # Use this as the base for the locale file of your language.
 # see: https://github.com/svenfuchs/rails-i18n/blob/master/rails/locale/en-US.yml
 
+
 "it":
   date:
     formats:
@@ -161,7 +162,7 @@
       confirmation: "la conferma non corrisponde"
       accepted: "dev'essere accettato"
       empty: "non può essere vuoto"
-      blank: "non può essere in bianco"
+      blank: "non può essere vuoto"
       exists_already: 'esiste già'
       too_long: "è troppo lungo (massimo %{count} caratteri)"
       too_short: "è troppo corto (minimo %{count} caratteri)"
@@ -181,8 +182,8 @@
     errors:
       template:
         header:
-          one: "1 errore ha proibito a %{model} di essere salvato"
-          other: "%{count} errori hanno proibito a %{model} di essere salvato"
+          one: "1 errore ha impedito a %{model} di essere salvato"
+          other: "%{count} errori hanno impedito a %{model} di essere salvato"
         body: "Sono stati rilevati dei problemi con questi campi:"
 
       messages:
@@ -231,9 +232,9 @@
   already_deleted: "Qualcuno ha cancellato %{type}. Le tue azioni sono state cancellate."
 
   # admins/new
-  create_admin: Aggiungi amministratore
-  no_administrator_yet: Boxroom non ha ancora un amministratore: aggiungilo ora.
-  create_admin_account: Aggiungi account amministratore
+  create_admin: Crea amministratore
+  no_administrator_yet: "Boxroom non ha ancora un amministratore: aggiungilo ora."
+  create_admin_account: Crea account amministratore
   admin_user_created_successfully: "L'utente amministratore è stato aggiunto con successo! Ora puoi accedere."
 
   # clipboard/_show
