@@ -136,11 +136,11 @@
       minute: "Minuto"
       second: "Secondi"
 
-  helpers:#----------------------------------------------------------------------blocco modificato
+  helpers: #----------------------------------------------------------------------blocco modificato
     select:
       prompt: "Seleziona"
 
-    submit:#----------------------------------------------------------------------blocco modificato
+    submit: #----------------------------------------------------------------------blocco modificato
       create: 'Crea %{model}'
       update: 'Carica %{model}'
       submit: 'Salva %{model}'
@@ -205,7 +205,7 @@
         name: Nome
       share_link:
         emails: Indirizzo Email
-        expires_at: Expires       #rivedi
+        expires_at: Expires #rivedi
       user:
         email: Email
         name: Nome
@@ -230,7 +230,7 @@
   create_admin: Aggiungi amministratore
   no_administrator_yet: Boxroom non ha ancora un amministratore: aggiungilo ora.
   create_admin_account: Aggiungi account amministratore
-  admin_user_created_successfully: L'utente amministratore è stato aggiunto con successo! Ora puoi accedere.
+  admin_user_created_successfully: "L'utente amministratore è stato aggiunto con successo! Ora puoi accedere."
 
   # clipboard/_show		--------------------blocco modificato------------------
   folder: cartella
@@ -358,7 +358,7 @@
   new_user: Nuovo utente
 
   #admins/controller   	--------------------blocco modificato------------------
-  admin_user_created_sucessfully: L'utente amministratore è stato aggiunto con successo! Ora puoi accedere.
+  admin_user_created_sucessfully: "L'utente amministratore è stato aggiunto con successo! Ora puoi accedere."
 
   #application_controller    --------------------blocco modificato-----------------
   no_permissions_for_this_type: "Non hai %{method} i permessi per %{type}."
@@ -371,14 +371,14 @@
 
   # folders_controller
   cannot_delete_root_folder: The root folder cannot be deleted or renamed.
-  no_delete_permissions_for_subfolder: You don't have delete permissions for one of the subfolders.
+  no_delete_permissions_for_subfolder: "You don't have delete permissions for one of the subfolders."
 
   # groups_controller     	--------------------blocco modificato------------------
   group_already_deleted: Qualcuno ha cancellato questo gruppo. Le tue azioni sono state cancellate.
   admins_group_cannot_be_deleted: Il gruppo amministratore non può essere cancellato o rinominato.
 
   # reset_password_controller         	--------------------blocco modificato------------------
-  instruction_email_sent: L'email con le istruzioni è stata inviata. Controlla le tue email.
+  instruction_email_sent: "L'email con le istruzioni è stata inviata. Controlla le tue email."
   no_user_with_this_email: "Non esiste un utente con questo indirizzo '%{email}'. Riprova."
   password_reset_successfully: La password è stata modificata con successo. Ora puoi accedere.
   reset_url_expired: The URL for resetting your password expired. Please try again.                  #--------------------rivedi
@@ -387,8 +387,8 @@
   credentials_incorrect: Username e/o password errati. Riprova.
 
   # users_controller     --------------------blocco modificato------------------
-  user_already_deleted: Qualcuno ha cancellato l'utente. Le tue azioni sono state cancellate.
-  admin_user_cannot_be_deleted: L'utente amministratore non può essere cancellato.
+  user_already_deleted: "Qualcuno ha cancellato l'utente. Le tue azioni sono state cancellate."
+  admin_user_cannot_be_deleted: "L'utente amministratore non può essere cancellato."
   edit_user: Inserisci utente
   account_settings: Impostazioni account
 
