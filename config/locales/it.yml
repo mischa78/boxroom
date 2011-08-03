@@ -1,0 +1,396 @@
+# US English translations for Ruby on Rails
+#
+# Use this as the base for the locale file of your language.
+# see: https://github.com/svenfuchs/rails-i18n/blob/master/rails/locale/en-US.yml
+
+"it":
+  date:
+    formats:
+      default: "%d/%m/%Y"
+      short: "%d %b"
+      long: "%d %B %Y"
+
+    day_names: [Domenica, Lunedì, Martedì, Mercoledì, Giovedì, Venerdì, Sabato]
+    abbr_day_names: [Dom, Lun, Mar, Mer, Gio, Ven, Sab]
+
+    month_names: [~, Gennaio, Febbraio, Marzo, Aprile, Maggio, Giugno, Luglio, Agosto, Settembre, Ottobre, Novembre, Dicembre]
+    abbr_month_names: [~, Gen, Feb, Mar, Apr, Mag, Giu, Lug, Ago, Set, Ott, Nov, Dic]
+    order:
+      - :day
+      - :month
+      - :year
+
+  time:
+    formats:
+      default: "%a %d  %b %Y, %H:%M %:z"
+      short: "%d %b %H:%M"
+      very_short: "%d %b %Y"
+      long: "%d %B %Y, %H:%M"
+    am: "am"
+    pm: "pm"
+
+#------------------------------------------------------------------------------------------------ fin qui sistemato 
+
+  support:
+    array:
+      words_connector: ", "
+      two_words_connector: " e "   #----------------------------------------------------------------------blocco modificato
+      last_word_connector: ", e "
+
+    select: #----------------------------------------------------------------------blocco modificato
+      prompt: "Seleziona"
+
+  number:
+    format:
+      separator: "."
+      delimiter: ","
+      precision: 3
+      significant: false
+      strip_insignificant_zeros: false
+
+    currency:
+      format:
+        format: "%u%n"
+        unit: "$"
+        separator: "."
+        delimiter: ","
+        precision: 2
+        significant: false
+        strip_insignificant_zeros: false
+
+    percentage:
+      format:
+        delimiter: ""
+
+    precision:
+      format:
+        delimiter: ""
+
+    human:
+      format:
+        delimiter: ""
+        precision: 3
+        significant: true
+        strip_insignificant_zeros: true
+      storage_units:
+        format: "%n %u"
+        units:
+          byte:
+            one: "Byte"
+            other: "Bytes"
+          kb: "KB"
+          mb: "MB"
+          gb: "GB"
+          tb: "TB"
+      decimal_units:
+        format: "%n %u"
+        units:
+          unit: ""
+          thousand: Thousand
+          million: Million
+          billion: Billion
+          trillion: Trillion
+          quadrillion: Quadrillion
+
+  datetime:  #----------------------------------------------------------------------blocco modificato
+    distance_in_words:
+      half_a_minute: "mezzo minuto"
+      less_than_x_seconds:
+        one: "meno di 1 secondo"
+        other: "meno di %{count} secondi"
+      x_seconds:
+        one: "1 secondo"
+        other: "%{count} secondi"
+      less_than_x_minutes:
+        one: "meno di un minuto"
+        other: "meno di %{count} minuti"
+      x_minutes:
+        one: "1 minuto"
+        other: "%{count} minuti"
+      about_x_hours:
+        one: "circa un'ora"
+        other: "circa %{count} ore"
+      x_days:
+        one: "1 giorno"
+        other: "%{count} giorni"
+      about_x_months:
+        one: "circa 1 mese"
+        other: "circa %{count} mesi"
+      x_months:
+        one: "1 mese"
+        other: "%{count} mese"
+      about_x_years:
+        one: "circa 1 anno"
+        other: "circa %{count} anni"
+      over_x_years:
+        one: "oltre 1 anno"
+        other: "oltre %{count} anni"
+      almost_x_years:
+        one: "quasi 1 anno"
+        other: "quasi %{count} anni"
+    prompts:
+      year: "Anno"
+      month: "Mese"
+      day: "Giorno"
+      hour: "Ora"
+      minute: "Minuto"
+      second: "Secondi"
+
+  helpers:#----------------------------------------------------------------------blocco modificato
+    select:
+      prompt: "Seleziona"
+
+    submit:#----------------------------------------------------------------------blocco modificato
+      create: 'Crea %{model}'
+      update: 'Carica %{model}'
+      submit: 'Salva %{model}'
+
+  errors:    #------------------------------------------------------------------rimane tale
+    format: "%{attribute} %{message}"
+
+      #----------------------------------------------------------------------blocco modificato------------------
+
+    messages: &errors_messages
+      inclusion: "non è incluso nella lista"
+      exclusion: "è riservato"
+      invalid: "non è valido"
+      confirmation: "la conferma non corrisponde"
+      accepted: "dev'essere accettato"
+      empty: "non può essere vuoto"
+      blank: "non può essere in bianco"
+      exists_already: 'esiste già'
+      too_long: "è troppo lungo (massimo %{count} caratteri)"
+      too_short: "è troppo corto (minimo %{count} caratteri)"
+      wrong_length: "la lunghezza è sbagliata (dovrebbe essere di %{count} caratteri)"
+      not_a_number: "non è un numero"
+      not_an_integer: "deve essere un numero intero"
+      greater_than: "deve essere maggiore di %{count}"
+      greater_than_or_equal_to: "deve essere maggiore o uguale a %{count}"
+      equal_to: "deve essere uguale a %{count}"
+      less_than: "deve essere inferiore a %{count}"
+      less_than_or_equal_to: "deve essere inferiore o uguale a %{count}"
+      odd: "deve essere dispari"
+      even: "deve essere ancora"
+      invalid_characters: 'non può contenere questo tipo di carettere: < > : " / \ | ? *'
+
+  activerecord:
+    errors:
+      template:
+        header:
+          one: "1 errore ha proibito a %{model} di essere salvato"
+          other: "%{count} errori hanno proibito a %{model} di essere salvato"
+        body: "Sono stati rilevati dei problemi con questi campi:"
+
+      messages:
+        taken: "has already been taken"
+        record_invalid: "Validation failed: %{errors}"
+        <<: *errors_messages
+
+      full_messages:
+        format: "%{attribute} %{message}"
+
+    models:      #--------------------blocco modificato------------------
+      clipboard: Clipboard        #rivedi
+      folder: Cartella
+      group: Gruppo
+      permission: Permessi
+      share_link: Condividi link
+      user: Utente
+      user_file: File
+
+    attributes:     # --------------------blocco modificato------------------
+      folder:
+        name: Nome
+      group:
+        name: Nome
+      share_link:
+        emails: Indirizzo Email
+        expires_at: Expires       #rivedi
+      user:
+        email: Email
+        name: Nome
+        password: Password
+      user_file:
+        name: Nome
+        attachment_file_name: File
+
+  # APPLICATION SPECIFIC
+
+  # general    --------------------blocco modificato------------------
+  back: Indietro
+  save: Salva
+  name: Nome
+  email: Email
+  submit: Invia
+
+  your_changes_were_saved: Le tue modifiche sono state salvate con successo.
+  already_deleted: "Qualcuno ha cancellato %{type}. Le tue azioni sono state cancellate."
+
+  # admins/new    --------------------blocco modificato------------------
+  create_admin: Aggiungi amministratore
+  no_administrator_yet: Boxroom non ha ancora un amministratore: aggiungilo ora.
+  create_admin_account: Aggiungi account amministratore
+  admin_user_created_successfully: L'utente amministratore è stato aggiunto con successo! Ora puoi accedere.
+
+  # clipboard/_show		--------------------blocco modificato------------------
+  folder: cartella
+  file: file
+  this_folder: questa cartella
+  this_file: questo file
+  copy: Copia
+  copy_folder: Copia cartella
+  copy_file: Copia file
+  move: Sposta
+  move_folder: Sposta cartella
+  move_file: Sposta file
+  are_you_sure: Sei sicuro?
+  delete_item: Elimina
+  remove_from_clipboard: Remove from clipboard     #rivedi
+  clear_clipboard: Clear clipboard								 #rivedi
+
+  # files/edit		--------------------blocco modificato------------------
+  rename_file: Rinomina file
+
+  # files/new		--------------------blocco modificato ????------------------
+  select_file: Seleziona file
+  upload_file: Carica file
+  upload: Carica
+
+  #folders/edit		--------------------blocco modificato------------------
+  rename_folder: Rinomina cartella
+
+  #folders/new		--------------------blocco modificato------------------
+  new_folder: Nuova cartella
+
+  #folders/show
+  create_a_new_folder: Crea una nuova cartella
+  upload_a_file: Carica un file
+  permissions: Permessi     
+  clipboard: Clipboard				    #rivedi
+  size: Dimensione								   
+  date_modified: Data modifica
+  up: up												    #rivedi
+  edit: Edit										    #rivedi
+  add_to_clipboard: Add to clipboard        #rivedi
+  download: Scarica
+  share: Condividi
+
+  #groups/edit		--------------------blocco modificato------------------
+  rename_group: Rinomina gruppo
+
+  #groups/index		--------------------blocco modificato------------------
+  groups: Gruppi
+  create_a_new_group: Aggiungi un nuovo gruppo
+
+  #groups/new 	--------------------blocco modificato------------------
+  new_group: Nuovo gruppo
+
+  #permissions/form  	--------------------blocco modificato------------------
+  create_permission: Aggiungi
+  read_permission: Leggi
+  update_permission: Aggiorna
+  delete_permission: Elimina
+  apply_changes_to_subfolders: Applica modifiche alle sottocartelle
+
+#					 	--------------------blocco modificato------------------
+  create: aggiungi
+  read: leggi
+  update: aggiorna
+  delete: elimina
+
+  #reset_password/edit    	--------------------blocco modificato------------------
+  password: Password
+  reset_password: Modifica password
+  send_email: Invia
+
+  #sessions     	--------------------blocco modificato------------------
+  username: Username
+  remember_me: Ricordami
+  sign_in: Accedi
+
+  #share_links/index       	--------------------blocco modificato------------------
+  unshare: Annulla la condivisione
+
+  #share_links/show  	--------------------blocco modificato------------------
+  share_link_expired: Questo link per il download è già scaduto.
+
+  #share_links/new   	--------------------blocco modificato------------------
+  this_share_link: this share link					    #rivedi
+  share_file: Condividi file
+  you_are_about_to_share_the_following_file: Stai per condividere il seguente file			
+  emails_to_share_with: Inserisci gli indirizzi email con i quali vuoi condividere il file					   
+  comma_seperated: Separati da una virgola					 
+  number_of_charachters: Numero di caratteri
+  link_expires: Scadenza			              
+  tomorrow: Domani
+  three_days_from_now: Tre giorni da adesso
+  one_week_from_now: Una settimana da adesso
+  ten_days_from_now: Dieci giorni da adesso
+  two_weeks_from_now: Due settimane da adesso
+  three_weeks_from_now: Tre settimane da adesso
+  one_month_from_now: Un mese da adesso
+  two_months_from_now: Due mesi da adesso
+  three_months_from_now: Tre mesi da adesso
+  half_year_from_now: Sei mesi da adesso 
+  share_link_could_not_be_sent: Il link per il download non è stato inviato
+  are_invalid_due_to: "is invalid due to %{email}"                         #rivedi
+  share_link_email_subject: '[Boxroom] Qualcuno ha condiviso un file con te'               
+  shared_successfully: Il file è stato condiviso con successo.
+
+  #shared/_header    	--------------------blocco modificato------------------
+  hello: Salve
+  settings: Impostazioni
+  sign_out: Esci
+
+  #shared/_menu     	--------------------blocco modificato------------------
+  folders: Cartelle
+  users: Utenti
+  shared_files: Condivisione files
+
+  #users/_form   	--------------------blocco modificato------------------
+  member_of_these_groups: Membri di questi gruppi
+  confirm_password: Conferma password
+
+  #users/index   	--------------------blocco modificato------------------
+  create_a_new_user: Aggiungi un nuovo utente
+
+  #users/new   	--------------------blocco modificato------------------
+  new_user: Nuovo utente
+
+  #admins/controller   	--------------------blocco modificato------------------
+  admin_user_created_sucessfully: L'utente amministratore è stato aggiunto con successo! Ora puoi accedere.
+
+  #application_controller    --------------------blocco modificato-----------------
+  no_permissions_for_this_type: "Non hai %{method} i permessi per %{type}."
+
+  # clipboard_controller
+  added_to_clipboard: Successfully added to clipboard.
+  could_not_copy: "Couldn't copy. A %{type} with the same name exists already."
+  could_not_move: "Couldn't move. A %{type} with the same name exists already."
+  cannot_move_to_own_subfolder: You cannot move a folder to its own sub-folder.
+
+  # folders_controller
+  cannot_delete_root_folder: The root folder cannot be deleted or renamed.
+  no_delete_permissions_for_subfolder: You don't have delete permissions for one of the subfolders.
+
+  # groups_controller     	--------------------blocco modificato------------------
+  group_already_deleted: Qualcuno ha cancellato questo gruppo. Le tue azioni sono state cancellate.
+  admins_group_cannot_be_deleted: Il gruppo amministratore non può essere cancellato o rinominato.
+
+  # reset_password_controller         	--------------------blocco modificato------------------
+  instruction_email_sent: L'email con le istruzioni è stata inviata. Controlla le tue email.
+  no_user_with_this_email: "Non esiste un utente con questo indirizzo '%{email}'. Riprova."
+  password_reset_successfully: La password è stata modificata con successo. Ora puoi accedere.
+  reset_url_expired: The URL for resetting your password expired. Please try again.                  #--------------------rivedi
+
+  # sessions_controller    	--------------------blocco modificato------------------
+  credentials_incorrect: Username e/o password errati. Riprova.
+
+  # users_controller     --------------------blocco modificato------------------
+  user_already_deleted: Qualcuno ha cancellato l'utente. Le tue azioni sono state cancellate.
+  admin_user_cannot_be_deleted: L'utente amministratore non può essere cancellato.
+  edit_user: Inserisci utente
+  account_settings: Impostazioni account
+
+  # mailers/user_mailer    --------------------blocco modificato------------------
+  reset_password_email_subject: "[Boxroom] Istruzioni per modificare la password"
