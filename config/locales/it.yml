@@ -1,5 +1,5 @@
-# US English translations for Ruby on Rails
-#
+# IT Italian translations for Ruby on Rails
+# Author Jessica Marcon
 # Use this as the base for the locale file of your language.
 # see: https://github.com/svenfuchs/rails-i18n/blob/master/rails/locale/en-US.yml
 
@@ -176,7 +176,7 @@
       less_than_or_equal_to: "deve essere inferiore o uguale a %{count}"
       odd: "deve essere dispari"
       even: "deve essere ancora"
-      invalid_characters: 'non può contenere questo tipo di carettere: < > : " / \ | ? *'
+      invalid_characters: 'non può contenere questo tipo di carattere: < > : " / \ | ? *'
 
   activerecord:
     errors:
@@ -195,7 +195,7 @@
         format: "%{attribute} %{message}"
 
     models:
-      clipboard: Clipboard
+      clipboard: Appunti
       folder: Cartella
       group: Gruppo
       permission: Permessi
