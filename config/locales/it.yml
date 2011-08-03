@@ -40,18 +40,18 @@
 
   number:
     format:
-      separator: "."
-      delimiter: ","
-      precision: 3
+			precision: 2
+      separator: ","
+      delimiter: "."
       significant: false
       strip_insignificant_zeros: false
 
     currency:
       format:
+				unit: "€"
         format: "%u%n"
-        unit: "$"
-        separator: "."
-        delimiter: ","
+        separator: ","
+        delimiter: "."
         precision: 2
         significant: false
         strip_insignificant_zeros: false
@@ -84,11 +84,19 @@
         format: "%n %u"
         units:
           unit: ""
-          thousand: Thousand
-          million: Million
-          billion: Billion
-          trillion: Trillion
-          quadrillion: Quadrillion
+          thousand: Mille
+          million: 
+						one: Milione
+						others: Milioni
+          billion: 
+						one: Miliardo
+						others: Miliardi
+          trillion:
+						one: Trilione
+						others: Trilioni
+          quadrillion:
+						one: Quadrilione
+						others: Quadrilioni
 
   datetime:
     distance_in_words:
@@ -194,14 +202,14 @@
       user: Utente
       user_file: File
 
-    attributes:     # --------------------blocco modificato------------------
+    attributes:
       folder:
         name: Nome
       group:
         name: Nome
       share_link:
         emails: Indirizzo Email
-        expires_at: Expires #rivedi
+        expires_at: Scade
       user:
         email: Email
         name: Nome
@@ -222,13 +230,13 @@
   your_changes_were_saved: Le tue modifiche sono state salvate con successo.
   already_deleted: "Qualcuno ha cancellato %{type}. Le tue azioni sono state cancellate."
 
-  # admins/new    --------------------blocco modificato------------------
+  # admins/new
   create_admin: Aggiungi amministratore
   no_administrator_yet: Boxroom non ha ancora un amministratore: aggiungilo ora.
   create_admin_account: Aggiungi account amministratore
   admin_user_created_successfully: "L'utente amministratore è stato aggiunto con successo! Ora puoi accedere."
 
-  # clipboard/_show		--------------------blocco modificato------------------
+  # clipboard/_show
   folder: cartella
   file: file
   this_folder: questa cartella
@@ -241,8 +249,8 @@
   move_file: Sposta file
   are_you_sure: Sei sicuro?
   delete_item: Elimina
-  remove_from_clipboard: Remove from clipboard
-  clear_clipboard: Clear clipboard
+  remove_from_clipboard: Elimina dagli appunti
+  clear_clipboard: Cancella appunti
 
   # files/edit
   rename_file: Rinomina file
@@ -262,12 +270,12 @@
   create_a_new_folder: Crea una nuova cartella
   upload_a_file: Carica un file
   permissions: Permessi
-  clipboard: Clipboard
+  clipboard: Appunti
   size: Dimensione
   date_modified: Data modifica
   up: up
-  edit: Edit
-  add_to_clipboard: Add to clipboard
+  edit: Scrivi
+  add_to_clipboard: Aggiungi agli appunti
   download: Scarica
   share: Condividi
 
@@ -327,7 +335,7 @@
   two_months_from_now: Due mesi da adesso
   three_months_from_now: Tre mesi da adesso
   half_year_from_now: Sei mesi da adesso
-  share_link_could_not_be_sent: Il link per il download non è stato inviat
+  share_link_could_not_be_sent: Il link per il download non è stato inviato
   are_invalid_due_to: "is invalid due to %{email}"
   share_link_email_subject: '[Boxroom] Qualcuno ha condiviso un file con te'
   shared_successfully: Il file è stato condiviso con successo.
@@ -359,13 +367,13 @@
   no_permissions_for_this_type: "Non hai %{method} i permessi per %{type}."
 
   # clipboard_controller
-  added_to_clipboard: Successfully added to clipboard.
-  could_not_copy: "Couldn't copy. A %{type} with the same name exists already."
-  could_not_move: "Couldn't move. A %{type} with the same name exists already."
-  cannot_move_to_own_subfolder: You cannot move a folder to its own sub-folder.
+  added_to_clipboard: Hai aggiunto con successo negli appunti.
+  could_not_copy: "Non puoi copiare. Il %{type} con lo stesso nome esiste già."
+  could_not_move: "Non puoi spostare. Il %{type} con lo stesso nome esiste già."
+  cannot_move_to_own_subfolder: Non puoi spostare la cartella nella propria sottocartella.
 
   # folders_controller
-  cannot_delete_root_folder: The root folder cannot be deleted or renamed.
+  cannot_delete_root_folder: La cartella principale non può essere cancellata o rinominata.
   no_delete_permissions_for_subfolder: "You don't have delete permissions for one of the subfolders."
 
   # groups_controller
