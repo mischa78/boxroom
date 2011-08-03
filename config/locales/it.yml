@@ -85,19 +85,19 @@
         format: "%n %u"
         units:
           unit: ""
-          thousand: Mille
+          thousand: "Mille"
           million: 
-            one: Milione
-            others: Milioni
+            one: "Milione"
+            others: "Milioni"
           billion:
-            one: Miliardo
-            others: Miliardi
+            one: "Miliardo"
+            others: "Miliardi"
           trillion:
-            one: Trilione
-            others: Trilioni
+            one: "Trilione"
+            others: "Trilioni"
           quadrillion:
-            one: Quadrilione
-            others: Quadrilioni
+            one: "Quadrilione"
+            others: "Quadrilioni"
 
   datetime:
     distance_in_words:
@@ -187,7 +187,7 @@
         body: "Sono stati rilevati dei problemi con questi campi:"
 
       messages:
-        taken: "has already been taken"
+        taken: "è già in uso"
         record_invalid: "Validation failed: %{errors}"
         <<: *errors_messages
 
@@ -229,7 +229,7 @@
   submit: Invia
 
   your_changes_were_saved: Le tue modifiche sono state salvate con successo.
-  already_deleted: "Qualcuno ha cancellato %{type}. Le tue azioni sono state cancellate."
+  already_deleted: "Qualcuno ha cancellato %{type}. Azione non valida."
 
   # admins/new
   create_admin: Crea amministratore
@@ -275,8 +275,8 @@
   size: Dimensione
   date_modified: Data modifica
   up: up
-  edit: Scrivi
-  add_to_clipboard: Aggiungi agli appunti
+  edit: Modifica
+  add_to_clipboard: Copia negli appunti
   download: Scarica
   share: Condividi
 
@@ -291,15 +291,15 @@
   new_group: Nuovo gruppo
 
   #permissions/form
-  create_permission: Aggiungi
-  read_permission: Leggi
-  update_permission: Aggiorna
+  create_permission: Crea
+  read_permission: Lettura
+  update_permission: Modifica
   delete_permission: Elimina
   apply_changes_to_subfolders: Applica modifiche alle sottocartelle
 
-  create: aggiungi
-  read: leggi
-  update: aggiorna
+  create: crea
+  read: lettura
+  update: modifica
   delete: elimina
 
   #reset_password/edit
@@ -337,7 +337,7 @@
   three_months_from_now: Tre mesi da adesso
   half_year_from_now: Sei mesi da adesso
   share_link_could_not_be_sent: Il link per il download non è stato inviato
-  are_invalid_due_to: "is invalid due to %{email}"
+  are_invalid_due_to: " %{email} non è valido"
   share_link_email_subject: '[Boxroom] Qualcuno ha condiviso un file con te'
   shared_successfully: Il file è stato condiviso con successo.
 
@@ -349,10 +349,10 @@
   #shared/_menu
   folders: Cartelle
   users: Utenti
-  shared_files: Condivisione files
+  shared_files: Condivisione file
 
   #users/_form
-  member_of_these_groups: Membri di questi gruppi
+  member_of_these_groups: Membro di questi gruppi
   confirm_password: Conferma password
 
   #users/index
@@ -368,30 +368,30 @@
   no_permissions_for_this_type: "Non hai %{method} i permessi per %{type}."
 
   # clipboard_controller
-  added_to_clipboard: Hai aggiunto con successo negli appunti.
+  added_to_clipboard: Aggiunto con successo negli appunti.
   could_not_copy: "Non puoi copiare. Il %{type} con lo stesso nome esiste già."
   could_not_move: "Non puoi spostare. Il %{type} con lo stesso nome esiste già."
   cannot_move_to_own_subfolder: Non puoi spostare la cartella nella propria sottocartella.
 
   # folders_controller
   cannot_delete_root_folder: La cartella principale non può essere cancellata o rinominata.
-  no_delete_permissions_for_subfolder: "You don't have delete permissions for one of the subfolders."
+  no_delete_permissions_for_subfolder: "Non hai il permesso di cancellare una sottocartella."
 
   # groups_controller
-  group_already_deleted: Qualcuno ha cancellato questo gruppo. Le tue azioni sono state cancellate.
+  group_already_deleted: Qualcuno ha cancellato questo gruppo. Azione non valida.
   admins_group_cannot_be_deleted: Il gruppo amministratore non può essere cancellato o rinominato.
 
   # reset_password_controller
-  instruction_email_sent: "L'email con le istruzioni è stata inviata. Controlla le tue email."
+  instruction_email_sent: "L'email con le istruzioni è stata inviata. Controlla la tua email."
   no_user_with_this_email: "Non esiste un utente con questo indirizzo '%{email}'. Riprova."
   password_reset_successfully: La password è stata modificata con successo. Ora puoi accedere.
-  reset_url_expired: The URL for resetting your password expired. Please try again.
+  reset_url_expired: Il link per cambiare la password è scaduto. Riprova.
 
   # sessions_controller
-  credentials_incorrect: Username e/o password errati. Riprova.
+  credentials_incorrect: "Username e/o password errati. Riprova."
 
   # users_controller
-  user_already_deleted: "Qualcuno ha cancellato l'utente. Le tue azioni sono state cancellate."
+  user_already_deleted: "Qualcuno ha cancellato l'utente. Azione non valida."
   admin_user_cannot_be_deleted: "L'utente amministratore non può essere cancellato."
   edit_user: Inserisci utente
   account_settings: Impostazioni account
