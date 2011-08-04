@@ -1,0 +1,400 @@
+# IT Italian translations for Ruby on Rails
+# Author Jessica Marcon
+# Use this as the base for the locale file of your language.
+# see: https://github.com/svenfuchs/rails-i18n/blob/master/rails/locale/en-US.yml
+
+
+"it":
+  date:
+    formats:
+      default: "%d/%m/%Y"
+      short: "%d %b"
+      long: "%d %B %Y"
+
+    day_names: [Domenica, Lunedì, Martedì, Mercoledì, Giovedì, Venerdì, Sabato]
+    abbr_day_names: [Dom, Lun, Mar, Mer, Gio, Ven, Sab]
+
+    month_names: [~, Gennaio, Febbraio, Marzo, Aprile, Maggio, Giugno, Luglio, Agosto, Settembre, Ottobre, Novembre, Dicembre]
+    abbr_month_names: [~, Gen, Feb, Mar, Apr, Mag, Giu, Lug, Ago, Set, Ott, Nov, Dic]
+    order:
+      - :day
+      - :month
+      - :year
+
+  time:
+    formats:
+      default: "%a %d  %b %Y, %H:%M %:z"
+      short: "%d %b %H:%M"
+      very_short: "%d %b %Y"
+      long: "%d %B %Y, %H:%M"
+    am: "am"
+    pm: "pm"
+
+  support:
+    array:
+      words_connector: ", "
+      two_words_connector: " e "
+      last_word_connector: ", e "
+
+    select:
+      prompt: "Seleziona"
+
+  number:
+    format:
+      precision: 2
+      separator: ","
+      delimiter: "."
+      significant: false
+      strip_insignificant_zeros: false
+
+    currency:
+      format:
+        unit: "€"
+        format: "%u%n"
+        separator: ","
+        delimiter: "."
+        precision: 2
+        significant: false
+        strip_insignificant_zeros: false
+
+    percentage:
+      format:
+        delimiter: ""
+
+    precision:
+      format:
+        delimiter: ""
+
+    human:
+      format:
+        delimiter: ""
+        precision: 3
+        significant: true
+        strip_insignificant_zeros: true
+      storage_units:
+        format: "%n %u"
+        units:
+          byte:
+            one: "Byte"
+            other: "Bytes"
+          kb: "KB"
+          mb: "MB"
+          gb: "GB"
+          tb: "TB"
+      decimal_units:
+        format: "%n %u"
+        units:
+          unit: ""
+          thousand: "Mille"
+          million: 
+            one: "Milione"
+            others: "Milioni"
+          billion:
+            one: "Miliardo"
+            others: "Miliardi"
+          trillion:
+            one: "Trilione"
+            others: "Trilioni"
+          quadrillion:
+            one: "Quadrilione"
+            others: "Quadrilioni"
+
+  datetime:
+    distance_in_words:
+      half_a_minute: "mezzo minuto"
+      less_than_x_seconds:
+        one: "meno di 1 secondo"
+        other: "meno di %{count} secondi"
+      x_seconds:
+        one: "1 secondo"
+        other: "%{count} secondi"
+      less_than_x_minutes:
+        one: "meno di un minuto"
+        other: "meno di %{count} minuti"
+      x_minutes:
+        one: "1 minuto"
+        other: "%{count} minuti"
+      about_x_hours:
+        one: "circa un'ora"
+        other: "circa %{count} ore"
+      x_days:
+        one: "1 giorno"
+        other: "%{count} giorni"
+      about_x_months:
+        one: "circa 1 mese"
+        other: "circa %{count} mesi"
+      x_months:
+        one: "1 mese"
+        other: "%{count} mese"
+      about_x_years:
+        one: "circa 1 anno"
+        other: "circa %{count} anni"
+      over_x_years:
+        one: "oltre 1 anno"
+        other: "oltre %{count} anni"
+      almost_x_years:
+        one: "quasi 1 anno"
+        other: "quasi %{count} anni"
+    prompts:
+      year: "Anno"
+      month: "Mese"
+      day: "Giorno"
+      hour: "Ora"
+      minute: "Minuto"
+      second: "Secondi"
+
+  helpers:
+    select:
+      prompt: "Seleziona"
+
+    submit:
+      create: 'Crea %{model}'
+      update: 'Carica %{model}'
+      submit: 'Salva %{model}'
+
+  errors:
+    format: "%{attribute} %{message}"
+
+    messages: &errors_messages
+      inclusion: "non è incluso nella lista"
+      exclusion: "è riservato"
+      invalid: "non è valido"
+      confirmation: "la conferma non corrisponde"
+      accepted: "dev'essere accettato"
+      empty: "non può essere vuoto"
+      blank: "non può essere vuoto"
+      exists_already: 'esiste già'
+      too_long: "è troppo lungo (massimo %{count} caratteri)"
+      too_short: "è troppo corto (minimo %{count} caratteri)"
+      wrong_length: "la lunghezza è sbagliata (dovrebbe essere di %{count} caratteri)"
+      not_a_number: "non è un numero"
+      not_an_integer: "deve essere un numero intero"
+      greater_than: "deve essere maggiore di %{count}"
+      greater_than_or_equal_to: "deve essere maggiore o uguale a %{count}"
+      equal_to: "deve essere uguale a %{count}"
+      less_than: "deve essere inferiore a %{count}"
+      less_than_or_equal_to: "deve essere inferiore o uguale a %{count}"
+      odd: "deve essere dispari"
+      even: "deve essere ancora"
+      invalid_characters: 'non può contenere questo tipo di carattere: < > : " / \ | ? *'
+
+  activerecord:
+    errors:
+      template:
+        header:
+          one: "1 errore ha impedito a %{model} di essere salvato"
+          other: "%{count} errori hanno impedito a %{model} di essere salvato"
+        body: "Sono stati rilevati dei problemi con questi campi:"
+
+      messages:
+        taken: "è già in uso"
+        record_invalid: "Validation failed: %{errors}"
+        <<: *errors_messages
+
+      full_messages:
+        format: "%{attribute} %{message}"
+
+    models:
+      clipboard: Appunti
+      folder: Cartella
+      group: Gruppo
+      permission: Permessi
+      share_link: Condividi link
+      user: Utente
+      user_file: File
+
+    attributes:
+      folder:
+        name: Nome
+      group:
+        name: Nome
+      share_link:
+        emails: Indirizzo Email
+        expires_at: Scade
+      user:
+        email: Email
+        name: Nome
+        password: Password
+      user_file:
+        name: Nome
+        attachment_file_name: File
+
+  # APPLICATION SPECIFIC
+
+  # general
+  back: Indietro
+  save: Salva
+  name: Nome
+  email: Email
+  submit: Invia
+
+  your_changes_were_saved: Le tue modifiche sono state salvate con successo.
+  already_deleted: "Qualcuno ha cancellato %{type}. Azione non valida."
+
+  # admins/new
+  create_admin: Crea amministratore
+  no_administrator_yet: "Boxroom non ha ancora un amministratore: aggiungilo ora."
+  create_admin_account: Crea account amministratore
+  admin_user_created_successfully: "L'utente amministratore è stato aggiunto con successo! Ora puoi accedere."
+
+  # clipboard/_show
+  folder: cartella
+  file: file
+  this_folder: questa cartella
+  this_file: questo file
+  copy: Copia
+  copy_folder: Copia cartella
+  copy_file: Copia file
+  move: Sposta
+  move_folder: Sposta cartella
+  move_file: Sposta file
+  are_you_sure: Sei sicuro?
+  delete_item: Elimina
+  remove_from_clipboard: Elimina dagli appunti
+  clear_clipboard: Cancella appunti
+
+  # files/edit
+  rename_file: Rinomina file
+
+  # files/new
+  select_file: Seleziona file
+  upload_file: Carica file
+  upload: Carica
+
+  #folders/edit
+  rename_folder: Rinomina cartella
+
+  #folders/new
+  new_folder: Nuova cartella
+
+  #folders/show
+  create_a_new_folder: Crea una nuova cartella
+  upload_a_file: Carica un file
+  permissions: Permessi
+  clipboard: Appunti
+  size: Dimensione
+  date_modified: Data modifica
+  up: up
+  edit: Modifica
+  add_to_clipboard: Copia negli appunti
+  download: Scarica
+  share: Condividi
+
+  #groups/edit
+  rename_group: Rinomina gruppo
+
+  #groups/index
+  groups: Gruppi
+  create_a_new_group: Aggiungi un nuovo gruppo
+
+  #groups/new
+  new_group: Nuovo gruppo
+
+  #permissions/form
+  create_permission: Crea
+  read_permission: Lettura
+  update_permission: Modifica
+  delete_permission: Elimina
+  apply_changes_to_subfolders: Applica modifiche alle sottocartelle
+
+  create: crea
+  read: lettura
+  update: modifica
+  delete: elimina
+
+  #reset_password/edit
+  password: Password
+  reset_password: Modifica password
+  send_email: Invia
+
+  #sessions
+  username: Username
+  remember_me: Ricordami
+  sign_in: Accedi
+
+  #share_links/index
+  unshare: Annulla la condivisione
+
+  #share_links/show
+  share_link_expired: Questo link per il download è già scaduto.
+
+  #share_links/new
+  this_share_link: this share link
+  share_file: Condividi file
+  you_are_about_to_share_the_following_file: Stai per condividere il seguente file
+  emails_to_share_with: Inserisci gli indirizzi email con i quali vuoi condividere il file
+  comma_seperated: Separati da una virgola
+  number_of_charachters: Numero di caratteri
+  link_expires: Scadenza
+  tomorrow: Domani
+  three_days_from_now: Tre giorni da adesso
+  one_week_from_now: Una settimana da adesso
+  ten_days_from_now: Dieci giorni da adesso
+  two_weeks_from_now: Due settimane da adesso
+  three_weeks_from_now: Tre settimane da adesso
+  one_month_from_now: Un mese da adesso
+  two_months_from_now: Due mesi da adesso
+  three_months_from_now: Tre mesi da adesso
+  half_year_from_now: Sei mesi da adesso
+  share_link_could_not_be_sent: Il link per il download non è stato inviato
+  are_invalid_due_to: " %{email} non è valido"
+  share_link_email_subject: '[Boxroom] Qualcuno ha condiviso un file con te'
+  shared_successfully: Il file è stato condiviso con successo.
+
+  #shared/_header
+  hello: Salve
+  settings: Impostazioni
+  sign_out: Esci
+
+  #shared/_menu
+  folders: Cartelle
+  users: Utenti
+  shared_files: Condivisione file
+
+  #users/_form
+  member_of_these_groups: Membro di questi gruppi
+  confirm_password: Conferma password
+
+  #users/index
+  create_a_new_user: Aggiungi un nuovo utente
+
+  #users/new
+  new_user: Nuovo utente
+
+  #admins/controller
+  admin_user_created_sucessfully: "L'utente amministratore è stato aggiunto con successo! Ora puoi accedere."
+
+  #application_controller
+  no_permissions_for_this_type: "Non hai %{method} i permessi per %{type}."
+
+  # clipboard_controller
+  added_to_clipboard: Aggiunto con successo negli appunti.
+  could_not_copy: "Non puoi copiare. Il %{type} con lo stesso nome esiste già."
+  could_not_move: "Non puoi spostare. Il %{type} con lo stesso nome esiste già."
+  cannot_move_to_own_subfolder: Non puoi spostare la cartella nella propria sottocartella.
+
+  # folders_controller
+  cannot_delete_root_folder: La cartella principale non può essere cancellata o rinominata.
+  no_delete_permissions_for_subfolder: "Non hai il permesso di cancellare una sottocartella."
+
+  # groups_controller
+  group_already_deleted: Qualcuno ha cancellato questo gruppo. Azione non valida.
+  admins_group_cannot_be_deleted: Il gruppo amministratore non può essere cancellato o rinominato.
+
+  # reset_password_controller
+  instruction_email_sent: "L'email con le istruzioni è stata inviata. Controlla la tua email."
+  no_user_with_this_email: "Non esiste un utente con questo indirizzo '%{email}'. Riprova."
+  password_reset_successfully: La password è stata modificata con successo. Ora puoi accedere.
+  reset_url_expired: Il link per cambiare la password è scaduto. Riprova.
+
+  # sessions_controller
+  credentials_incorrect: "Username e/o password errati. Riprova."
+
+  # users_controller
+  user_already_deleted: "Qualcuno ha cancellato l'utente. Azione non valida."
+  admin_user_cannot_be_deleted: "L'utente amministratore non può essere cancellato."
+  edit_user: Inserisci utente
+  account_settings: Impostazioni account
+
+  # mailers/user_mailer
+  reset_password_email_subject: "[Boxroom] Istruzioni per modificare la password"
