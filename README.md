@@ -63,8 +63,8 @@ this by uncommenting and adjusting the following line:
 
 Languages
 ---------
-Thanks to [Rob Halff](https://github.com/rhalff) and [Marcus Ilgner](https://github.com/milgner)
-Boxroom is now available in Dutch and German.
+Thanks to [Rob Halff](https://github.com/rhalff), [Marcus Ilgner](https://github.com/milgner) and
+[Jessica Marcon](https://github.com/marcontwm) Boxroom is now available in Dutch, German and Italian.
 
 English is the default. To change the language, open `config/application.rb` and change the following line:
 
@@ -73,10 +73,8 @@ English is the default. To change the language, open `config/application.rb` and
 to:
 
     config.i18n.default_locale = :nl # Dutch
-
-or:
-
     config.i18n.default_locale = :de # German
+    config.i18n.default_locale = :it # Italian
 
 It would be great to have many more languages. I am waiting for your pull requests! ;-)
 
