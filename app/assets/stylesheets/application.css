@@ -1,5 +1,10 @@
+/*
+*= require_self
+*= require_tree .
+*/
+
 html, body { height: 100%; }
-body { padding: 0px; margin: 0px; background-color: rgb(230,230,230); background-image: url(../images/bg-body.png); background-repeat: repeat-y; background-position: top center; }
+body { padding: 0px; margin: 0px; background-color: rgb(230,230,230); background-image: url(bg-body.png); background-repeat: repeat-y; background-position: top center; }
 body, input { font-family: Arial; font-size: 13pt; }
 input { padding: 3px; border: 1px solid rgb(210,210,210); }
 input[type='button'], input[type='submit'] { background-color: #EEE; padding: 5px; }
@@ -66,8 +71,8 @@ hr { border: 0; width: 800px; margin: 15px 0 10px 15px; color: #CCC; background-
 .translation .missing { color: #F0F; }
 
 .error, .notice { display: inline-block; font-size: 16pt; color: #FFF; border: 6px double #FFF; background-repeat: no-repeat; background-position: 10px 7px; }
-.error { background-color: #F00; background-image: url(../images/exclamation.png); }
-.notice { background-color: rgb(0,165,0);  background-image: url(../images/information.png); }
+.error { background-color: #F00; background-image: url(exclamation.png); }
+.notice { background-color: rgb(0,165,0);  background-image: url(information.png); }
 
 span.field_with_errors input, span.field_with_errors textarea { background-color: #FDD; }
 #errorExplanation { width: 500px; border: 2px solid #c00; padding: 7px 7px 15px 7px; margin: 10px 0 10px 15px; background-color: #f0f0f0; }
@@ -78,6 +83,6 @@ span.field_with_errors input, span.field_with_errors textarea { background-color
 .folder_menu, .user_menu, .group_menu { padding: 7px 14px 7px 14px; }
 .folder_menu a, .user_menu a, .group_menu a { outline: none; }
 
-.highlight { display: inline-block; margin: -7px 0 -7px 0; padding-left: 14px; background-color: #BA303A; background-image: url(../images/left.png); background-repeat: no-repeat; background-position: top left; }
-.highlight span { display: inline-block; height: 27px; padding: 7px 14px 0 0; background-image: url(../images/right.png); background-repeat: no-repeat; background-position: top right; }
+.highlight { display: inline-block; margin: -7px 0 -7px 0; padding-left: 14px; background-color: #BA303A; background-image: url(left.png); background-repeat: no-repeat; background-position: top left; }
+.highlight span { display: inline-block; height: 27px; padding: 7px 14px 0 0; background-image: url(right.png); background-repeat: no-repeat; background-position: top right; }
 .highlight a { text-decoration: none; color: #FFF; outline: none; }

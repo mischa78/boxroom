@@ -1,3 +1,9 @@
+//= require prototype
+//= require prototype_ujs
+//= require effects
+//= require_self
+//= require_tree .
+
 Event.observe(window, 'load', function() {
 	fadeout.delay(1.5, 'notice');
 	fadeout.delay(1.5, 'alert');

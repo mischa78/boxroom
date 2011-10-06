@@ -46,11 +46,11 @@ class ShareLinkTest < ActiveSupport::TestCase
   end
 
   test 'active share links' do
-    last_week = 1.week.ago.end_of_day
-    next_week = 1.week.from_now.end_of_day
-    in_two_weeks = 2.weeks.from_now.end_of_day
-    in_three_weeks = 3.weeks.from_now.end_of_day
-    next_month = 1.month.from_now.end_of_day
+    last_week = 1.week.ago
+    next_week = 1.week.from_now
+    in_two_weeks = 2.weeks.from_now
+    in_three_weeks = 3.weeks.from_now
+    next_month = 1.month.from_now
 
     Factory(:share_link, :link_expires_at => in_two_weeks)
     Factory(:share_link, :link_expires_at => next_month)

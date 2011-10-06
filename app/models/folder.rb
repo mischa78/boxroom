@@ -15,7 +15,7 @@ class Folder < ActiveRecord::Base
   before_destroy :dont_destroy_root_folder
 
   def copy(target_folder, originally_copied_folder = nil)
-    new_folder = self.clone
+    new_folder = self.dup
     new_folder.is_copied_folder = true
     new_folder.parent = target_folder
     new_folder.save!
@@ -24,7 +24,7 @@ class Folder < ActiveRecord::Base
 
     # Copy original folder's permissions
     self.permissions.each do |permission|
-      new_permission = permission.clone
+      new_permission = permission.dup
       new_permission.folder = new_folder
       new_permission.save!
     end

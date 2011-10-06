@@ -10,7 +10,7 @@ class UserFile < ActiveRecord::Base
   validates_format_of :attachment_file_name, :with => /^[^\/\\\?\*:|"<>]+$/, :message => I18n.t(:invalid_characters, :scope => [:activerecord, :errors, :messages])
 
   def copy(target_folder)
-    new_file = self.clone
+    new_file = self.dup
     new_file.instance_eval { @errors = nil }
     new_file.folder = target_folder
     new_file.save!

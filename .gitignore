@@ -3,3 +3,4 @@ log/*
 uploads/*
 tmp/*
 config/initializers/mailer.rb
+.sass-cache/
