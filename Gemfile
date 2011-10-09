@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 
 gem 'rake'
-gem 'rails', '3.1.0'
+gem 'rails', '3.1.1'
 gem 'sqlite3'
 gem 'dynamic_form'
 gem 'acts_as_tree'
