@@ -17,7 +17,7 @@ Requirements
 The requirements for running Boxroom are:
 
  * Ruby 1.8.7 or Ruby 1.9.2 
- * Rails 3.1.1
+ * Rails 3.1.3
  * A database (e.g. MySQL or SQLite)
 
 
@@ -84,6 +84,12 @@ If you encounter an issue with Boxroom where downloaded files are always empty,
 it may help to uncomment the following line in `config/environments/production.rb`:
 
     # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect'
+
+
+Upload progress
+---------------
+Upload progress is on my to-do-list, but... if you need it *now*,
+have a look at [Marcus Ilgner's branch of Boxroom](https://github.com/milgner/boxroom). 
 
 
 License
