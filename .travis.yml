@@ -1,1 +1,1 @@
-script: 'bundle exec db:migrate test'
+script: 'bundle exec rake db:migrate test'
