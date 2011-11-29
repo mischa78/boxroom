@@ -1,5 +1,4 @@
-Welcome to Boxroom
-==================
+# Boxroom [![Build Status](https://secure.travis-ci.org/mischa78/boxroom.png)](http://travis-ci.org/mischa78/boxroom)
 
 Boxroom is a Rails 3.1 application that aims to be a simple interface for sharing
 files in a web browser. To make this possible the application lets users create
