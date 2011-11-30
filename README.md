@@ -27,8 +27,8 @@ Follow the these steps:
 
  1. Extract boxroom.zip and cd to the newly created folder
  2. Update your bundle: `$ bundle`
- 3. Create a database and schema: `$ rake db:migrate`
- 4. Start the server: `$ rails server`
+ 3. Create a database and schema: `$ bundle exec rake db:migrate`
+ 4. Start the server: `$ bundle exec rails server`
  5. Point your browser to http://localhost:3000/
  6. Enjoy!
 
@@ -89,12 +89,12 @@ it may help to uncomment the following line in `config/environments/production.r
 Upload progress
 ---------------
 Upload progress is on my to-do-list, but... if you need it *now*,
-have a look at [Marcus Ilgner's branch of Boxroom](https://github.com/milgner/boxroom). 
+have a look at [Marcus Ilgner's fork of Boxroom](https://github.com/milgner/boxroom). 
 
 
 License
 -------
-Copyright (c) 2011 Mischa Berger
+Copyright (c) 2006-2011 Mischa Berger
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the "Software"), to deal in
