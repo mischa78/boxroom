@@ -1,43 +1,42 @@
-//= require prototype
-//= require prototype_ujs
-//= require effects
+//= require jquery
+//= require jquery_ujs
 //= require_self
 //= require_tree .
 
-Event.observe(window, 'load', function() {
-	fadeout.delay(1.5, 'notice');
-	fadeout.delay(1.5, 'alert');
+$(window).load(function() {
+	fadeout('#notice');
+	fadeout('#alert');
 });
 
 function fadeout(element)
 {
 	if($(element) != undefined)
 	{
-		Effect.Fade(element, { duration: 1.5 });
+		$(element).delay(1500).fadeOut('slow');
 	}
 }
 
 function show_element(element)
 {
-	if($(element).visible()) { element = 'files_and_folders'; }
+	if($(element).is(':visible')) { element = '#files_and_folders'; }
 
-	elements = ['files_and_folders', 'permissions', 'clipboard'];
+	elements = ['#files_and_folders', '#permissions', '#clipboard'];
 	elements.splice(elements.indexOf(element), 1);
 
-	elements.each(function(e) {
-		if($(e) != undefined && $(e).visible()) { Effect.BlindUp(e, { duration: 0.5 }); }
+	jQuery.each(elements, function(index, value) {
+		if($(value) != undefined && $(value).is(':visible')) { $(value).slideUp('slow'); }
 	});
 
-	Effect.BlindDown(element, { delay: 0.5, duration: 0.5 });
-	if($('show_' + element + '_link') != undefined) { $('show_' + element + '_link').className = 'highlight'; }
+	$(element).slideDown('slow');
+	if($(element + '_link') != undefined) { $(element + '_link').removeClass('folder_menu').addClass('highlight'); }
 
-	elements.each(function(e) {
-		if($('show_' + e + '_link') != undefined) { $('show_' + e + '_link').className = 'folder_menu'; }
+	jQuery.each(elements, function(index, value) {
+		if($(value + '_link') != undefined) { $(value + '_link').removeClass('highlight').addClass('folder_menu'); }
 	});
 }
 
-function update_counter(element, counter)
+function update_counter(element)
 {
-	$(counter).innerHTML = element.value.length;
-	$(counter).style.color = element.value.length > 256 ? '#F00' : '#000';
+	$('#counter').html(element.value.length);
+	$('#counter').css('color', element.value.length > 256 ? '#F00' : '#000');
 }

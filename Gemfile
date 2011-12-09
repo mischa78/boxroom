@@ -15,7 +15,7 @@ group :assets do
   gem 'uglifier'
 end
 
-gem 'prototype-rails'
+gem 'jquery-rails'
 
 group :test do
   gem 'factory_girl_rails'
