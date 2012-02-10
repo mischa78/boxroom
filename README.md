@@ -1,6 +1,6 @@
 # Boxroom [![Build Status](https://secure.travis-ci.org/mischa78/boxroom.png)](http://travis-ci.org/mischa78/boxroom)
 
-Boxroom is a Rails 3.1 application that aims to be a simple interface for sharing
+Boxroom is a Rails 3.2 application that aims to be a simple interface for sharing
 files in a web browser. To make this possible the application lets users create
 folders and upload and download files. For admins it is possible to create users,
 groups and the CRU/D rights these groups have on folders.
@@ -16,8 +16,8 @@ Requirements
 ------------
 The requirements for running Boxroom are:
 
- * Ruby 1.8.7 or Ruby 1.9.2 
- * Rails 3.1.3
+ * Ruby 1.8.7 or Ruby 1.9.2 and above
+ * Rails 3.2.1
  * A database (e.g. MySQL or SQLite)
 
 
@@ -78,23 +78,9 @@ to:
 It would be great to have many more languages. I am waiting for your pull requests! ;-)
 
 
-Downloaded files are empty
---------------------------
-If you encounter an issue with Boxroom where downloaded files are always empty,
-it may help to uncomment the following line in `config/environments/production.rb`:
-
-    # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect'
-
-
-Upload progress
----------------
-Upload progress is on my to-do-list, but... if you need it *now*,
-have a look at [Marcus Ilgner's fork of Boxroom](https://github.com/milgner/boxroom). 
-
-
 License
 -------
-Copyright (c) 2006-2011 Mischa Berger
+Copyright (c) 2006-2012 Mischa Berger
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the "Software"), to deal in
