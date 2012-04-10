@@ -28,8 +28,10 @@ class UsersController < ApplicationController
 
   # Note: @user is set in require_existing_user
   def update
+    group_ids = params[:user].delete(:group_ids)
+
     if @user.update_attributes(params[:user].merge({ :password_required => false }))
-      set_groups
+      set_groups(group_ids)
       redirect_to edit_user_url(@user), :notice => t(:your_changes_were_saved)
     else
       render :action => 'edit'
@@ -62,9 +64,9 @@ class UsersController < ApplicationController
     end
   end
 
-  def set_groups
+  def set_groups(group_ids)
     if current_user.member_of_admins?
-      @user.group_ids = params[:user][:group_ids]
+      @user.group_ids = group_ids
       @user.groups << Group.find_by_name('Admins') if @user.is_admin
     end
   end
