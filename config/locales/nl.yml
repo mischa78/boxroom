@@ -301,6 +301,9 @@ nl:
   reset_password: Wachtwoord resetten
   send_email: Verzenden
 
+  #signup/edit
+  sign_up: Aanmelden
+
   #sessions
   username: Gebruikersnaam
   remember_me: Onthoud mij
@@ -332,7 +335,6 @@ nl:
   half_year_from_now: Over een half jaar
   share_link_could_not_be_sent: De download link kon niet verstuurd worden
   are_invalid_due_to: "is ongeldig vanwege %{email}"
-  share_link_email_subject: '[Boxroom] Iemand heeft een bestand met u gedeeld'
   shared_successfully: De download link is verstuurd.
 
   #shared/_header
@@ -351,6 +353,10 @@ nl:
 
   #users/index
   create_a_new_user: Nieuwe gebruiker aanmaken
+  existing_users: Bestaande gebruikers
+  invited_users: Uitgenodigde gebruikers
+  expiration_date: Vervaldatum
+  extend_expiration_date: Vervaldatum uitstellen
 
   #users/new
   new_user: Nieuwe gebruiker
@@ -381,6 +387,10 @@ nl:
   password_reset_successfully: Uw wachtwoord is gereset. U kunt nu inloggen.
   reset_url_expired: De URL om uw wachtwoord te resetten is ongeldig. Probeer het nogmaals.
 
+  # signup_controller
+  signed_up_successfully: Account aangemaakt. U kunt nu inloggen.
+  sign_url_expired: The URL om aan te melden is ongeldig. Neem contact op met de administrator.
+
   # sessions_controller
   credentials_incorrect: Gebruikersnaam en/of wachtwoord was incorrect. Probeer het nogmaals.
 
@@ -391,4 +401,6 @@ nl:
   account_settings: Mijn instellingen
 
   # mailers/user_mailer
-  reset_password_email_subject: "[Boxroom] Instructies om uw wachtwoord te resetten"
+  signup_email_subject: '[Boxroom] Uitnodiging om aan te melden'
+  reset_password_email_subject: '[Boxroom] Instructies om uw wachtwoord te resetten'
+  share_link_email_subject: '[Boxroom] Iemand heeft een bestand met u gedeeld'

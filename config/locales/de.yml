@@ -307,6 +307,9 @@ de:
   reset_password: Kennwort zurücksetzen
   send_email: Absenden
 
+  #signup/edit
+  sign_up: Sign up
+
   #sessions
   username: Benutzername
   remember_me: Angemeldet bleiben
@@ -338,7 +341,6 @@ de:
   half_year_from_now: In einem halben Jahr
   download_link_could_not_be_sent: Die Download-URL konnte nicht versendet werden.
   are_invalid_due_to: "Die Adresse %{email} ist ungültig."
-  download_link_email_subject: '[Boxroom] Jemand möchte Ihnen eine Datei freigeben'
   shared_successfully: Die Datei wurde erfolgreich freigegeben.
 
   #shared/_header
@@ -357,6 +359,10 @@ de:
 
   #users/index
   create_a_new_user: Neuen Benutzer anlegen
+  existing_users: Existing users
+  invited_users: Invited users
+  expiration_date: Expiration date
+  extend_expiration_date: Extend expiration date
 
   #users/new
   new_user: Neuen Benutzer anlegen
@@ -387,6 +393,10 @@ de:
   password_reset_successfully: Ihr Kennwort wurde erfolgreich zurückgesetzt. Sie können sich nun anmelden.
   reset_url_expired: Die URL zum Rücksetzen des Kennworts ist leider abgelaufen. Bitte probieren Sie es nochmals.
 
+  # signup_controller
+  signed_up_successfully: Account created successfully. You can now sign in.
+  sign_url_expired: The URL for signing up expired. Please contact the administrator.
+
   # sessions_controller
   credentials_incorrect: Benutzername und/oder Kennwort falsch. Bitte probieren Sie es nochmals.
 
@@ -397,4 +407,6 @@ de:
   account_settings: Kontoeinstellungen
 
   # mailers/user_mailer
-  reset_password_email_subject: "[Boxroom] Anleitung zum Ändern Ihres Kennworts"
+  signup_email_subject: '[Boxroom] Sign up invitation'
+  reset_password_email_subject: '[Boxroom] Anleitung zum Ändern Ihres Kennworts'
+  download_link_email_subject: '[Boxroom] Jemand möchte Ihnen eine Datei freigeben'

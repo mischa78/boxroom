@@ -2,8 +2,12 @@ Dear recipient,
 
 User <%= @user.name %> (<%= @user.email %>) has shared a file with you.
 
-Use the link following URL to download your file:
+Use the following URL to download your file:
 
     <%= share_link_url(:id => @share_link.link_token) %>
 
 The URL above will expire at <%= l @share_link.link_expires_at, :format => :long %>.
+
+--
+Boxroom
+http://boxroom.rubyforge.org

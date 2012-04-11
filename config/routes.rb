@@ -6,10 +6,14 @@ Boxroom::Application.routes.draw do
   resources :admins, :only => [:new, :create]
   resources :sessions, :only => [:new, :create, :destroy]
   resources :reset_password, :except => [:index, :show, :destroy]
-  resources :users, :except => :show
+  resources :signup, :only => [:edit, :update]
   resources :groups, :except => :show
   resources :files, :except => [:index, :new, :create]
   resources :share_links, :only => [:index, :show, :destroy]
+
+  resources :users, :except => :show do
+    put 'extend', :on => :member
+  end
 
   resources :clipboard, :only => [:create, :destroy] do
     post 'copy', :on => :member

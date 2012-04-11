@@ -21,7 +21,6 @@ class ResetPasswordController < ApplicationController
 
   # Note: @user is set in require_valid_token
   def edit
-    @user.password_required = true
   end
 
   # Note: @user is set in require_valid_token

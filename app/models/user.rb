@@ -7,11 +7,14 @@ class User < ActiveRecord::Base
   validates_confirmation_of :password
   validates_length_of :password, :in => 6..20, :allow_blank => true
   validates_presence_of :password, :if => :password_required
-  validates_presence_of :name, :email
+  validates_presence_of :name, :unless => :new_record?
+  validates_presence_of :email
   validates_uniqueness_of :name, :email
   validates_format_of :email, :with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/
 
+  before_create :set_signup_token
   before_save :clear_reset_password_token, :unless => :dont_clear_reset_password_token
+  before_update :clear_signup_token
   after_create :create_root_folder_and_admins_group, :if => :is_admin
   before_destroy :dont_destroy_admin
 
@@ -73,6 +76,18 @@ class User < ActiveRecord::Base
   end
 
   private
+
+  def set_signup_token
+    self.signup_token = SecureRandom.hex(10)
+    self.signup_token_expires_at = 2.weeks.from_now
+  end
+
+  def clear_signup_token
+    unless self.name.blank?
+      self.signup_token = nil
+      self.signup_token_expires_at = nil
+    end
+  end
 
   def clear_reset_password_token
     self.reset_password_token = nil

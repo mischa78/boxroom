@@ -14,8 +14,29 @@ class UserTest < ActiveSupport::TestCase
     assert user.save
   end
 
-  test 'name is not empty' do
-    assert_raise(ActiveRecord::RecordInvalid) { Factory(:user, :name => '') }
+  test 'name can be empty for a new user' do
+    Factory(:user, :name => '', :email => 'test@test.com')
+    assert User.exists?(:name => '', :email => 'test@test.com')
+  end
+
+  test 'signup_token and signup_token_expires_at are set for a new user' do
+    user = Factory(:user, :name => '', :email => 'test@test.com')
+    assert !user.signup_token.empty?
+    assert user.signup_token_expires_at > 1.hour.from_now
+  end
+
+  test 'name cannot be empty for an existing user' do
+    user = Factory(:user)
+    user.name = ''
+    assert_raise(ActiveRecord::RecordInvalid) { user.save! }
+  end
+
+  test 'signup_token and signup_token_expires_at are nil for an existing user' do
+    user = Factory(:user, :name => '', :email => 'test@test.com')
+    user.name = 'test'
+    user.save
+    assert user.signup_token.nil?
+    assert user.signup_token_expires_at.nil?
   end
 
   test 'email is not empty' do
@@ -42,6 +63,7 @@ class UserTest < ActiveSupport::TestCase
     assert_raise(ActiveRecord::RecordInvalid) { Factory(:user, :email => 'test@$%^.com') }
     assert_raise(ActiveRecord::RecordInvalid) { Factory(:user, :email => 'test@test.c') }
     assert_raise(ActiveRecord::RecordInvalid) { Factory(:user, :email => 'test@test.$$$') }
+    assert_nothing_raised(ActiveRecord::RecordInvalid) { Factory(:user, :email => 'test@test.com') }
   end
 
   test 'reset_password_token gets cleared' do

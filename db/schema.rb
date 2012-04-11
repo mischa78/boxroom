@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110616215033) do
+ActiveRecord::Schema.define(:version => 20120411081345) do
 
   create_table "folders", :force => true do |t|
     t.string   "name"
@@ -69,6 +69,10 @@ ActiveRecord::Schema.define(:version => 20110616215033) do
     t.datetime "reset_password_token_expires_at"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "signup_token"
+    t.datetime "signup_token_expires_at"
   end
+
+  add_index "users", ["signup_token"], :name => "index_users_on_signup_token"
 
 end

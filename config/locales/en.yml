@@ -298,6 +298,9 @@
   reset_password: Reset password
   send_email: Send
 
+  #signup/edit
+  sign_up: Sign up
+
   #sessions
   username: Username
   remember_me: Remember me
@@ -329,7 +332,6 @@
   half_year_from_now: A half year from now
   share_link_could_not_be_sent: The download link could not be sent
   are_invalid_due_to: "is invalid due to %{email}"
-  share_link_email_subject: '[Boxroom] Someone shared a file with you'
   shared_successfully: The file was shared successfully.
 
   #shared/_header
@@ -348,6 +350,10 @@
 
   #users/index
   create_a_new_user: Create a new user
+  existing_users: Existing users
+  invited_users: Invited users
+  expiration_date: Expiration date
+  extend_expiration_date: Extend expiration date
 
   #users/new
   new_user: New user
@@ -378,6 +384,10 @@
   password_reset_successfully: Your password was reset successfully. You can now sign in.
   reset_url_expired: The URL for resetting your password expired. Please try again.
 
+  # signup_controller
+  signed_up_successfully: Account created successfully. You can now sign in.
+  sign_url_expired: The URL for signing up expired. Please contact the administrator.
+
   # sessions_controller
   credentials_incorrect: Username and/or password were incorrect. Try again.
 
@@ -388,4 +398,6 @@
   account_settings: Account settings
 
   # mailers/user_mailer
-  reset_password_email_subject: "[Boxroom] Password reset instructions"
+  signup_email_subject: '[Boxroom] Sign up invitation'
+  reset_password_email_subject: '[Boxroom] Password reset instructions'
+  share_link_email_subject: '[Boxroom] Someone shared a file with you'

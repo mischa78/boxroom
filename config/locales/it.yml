@@ -307,6 +307,9 @@
   reset_password: Modifica password
   send_email: Invia
 
+  #signup/edit
+  sign_up: Sign up
+
   #sessions
   username: Username
   remember_me: Ricordami
@@ -338,7 +341,6 @@
   half_year_from_now: Sei mesi da adesso
   share_link_could_not_be_sent: Il link per il download non è stato inviato
   are_invalid_due_to: " %{email} non è valido"
-  share_link_email_subject: '[Boxroom] Qualcuno ha condiviso un file con te'
   shared_successfully: Il file è stato condiviso con successo.
 
   #shared/_header
@@ -357,6 +359,10 @@
 
   #users/index
   create_a_new_user: Aggiungi un nuovo utente
+  existing_users: Existing users
+  invited_users: Invited users
+  expiration_date: Expiration date
+  extend_expiration_date: Extend expiration date
 
   #users/new
   new_user: Nuovo utente
@@ -387,6 +393,10 @@
   password_reset_successfully: La password è stata modificata con successo. Ora puoi accedere.
   reset_url_expired: Il link per cambiare la password è scaduto. Riprova.
 
+  # signup_controller
+  signed_up_successfully: Account created successfully. You can now sign in.
+  sign_url_expired: The URL for signing up expired. Please contact the administrator.
+
   # sessions_controller
   credentials_incorrect: "Username e/o password errati. Riprova."
 
@@ -397,4 +407,6 @@
   account_settings: Impostazioni account
 
   # mailers/user_mailer
-  reset_password_email_subject: "[Boxroom] Istruzioni per modificare la password"
+  signup_email_subject: '[Boxroom] Sign up invitation'
+  share_link_email_subject: '[Boxroom] Qualcuno ha condiviso un file con te'
+  reset_password_email_subject: '[Boxroom] Istruzioni per modificare la password'

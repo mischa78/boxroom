@@ -1,10 +1,11 @@
 class UsersController < ApplicationController
   before_filter :require_admin, :except => [:edit, :update]
-  before_filter :require_existing_user, :only => [:edit, :update, :destroy]
+  before_filter :require_existing_user, :only => [:edit, :update, :destroy, :extend]
   before_filter :require_deleted_user_isnt_admin, :only => :destroy
 
   def index
-    @users = User.all(:order => 'name')
+    @users = User.where('name IS NOT NULL').order('name')
+    @new_users = User.where('name IS NULL').order('email')
   end
 
   def new
@@ -13,10 +14,11 @@ class UsersController < ApplicationController
 
   def create
     group_ids = params[:user].delete(:group_ids)
-    @user = User.new(params[:user].merge({ :password_required => true }))
+    @user = User.new(params[:user])
 
     if @user.save
       set_groups(group_ids)
+      UserMailer.signup_email(@user).deliver
       redirect_to users_url
     else
       render :action => 'new'
@@ -37,6 +39,13 @@ class UsersController < ApplicationController
     else
       render :action => 'edit'
     end
+  end
+
+  # Note: @user is set in require_existing_user
+  def extend
+    @user.signup_token_expires_at = @user.signup_token_expires_at + 2.weeks
+    @user.save(:validate => false)
+    redirect_to users_url
   end
 
   # Note: @user is set in require_existing_user
