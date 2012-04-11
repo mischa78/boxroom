@@ -1,0 +1,10 @@
+Geachte ontvanger,
+
+Dit is een uitnodiging om u aan te melden voor Boxroom.
+Gebruik onderstaande URL om uw account aan te maken:
+
+    <%= edit_signup_url(@user.signup_token) %>
+
+--
+Boxroom
+http://boxroom.rubyforge.org

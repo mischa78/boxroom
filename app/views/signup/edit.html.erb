@@ -1,0 +1,26 @@
+<% content_for :title, t(:sign_up) -%>
+
+<h1><%= content_for :title %></h1>
+<%= form_for @user, :url => { :action => 'update' } do |f| %>
+	<%= f.error_messages %>
+	<p>
+		<%= f.label :name %>:<br>
+		<%= f.text_field :name, { :class => 'text_input' } %>
+	</p>
+	<p>
+		<%= f.label :email %>:<br>
+		<%= f.text_field :email, { :class => 'text_input' } %>
+	</p>
+	<p>
+		<%= f.label :password %>:<br>
+		<%= f.password_field :password, { :class => 'text_input' } %>
+	</p>
+	<p>
+		<%= label_tag t(:confirm_password) %>:<br>
+		<%= f.password_field :password_confirmation, { :class => 'text_input' } %>
+	</p>
+	<p>
+		<%= f.submit t(:sign_up) %> &nbsp; &mdash; &nbsp;
+		<%= link_to t(:back), new_session_path %>
+	</p>
+<% end %>
