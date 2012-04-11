@@ -12,10 +12,11 @@ class UsersController < ApplicationController
   end
 
   def create
+    group_ids = params[:user].delete(:group_ids)
     @user = User.new(params[:user].merge({ :password_required => true }))
 
     if @user.save
-      set_groups
+      set_groups(group_ids)
       redirect_to users_url
     else
       render :action => 'new'
