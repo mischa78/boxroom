@@ -359,7 +359,7 @@
 
   #users/index
   create_a_new_user: Aggiungi un nuovo utente
-  existing_users: Existing users
+  active_users: Active users
   invited_users: Invited users
   expiration_date: Expiration date
   extend_expiration_date: Extend expiration date

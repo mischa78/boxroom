@@ -353,7 +353,7 @@ nl:
 
   #users/index
   create_a_new_user: Nieuwe gebruiker aanmaken
-  existing_users: Bestaande gebruikers
+  active_users: Actieve gebruikers
   invited_users: Uitgenodigde gebruikers
   expiration_date: Vervaldatum
   extend_expiration_date: Vervaldatum uitstellen
