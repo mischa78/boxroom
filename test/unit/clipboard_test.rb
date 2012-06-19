@@ -91,7 +91,7 @@ class ClipboardTest < ActiveSupport::TestCase
     clipboard.add(file)
     assert_not_equal clipboard.files.first.attachment_file_name, 'Name changed'
 
-    file.update_attributes(:attachment_file_name => 'Name changed')
+    file.update_attributes({ :attachment_file_name => 'Name changed' }, :without_protection => true)
     assert_equal clipboard.files.first.attachment_file_name, 'Name changed'
   end
 

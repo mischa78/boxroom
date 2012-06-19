@@ -14,8 +14,8 @@ class SessionsController < ApplicationController
       end
 
       session[:user_id] = user.id
-      redirect_to(session[:return_to] || folders_url)
-      session[:return_to] = nil
+      redirect_url = session.delete(:return_to) || folders_url
+      redirect_to redirect_url, :only_path => true
     else
       log_failed_sign_in_attempt(Time.now, params[:username], request.remote_ip)
       redirect_to new_session_url, :alert => t(:credentials_incorrect)

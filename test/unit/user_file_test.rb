@@ -24,7 +24,7 @@ class UserFileTest < ActiveSupport::TestCase
 
   test 'attachment is not empty' do
     folder = Factory(:folder)
-    file = UserFile.new(:folder => folder)
+    file = folder.user_files.build
     assert !file.save
 
     file.attachment = fixture_file
@@ -42,15 +42,15 @@ class UserFileTest < ActiveSupport::TestCase
 
   test 'attachment file name is unique' do
     file = Factory(:user_file)
-    file.update_attributes(:attachment_file_name => 'Test')
+    file.update_attributes({ :attachment_file_name => 'Test' }, :without_protection => true)
     assert UserFile.exists?(:attachment_file_name => 'Test')
 
     folder = Factory(:folder)
-    file2 = UserFile.new(:attachment => fixture_file, :folder => folder)
+    file2 = folder.user_files.build(:attachment => fixture_file)
     file2.attachment_file_name = 'Test'
     assert file2.save
 
-    file3 = UserFile.new(:attachment => fixture_file, :folder => Folder.root)
+    file3 = Folder.root.user_files.build(:attachment => fixture_file)
     file3.attachment_file_name = 'Test'
     assert !file3.save
   end
@@ -124,10 +124,10 @@ class UserFileTest < ActiveSupport::TestCase
     file = Factory(:user_file)
     assert_equal file.extension, 'txt'
 
-    file.update_attributes(:attachment_file_name => 'test.pdf')
+    file.update_attributes({ :attachment_file_name => 'test.pdf' }, :without_protection => true)
     assert_equal file.extension, 'pdf'
 
-    file.update_attributes(:attachment_file_name => 'test')
+    file.update_attributes({ :attachment_file_name => 'test' }, :without_protection => true)
     assert file.extension.blank?
   end
 end
