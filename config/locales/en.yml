@@ -26,6 +26,8 @@
       short: "%d %b %H:%M"
       very_short: "%d %b %Y"
       long: "%B %d, %Y %H:%M"
+      date_only: "%B %d, %Y"
+      time_only: "%H:%M"
     am: "am"
     pm: "pm"
 
