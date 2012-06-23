@@ -9,7 +9,8 @@ class User < ActiveRecord::Base
   validates_presence_of :password, :if => :password_required
   validates_presence_of :name, :unless => :new_record?
   validates_presence_of :email
-  validates_uniqueness_of :name, :email
+  validates_uniqueness_of :name, :unless => :new_record? && :name_is_blank?
+  validates_uniqueness_of :email
   validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/
 
   before_create :set_signup_token
@@ -62,6 +63,10 @@ class User < ActiveRecord::Base
   def forget_me
     self.remember_token = nil
     save(:validate => false)
+  end
+
+  def name_is_blank?
+    self.name.blank?
   end
 
   def self.authenticate(name, password)
