@@ -27,7 +27,7 @@
 			<% if current_user.can_create(@folder) && current_user.can_delete(item) -%>
 				<%= link_to image_tag('move.png', :alt => t(:move)),
 					{ :controller => :clipboard, :action => :move, :id => item.id, :type => 'folder', :folder_id => @folder, :authenticity_token => form_authenticity_token },
-					:method => :post, :title => t(:move_folder), :confirm => t(:are_you_sure)
+					:method => :post, :title => t(:move_folder), :data => { :confirm => t(:are_you_sure) }
 				%>&nbsp;
 			<% end -%>
 				<%= link_to image_tag('delete.png', :alt => t(:delete_item)),
@@ -51,7 +51,7 @@
 			<% if current_user.can_create(@folder) && current_user.can_delete(item.folder) -%>
 				<%= link_to image_tag('move.png', :alt => t(:move)),
 					{ :controller => :clipboard, :action => :move, :id => item.id, :type => 'file', :folder_id => @folder, :authenticity_token => form_authenticity_token },
-					:method => :post, :title => t(:move_file), :confirm => t(:are_you_sure)
+					:method => :post, :title => t(:move_file), :data => { :confirm => t(:are_you_sure) }
 				%>&nbsp;
 			<% end -%>
 				<%= link_to image_tag('delete.png', :alt => t(:delete_item)),
@@ -67,6 +67,6 @@
 			{ :controller => :clipboard, :action => :reset, :folder_id => @folder, :authenticity_token => form_authenticity_token }, :method => :put
 		%>
 		&nbsp; &mdash; &nbsp;
-		<%= link_to_function t(:back), "show_element('#files_and_folders')" %>
+		<%= link_to t(:back), '#', :class => 'back_link' %>
 	</p>
 <% end -%>

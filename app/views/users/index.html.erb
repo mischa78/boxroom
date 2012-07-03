@@ -28,7 +28,7 @@
 		<td>
 			<%= link_to image_tag('edit.png', :alt => t(:edit)), edit_user_path(user), :title => t(:edit) %>&nbsp;
 		<% unless user.is_admin -%>
-			<%= link_to image_tag('delete.png', :alt => t(:delete_item)), user_path(user), :method => :delete, :confirm => t(:are_you_sure), :title => t(:delete_item) %>
+			<%= link_to image_tag('delete.png', :alt => t(:delete_item)), user_path(user), :method => :delete, :data => { :confirm => t(:are_you_sure) }, :title => t(:delete_item) %>
 		<% end -%>
 		</td>
 	</tr>
@@ -58,7 +58,7 @@
 		<td>
 			<%= link_to image_tag('extend.png', :alt => t(:extend_expiration_date)), extend_user_path(user), :method => :put, :title => t(:extend_expiration_date) %>&nbsp;
 		<% unless user.is_admin -%>
-			<%= link_to image_tag('delete.png', :alt => t(:delete_item)), user_path(user), :method => :delete, :confirm => t(:are_you_sure), :title => t(:delete_item) %>
+			<%= link_to image_tag('delete.png', :alt => t(:delete_item)), user_path(user), :method => :delete, :data => { :confirm => t(:are_you_sure) }, :title => t(:delete_item) %>
 		<% end -%>
 		</td>
 	</tr>

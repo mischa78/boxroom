@@ -6,6 +6,19 @@
 $(window).load(function() {
 	fadeout('#notice');
 	fadeout('#alert');
+
+	// Bindings
+	$('.back_link').on('click', function(){
+		show_element('#files_and_folders');
+	});
+
+	$('.permissions_link').on('click', function(){
+		show_element('#permissions');
+	});
+
+	$('.clipboard_link').on('click', function(){
+		show_element('#clipboard');
+	});
 });
 
 function fadeout(element)
