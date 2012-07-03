@@ -8,15 +8,18 @@ $(window).load(function() {
 	fadeout('#alert');
 
 	// Bindings
-	$('.back_link').on('click', function(){
+	$('.back_link').on('click', function(e) {
+		e.preventDefault();
 		show_element('#files_and_folders');
 	});
 
-	$('.permissions_link').on('click', function(){
+	$('.permissions_link').on('click', function(e) {
+		e.preventDefault();
 		show_element('#permissions');
 	});
 
-	$('.clipboard_link').on('click', function(){
+	$('.clipboard_link').on('click', function(e) {
+		e.preventDefault();
 		show_element('#clipboard');
 	});
 });
