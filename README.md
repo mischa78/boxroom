@@ -6,7 +6,7 @@ folders and upload and download files. For admins it is possible to create users
 groups and the CRU/D rights these groups have on folders.
 
 Website:  
-http://boxroom.rubyforge.org/
+http://boxroomapp.com/
 
 Bug reports and feature requests:  
 https://github.com/mischa78/boxroom/issues/new
