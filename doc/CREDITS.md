@@ -23,6 +23,6 @@ Donations:
 
 Other credits:
 
- * [Yusuke Kamiyamane](http://p.yusukekamiyamane.com/) for his awesome Fugue Icons.
- * [Rubyforge](http://rubyforge.org/) for hosting the project.
- * [Github](https://github.com/) for hosting the project.
+ * [Yusuke Kamiyamane](http://p.yusukekamiyamane.com/) (icons)
+ * [Rubyforge](http://rubyforge.org/) (hosting)
+ * [Github](https://github.com/) (hosting)
