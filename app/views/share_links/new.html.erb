@@ -13,7 +13,7 @@
 	<p>
 		<%= f.label :emails, t(:emails_to_share_with) %>:
 		<span class="comma_seperated">(<%= t :comma_seperated %>)</span><br>
-		<%= f.text_area :emails, :class => 'emails_to_share_with', :onkeyup => "update_counter(this)", :onchange => "update_counter(this)" %><br>
+		<%= f.text_area :emails, :class => 'emails_to_share_with' %><br>
 		<span class="char_counter">
 			<%= t :number_of_charachters %>:
 			<span id="counter">
