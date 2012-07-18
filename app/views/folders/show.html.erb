@@ -71,7 +71,7 @@
 		<tr class="<%= cycle('even','odd') %>">
 			<td><%= image_tag(file_icon(file.extension)) %></td>
 			<td class="file_name"><%= link_to file.attachment_file_name, file_path(file), :title => "#{t(:download)} #{file.attachment_file_name}" %></td>
-			<td class="file_size"><%= number_to_human_size(file.attachment_file_size, :locale=>I18n.locale) %></td>
+			<td class="file_size"><%= number_to_human_size(file.attachment_file_size, :locale => I18n.locale) %></td>
 			<td class="file_modified"><%= l file.updated_at, :format => :long %></td>
 			<td>
 			<% if current_user.can_update(file.folder) -%>
