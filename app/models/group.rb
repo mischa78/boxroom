@@ -18,7 +18,7 @@ class Group < ActiveRecord::Base
   private
 
   def create_admin_permissions
-    Folder.all.each do |folder|
+    Folder.find_each do |folder|
       Permission.create! do |p|
         p.group = self
         p.folder = folder
@@ -31,7 +31,7 @@ class Group < ActiveRecord::Base
   end
 
   def create_permissions
-    Folder.all.each do |folder|
+    Folder.find_each do |folder|
       Permission.create! do |p|
         p.group = self
         p.folder = folder
