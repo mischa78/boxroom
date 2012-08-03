@@ -2,16 +2,16 @@ require 'test_helper'
 
 class UserFileTest < ActiveSupport::TestCase
   test 'dependent share links get deleted' do
-    file1 = Factory(:user_file)
+    file1 = create(:user_file)
     assert_equal UserFile.all.count, 1
 
-    3.times { Factory(:share_link, :user_file => file1) }
+    3.times { create(:share_link, :user_file => file1) }
     assert_equal file1.share_links.count, 3
 
-    file2 = Factory(:user_file)
+    file2 = create(:user_file)
     assert_equal UserFile.all.count, 2
 
-    5.times { Factory(:share_link, :user_file => file2) }
+    5.times { create(:share_link, :user_file => file2) }
     assert_equal file2.share_links.count, 5
     assert_equal ShareLink.all.count, 8
 
@@ -23,7 +23,7 @@ class UserFileTest < ActiveSupport::TestCase
   end
 
   test 'attachment is not empty' do
-    folder = Factory(:folder)
+    folder = create(:folder)
     file = folder.user_files.build
     assert !file.save
 
@@ -35,17 +35,17 @@ class UserFileTest < ActiveSupport::TestCase
     file = UserFile.new(:attachment => fixture_file)
     assert !file.save
 
-    folder = Factory(:folder)
+    folder = create(:folder)
     file.folder = folder
     assert file.save
   end
 
   test 'attachment file name is unique' do
-    file = Factory(:user_file)
+    file = create(:user_file)
     file.update_attributes({ :attachment_file_name => 'Test' }, :without_protection => true)
     assert UserFile.exists?(:attachment_file_name => 'Test')
 
-    folder = Factory(:folder)
+    folder = create(:folder)
     file2 = folder.user_files.build(:attachment => fixture_file)
     file2.attachment_file_name = 'Test'
     assert file2.save
@@ -56,7 +56,7 @@ class UserFileTest < ActiveSupport::TestCase
   end
 
   test 'attachment file name cannot contain invalid characters' do
-    file = Factory(:user_file)
+    file = create(:user_file)
 
     %w{< > : " / \ | ? *}.each do |invalid_character|
       file.attachment_file_name = "Test#{invalid_character}"
@@ -68,9 +68,9 @@ class UserFileTest < ActiveSupport::TestCase
   end
 
   test 'cannot copy a file to anything other than a folder' do
-    file1 = Factory(:user_file)
-    file2 = Factory(:user_file)
-    folder = Factory(:folder)
+    file1 = create(:user_file)
+    file2 = create(:user_file)
+    folder = create(:folder)
 
     assert_raise(ActiveRecord::RecordInvalid) { file1.copy(nil) }
     assert_raise(ActiveRecord::AssociationTypeMismatch) { file1.copy('A string...') }
@@ -79,8 +79,8 @@ class UserFileTest < ActiveSupport::TestCase
   end
 
   test 'copy a file' do
-    folder = Factory(:folder)
-    file = Factory(:user_file)
+    folder = create(:folder)
+    file = create(:user_file)
 
     assert_raise(ActiveRecord::RecordInvalid) { file.copy(Folder.root) }
     assert_equal UserFile.all.count, 1
@@ -95,9 +95,9 @@ class UserFileTest < ActiveSupport::TestCase
   end
 
   test 'cannot move a file to anything other than a folder' do
-    file1 = Factory(:user_file)
-    file2 = Factory(:user_file)
-    folder = Factory(:folder)
+    file1 = create(:user_file)
+    file2 = create(:user_file)
+    folder = create(:folder)
 
     assert_raise(ActiveRecord::RecordInvalid) { file1.move(nil) }
     assert_raise(ActiveRecord::AssociationTypeMismatch) { file1.move('A string...') }
@@ -106,9 +106,9 @@ class UserFileTest < ActiveSupport::TestCase
   end
 
   test 'move a file' do
-    folder = Factory(:folder)
-    folder2 = Factory(:folder)
-    file = Factory(:user_file)
+    folder = create(:folder)
+    folder2 = create(:folder)
+    file = create(:user_file)
 
     assert file.copy(folder)
     assert_equal UserFile.all.count, 2
@@ -121,7 +121,7 @@ class UserFileTest < ActiveSupport::TestCase
   end
 
   test 'file has correct extension' do
-    file = Factory(:user_file)
+    file = create(:user_file)
     assert_equal file.extension, 'txt'
 
     file.update_attributes({ :attachment_file_name => 'test.pdf' }, :without_protection => true)

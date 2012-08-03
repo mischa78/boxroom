@@ -1,33 +1,43 @@
-Factory.define :folder do |f|
-  f.sequence(:name) { |i| "test#{i}" }
-  f.parent { Folder.find_or_create_by_name('Root folder') }
+FactoryGirl.define do
+  factory :folder do
+    sequence(:name) { |i| "test#{i}" }
+    parent { Folder.find_or_create_by_name('Root folder') }
+  end
 end
 
-Factory.define :group do |f|
-  f.sequence(:name) { |i| "test#{i}" }
+FactoryGirl.define do
+  factory :group do
+    sequence(:name) { |i| "test#{i}" }
+  end
 end
 
-Factory.define :share_link do |f|
-  f.emails 'email1@domain.com, email2@domain.com'
-  f.link_expires_at { 2.weeks.from_now.end_of_day }
+FactoryGirl.define do
+  factory :share_link do
+    emails 'email1@domain.com, email2@domain.com'
+    link_expires_at { 2.weeks.from_now.end_of_day }
+  end
 end
 
-Factory.define :user_file do |f|
-  f.attachment { fixture_file }
-  f.sequence(:attachment_file_name) { |i| "test#{i}.txt" }
-  f.folder { Folder.find_or_create_by_name('Root folder') }
+FactoryGirl.define do
+  factory :user_file do
+    attachment { fixture_file }
+    sequence(:attachment_file_name) { |i| "test#{i}.txt" }
+    folder { Folder.find_or_create_by_name('Root folder') }
+  end
 end
 
-Factory.define :user do |f|
-  f.sequence(:name) { |i| "test#{i}" }
-  f.sequence(:email) { |i| "test#{i}@test.com" }
-  f.password 'secret123'
-  f.password_confirmation { |u| u.password }
-  f.password_required true
-  f.reset_password_token ''
-  f.dont_clear_reset_password_token false
-  f.remember_token ''
-  f.is_admin false
+FactoryGirl.define do
+  factory :user do
+    sequence(:name) { |i| "test#{i}" }
+    sequence(:email) { |i| "test#{i}@test.com" }
+    password 'secret123'
+    password_confirmation { |u| u.password }
+    password_required true
+    reset_password_token ''
+    dont_clear_reset_password_token false
+    remember_token ''
+    is_admin false
+  end
 end
 
 def fixture_file

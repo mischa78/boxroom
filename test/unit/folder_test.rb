@@ -2,16 +2,16 @@ require 'test_helper'
 
 class FolderTest < ActiveSupport::TestCase
   test 'dependent files get deleted' do
-    folder1 = Factory(:folder)
+    folder1 = create(:folder)
     assert_equal Folder.all.count, 2 # Root folder gets created automatically
 
-    3.times { Factory(:user_file, :folder => folder1) }
+    3.times { create(:user_file, :folder => folder1) }
     assert_equal folder1.user_files.count, 3
 
-    folder2 = Factory(:folder)
+    folder2 = create(:folder)
     assert_equal Folder.all.count, 3
 
-    5.times { Factory(:user_file, :folder => folder2) }
+    5.times { create(:user_file, :folder => folder2) }
     assert_equal folder2.user_files.count, 5
     assert_equal UserFile.all.count, 8
 
@@ -23,15 +23,15 @@ class FolderTest < ActiveSupport::TestCase
   end
 
   test 'dependent permissions get deleted' do
-    root = Factory(:folder, :name => 'Root folder', :parent => nil) # Root folder
+    root = create(:folder, :name => 'Root folder', :parent => nil) # Root folder
     assert_equal Folder.all.count, 1
 
-    3.times { Factory(:group) }
+    3.times { create(:group) }
     assert Group.all.count > 0
     assert_equal root.permissions.count, Group.all.count
 
-    folder1 = Factory(:folder)
-    folder2 = Factory(:folder)
+    folder1 = create(:folder)
+    folder2 = create(:folder)
     assert_equal folder1.permissions.count, 3
     assert_equal folder2.permissions.count, 3
     assert_equal Permission.all.count, 9
@@ -44,7 +44,7 @@ class FolderTest < ActiveSupport::TestCase
   end
 
   test 'name is unique' do
-    folder = Factory(:folder, :name => 'Test')
+    folder = create(:folder, :name => 'Test')
     assert Folder.exists?(:name => 'Test')
 
     folder2 = Folder.new(:name => 'Test')
@@ -68,10 +68,10 @@ class FolderTest < ActiveSupport::TestCase
   end
 
   test 'permissions get created' do
-    root = Factory(:folder, :name => 'Root folder', :parent => nil) # Root folder
+    root = create(:folder, :name => 'Root folder', :parent => nil) # Root folder
     assert_equal Folder.all.count, 1
 
-    Factory(:group)
+    create(:group)
     assert Group.all.count > 0
     assert_equal root.permissions.count, Group.all.count
 
@@ -85,7 +85,7 @@ class FolderTest < ActiveSupport::TestCase
       permission.update_attributes(:can_create => true, :can_update => true)
     end
 
-    folder = Factory(:folder)
+    folder = create(:folder)
     assert_equal Folder.all.count, 2
     assert_equal folder.permissions.count, Group.all.count
 
@@ -99,7 +99,7 @@ class FolderTest < ActiveSupport::TestCase
   end
 
   test 'cannot delete root folder' do
-    folder = Factory(:folder)
+    folder = create(:folder)
     root = Folder.root
 
     assert_raise(RuntimeError) { root.destroy }
@@ -107,9 +107,9 @@ class FolderTest < ActiveSupport::TestCase
   end
 
   test 'cannot copy a folder to anything other than a folder' do
-    file = Factory(:user_file)
-    folder1 = Factory(:folder)
-    folder2 = Factory(:folder)
+    file = create(:user_file)
+    folder1 = create(:folder)
+    folder2 = create(:folder)
 
     assert_raise(RuntimeError) { folder1.copy(nil) }
     assert_raise(ActiveRecord::AssociationTypeMismatch) { folder1.copy('A string...') }
@@ -118,11 +118,11 @@ class FolderTest < ActiveSupport::TestCase
   end
 
   test 'copy a folder' do
-    folder1 = Factory(:folder)
-    5.times { Factory(:user_file, :folder => folder1) }
+    folder1 = create(:folder)
+    5.times { create(:user_file, :folder => folder1) }
 
-    folder2 = Factory(:folder)
-    3.times { Factory(:user_file, :folder => folder2) }
+    folder2 = create(:folder)
+    3.times { create(:user_file, :folder => folder2) }
 
     assert_raise(ActiveRecord::RecordInvalid) { folder1.copy(Folder.root) }
     assert_equal UserFile.all.count, 8
@@ -133,9 +133,9 @@ class FolderTest < ActiveSupport::TestCase
   end
 
   test 'cannot move a folder to anything other than a folder' do
-    file = Factory(:user_file)
-    folder1 = Factory(:folder)
-    folder2 = Factory(:folder)
+    file = create(:user_file)
+    folder1 = create(:folder)
+    folder2 = create(:folder)
 
     assert_raise(RuntimeError) { folder1.move(nil) }
     assert_raise(ActiveRecord::AssociationTypeMismatch) { folder1.move('A string...') }
@@ -144,9 +144,9 @@ class FolderTest < ActiveSupport::TestCase
   end
 
   test 'move a folder' do
-    folder1 = Factory(:folder)
-    folder2 = Factory(:folder, :parent => folder1)
-    folder3 = Factory(:folder)
+    folder1 = create(:folder)
+    folder2 = create(:folder, :parent => folder1)
+    folder3 = create(:folder)
 
     assert folder1.parent_of?(folder2)
     assert !folder1.parent_of?(folder3)
@@ -166,7 +166,7 @@ class FolderTest < ActiveSupport::TestCase
   end
 
   test 'whether a folder is root or not' do
-    folder1 = Factory(:folder)
+    folder1 = create(:folder)
     assert !folder1.is_root?
 
     folder2 = Folder.new
@@ -177,14 +177,14 @@ class FolderTest < ActiveSupport::TestCase
   end
 
   test 'whether a folder has children or not' do
-    folder = Factory(:folder)
+    folder = create(:folder)
     assert !folder.has_children?
 
     root = Folder.root
     assert_equal folder.parent, root
     assert root.has_children?
 
-    folder2 = Factory(:folder, :parent => folder)
+    folder2 = create(:folder, :parent => folder)
     assert folder.has_children?
 
     folder.destroy
@@ -192,7 +192,7 @@ class FolderTest < ActiveSupport::TestCase
   end
 
   test 'that the root folder is really the root folder' do
-    folder = Factory(:folder)
+    folder = create(:folder)
     assert !folder.is_root?
 
     root = Folder.root

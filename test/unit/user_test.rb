@@ -2,12 +2,12 @@ require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
   test 'password is valid' do
-    assert_raise(ActiveRecord::RecordInvalid) { Factory(:user, :password => '123456', :password_confirmation => '654321') }
-    assert_raise(ActiveRecord::RecordInvalid) { Factory(:user, :password => '123') }
-    assert_raise(ActiveRecord::RecordInvalid) { Factory(:user, :password => '') }
-    assert Factory(:user, :password => '123456')
+    assert_raise(ActiveRecord::RecordInvalid) { create(:user, :password => '123456', :password_confirmation => '654321') }
+    assert_raise(ActiveRecord::RecordInvalid) { create(:user, :password => '123') }
+    assert_raise(ActiveRecord::RecordInvalid) { create(:user, :password => '') }
+    assert create(:user, :password => '123456')
 
-    user = Factory(:user)
+    user = create(:user)
     user.password_required = false
     user.password = ''
     user.password_confirmation = ''
@@ -15,24 +15,24 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test 'name can be empty for a new user' do
-    Factory(:user, :name => '', :email => 'test@test.com')
+    create(:user, :name => '', :email => 'test@test.com')
     assert User.exists?(:name => '', :email => 'test@test.com')
   end
 
   test 'signup_token and signup_token_expires_at are set for a new user' do
-    user = Factory(:user, :name => '', :email => 'test@test.com')
+    user = create(:user, :name => '', :email => 'test@test.com')
     assert !user.signup_token.empty?
     assert user.signup_token_expires_at > 1.hour.from_now
   end
 
   test 'name cannot be empty for an existing user' do
-    user = Factory(:user)
+    user = create(:user)
     user.name = ''
     assert_raise(ActiveRecord::RecordInvalid) { user.save! }
   end
 
   test 'signup_token and signup_token_expires_at are nil for an existing user' do
-    user = Factory(:user, :name => '', :email => 'test@test.com')
+    user = create(:user, :name => '', :email => 'test@test.com')
     user.name = 'test'
     user.save
     assert user.signup_token.nil?
@@ -40,35 +40,35 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test 'email is not empty' do
-    assert_raise(ActiveRecord::RecordInvalid) { Factory(:user, :email => '') }
+    assert_raise(ActiveRecord::RecordInvalid) { create(:user, :email => '') }
   end
 
   test 'name is unique' do
-    Factory(:user, :name => 'Test')
+    create(:user, :name => 'Test')
     assert User.exists?(:name => 'Test')
-    assert_raise(ActiveRecord::RecordInvalid) { Factory(:user, :name => 'Test') }
+    assert_raise(ActiveRecord::RecordInvalid) { create(:user, :name => 'Test') }
   end
 
   test 'email is unique' do
-    Factory(:user, :email => 'test@test.com')
+    create(:user, :email => 'test@test.com')
     assert User.exists?(:email => 'test@test.com')
-    assert_raise(ActiveRecord::RecordInvalid) { Factory(:user, :email => 'test@test.com') }
+    assert_raise(ActiveRecord::RecordInvalid) { create(:user, :email => 'test@test.com') }
   end
 
   test 'email is valid' do
-    assert_raise(ActiveRecord::RecordInvalid) { Factory(:user, :email => '@.com') }
-    assert_raise(ActiveRecord::RecordInvalid) { Factory(:user, :email => '@test.com') }
-    assert_raise(ActiveRecord::RecordInvalid) { Factory(:user, :email => 'test@.com') }
-    assert_raise(ActiveRecord::RecordInvalid) { Factory(:user, :email => 'test@test.') }
-    assert_raise(ActiveRecord::RecordInvalid) { Factory(:user, :email => 'test@$%^.com') }
-    assert_raise(ActiveRecord::RecordInvalid) { Factory(:user, :email => 'test@test.c') }
-    assert_raise(ActiveRecord::RecordInvalid) { Factory(:user, :email => 'test@test.$$$') }
-    assert_nothing_raised(ActiveRecord::RecordInvalid) { Factory(:user, :email => 'test@test.com') }
+    assert_raise(ActiveRecord::RecordInvalid) { create(:user, :email => '@.com') }
+    assert_raise(ActiveRecord::RecordInvalid) { create(:user, :email => '@test.com') }
+    assert_raise(ActiveRecord::RecordInvalid) { create(:user, :email => 'test@.com') }
+    assert_raise(ActiveRecord::RecordInvalid) { create(:user, :email => 'test@test.') }
+    assert_raise(ActiveRecord::RecordInvalid) { create(:user, :email => 'test@$%^.com') }
+    assert_raise(ActiveRecord::RecordInvalid) { create(:user, :email => 'test@test.c') }
+    assert_raise(ActiveRecord::RecordInvalid) { create(:user, :email => 'test@test.$$$') }
+    assert_nothing_raised(ActiveRecord::RecordInvalid) { create(:user, :email => 'test@test.com') }
   end
 
   test 'reset_password_token gets cleared' do
     token = SecureRandom.base64(32)
-    user = Factory(:user, :reset_password_token => token, :dont_clear_reset_password_token => true)
+    user = create(:user, :reset_password_token => token, :dont_clear_reset_password_token => true)
     assert_equal user.reset_password_token, token
 
     user2 = User.find_by_reset_password_token(token)
@@ -77,26 +77,26 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test 'root folder and admins group get created' do
-    admin = Factory(:user, :is_admin => true)
+    admin = create(:user, :is_admin => true)
     assert_equal Folder.where(:name => 'Root folder').count, 1
     assert_equal Group.where(:name => 'Admins').count, 1
     assert_equal admin.groups.count, 1
   end
 
   test 'cannot delete admin user' do
-    admin = Factory(:user, :is_admin => true)
-    normal_user = Factory(:user)
+    admin = create(:user, :is_admin => true)
+    normal_user = create(:user)
 
     assert_raise(RuntimeError) { admin.destroy }
     assert normal_user.destroy
   end
 
   test 'user permissions' do
-    admin = Factory(:user, :is_admin => true)
-    user = Factory(:user)
+    admin = create(:user, :is_admin => true)
+    user = create(:user)
     root = Folder.root
-    folder = Factory(:folder)
-    group = Factory(:group)
+    folder = create(:folder)
+    group = create(:group)
 
     %w{create read update delete}.each { |method| assert admin.send("can_#{method}", root) }
     %w{create read update delete}.each { |method| assert admin.send("can_#{method}", folder) }
@@ -130,7 +130,7 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test 'hashed_password and password_salt do not change when leaving the password empty' do
-    user = Factory(:user)
+    user = create(:user)
     assert !user.password_salt.blank?
     assert !user.hashed_password.blank?
 
@@ -147,7 +147,7 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test 'hashed_password and password_salt change when updating the password' do
-    user = Factory(:user)
+    user = create(:user)
     salt = user.password_salt
     hash = user.hashed_password
 
@@ -161,10 +161,10 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test 'whether a user is member of admins or not' do
-    admin = Factory(:user, :is_admin => true)
+    admin = create(:user, :is_admin => true)
     assert admin.member_of_admins?
 
-    user = Factory(:user)
+    user = create(:user)
     assert !user.member_of_admins?
 
     user.groups << Group.find_by_name('Admins')
@@ -172,7 +172,7 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test 'whether reset_password_token refreshes' do
-    user = Factory(:user)
+    user = create(:user)
     assert user.reset_password_token.blank?
 
     user.refresh_reset_password_token
@@ -189,7 +189,7 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test 'whether remember_token refreshes' do
-    user = Factory(:user)
+    user = create(:user)
     assert user.remember_token.blank?
 
     user.refresh_remember_token
@@ -203,7 +203,7 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test 'whether forget_me clears remember_token' do
-    user = Factory(:user)
+    user = create(:user)
     user.refresh_remember_token
     assert !user.remember_token.blank?
 
@@ -213,7 +213,7 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test 'authentication' do
-    user = Factory(:user, :name => 'testname', :password => 'secret')
+    user = create(:user, :name => 'testname', :password => 'secret')
     assert !User.authenticate(nil, nil)
     assert !User.authenticate('', '')
     assert !User.authenticate('testname', nil)
@@ -227,10 +227,10 @@ class UserTest < ActiveSupport::TestCase
   test 'whether there is an admin user or not' do
     assert User.no_admin_yet?
 
-    normal_user = Factory(:user)
+    normal_user = create(:user)
     assert User.no_admin_yet?
 
-    admin = Factory(:user, :is_admin => true)
+    admin = create(:user, :is_admin => true)
     assert !User.no_admin_yet?
   end
 end

@@ -2,11 +2,11 @@ require 'test_helper'
 
 class GroupTest < ActiveSupport::TestCase
   test 'dependent permissions get deleted' do
-    3.times { Factory(:folder) }
+    3.times { create(:folder) }
     assert_equal Folder.all.count, 4 # Root folder gets created automatically
 
-    group1 = Factory(:group)
-    group2 = Factory(:group)
+    group1 = create(:group)
+    group2 = create(:group)
     assert_equal group1.permissions.count, 4
     assert_equal group2.permissions.count, 4
     assert_equal Permission.all.count, 8
@@ -19,7 +19,7 @@ class GroupTest < ActiveSupport::TestCase
   end
 
   test 'name is unique' do
-    Factory(:group, :name => 'Users')
+    create(:group, :name => 'Users')
     assert Group.exists?(:name => 'Users')
 
     group = Group.new(:name => 'Users')
@@ -32,10 +32,10 @@ class GroupTest < ActiveSupport::TestCase
   end
 
   test 'admin permissions get created' do
-    Factory(:folder)
+    create(:folder)
     assert Folder.all.count > 0
 
-    group = Factory(:group, :name => 'Admins')
+    group = create(:group, :name => 'Admins')
     assert_equal group.permissions.count, Folder.all.count
 
     group.permissions.each do |permission|
@@ -47,10 +47,10 @@ class GroupTest < ActiveSupport::TestCase
   end
 
   test 'permissions get created' do
-    Factory(:folder)
+    create(:folder)
     assert Folder.all.count > 0
 
-    group = Factory(:group)
+    group = create(:group)
     assert_equal group.permissions.count, Folder.all.count
 
     group.permissions.each do |permission|
@@ -62,8 +62,8 @@ class GroupTest < ActiveSupport::TestCase
   end
 
   test 'cannot delete admins group' do
-    admins = Factory(:group, :name => 'Admins')
-    normal_group = Factory(:group)
+    admins = create(:group, :name => 'Admins')
+    normal_group = create(:group)
 
     assert admins.admins_group?
     assert_raise(RuntimeError) { admins.destroy }
