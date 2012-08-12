@@ -7,16 +7,16 @@ Contributors:
  * [Marcus Ilgner](https://github.com/milgner)
  * [Rob Halff](https://github.com/rhalff)
  * [Ryan Michael](https://github.com/kerinin/boxroom)
- * Thomas Volkmar Worm
- * Joan Marc Carbo
+ * [Thomas Volkmar Worm](https://github.com/tvw/)
+ * [Joan Marc Carbo](https://github.com/jmcarbo)
  * Stian Haklev
  * Craig Box
- * Stephan Toggweiler
+ * [Stephan Toggweiler](https://github.com/rheoli)
 
 
 Donations:
 
- * [IT Partners (2x)](http://www.itpartners.co.nz/)
+ * [IT Partners](http://www.itpartners.co.nz/)
  * Matt Meshulam
  * April Colo
 
