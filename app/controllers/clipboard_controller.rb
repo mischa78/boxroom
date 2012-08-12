@@ -40,7 +40,7 @@ class ClipboardController < ApplicationController
     clipboard.remove(@item)
     redirect_to folder_url(params[:folder_id])
   rescue ActiveRecord::RecordInvalid
-    redirect_to folder_url(params[:folder_id]), :alert => t(:could_not_move, :type => t(params[:type]))
+    redirect_to folder_url(params[:folder_id]), :alert => t("could_not_#{action}".to_sym, :type => t(params[:type]))
   end
 
   def require_existing_item
