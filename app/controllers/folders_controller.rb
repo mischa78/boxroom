@@ -54,10 +54,9 @@ class FoldersController < ApplicationController
 
   private
 
+  # get_folder is defined in ApplicationController
   def require_existing_folder
-    @folder = Folder.find(params[:id])
-  rescue ActiveRecord::RecordNotFound
-    redirect_to folder_url(Folder.root), :alert => t(:already_deleted, :type => t(:this_folder))
+    @folder = get_folder(params[:id])
   end
 
   def require_folder_isnt_root_folder
