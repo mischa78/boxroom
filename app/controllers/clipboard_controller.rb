@@ -23,27 +23,25 @@ class ClipboardController < ApplicationController
     redirect_to folder_url(params[:folder_id])
   end
 
-  # @item is set in require_existing_item
-  # @target_folder is set in require_existing_target_folder
   def copy
-    @item.copy(@target_folder)
-    clipboard.remove(@item)
-    redirect_to folder_url(params[:folder_id])
-  rescue ActiveRecord::RecordInvalid
-    redirect_to folder_url(params[:folder_id]), :alert => t(:could_not_copy, :type => t(params[:type]))
+    paste :copy
   end
+
+  def move
+    paste :move
+  end
+
+  private
 
   # @item is set in require_existing_item
   # @target_folder is set in require_existing_target_folder
-  def move
-    @item.move(@target_folder)
+  def paste(action)
+    @item.send(action, @target_folder)
     clipboard.remove(@item)
     redirect_to folder_url(params[:folder_id])
   rescue ActiveRecord::RecordInvalid
     redirect_to folder_url(params[:folder_id]), :alert => t(:could_not_move, :type => t(params[:type]))
   end
-
-  private
 
   def require_existing_item
     if params[:type] == 'folder'
