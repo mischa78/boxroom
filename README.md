@@ -1,4 +1,8 @@
-# Boxroom [![Build Status](https://secure.travis-ci.org/mischa78/boxroom.png)](http://travis-ci.org/mischa78/boxroom)
+# Boxroom
+
+[![Build Status](https://secure.travis-ci.org/mischa78/boxroom.png)](http://travis-ci.org/mischa78/boxroom)
+[![Dependency Status](https://gemnasium.com/mischa78/boxroom.png?travis)](https://gemnasium.com/mischa78/boxroom)
+[![Code Climate](https://codeclimate.com/badge.png)](https://codeclimate.com/github/mischa78/boxroom)
 
 Boxroom is a Rails 3.2 application that aims to be a simple interface for sharing
 files in a web browser. To make this possible the application lets users create
