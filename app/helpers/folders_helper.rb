@@ -6,8 +6,8 @@ module FoldersHelper
   end
 
   def file_icon(extension)
-    if FileTest.exists?(Rails.root.join('app','assets','images','fileicons', "#{extension}.png"))
-      "fileicons/#{extension}.png"
+    if FileTest.exists?(Rails.root.join('app','assets','images','fileicons', "#{extension.downcase}.png"))
+      "fileicons/#{extension.downcase}.png"
     else
       'file.png'
     end
