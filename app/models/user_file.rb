@@ -4,7 +4,7 @@ class UserFile < ActiveRecord::Base
   belongs_to :folder
   has_many :share_links, :dependent => :destroy
 
-  attr_accessible :attachment
+  attr_accessible :attachment, :attachment_file_name
 
   validates_attachment_presence :attachment, :message => I18n.t(:blank, :scope => [:activerecord, :errors, :messages])
   validates_presence_of :folder_id
