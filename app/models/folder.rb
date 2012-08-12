@@ -5,7 +5,7 @@ class Folder < ActiveRecord::Base
   has_many :permissions, :dependent => :destroy
 
   attr_accessor :is_copied_folder
-  attr_accessible :name, :user_id
+  attr_accessible :name
 
   validates_uniqueness_of :name, :scope => :parent_id
   validates_presence_of :name
