@@ -54,9 +54,9 @@ class FoldersController < ApplicationController
 
   private
 
-  # get_folder is defined in ApplicationController
+  # get_folder_or_redirect is defined in ApplicationController
   def require_existing_folder
-    @folder = get_folder(params[:id])
+    @folder = get_folder_or_redirect(params[:id])
   end
 
   def require_folder_isnt_root_folder

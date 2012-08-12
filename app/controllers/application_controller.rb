@@ -46,7 +46,7 @@ class ApplicationController < ActionController::Base
   end
 
   def require_existing_target_folder
-    @target_folder = get_folder(params[:folder_id])
+    @target_folder = get_folder_or_redirect(params[:folder_id])
   end
 
   def require_create_permission
@@ -64,7 +64,7 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def get_folder(id)
+  def get_folder_or_redirect(id)
     Folder.find(id)
   rescue ActiveRecord::RecordNotFound
     redirect_to folder_url(Folder.root), :alert => t(:already_deleted, :type => t(:this_folder))
