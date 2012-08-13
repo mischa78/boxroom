@@ -389,7 +389,6 @@ de:
 
   # reset_password_controller
   instruction_email_sent: E-Mail erfolgreich verschickt. Bitte prüfen Sie Ihren Posteingang.
-  no_user_with_this_email: "Es existiert kein Benutzer mit der E-Mail Adresse '%{email}'. Bitte versuchen Sie es noch einmal."
   password_reset_successfully: Ihr Kennwort wurde erfolgreich zurückgesetzt. Sie können sich nun anmelden.
   reset_url_expired: Die URL zum Rücksetzen des Kennworts ist leider abgelaufen. Bitte probieren Sie es nochmals.
 

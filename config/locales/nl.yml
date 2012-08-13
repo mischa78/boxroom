@@ -382,8 +382,7 @@ nl:
   admins_group_cannot_be_deleted: De admin groep kan niet verwijderd of gewijzigd worden.
 
   # reset_password_controller
-  instruction_email_sent: Een e-mail met instructies is verzonden. Controleer uw e-mail.
-  no_user_with_this_email: "Er is geen gebruiker bekend met e-mailadres '%{email}'. Probeer het opnieuw."
+  instruction_email_sent: "Een e-mail met instructies is verzonden als '%{email}' aanwezig is in ons systeem."
   password_reset_successfully: Uw wachtwoord is gereset. U kunt nu inloggen.
   reset_url_expired: De URL om uw wachtwoord te resetten is ongeldig. Probeer het nogmaals.
 

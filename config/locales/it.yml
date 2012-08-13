@@ -389,7 +389,6 @@
 
   # reset_password_controller
   instruction_email_sent: "L'email con le istruzioni è stata inviata. Controlla la tua email."
-  no_user_with_this_email: "Non esiste un utente con questo indirizzo '%{email}'. Riprova."
   password_reset_successfully: La password è stata modificata con successo. Ora puoi accedere.
   reset_url_expired: Il link per cambiare la password è scaduto. Riprova.
 

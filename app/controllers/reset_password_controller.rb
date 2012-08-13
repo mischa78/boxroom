@@ -11,12 +11,9 @@ class ResetPasswordController < ApplicationController
     unless user.nil?
       user.refresh_reset_password_token
       UserMailer.reset_password_email(user).deliver
-      flash[:notice] = t(:instruction_email_sent)
-    else
-      flash[:alert] = t(:no_user_with_this_email, :email => params[:email]);
     end
 
-    redirect_to new_reset_password_url
+    redirect_to new_reset_password_url, :notice => t(:instruction_email_sent, :email => params[:email])
   end
 
   # Note: @user is set in require_valid_token

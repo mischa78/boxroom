@@ -381,8 +381,7 @@
   admins_group_cannot_be_deleted: The admins group cannot be deleted or renamed.
 
   # reset_password_controller
-  instruction_email_sent: Email with instructions sent successfully. Please check your email.
-  no_user_with_this_email: "There is no user with email address '%{email}'. Please try again."
+  instruction_email_sent: "An email with instructions was sent if '%{email}' exists in our system."
   password_reset_successfully: Your password was reset successfully. You can now sign in.
   reset_url_expired: The URL for resetting your password expired. Please try again.
 
