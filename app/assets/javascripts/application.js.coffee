@@ -27,7 +27,7 @@ jQuery ->
 		update_counter e.target
 
 fadeout = (el) ->
-	$(el).delay(1500).fadeOut('slow')
+	$(el).delay(3000).fadeOut('slow')
 
 show_element = (el) ->
 	el = '#files_and_folders' if $(el).is(':visible')

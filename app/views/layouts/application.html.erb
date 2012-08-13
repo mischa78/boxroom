@@ -13,6 +13,20 @@
 </head>
 <body>
 	<div id="container">
+		<% if flash[:notice] -%>
+		<div class="notice" id="notice">
+			<p>
+				<%= flash[:notice] %>
+			</p>
+		</div>
+		<% end -%>
+		<% if flash[:alert] -%>
+		<div class="error" id="alert">
+			<p>
+				<%= flash[:alert] %>
+			</p>
+		</div>
+		<% end -%>
 		<%= render 'shared/header' %>
 		<%= render 'shared/menu' %>
 		<div id="content">

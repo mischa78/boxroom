@@ -1,13 +1,6 @@
 <% content_for :title, t(:users) -%>
 
 <h1><%= content_for :title %></h1>
-
-<% if flash[:alert] -%>
-<p class="error" id="alert">
-	<%= flash[:alert] %>
-</p>
-<% end -%>
-
 <p>
 	<span class="user_menu"><%= image_tag('user_add.png', :alt => t(:create_a_new_user)) %> <%= link_to t(:create_a_new_user), new_user_path %></span>
 </p>

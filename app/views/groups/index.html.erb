@@ -1,11 +1,6 @@
 <% content_for :title, t(:groups) -%>
 
 <h1><%= content_for :title %></h1>
-<% if flash[:alert] -%>
-<p class="error" id="alert">
-	<%= flash[:alert] %>
-</p>
-<% end -%>
 <p>
 	<span class="group_menu"><%= image_tag('group_add.png', :alt => t(:create_a_new_group)) %> <%= link_to t(:create_a_new_group), new_group_path %></span>
 </p>

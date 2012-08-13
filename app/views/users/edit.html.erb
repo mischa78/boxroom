@@ -1,9 +1,4 @@
 <% content_for :title, @title -%>
 
 <h1><%= content_for :title %></h1>
-<% if flash[:notice] -%>
-<p class="notice" id="notice">
-	<%= flash[:notice] %>
-</p>
-<% end -%>
 <%= render 'form' %>

@@ -1,16 +1,6 @@
 <% content_for :title, t(:reset_password) -%>
 
 <h1><%= content_for :title %></h1>
-<% if flash[:notice] -%>
-<p class="notice" id="notice">
-	<%= flash[:notice] %>
-</p>
-<% end -%>
-<% if flash[:alert] -%>
-<p class="error" id="alert">
-	<%= flash[:alert] %>
-</p>
-<% end -%>
 <p>
 	<%= render 'message' %>
 </p>

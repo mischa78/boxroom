@@ -7,16 +7,7 @@
 	<span class="breadcrumb nowrap"><%= @folder.name %></span>
 </p>
 <% end -%>
-<% if flash[:notice] -%>
-<p class="notice" id="notice">
-	<%= flash[:notice] %>
-</p>
-<% end -%>
-<% if flash[:alert] -%>
-<p class="error" id="alert">
-	<%= flash[:alert] %>
-</p>
-<% end -%><p>
+<p>
 <% if current_user.can_create(@folder) -%>
 	<span class="folder_menu"><%= image_tag('folder_add.png', :alt => t(:create_a_new_folder)) %> <%= link_to t(:create_a_new_folder), new_folder_folder_path(@folder) %></span>
 	<span class="folder_menu"><%= image_tag('file_add.png', :alt => t(:upload_a_file)) %> <%= link_to t(:upload_a_file), new_folder_file_path(@folder) %></span>

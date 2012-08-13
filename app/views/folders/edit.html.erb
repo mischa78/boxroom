@@ -1,11 +1,6 @@
 <% content_for :title, t(:rename_folder) -%>
 
 <h1><%= content_for :title %></h1>
-<% if flash[:notice] -%>
-<p class="notice" id="notice">
-	<%= flash[:notice] %>
-</p>
-<% end -%>
 <%= form_for @folder do |f| %>
 	<%= render :partial => 'form', :locals => { :f => f } %>
 <% end %>
