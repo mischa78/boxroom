@@ -4,10 +4,9 @@
 [![Dependency Status](https://gemnasium.com/mischa78/boxroom.png?travis)](https://gemnasium.com/mischa78/boxroom)
 [![Code Climate](https://codeclimate.com/badge.png)](https://codeclimate.com/github/mischa78/boxroom)
 
-Boxroom is a Rails 3.2 application that aims to be a simple interface for sharing
-files in a web browser. To make this possible the application lets users create
-folders and upload and download files. For admins it is possible to create users,
-groups and the CRU/D rights these groups have on folders.
+Boxroom is a Rails application that aims to be a simple interface for managing and
+sharing files in a web browser. It lets users create folders and upload, download
+and share files. Admins can manage users, groups and permissions.
 
 Website:  
 http://boxroomapp.com/
@@ -69,17 +68,17 @@ Languages
 Thanks to [Rob Halff](https://github.com/rhalff), [Marcus Ilgner](https://github.com/milgner) and
 [Jessica Marcon](https://github.com/marcontwm) Boxroom is now available in Dutch, German and Italian.
 
-English is the default. To change the language, open `config/application.rb` and change the following line:
+English is the default. To change the language, open `config/application.rb`, uncomment the following line:
 
-    config.i18n.default_locale = :en
+    # config.i18n.default_locale = :de
 
-to:
+and set the language you desire:
 
     config.i18n.default_locale = :nl # Dutch
     config.i18n.default_locale = :de # German
     config.i18n.default_locale = :it # Italian
 
-It would be great to have many more languages. I am waiting for your pull requests! ;-)
+It would be great to have many more languages. I am waiting for your pull requests!
 
 
 License
