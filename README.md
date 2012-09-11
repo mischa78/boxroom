@@ -96,19 +96,15 @@ Contributors:
  * Craig Box
  * [Stephan Toggweiler](https://github.com/rheoli)
 
-
 Donations:
 
  * [IT Partners](http://www.itpartners.co.nz/)
  * Matt Meshulam
  * April Colo
 
+Icons:
 
-Other credits:
-
- * [Yusuke Kamiyamane](http://p.yusukekamiyamane.com/) (icons)
- * [Rubyforge](http://rubyforge.org/) (hosting)
- * [Github](https://github.com/) (hosting)
+ * [Yusuke Kamiyamane](http://p.yusukekamiyamane.com/)
 
 
 License
