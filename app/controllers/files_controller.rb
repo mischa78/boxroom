@@ -19,13 +19,7 @@ class FilesController < ApplicationController
 
   # @target_folder is set in require_existing_target_folder
   def create
-    @file = @target_folder.user_files.build(params[:user_file])
-
-    if @file.save
-      redirect_to folder_url(@target_folder)
-    else
-      render :action => 'new'
-    end
+    @file = @target_folder.user_files.create(params[:user_file])
   end
 
   # @file and @folder are set in require_existing_file
@@ -44,7 +38,12 @@ class FilesController < ApplicationController
   # @file and @folder are set in require_existing_file
   def destroy
     @file.destroy
-    redirect_to folder_url(@folder)
+    redirect_to @folder
+  end
+
+  def exists
+    @file = UserFile.new(:attachment_file_name => params[:name])
+    @file.folder_id = params[:folder]
   end
 
   private
@@ -53,6 +52,6 @@ class FilesController < ApplicationController
     @file = UserFile.find(params[:id])
     @folder = @file.folder
   rescue ActiveRecord::RecordNotFound
-    redirect_to folder_url(Folder.root), :alert => t(:already_deleted, :type => t(:this_file))
+    redirect_to Folder.root, :alert => t(:already_deleted, :type => t(:this_file))
   end
 end

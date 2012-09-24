@@ -51,7 +51,7 @@ class ApplicationController < ActionController::Base
 
   def require_create_permission
     unless current_user.can_create(@target_folder)
-      redirect_to folder_url(@target_folder), :alert => t(:no_permissions_for_this_type, :method => t(:create), :type => t(:this_folder))
+      redirect_to @target_folder, :alert => t(:no_permissions_for_this_type, :method => t(:create), :type => t(:this_folder))
     end
   end
 
@@ -59,7 +59,7 @@ class ApplicationController < ActionController::Base
     define_method "require_#{method}_permission" do
       unless (method == 'read' && @folder.is_root?) || current_user.send("can_#{method}", @folder)
         redirect_folder = @folder.parent.nil? ? Folder.root : @folder.parent
-        redirect_to folder_url(redirect_folder), :alert => t(:no_permissions_for_this_type, :method => t(:create), :type => t(:this_folder))
+        redirect_to redirect_folder, :alert => t(:no_permissions_for_this_type, :method => t(:create), :type => t(:this_folder))
       end
     end
   end
@@ -67,6 +67,6 @@ class ApplicationController < ActionController::Base
   def get_folder_or_redirect(id)
     Folder.find(id)
   rescue ActiveRecord::RecordNotFound
-    redirect_to folder_url(Folder.root), :alert => t(:already_deleted, :type => t(:this_folder))
+    redirect_to Folder.root, :alert => t(:already_deleted, :type => t(:this_folder))
   end
 end

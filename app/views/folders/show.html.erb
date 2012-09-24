@@ -29,7 +29,7 @@
 	<% unless @folder.is_root? -%>
 		<tr class="<%= cycle('even','odd') %>">
 			<td><%= image_tag('folder.png') %></td>
-			<td class="file_name">&uarr; <%= link_to t(:up), folder_path(@folder.parent), :title => @folder.parent.name %></td>
+			<td class="file_name">&uarr; <%= link_to t(:up), @folder.parent, :title => @folder.parent.name %></td>
 			<td class="file_size">--</td>
 			<td class="file_modified">--</td>
 			<td></td>
@@ -39,7 +39,7 @@
 		<% if current_user.can_read(folder) -%>
 		<tr class="<%= cycle('even','odd') %>">
 			<td><%= image_tag('folder.png') %></td>
-			<td class="file_name"><%= link_to folder.name, folder_path(folder) %></td>
+			<td class="file_name"><%= link_to folder.name, folder %></td>
 			<td class="file_size">--</td>
 			<td class="file_modified"><%= l folder.updated_at, :format => :long %></td>
 			<td>
@@ -47,7 +47,7 @@
 				<%= link_to image_tag('edit.png', :alt => t(:edit)), edit_folder_path(folder), :title => t(:edit) %>&nbsp;
 			<% end -%>
 			<% if current_user.can_delete(folder) -%>
-				<%= link_to image_tag('delete.png', :alt => t(:delete_item)), folder_path(folder), :method => :delete, :data => { :confirm => t(:are_you_sure) }, :title => t(:delete_item) %>&nbsp;
+				<%= link_to image_tag('delete.png', :alt => t(:delete_item)), folder, :method => :delete, :data => { :confirm => t(:are_you_sure) }, :title => t(:delete_item) %>&nbsp;
 			<% end -%>
 				<%= link_to image_tag('clipboard_add.png', :alt => t(:add_to_clipboard)),
 					{ :controller => :clipboard, :action => :create, :id => folder.id, :type => 'folder', :folder_id => @folder, :authenticity_token => form_authenticity_token },

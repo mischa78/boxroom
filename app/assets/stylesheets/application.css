@@ -4,38 +4,31 @@
 */
 
 html, body { height: 100%; }
-body { padding: 0px; margin: 0px; background-color: rgb(230,230,230); background-image: url(bg-body.png); background-repeat: repeat-y; background-position: top center; }
+body { padding: 0px; margin: 0px; background-color: rgb(225,225,225); }
 body, input { font-family: Arial; font-size: 13pt; }
 input { padding: 3px; border: 1px solid rgb(210,210,210); }
 input[type='button'], input[type='submit'] { background-color: #EEE; padding: 5px; }
+input[type='file'] { border: 0; }
 textarea { border: 1px solid rgb(210,210,210); width: 700px; padding: 10px; font-family: Arial; }
-ul { margin: 0; padding-top: 15px; }
 img { border: 0; }
-p { margin: 0; padding: 10px 15px 10px 15px; }
-table { margin-left: 15px; }
-h1 { margin: 0; padding: 25px 15px 10px 15px; font-size: 20pt; text-transform: uppercase; }
-h2 { font-size: 14pt; }
-h3 { margin: 0; padding: 15px 0 0 15px; font-size: 13pt; }
+h1 { font-size: 20pt; text-transform: uppercase; }
+h3 { font-size: 13pt; margin-bottom: 0; }
 a { color: #BA303A; text-decoration: none; }
 a:hover { text-decoration: underline; }
 table { border-collapse: collapse; }
 th { text-align: left; font-size: 11pt; }
 td img { padding: 0; }
-hr { border: 0; width: 800px; margin: 15px 0 10px 15px; color: #CCC; background-color: #CCC; height: 2px; }
 
 #container { min-height: 100%; position: relative; }
 #header { background-color: rgb(0,39,77); color: #FFF; border-bottom: 2px solid rgb(8,58,127); min-height: 70px; }
 #menu { background-color: rgb(0,24,49); border-bottom: 4px solid #BA303A; }
-#content { position: relative; width: 850px; margin-left: auto; margin-right: auto; padding-bottom: 60px; }
-#content p { padding: 0 15px 0 15px; margin-bottom: 10px; }
-#content p.error, #content p.notice { padding: 10px 15px 10px 50px; margin: 0 0 15px 15px; }
-#content ul { padding-top: 0; }
+#content { position: relative; width: 850px; margin: 10px auto 0 auto; padding: 15px 25px 15px 25px; background-color: #FFF; -moz-border-radius: 8px; border-radius: 8px; }
 #footer { position: absolute; bottom: 0; width: 100%; background-color: rgb(0,24,49); color: #FFF; border-top: 4px solid #BA303A; }
-#alert_no_fade { position: relative; top: 15px; }
+#footer_spacer { height: 70px; }
 
-.menu { padding: 10px 15px 7px 15px; color: #FFF; }
+.menu { margin: 0; padding: 10px 15px 7px 15px; color: #FFF; }
 .menu a, .footer a { color: #FFF; }
-.footer { text-align: center; }
+.footer { margin: 0; padding: 15px; text-align: center; }
 .footer a { text-decoration: underline; }
 .table_header td { font-weight: bold; }
 .even td, .odd td, th { padding: 7px; }
@@ -43,7 +36,7 @@ hr { border: 0; width: 800px; margin: 15px 0 10px 15px; color: #CCC; background-
 .even { background-color: #EEE; }
 .odd { background-color: #FFF; }
 .text_input { width: 280px; }
-.user_welcome { float: right; }
+.user_welcome { float: right; margin-right: 15px; }
 .user_welcome a { color: #FFF; text-decoration: underline; }
 .user_groups { margin-right: 200px; display: block; }
 .user_name, .user_expiration { min-width: 180px; }
@@ -52,18 +45,15 @@ hr { border: 0; width: 800px; margin: 15px 0 10px 15px; color: #CCC; background-
 .file_name { min-width: 250px; }
 .file_name a, .shared_file a { color: #000; text-decoration: underline; }
 .file_size { min-width: 100px; }
-.file_modified {  }
 .disabled { color: #999; }
 .breadcrumb { margin-bottom: 5px; padding: 4px; font-size: 11pt; background-color: #F6F6F6; border: 1px solid #DDD; border-bottom-color: #AAA; border-right-color: #CCC; display: inline-block; }
 .nowrap { white-space: nowrap; }
 .permission_column { width: 75px; text-align: center; }
 .permissions_button, .back { display: inline-block; margin-top: 15px; }
-.clipboard_empty { display: inline-block; width: 755px; margin-top: 15px; padding: 10px; border: 5px solid #CCC; font-size: 14pt; color: #777; background-color: #EEE; }
+.clipboard_empty { margin-top: 35px; }
 .clipboard_info_image { float: left; margin: 3px 12px 0 3px; }
 .button_to, .button_to div { display: inline; }
-.button_to { margin-left: 15px; }
-.clear_and_back { margin-top: 15px; }
-.emails_to_share_with { height: 39px; width: 722px; }
+.emails_to_share_with { height: 39px; width: 755px; }
 .shared_file { display: inline-block; min-width: 400px; padding: 15px; background-color: #EEE; }
 .shared_file img { margin-right: 8px; }
 .share_link_emails { font-size: 11pt; }
@@ -75,19 +65,20 @@ hr { border: 0; width: 800px; margin: 15px 0 10px 15px; color: #CCC; background-
 .error { background-color: rgba(255,0,0,0.8); }
 .notice { background-color: rgba(0,165,0,0.7); }
 
-.error p, .notice p { display: inline-block; font-size: 16pt; color: #FFF; padding: 10px 0 10px 45px; background-repeat: no-repeat; background-position: 0 5px; }
+.error p, .notice p { display: inline-block; font-size: 16pt; color: #FFF; margin: 0; padding: 10px 0 10px 45px; background-repeat: no-repeat; background-position: 0 5px; }
 .error p { background-image: url(exclamation.png); }
 .notice p { background-image: url(information.png); }
 
 span.field_with_errors input, span.field_with_errors textarea { background-color: #FDD; }
-#errorExplanation { width: 500px; border: 2px solid #c00; padding: 7px 7px 15px 7px; margin: 10px 0 10px 15px; background-color: #f0f0f0; }
+#errorExplanation { width: 500px; border: 2px solid #c00; padding: 7px 7px 15px 7px; margin: 10px 0 10px 0; background-color: #f0f0f0; }
 #errorExplanation p { padding-left: 8px; }
-#errorExplanation h2 { text-align: left; font-weight: bold; padding: 5px 5px 5px 15px; margin: -7px; margin-bottom: 7px; background-color: #c00; color: #fff; }
+#errorExplanation h2 { text-align: left; font-size: 14pt; font-weight: bold; padding: 5px 5px 5px 15px; margin: -7px; margin-bottom: 7px; background-color: #c00; color: #fff; }
+#errorExplanation ul { margin: 0; }
 #errorExplanation ul li { list-style: square; }
 
 .folder_menu, .user_menu, .group_menu { padding: 7px 14px 7px 14px; }
 .folder_menu a, .user_menu a, .group_menu a { outline: none; }
 
-.highlight { display: inline-block; margin: -7px 0 -7px 0; padding-left: 14px; background-color: #BA303A; background-image: url(left.png); background-repeat: no-repeat; background-position: top left; }
-.highlight span { display: inline-block; height: 27px; padding: 7px 14px 0 0; background-image: url(right.png); background-repeat: no-repeat; background-position: top right; }
+.highlight { display: inline-block; margin: -7px 0 -7px 0; padding-left: 14px; background-color: #BA303A; -moz-border-radius: 15px; border-radius: 15px; }
+.highlight span { display: inline-block; height: 27px; padding: 7px 14px 0 0; }
 .highlight a { text-decoration: none; color: #FFF; outline: none; }

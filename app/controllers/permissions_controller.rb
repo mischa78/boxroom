@@ -5,9 +5,9 @@ class PermissionsController < ApplicationController
     permissions = Permission.update(params[:permissions].keys, params[:permissions].values)
     folder = permissions.first.folder
     update_children(folder.children, permissions) if params[:recursive] && folder.has_children?
-    redirect_to folder_url(folder)
+    redirect_to folder
   rescue ActiveRecord::RecordNotFound # Folder was deleted, so permissions are gone too
-    redirect_to folder_url(Folder.root), :alert => t(:already_deleted, :type => t(:this_folder))
+    redirect_to Folder.root, :alert => t(:already_deleted, :type => t(:this_folder))
   end
 
   private

@@ -9,7 +9,7 @@ class FoldersController < ApplicationController
   before_filter :require_delete_permission, :only => :destroy
 
   def index
-    redirect_to folder_url(Folder.root)
+    redirect_to Folder.root
   end
 
   # Note: @folder is set in require_existing_folder
@@ -26,7 +26,7 @@ class FoldersController < ApplicationController
     @folder = @target_folder.children.build(params[:folder])
 
     if @folder.save
-      redirect_to folder_url(@target_folder)
+      redirect_to @target_folder
     else
       render :action => 'new'
     end
@@ -49,7 +49,7 @@ class FoldersController < ApplicationController
   def destroy
     target_folder = @folder.parent
     @folder.destroy
-    redirect_to folder_url(target_folder)
+    redirect_to target_folder
   end
 
   private
@@ -61,14 +61,14 @@ class FoldersController < ApplicationController
 
   def require_folder_isnt_root_folder
     if @folder.is_root?
-      redirect_to folder_url(Folder.root), :alert => t(:cannot_delete_root_folder)
+      redirect_to Folder.root, :alert => t(:cannot_delete_root_folder)
     end
   end
 
   # Overrides require_delete_permission in ApplicationController
   def require_delete_permission
     unless @folder.is_root? || current_user.can_delete(@folder)
-      redirect_to folder_url(@folder.parent), :alert => t(:no_permissions_for_this_type, :method => t(:delete), :type =>t(:this_folder))
+      redirect_to @folder.parent, :alert => t(:no_permissions_for_this_type, :method => t(:delete), :type =>t(:this_folder))
     else
       require_delete_permissions_for(@folder.children)
     end
@@ -77,7 +77,7 @@ class FoldersController < ApplicationController
   def require_delete_permissions_for(folders)
     folders.each do |folder|
       unless current_user.can_delete(folder)
-        redirect_to folder_url(@folder.parent), :alert => t(:no_delete_permissions_for_subfolder)
+        redirect_to @folder.parent, :alert => t(:no_delete_permissions_for_subfolder)
       else
         # Recursive...
         require_delete_permissions_for(folder.children)

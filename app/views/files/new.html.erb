@@ -1,14 +1,18 @@
 <% content_for :title, t(:upload_file) -%>
 
 <h1><%= content_for :title %></h1>
-<%= form_for [@target_folder, @file], :url => { :action => 'create' }, :html => { :multipart => true } do |f| %>
-	<%= f.error_messages %>
+<%= form_for [@target_folder, @file], :url => { :action => 'create' } do |f| %>
+	
 	<p>
-		<%= f.label t(:select_file) %>:<br>
+		<%= hidden_field_tag :target_folder_id, @target_folder.id %>
 		<%= f.file_field :attachment %>
 	</p>
+	<p id="progress" style="display:none;">
+		<%= image_tag 'spinner.gif' %>
+		<span id="status"></span>
+		<span id="percentage">0%</span>
+	</p>
 	<p>
-		<%= f.submit t(:upload) %> &nbsp; &mdash; &nbsp;
-		<%= link_to t(:back), folder_url(@target_folder) %>
+		<%= link_to t(:back), @target_folder %>
 	</p>
 <% end %>

@@ -1,5 +1,6 @@
 Boxroom::Application.routes.draw do
-  get '/signin', :to => 'sessions#new'
+  get '/file_exists', :to => 'files#exists'
+  get '/signin', :to => 'sessions#new', :as => 'signin'
   delete '/signout', :to => 'sessions#destroy'
 
   # Resources
@@ -12,13 +13,13 @@ Boxroom::Application.routes.draw do
   resources :share_links, :only => [:index, :show, :destroy]
 
   resources :users, :except => :show do
-    put 'extend', :on => :member
+    put :extend, :on => :member
   end
 
   resources :clipboard, :only => [:create, :destroy] do
-    post 'copy', :on => :member
-    post 'move', :on => :member
-    put 'reset', :on => :member
+    post :copy, :on => :member
+    post :move, :on => :member
+    put :reset, :on => :member
   end
 
   # Update a collection of permissions
