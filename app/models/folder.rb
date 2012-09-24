@@ -70,7 +70,7 @@ class Folder < ActiveRecord::Base
   end
 
   def self.root
-    find_by_name_and_parent_id('Root folder', nil)
+    @root_folder ||= find_by_name_and_parent_id('Root folder', nil)
   end
 
   private
