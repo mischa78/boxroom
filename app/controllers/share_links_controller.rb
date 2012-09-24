@@ -1,6 +1,6 @@
 class ShareLinksController < ApplicationController
   before_filter :require_admin, :only => [:index, :destroy]
-  before_filter :require_existing_file, :except => :index
+  before_filter :require_existing_file, :except => [:index, :destroy]
   before_filter :require_existing_share_link, :only => :destroy
   before_filter :require_read_permission, :only => [:new, :create]
   skip_before_filter :require_login, :only => :show
