@@ -222,7 +222,7 @@
   submit: Submit
 
   your_changes_were_saved: Your changes were saved successfully.
-  already_deleted: "Someone else deleted %{type}. Your action was cancelled."
+  already_deleted: "Sorry, but this %{type} was deleted already."
 
   # admins/new
   create_admin: Create admin
@@ -310,9 +310,6 @@
 
   #share_links/index
   unshare: Unshare
-
-  #share_links/show
-  share_link_expired: This download link expired already.
 
   #share_links/new
   this_share_link: this share link

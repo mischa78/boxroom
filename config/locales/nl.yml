@@ -223,7 +223,7 @@ nl:
   submit: Opslaan
 
   your_changes_were_saved: Uw wijzigingen zijn opgeslagen.
-  already_deleted: "Iemand anders heeft %{type} verwijderd. De actie is afgebroken."
+  already_deleted: "Iemand heeft %{type} reeds verwijderd."
 
   # admins/new
   create_admin: Admin aanmaken
@@ -311,9 +311,6 @@ nl:
 
   #share_links/index
   unshare: Delen ongedaan maken
-
-  #share_links/show
-  share_link_expired: De vervaldatum van deze download link is al verstreken.
 
   #share_links/new
   this_share_link: this share link

@@ -5,6 +5,8 @@ class ShareLinksController < ApplicationController
   before_filter :require_read_permission, :only => [:new, :create]
   skip_before_filter :require_login, :only => :show
 
+  rescue_from ActiveRecord::RecordNotFound, NoMethodError, RuntimeError, :with => :redirect_to_root_or_signin_and_show_alert
+
   def index
     @share_links = ShareLink.active_share_links
   end
@@ -19,13 +21,13 @@ class ShareLinksController < ApplicationController
     @share_link = @file.share_links.build
   end
 
-  # Note: @file is set in require_existing_file
+  # Note: @file and @folder are set in require_existing_file
   def create
     @share_link = @file.share_links.build(params[:share_link])
 
     if @share_link.save
       UserMailer.share_link_email(current_user, @share_link).deliver
-      redirect_to folder_url(@folder), :notice => t(:shared_successfully)
+      redirect_to @folder, :notice => t(:shared_successfully)
     else
       render :action => 'new'
     end
@@ -42,21 +44,19 @@ class ShareLinksController < ApplicationController
   def require_existing_file
     @file = params[:file_id].blank? ? ShareLink.file_for_token(params[:id]) : UserFile.find(params[:file_id])
     @folder = @file.folder
-  rescue ActiveRecord::RecordNotFound
-    redirect_to folder_url(Folder.root), :alert => t(:already_deleted, :type => t(:this_file))
-  rescue NoMethodError
-    flash[:alert] = t(:already_deleted, :type => t(:this_file))
-  rescue RuntimeError => e
-    if e.message == 'This share link expired.'
-      flash[:alert] = t(:share_link_expired)
-    else
-      raise e
-    end
   end
 
   def require_existing_share_link
     @share_link = ShareLink.find(params[:id])
   rescue ActiveRecord::RecordNotFound
     redirect_to share_links_url, :alert => t(:already_deleted, :type => t(:this_share_link))
+  end
+
+  def redirect_to_root_or_signin_and_show_alert
+    if signed_in?
+      redirect_to Folder.root, :alert => t(:already_deleted, :type => t(:this_file))
+    else
+      redirect_to signin_url, :alert => t(:already_deleted, :type => t(:this_file))
+    end
   end
 end

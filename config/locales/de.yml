@@ -318,9 +318,6 @@ de:
   #share_links/index
   unshare: Freigabe aufheben
 
-  #share_links/show
-  share_link_expired: Dieser Download-Link ist bereits abgelaufen.
-
   #share_links/new
   this_share_link: Dieser Freigabe-Link
   share_file: Datei freigeben

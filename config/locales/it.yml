@@ -318,9 +318,6 @@
   #share_links/index
   unshare: Annulla la condivisione
 
-  #share_links/show
-  share_link_expired: Questo link per il download è già scaduto.
-
   #share_links/new
   this_share_link: this share link
   share_file: Condividi file
