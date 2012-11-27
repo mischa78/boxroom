@@ -181,6 +181,8 @@ class UserTest < ActiveSupport::TestCase
 
     token = user.reset_password_token
     expires_at = user.reset_password_token_expires_at
+
+    sleep 1 # Or else it's to fast for expires_at to be different
     user.refresh_reset_password_token
 
     assert !user.reset_password_token.blank?
