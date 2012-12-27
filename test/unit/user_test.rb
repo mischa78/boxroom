@@ -180,14 +180,10 @@ class UserTest < ActiveSupport::TestCase
     assert_in_delta user.reset_password_token_expires_at, 1.hour.from_now, 1.second
 
     token = user.reset_password_token
-    expires_at = user.reset_password_token_expires_at
-
-    sleep 1 # Or else it's to fast for expires_at to be different
     user.refresh_reset_password_token
 
     assert !user.reset_password_token.blank?
     assert_not_equal user.reset_password_token, token
-    assert_not_equal user.reset_password_token_expires_at, expires_at
   end
 
   test 'whether remember_token refreshes' do
