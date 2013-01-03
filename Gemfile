@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.2.9'
+gem 'rails', '3.2.10'
 gem 'jquery-rails'
 gem 'dynamic_form'
 gem 'acts_as_tree'
