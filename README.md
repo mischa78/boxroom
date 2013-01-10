@@ -95,6 +95,7 @@ Contributors:
  * Stian Haklev
  * Craig Box
  * [Stephan Toggweiler](https://github.com/rheoli)
+ * [Kale Worsley](https://github.com/kaleworsley)
 
 Donations:
 
