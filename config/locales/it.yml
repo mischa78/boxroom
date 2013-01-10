@@ -86,7 +86,7 @@
         units:
           unit: ""
           thousand: "Mille"
-          million: 
+          million:
             one: "Milione"
             others: "Milioni"
           billion:

@@ -4,3 +4,4 @@ uploads/*
 tmp/*
 config/initializers/mailer.rb
 .sass-cache/
+.DS_Store
