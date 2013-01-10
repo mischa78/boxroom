@@ -296,7 +296,7 @@ nl:
   update: wijzig
   delete: verwijder
 
-  #reset_password/edit	
+  #reset_password/edit  
   password: Wachtwoord
   reset_password: Wachtwoord resetten
   send_email: Verzenden

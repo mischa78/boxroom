@@ -2,17 +2,17 @@
 
 <h1><%= content_for :title %></h1>
 <%= form_for [@target_folder, @file], :url => { :action => 'create' } do |f| %>
-	
-	<p>
-		<%= hidden_field_tag :target_folder_id, @target_folder.id %>
-		<%= f.file_field :attachment %>
-	</p>
-	<p id="progress" style="display:none;">
-		<%= image_tag 'spinner.gif' %>
-		<span id="status"></span>
-		<span id="percentage">0%</span>
-	</p>
-	<p>
-		<%= link_to t(:back), @target_folder %>
-	</p>
+  
+  <p>
+    <%= hidden_field_tag :target_folder_id, @target_folder.id %>
+    <%= f.file_field :attachment %>
+  </p>
+  <p id="progress" style="display:none;">
+    <%= image_tag 'spinner.gif' %>
+    <span id="status"></span>
+    <span id="percentage">0%</span>
+  </p>
+  <p>
+    <%= link_to t(:back), @target_folder %>
+  </p>
 <% end %>

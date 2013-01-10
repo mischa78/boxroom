@@ -2,5 +2,5 @@
 
 <h1><%= content_for :title %></h1>
 <%= form_for [@target_folder, @folder] do |f| %>
-	<%= render :partial => 'form', :locals => { :f => f } %>
+  <%= render :partial => 'form', :locals => { :f => f } %>
 <% end %>
