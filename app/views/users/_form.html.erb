@@ -1,50 +1,50 @@
 <%= form_for @user do |f| %>
-	<%= f.error_messages %>
-	<% unless @user.new_record? -%>
-	<p>
-		<%= f.label :name %>:<br>
-		<%= f.text_field :name, { :class => 'text_input' } %>
-	</p>
-	<% end -%>
-	<p>
-		<%= f.label :email %>:<br>
-		<%= f.text_field :email, { :class => 'text_input' } %>
-	</p>
-	<% unless @user.new_record? -%>
-	<p>
-		<%= f.label :password %>:<br>
-		<%= f.password_field :password, { :class => 'text_input' } %>
-	</p>
-	<p>
-		<%= label_tag t(:confirm_password) %>:<br>
-		<%= f.password_field :password_confirmation, { :class => 'text_input' } %>
-	</p>
-	<% end -%>
-	<% if signed_in? && current_user.member_of_admins? -%>
-	<p>
-		<%= t :member_of_these_groups %>:
-		<span class="user_groups">
-		<% Group.all.each do |group| -%>
-		<% if @user.is_admin && group.admins_group? -%>
-			<span class="group nowrap disabled">
-				<input type="checkbox" checked="checked" disabled="disabled" />
-				<%= group.name %>
-			</span>
-		<% else -%>
-			<span class="group nowrap">
-				<%= check_box_tag('user[group_ids][]', group.id, user_belongs_to_group(group)) %>
-				<%= group.name %>
-			</span>
-		<% end -%>
-		<% end -%>
-		</span>
-	</p>
-	<% end -%>
-	<p>
-		<%= f.submit t(:save) %>
-	<% if @user != current_user -%>
-		&nbsp; &mdash; &nbsp;
-		<%= link_to t(:back), users_url %>
-	<% end -%>
-	</p>
+  <%= f.error_messages %>
+  <% unless @user.new_record? -%>
+  <p>
+    <%= f.label :name %>:<br>
+    <%= f.text_field :name, { :class => 'text_input' } %>
+  </p>
+  <% end -%>
+  <p>
+    <%= f.label :email %>:<br>
+    <%= f.text_field :email, { :class => 'text_input' } %>
+  </p>
+  <% unless @user.new_record? -%>
+  <p>
+    <%= f.label :password %>:<br>
+    <%= f.password_field :password, { :class => 'text_input' } %>
+  </p>
+  <p>
+    <%= label_tag t(:confirm_password) %>:<br>
+    <%= f.password_field :password_confirmation, { :class => 'text_input' } %>
+  </p>
+  <% end -%>
+  <% if signed_in? && current_user.member_of_admins? -%>
+  <p>
+    <%= t :member_of_these_groups %>:
+    <span class="user_groups">
+    <% Group.all.each do |group| -%>
+    <% if @user.is_admin && group.admins_group? -%>
+      <span class="group nowrap disabled">
+        <input type="checkbox" checked="checked" disabled="disabled" />
+        <%= group.name %>
+      </span>
+    <% else -%>
+      <span class="group nowrap">
+        <%= check_box_tag('user[group_ids][]', group.id, user_belongs_to_group(group)) %>
+        <%= group.name %>
+      </span>
+    <% end -%>
+    <% end -%>
+    </span>
+  </p>
+  <% end -%>
+  <p>
+    <%= f.submit t(:save) %>
+  <% if @user != current_user -%>
+    &nbsp; &mdash; &nbsp;
+    <%= link_to t(:back), users_url %>
+  <% end -%>
+  </p>
 <% end %>

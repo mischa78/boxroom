@@ -8,10 +8,10 @@ Boxroom is a Rails application that aims to be a simple interface for managing a
 sharing files in a web browser. It lets users create folders and upload, download
 and share files. Admins can manage users, groups and permissions.
 
-Website:  
+Website:
 http://boxroomapp.com/
 
-Bug reports and feature requests:  
+Bug reports and feature requests:
 https://github.com/mischa78/boxroom/issues/new
 
 
