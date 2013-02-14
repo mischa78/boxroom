@@ -228,7 +228,10 @@ class UserTest < ActiveSupport::TestCase
     normal_user = create(:user)
     assert User.no_admin_yet?
 
-    admin = create(:user, :is_admin => true)
+    # make normal_user admin
+    normal_user.is_admin = true
+    normal_user.save
+
     assert !User.no_admin_yet?
   end
 end
