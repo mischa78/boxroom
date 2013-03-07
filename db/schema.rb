@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120411081345) do
+ActiveRecord::Schema.define(:version => 20130307082111) do
 
   create_table "folders", :force => true do |t|
     t.string   "name"
@@ -64,12 +64,12 @@ ActiveRecord::Schema.define(:version => 20120411081345) do
     t.string   "email"
     t.string   "hashed_password"
     t.string   "password_salt"
-    t.string   "is_admin"
+    t.boolean  "is_admin",                        :limit => 255
     t.string   "remember_token"
     t.string   "reset_password_token"
     t.datetime "reset_password_token_expires_at"
-    t.datetime "created_at",                      :null => false
-    t.datetime "updated_at",                      :null => false
+    t.datetime "created_at",                                     :null => false
+    t.datetime "updated_at",                                     :null => false
     t.string   "signup_token"
     t.datetime "signup_token_expires_at"
   end
