@@ -45,7 +45,7 @@ td img { padding: 0; }
 .user_name, .user_expiration { min-width: 180px; }
 .user_email, .group_name, .clipboard_item { min-width: 370px; }
 .group { margin-right: 15px; }
-.file_name { min-width: 250px; }
+.file_name { min-width: 250px; max-width: 400px; overflow: hidden; }
 .file_name a, .shared_file a { color: #000; text-decoration: underline; }
 .file_size { min-width: 100px; }
 .disabled { color: #999; }
