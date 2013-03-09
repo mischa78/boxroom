@@ -260,6 +260,7 @@
   select_file: Seleziona file
   upload_file: Carica file
   upload: Carica
+  exists_already: esiste già
 
   #folders/edit
   rename_folder: Rinomina cartella
@@ -269,7 +270,7 @@
 
   #folders/show
   create_a_new_folder: Crea una nuova cartella
-  upload_a_file: Carica un file
+  upload_a_file: Carica file
   permissions: Permessi
   clipboard: Appunti
   size: Dimensione

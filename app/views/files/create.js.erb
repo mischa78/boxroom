@@ -1,8 +1,0 @@
-$('#errorExplanation').remove();
-
-<% if @file.new_record? -%>
-  $('form').prepend('<%= j error_messages_for(@file) %>');
-  $('#user_file_attachment').prop('disabled', false);
-<% else -%>
-  window.location.href = '<%= folder_path(@file.folder) %>';
-<% end -%>

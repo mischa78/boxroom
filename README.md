@@ -2,7 +2,7 @@
 
 [![Build Status](https://secure.travis-ci.org/mischa78/boxroom.png)](http://travis-ci.org/mischa78/boxroom)
 [![Dependency Status](https://gemnasium.com/mischa78/boxroom.png?travis)](https://gemnasium.com/mischa78/boxroom)
-[![Code Climate](https://codeclimate.com/badge.png)](https://codeclimate.com/github/mischa78/boxroom)
+[![Code Climate](https://codeclimate.com/github/mischa78/boxroom.png)](https://codeclimate.com/github/mischa78/boxroom)
 
 Boxroom is a Rails application that aims to be a simple interface for managing and
 sharing files in a web browser. It lets users create folders and upload, download
@@ -19,8 +19,8 @@ Requirements
 ------------
 The requirements for running Boxroom are:
 
- * Preferably Ruby 1.9.3, but 1.9.2 and 1.8.7 should work too
- * Rails 3.2.11
+ * Preferably Ruby 2.0.0 or 1.9.3, but 1.9.2 and 1.8.7 should work too
+ * Rails 3.2.12
  * A database (e.g. MySQL or SQLite)
 
 

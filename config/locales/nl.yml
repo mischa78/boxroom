@@ -252,8 +252,9 @@ nl:
 
   # files/new
   select_file: Selecteer bestand
-  upload_file: Bestand uploaden
+  upload_file: Bestanden uploaden
   upload: Uploaden
+  exists_already: bestaat al
 
   #folders/edit
   rename_folder: Mapnaam wijzigen
@@ -263,7 +264,7 @@ nl:
 
   #folders/show
   create_a_new_folder: Nieuwe map aanmaken
-  upload_a_file: Bestand uploaden
+  upload_a_file: Bestanden uploaden
   permissions: Bevoegdheden
   clipboard: Klembord
   size: Grootte

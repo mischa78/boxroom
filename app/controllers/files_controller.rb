@@ -20,6 +20,7 @@ class FilesController < ApplicationController
   # @target_folder is set in require_existing_target_folder
   def create
     @file = @target_folder.user_files.create(params[:user_file])
+    render :nothing => true
   end
 
   # @file and @folder are set in require_existing_file
@@ -42,8 +43,9 @@ class FilesController < ApplicationController
   end
 
   def exists
-    @file = UserFile.new(:attachment_file_name => params[:name])
+    @file = UserFile.new(:attachment_file_name => params[:name].gsub(RESTRICTED_CHARACTERS, '_'))
     @file.folder_id = params[:folder]
+    render :json => !@file.valid?
   end
 
   private

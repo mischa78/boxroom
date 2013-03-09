@@ -251,8 +251,9 @@
 
   # files/new
   select_file: Select file
-  upload_file: Upload file
+  upload_file: Upload files
   upload: Upload
+  exists_already: exists already
 
   #folders/edit
   rename_folder: Rename folder
@@ -262,7 +263,7 @@
 
   #folders/show
   create_a_new_folder: Create a new folder
-  upload_a_file: Upload a file
+  upload_a_file: Upload files
   permissions: Permissions
   clipboard: Clipboard
   size: Size

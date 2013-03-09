@@ -258,8 +258,9 @@ de:
 
   # files/new
   select_file: Datei wählen
-  upload_file: Datei hochladen
+  upload_file: Dateien hochladen
   upload: Hochladen
+  exists_already: bereits vorhanden
 
   #folders/edit
   rename_folder: Ordner umbenennen
@@ -269,7 +270,7 @@ de:
 
   #folders/show
   create_a_new_folder: Neuer Ordner
-  upload_a_file: Datei hochladen
+  upload_a_file: Dateien hochladen
   permissions: Berechtigungen
   clipboard: Zwischenablage
   size: Größe
