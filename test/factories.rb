@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :folder do
     sequence(:name) { |i| "test#{i}" }
-    parent { Folder.find_or_create_by_name('Root folder') }
+    parent { Folder.where(:name => 'Root folder').first_or_create }
   end
 end
 
@@ -22,7 +22,7 @@ FactoryGirl.define do
   factory :user_file do
     attachment { fixture_file }
     sequence(:attachment_file_name) { |i| "test#{i}.txt" }
-    folder { Folder.find_or_create_by_name('Root folder') }
+    folder { Folder.where(:name => 'Root folder').first_or_create }
   end
 end
 

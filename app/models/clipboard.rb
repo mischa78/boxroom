@@ -4,11 +4,11 @@ class Clipboard
   end
 
   def folders
-    Folder.find_all_by_id(@folders)
+    Folder.where(:id => @folders)
   end
 
   def files
-    UserFile.find_all_by_id(@files)
+    UserFile.where(:id => @files)
   end
 
   def add(item)
