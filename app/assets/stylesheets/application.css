@@ -34,8 +34,7 @@ td img { padding: 0; }
 .footer { margin: 0; padding: 15px; text-align: center; }
 .footer a { text-decoration: underline; }
 .table_header td { font-weight: bold; }
-.even td, .odd td, th { padding: 7px; }
-.even img, .odd img { position: relative; top: 2px; }
+.even td, .odd td, th { padding: 12px 7px 7px 7px; }
 .even { background-color: #EEE; }
 .odd { background-color: #FFF; }
 .text_input { width: 280px; }
