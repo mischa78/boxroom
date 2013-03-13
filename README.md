@@ -52,7 +52,7 @@ uncomment the following lines and fill in the correct settings of your mail serv
     #   :authentication => 'plain'
     # }
 
-In order for Boxroom to send a user to the correct URL, you have to uncomment and update the following:
+In order for Boxroom to use correct URL in emails, you have to uncomment and update the following:
 
     # config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 
