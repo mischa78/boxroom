@@ -22,12 +22,12 @@ class User < ActiveRecord::Base
   %w{create read update delete}.each do |method|
     define_method "can_#{method}" do |folder|
       has_permission = false
-      groups.each do |group|
-        unless group.permissions.send("find_by_folder_id_and_can_#{method}", folder.id, true).blank?
-          has_permission = true
-          break
-        end
+
+      Permission.where(:group_id => groups, :folder_id => folder.id).each do |permission|
+        has_permission = permission.send("can_#{method}")
+        break if has_permission
       end
+
       has_permission
     end
   end
