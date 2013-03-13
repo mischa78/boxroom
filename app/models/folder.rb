@@ -50,6 +50,18 @@ class Folder < ActiveRecord::Base
     end
   end
 
+  def copy_permissions_to_children(permissions_to_copy)
+    permissions_to_copy.each do |permission|
+      attributes = permission.attributes.except('id', 'folder_id', 'group_id')
+      Permission.where(:folder_id => children, :group_id => permission.group_id).update_all(attributes)
+    end
+
+    # Copy permissions recursively
+    children.each do |child|
+      child.copy_permissions_to_children(permissions_to_copy) if child.has_children?
+    end
+  end
+
   def parent_of?(folder)
     self.children.each do |child|
       if child == folder
