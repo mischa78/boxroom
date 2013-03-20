@@ -4,7 +4,7 @@
 <%= form_for [@target_folder, @file], :url => { :action => 'create' } do |f| %>
   <p>
     <%= hidden_field_tag :target_folder_id, @target_folder.id %>
-    <%= f.file_field :attachment, :multiple => true, :name => 'user_file[attachment]' %>
+    <input id="user_file_attachment" multiple="multiple" name="user_file[attachment]" type="file" />
   </p>
   <div id="progress">
   </div>
