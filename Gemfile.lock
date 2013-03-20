@@ -42,7 +42,7 @@ GEM
     coffee-script (2.2.0)
       coffee-script-source
       execjs
-    coffee-script-source (1.6.1)
+    coffee-script-source (1.6.2)
     dynamic_form (1.1.4)
     erubis (2.7.0)
     execjs (1.4.0)
