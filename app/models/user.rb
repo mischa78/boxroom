@@ -38,6 +38,7 @@ class User < ActiveRecord::Base
 
   def password=(new_password)
     @password = new_password
+
     unless @password.blank?
       self.password_salt = SecureRandom.base64(32)
       self.hashed_password = Digest::SHA256.hexdigest(password_salt + password)
