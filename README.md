@@ -38,10 +38,15 @@ Follow the these steps:
 
 Mail settings
 -------------
-Boxroom sends email when inviting new users, when users want to reset their password
-or when they share files. For this to work, depending on your environment, you have op
-to open `config/environments/development.rb` or `config/environments/production.rb`,
-uncomment the following lines and fill in the correct settings of your mail server:
+Boxroom sends email on the following occasions:
+
+ * When inviting new users
+ * On a reset password request
+ * When a file is shared
+
+For the application to be able to send email, a few things have to be set up. Depending on the environment
+you're working in, either open `config/environments/development.rb` or `config/environments/production.rb`.
+Uncomment the following lines and fill in the correct settings of your mail server:
 
     # config.action_mailer.delivery_method = :smtp
     # config.action_mailer.smtp_settings = {
@@ -52,11 +57,11 @@ uncomment the following lines and fill in the correct settings of your mail serv
     #   :authentication => 'plain'
     # }
 
-For Boxroom to be able to use the correct URL in emails, you have to uncomment and update the following:
+Also uncomment the following and replace `localhost:3000` with the host name the app will be running under:
 
     # config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 
-You also have to choose a from address for the emails that will be sent. You can do
+Finally, you have to choose the address the emails will be sent from. You can do
 this by uncommenting and adjusting the following line:
 
     # ActionMailer::Base.default :from => 'Boxroom <yourname@yourdomain.com>'
