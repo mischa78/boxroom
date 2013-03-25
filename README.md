@@ -61,8 +61,8 @@ Also uncomment the following and replace `localhost:3000` with the host name the
 
     # config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 
-Finally, you have to choose the address the emails will be sent from. You can do
-this by uncommenting and adjusting the following line:
+Lastly, you have to choose the address emails will be sent from. You can do
+this by uncommenting and adjusting the following:
 
     # ActionMailer::Base.default :from => 'Boxroom <yourname@yourdomain.com>'
 
