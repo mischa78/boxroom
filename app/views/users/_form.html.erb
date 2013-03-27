@@ -32,8 +32,8 @@
       </span>
     <% else -%>
       <span class="group nowrap">
-        <%= check_box_tag('user[group_ids][]', group.id, user_belongs_to_group(group)) %>
-        <%= group.name %>
+        <%= check_box_tag 'user[group_ids][]', group.id, @user.group_ids.include?(group.id), :id => dom_id(group) %>
+        <%= label_tag dom_id(group), group.name %>
       </span>
     <% end -%>
     <% end -%>
