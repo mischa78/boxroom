@@ -48,24 +48,29 @@ For the application to be able to send email, a few things have to be set up. De
 you're working in, either open `config/environments/development.rb` or `config/environments/production.rb`.
 Uncomment the following lines and fill in the correct settings of your mail server:
 
-    # config.action_mailer.delivery_method = :smtp
-    # config.action_mailer.smtp_settings = {
-    #   :address => 'mailhost',
-    #   :port => 587,
-    #   :user_name => 'user_name',
-    #   :password => 'password',
-    #   :authentication => 'plain'
-    # }
+```ruby
+config.action_mailer.delivery_method = :smtp
+config.action_mailer.smtp_settings = {
+  :address => 'mailhost',
+  :port => 587,
+  :user_name => 'user_name',
+  :password => 'password',
+  :authentication => 'plain'
+}
+```
 
 Also uncomment the following and replace `localhost:3000` with the host name the app will be running under:
 
-    # config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+```ruby
+config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+```
 
 Lastly, you have to choose the address emails will be sent from. You can do
 this by uncommenting and adjusting the following:
 
-    # ActionMailer::Base.default :from => 'Boxroom <yourname@yourdomain.com>'
-
+```ruby
+ActionMailer::Base.default :from => 'Boxroom <yourname@yourdomain.com>'
+```
 
 Languages
 ---------
@@ -74,11 +79,13 @@ Thanks to [Rob Halff](https://github.com/rhalff), [Marcus Ilgner](https://github
 
 English is the default. To change the language, open `config/application.rb` and set the language you desire:
 
-    config.i18n.default_locale = :en # English
-    config.i18n.default_locale = :nl # Dutch
-    config.i18n.default_locale = :de # German
-    config.i18n.default_locale = :it # Italian
-    config.i18n.default_locale = :fr # French
+```ruby
+config.i18n.default_locale = :en # English
+config.i18n.default_locale = :nl # Dutch
+config.i18n.default_locale = :de # German
+config.i18n.default_locale = :it # Italian
+config.i18n.default_locale = :fr # French
+```
 
 It would be great to have many more languages. I am waiting for your pull requests.
 
