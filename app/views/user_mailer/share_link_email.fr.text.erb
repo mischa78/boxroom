@@ -1,0 +1,13 @@
+Cher destinateur,
+
+L'utilisateur <%= @user.name %> (<%= @user.email %>) a partagé un fichier avec vous.
+
+Utilisez le lien suivant pour télécharger le fichier:
+
+    <%= share_link_url(:id => @share_link.link_token) %>
+
+Le lien ci-dessus expirera à <%= l @share_link.link_expires_at, :format => :time_only %> le <%= l @share_link.link_expires_at, :format => :date_only %>.
+
+--
+Boxroom
+http://boxroomapp.com/

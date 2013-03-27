@@ -1,3 +1,4 @@
+.rvmrc
 db/*.sqlite3
 log/*
 uploads/*
