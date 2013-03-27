@@ -1,8 +1,8 @@
+.DS_Store
 .rvmrc
+.sass-cache/
+config/initializers/mailer.rb
 db/*.sqlite3
 log/*
-uploads/*
 tmp/*
-config/initializers/mailer.rb
-.sass-cache/
-.DS_Store
+uploads/*
