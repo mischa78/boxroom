@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   before_filter :require_admin_in_system
   before_filter :require_login
 
-  helper_method :clipboard, :current_user, :signed_in?
+  helper_method :clipboard, :current_user, :signed_in?, :permitted_params
 
   protected
 
@@ -18,6 +18,10 @@ class ApplicationController < ActionController::Base
 
   def signed_in?
     !!current_user
+  end
+
+  def permitted_params
+    @permitted_params ||= PermittedParams.new(params, current_user)
   end
 
   def require_admin_in_system

@@ -7,7 +7,7 @@ class AdminsController < ApplicationController
   end
 
   def create
-    @user = User.new(params[:user])
+    @user = User.new(permitted_params.user)
     @user.password_required = true
     @user.is_admin = true
 

@@ -42,7 +42,7 @@ class UserFileTest < ActiveSupport::TestCase
 
   test 'attachment file name is unique' do
     file = create(:user_file)
-    file.update_attributes({ :attachment_file_name => 'Test' }, :without_protection => true)
+    file.update_attributes(:attachment_file_name => 'Test')
     assert UserFile.exists?(:attachment_file_name => 'Test')
 
     folder = create(:folder)
@@ -124,10 +124,10 @@ class UserFileTest < ActiveSupport::TestCase
     file = create(:user_file)
     assert_equal file.extension, 'txt'
 
-    file.update_attributes({ :attachment_file_name => 'test.pdf' }, :without_protection => true)
+    file.update_attributes(:attachment_file_name => 'test.pdf')
     assert_equal file.extension, 'pdf'
 
-    file.update_attributes({ :attachment_file_name => 'test' }, :without_protection => true)
+    file.update_attributes(:attachment_file_name => 'test')
     assert file.extension.blank?
   end
 end

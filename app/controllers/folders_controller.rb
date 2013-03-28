@@ -23,7 +23,7 @@ class FoldersController < ApplicationController
 
   # Note: @target_folder is set in require_existing_target_folder
   def create
-    @folder = @target_folder.children.build(params[:folder])
+    @folder = @target_folder.children.build(permitted_params.folder)
 
     if @folder.save
       redirect_to @target_folder
@@ -38,7 +38,7 @@ class FoldersController < ApplicationController
 
   # Note: @folder is set in require_existing_folder
   def update
-    if @folder.update_attributes(params[:folder])
+    if @folder.update_attributes(permitted_params.folder)
       redirect_to edit_folder_url(@folder), :notice => t(:your_changes_were_saved)
     else
       render :action => 'edit'

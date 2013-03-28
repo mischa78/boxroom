@@ -2,7 +2,6 @@ class User < ActiveRecord::Base
   has_and_belongs_to_many :groups
 
   attr_accessor :password_confirmation, :password_required, :dont_clear_reset_password_token
-  attr_accessible :name, :email, :password, :password_confirmation, :password_required
 
   validates_confirmation_of :password
   validates_length_of :password, :in => 6..20, :allow_blank => true
@@ -46,7 +45,7 @@ class User < ActiveRecord::Base
   end
 
   def member_of_admins?
-    !groups.find_by_name('Admins').blank?
+    groups.admins_group.present?
   end
 
   def refresh_reset_password_token

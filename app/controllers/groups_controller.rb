@@ -4,7 +4,7 @@ class GroupsController < ApplicationController
   before_filter :require_group_isnt_admins_group, :only => [:edit, :update, :destroy]
 
   def index
-    @groups = Group.all(:order => 'name')
+    @groups = Group.order(:name)
   end
 
   def new
@@ -12,7 +12,7 @@ class GroupsController < ApplicationController
   end
 
   def create
-    @group = Group.new(params[:group])
+    @group = Group.new(permitted_params.group)
 
     if @group.save
       redirect_to groups_url
@@ -27,7 +27,7 @@ class GroupsController < ApplicationController
 
   # Note: @group is set in require_existing_group
   def update
-    if @group.update_attributes(params[:group])
+    if @group.update_attributes(permitted_params.group)
       redirect_to edit_group_url(@group), :notice => t(:your_changes_were_saved)
     else
       render :action => 'edit'

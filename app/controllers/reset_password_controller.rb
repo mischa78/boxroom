@@ -22,7 +22,7 @@ class ResetPasswordController < ApplicationController
 
   # Note: @user is set in require_valid_token
   def update
-    if @user.update_attributes(params[:user].merge({ :password_required => true }))
+    if @user.update_attributes(permitted_params.user.merge({ :password_required => true }))
       redirect_to new_session_url, :notice => t(:password_reset_successfully)
     else
       render :action => 'edit'

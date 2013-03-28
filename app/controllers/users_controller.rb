@@ -13,11 +13,9 @@ class UsersController < ApplicationController
   end
 
   def create
-    group_ids = params[:user].delete(:group_ids)
-    @user = User.new(params[:user])
+    @user = User.new(permitted_params.user)
 
     if @user.save
-      set_groups(group_ids)
       UserMailer.signup_email(@user).deliver
       redirect_to users_url
     else
@@ -31,10 +29,7 @@ class UsersController < ApplicationController
 
   # Note: @user is set in require_existing_user
   def update
-    group_ids = params[:user].delete(:group_ids)
-
-    if @user.update_attributes(params[:user].merge({ :password_required => false }))
-      set_groups(group_ids)
+    if @user.update_attributes(permitted_params.user.merge({ :password_required => false }))
       redirect_to edit_user_url(@user), :notice => t(:your_changes_were_saved)
     else
       render :action => 'edit'
@@ -71,13 +66,6 @@ class UsersController < ApplicationController
   def require_deleted_user_isnt_admin
     if @user.is_admin
       redirect_to users_url, :alert => t(:admin_user_cannot_be_deleted)
-    end
-  end
-
-  def set_groups(group_ids)
-    if current_user.member_of_admins?
-      @user.group_ids = group_ids
-      @user.groups << Group.find_by_name('Admins') if @user.is_admin
     end
   end
 end

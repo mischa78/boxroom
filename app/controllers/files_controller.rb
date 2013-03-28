@@ -19,7 +19,7 @@ class FilesController < ApplicationController
 
   # @target_folder is set in require_existing_target_folder
   def create
-    @file = @target_folder.user_files.create(params[:user_file])
+    @file = @target_folder.user_files.create(permitted_params.user_file)
     render :nothing => true
   end
 
@@ -29,7 +29,7 @@ class FilesController < ApplicationController
 
   # @file and @folder are set in require_existing_file
   def update
-    if @file.update_attributes(params[:user_file])
+    if @file.update_attributes(permitted_params.user_file)
       redirect_to edit_file_url(@file), :notice => t(:your_changes_were_saved)
     else
       render :action => 'edit'

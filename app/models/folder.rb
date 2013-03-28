@@ -1,11 +1,10 @@
 class Folder < ActiveRecord::Base
   acts_as_tree :order => 'name'
 
-  has_many :user_files, :dependent => :destroy, :order => 'attachment_file_name'
+  has_many :user_files, -> { order :attachment_file_name }, :dependent => :destroy
   has_many :permissions, :dependent => :destroy
 
   attr_accessor :is_copied_folder
-  attr_accessible :name
 
   validates_uniqueness_of :name, :scope => :parent_id
   validates_presence_of :name

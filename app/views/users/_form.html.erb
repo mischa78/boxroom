@@ -27,6 +27,7 @@
     <% Group.all.each do |group| -%>
     <% if @user.is_admin && group.admins_group? -%>
       <span class="group nowrap disabled">
+        <%= hidden_field_tag 'user[group_ids][]', group.id %>
         <input type="checkbox" checked="checked" disabled="disabled" />
         <%= group.name %>
       </span>
