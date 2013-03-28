@@ -23,6 +23,7 @@ The requirements for running Boxroom are:
  * Rails 3.2.13
  * A database (e.g. MySQL or SQLite)
 
+If you want to try Boxroom on Rails 4, check out our [rails4 branch](https://github.com/mischa78/boxroom/tree/rails4).
 
 Installation
 ------------
