@@ -1,6 +1,6 @@
 # Boxroom
 
-[![Build Status](https://secure.travis-ci.org/mischa78/boxroom.png)](http://travis-ci.org/mischa78/boxroom)
+[![Build Status](https://secure.travis-ci.org/mischa78/boxroom.png?branch=master)](http://travis-ci.org/mischa78/boxroom)
 [![Dependency Status](https://gemnasium.com/mischa78/boxroom.png?travis)](https://gemnasium.com/mischa78/boxroom)
 [![Code Climate](https://codeclimate.com/github/mischa78/boxroom.png)](https://codeclimate.com/github/mischa78/boxroom)
 
