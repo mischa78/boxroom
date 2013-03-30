@@ -37,8 +37,8 @@ Follow these steps:
  7. Enjoy!
 
 
-Upgrading from Rails 3.2.13 to Rails 4.0.0.beta1
-------------------------------------------------
+Upgrading Rails 4
+-----------------
 Follow these steps:
 
  1. Make a backup of your current `boxroom` folder (e.g. by renaming it to `boxroom.bak`)
