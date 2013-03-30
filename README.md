@@ -37,19 +37,19 @@ Follow these steps:
  7. Enjoy!
 
 
-Upgrading Rails 4
------------------
+Upgrading to Rails 4
+--------------------
 Follow these steps:
 
  1. Make a backup of your current `boxroom` folder (e.g. by renaming it to `boxroom.bak`)
  2. Extract, checkout or clone the Rails 4 version of Boxroom into a new folder
  3. Copy the `uploads` folder from your backed up version to the new version
  4. Copy `config/database.yml` from back up to the new version
- 5. If you're using SQLite: copy `db/development.sqlite3` and/or `db/production.sqlite3` from the backed up version to the new version
+ 5. When using SQLite: copy `db/development.sqlite3` and/or `db/production.sqlite3` from back up to the new version
  6. Install necessary gems: `$ bundle install`
  7. Run the install script: `$ bundle exec rake install`
 
-If you are having difficulties upgrading, please get in touch via the [issue tracker](https://github.com/mischa78/boxroom/issues/new).
+If you run into difficulties, please get in touch via the [issue tracker](https://github.com/mischa78/boxroom/issues/new).
 
 
 Mail settings
