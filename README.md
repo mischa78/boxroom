@@ -28,12 +28,28 @@ Installation
 ------------
 Follow these steps:
 
- 1. Extract boxroom.zip and cd to the newly created folder
- 2. Install necessary gems: `$ bundle install`
- 3. Run the install script: `$ bundle exec rake install`
- 4. Start the server: `$ bundle exec rails server`
- 5. Point your browser to http://localhost:3000/
- 6. Enjoy!
+ 1. Extract, checkout or clone into a folder
+ 2. `cd` into the new folder
+ 3. Install necessary gems: `$ bundle install`
+ 4. Run the install script: `$ bundle exec rake install`
+ 5. Start the server: `$ bundle exec rails server`
+ 6. Point your browser to http://localhost:3000/
+ 7. Enjoy!
+
+
+Upgrading from Rails 3.2.13 to Rails 4.0.0.beta1
+------------------------------------------------
+Follow these steps:
+
+ 1. Make a backup of your current `boxroom` folder (e.g. by renaming it to `boxroom.bak`)
+ 2. Extract, checkout or clone the Rails 4 version of Boxroom into a new folder
+ 3. Copy the `uploads` folder from your backed up version to the new version
+ 4. Copy `config/database.yml` from back up to the new version
+ 5. If you're using SQLite: copy `db/development.sqlite3` and/or `db/production.sqlite3` from the backed up version to the new version
+ 6. Install necessary gems: `$ bundle install`
+ 7. Run the install script: `$ bundle exec rake install`
+
+If you are having difficulties upgrading, please get in touch via the [issue tracker](https://github.com/mischa78/boxroom/issues/new).
 
 
 Mail settings
