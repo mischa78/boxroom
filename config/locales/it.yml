@@ -159,7 +159,7 @@
       inclusion: "non è incluso nella lista"
       exclusion: "è riservato"
       invalid: "non è valido"
-      confirmation: "la conferma non corrisponde"
+      confirmation: "non corrisponde"
       accepted: "dev'essere accettato"
       empty: "non può essere vuoto"
       blank: "non può essere vuoto"

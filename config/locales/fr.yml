@@ -108,7 +108,7 @@
       messages:
         accepted: doit être accepté(e)
         blank: doit être rempli(e)
-        confirmation: ne concorde pas avec la confirmation
+        confirmation: ne concorde pas
         empty: doit être rempli(e)
         equal_to: doit être égal à %{count}
         even: doit être pair
@@ -204,6 +204,7 @@
       long: ! '%A %d %B %Y %H:%M'
       short: ! '%d %b %H:%M'
     pm: pm
+
   # APPLICATION SPECIFIC
 
   # general

@@ -161,7 +161,7 @@ de:
       inclusion: "ist kein gültiger Wert"
       exclusion: "ist nicht verfügbar"
       invalid: "ist nicht gültig"
-      confirmation: "stimmt nicht mit der Bestätigung überein"
+      confirmation: "stimmt nicht"
       accepted: "muss akzeptiert werden"
       empty: "muss ausgefüllt werden"
       blank: "muss ausgefüllt werden"
