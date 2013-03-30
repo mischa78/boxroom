@@ -28,7 +28,7 @@ Installation
 ------------
 Follow these steps:
 
- 1. Extract, checkout or clone into a folder
+ 1. Extract, checkout or clone Boxroom into a new folder
  2. `cd` into the new folder
  3. Install necessary gems: `$ bundle install`
  4. Run the install script: `$ bundle exec rake install`
