@@ -46,23 +46,13 @@ class ShareLinkTest < ActiveSupport::TestCase
   end
 
   test 'active share links' do
-    expiry_dates = [
-      1.week.ago,
-      1.week.from_now,
-      2.weeks.from_now,
-      3.weeks.from_now,
-      1.month.from_now
-    ]
-
+    expiry_dates = [1.week.ago, 1.week.from_now, 2.weeks.from_now, 3.weeks.from_now, 1.month.from_now]
+    
     expiry_dates.each do |expiry_date|
       create(:share_link, :link_expires_at => expiry_date)
     end
 
-    expiry_dates.shift # Remove element that is in the past
-
-    ShareLink.active_share_links.each_with_index do |share_link, i|
-      assert_equal share_link.link_expires_at.to_time, expiry_dates[i].to_time
-    end
+    assert_equal ShareLink.active_share_links.count, 4
   end
 
   test 'the correct file is returned for a given link token' do
