@@ -26,7 +26,7 @@ The requirements for running Boxroom are:
 
 Installation
 ------------
-Follow the these steps:
+Follow these steps:
 
  1. Extract boxroom.zip and cd to the newly created folder
  2. Install necessary gems: `$ bundle install`
