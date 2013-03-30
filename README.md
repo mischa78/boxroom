@@ -27,7 +27,7 @@ If you want to try Boxroom on Rails 4, check out our [rails4 branch](https://git
 
 Installation
 ------------
-Follow the these steps:
+Follow these steps:
 
  1. Extract boxroom.zip and cd to the newly created folder
  2. Update your bundle: `$ bundle`
