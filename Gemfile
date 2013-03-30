@@ -3,7 +3,7 @@ source 'http://rubygems.org'
 gem 'rails', '4.0.0.beta1'
 gem 'jquery-rails'
 gem 'dynamic_form'
-gem 'acts_as_tree', :github => 'mischa78/acts_as_tree'
+gem 'acts_as_tree'
 gem 'paperclip'
 
 gem 'sqlite3'
