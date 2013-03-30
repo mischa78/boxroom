@@ -1,5 +1,5 @@
 desc 'Initial setup of the application'
-task :install => :environment do
+task :install do
   puts 'Creating database... '
   system 'bundle exec rake db:create'
   system 'bundle exec rake db:migrate'
