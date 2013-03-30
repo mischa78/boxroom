@@ -29,8 +29,8 @@ Installation
 Follow the these steps:
 
  1. Extract boxroom.zip and cd to the newly created folder
- 2. Update your bundle: `$ bundle`
- 3. Create a database and schema: `$ bundle exec rake db:migrate`
+ 2. Install necessary gems: `$ bundle install`
+ 3. Run the install script: `$ bundle exec rake install`
  4. Start the server: `$ bundle exec rails server`
  5. Point your browser to http://localhost:3000/
  6. Enjoy!
@@ -71,6 +71,7 @@ this by uncommenting and adjusting the following:
 ```ruby
 ActionMailer::Base.default :from => 'Boxroom <yourname@yourdomain.com>'
 ```
+
 
 Languages
 ---------
