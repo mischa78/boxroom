@@ -61,11 +61,7 @@ class ShareLinkTest < ActiveSupport::TestCase
     expiry_dates.shift # Remove element that is in the past
 
     ShareLink.active_share_links.each_with_index do |share_link, i|
-      puts share_link.link_expires_at
-      puts share_link.link_expires_at.class
-      puts expiry_dates[i]
-      puts expiry_dates[i].class
-      assert_equal share_link.link_expires_at, expiry_dates[i]
+      assert_equal share_link.link_expires_at.to_time, expiry_dates[i].to_time
     end
   end
 
