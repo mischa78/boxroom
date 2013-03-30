@@ -46,31 +46,26 @@ class ShareLinkTest < ActiveSupport::TestCase
   end
 
   test 'active share links' do
-    last_week = 1.week.ago
-    next_week = 1.week.from_now
-    in_two_weeks = 2.weeks.from_now
-    in_three_weeks = 3.weeks.from_now
-    next_month = 1.month.from_now
+    expiry_dates = [
+      1.week.ago,
+      1.week.from_now,
+      2.weeks.from_now,
+      3.weeks.from_now,
+      1.month.from_now
+    ]
 
-    create(:share_link, :link_expires_at => in_two_weeks)
-    create(:share_link, :link_expires_at => next_month)
-    create(:share_link, :link_expires_at => next_week)
-    create(:share_link, :link_expires_at => in_three_weeks)
-    create(:share_link, :link_expires_at => last_week)
+    expiry_dates.each do |expiry_date|
+      create(:share_link, :link_expires_at => expiry_date)
+    end
 
-    assert_equal ShareLink.active_share_links.count, 4
+    expiry_dates.shift # Remove element that is in the past
 
     ShareLink.active_share_links.each_with_index do |share_link, i|
-      case i
-      when 0
-        assert_equal share_link.link_expires_at, next_week
-      when 1
-        assert_equal share_link.link_expires_at, in_two_weeks
-      when 2
-        assert_equal share_link.link_expires_at, in_three_weeks
-      when 3
-        assert_equal share_link.link_expires_at, next_month
-      end
+      puts share_link.link_expires_at
+      puts share_link.link_expires_at.class
+      puts expiry_dates[i]
+      puts expiry_dates[i].class
+      assert_equal share_link.link_expires_at, expiry_dates[i]
     end
   end
 
