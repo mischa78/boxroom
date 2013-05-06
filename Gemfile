@@ -8,14 +8,10 @@ gem 'paperclip'
 
 gem 'sqlite3'
 
-# Gems used only for assets and not required
-# in production environments by default.
-group :assets do
-  gem 'sass-rails', '~> 4.0.0.beta1'
-  gem 'coffee-rails', '~> 4.0.0.beta1'
-  gem 'uglifier', '>= 1.0.3'
-  gem 'jquery-fileupload-rails'
-end
+gem 'sass-rails', '~> 4.0.0.rc1'
+gem 'coffee-rails', '~> 4.0.0'
+gem 'uglifier', '>= 1.3.0'
+gem 'jquery-fileupload-rails'
 
 group :test do
   gem 'factory_girl_rails'

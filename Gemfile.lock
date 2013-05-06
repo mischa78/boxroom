@@ -64,7 +64,7 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.23)
     minitest (4.7.4)
-    multi_json (1.7.2)
+    multi_json (1.7.3)
     paperclip (3.4.1)
       activemodel (>= 3.0.0)
       activerecord (>= 3.0.0)
@@ -122,13 +122,13 @@ PLATFORMS
 
 DEPENDENCIES
   acts_as_tree
-  coffee-rails (~> 4.0.0.beta1)
+  coffee-rails (~> 4.0.0)
   dynamic_form
   factory_girl_rails
   jquery-fileupload-rails
   jquery-rails
   paperclip
   rails (= 4.0.0.rc1)
-  sass-rails (~> 4.0.0.beta1)
+  sass-rails (~> 4.0.0.rc1)
   sqlite3
-  uglifier (>= 1.0.3)
+  uglifier (>= 1.3.0)
