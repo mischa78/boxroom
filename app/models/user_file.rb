@@ -11,7 +11,6 @@ class UserFile < ActiveRecord::Base
 
   def copy(target_folder)
     new_file = self.dup
-    new_file.instance_eval { @errors = nil }
     new_file.folder = target_folder
     new_file.save!
 
