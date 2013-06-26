@@ -203,6 +203,9 @@
       default: ! '%d %B %Y %H:%M:%S'
       long: ! '%A %d %B %Y %H:%M'
       short: ! '%d %b %H:%M'
+      very_short: "%d %b %Y"
+      date_only: "%B %d, %Y"
+      time_only: "%H:%M"
     pm: pm
 
   # APPLICATION SPECIFIC
@@ -256,7 +259,7 @@
 
   #folders/show
   create_a_new_folder: Créer un nouveau dossier
-  upload_a_file: Déposer un dossier
+  upload_a_file: Déposer un fichier
   permissions: Permissions
   clipboard: Presse-papier
   size: Taille
