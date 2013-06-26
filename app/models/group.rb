@@ -17,6 +17,10 @@ class Group < ActiveRecord::Base
     where(:name => 'Admins').first
   end
 
+  def self.all_except_admins
+    where.not(:name => 'Admins')
+  end
+
   private
 
   def create_admin_permissions

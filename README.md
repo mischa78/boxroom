@@ -1,6 +1,6 @@
 # Boxroom
 
-[![Build Status](https://api.travis-ci.org/mischa78/boxroom.png?branch=rails4)](http://travis-ci.org/mischa78/boxroom)
+[![Build Status](https://api.travis-ci.org/mischa78/boxroom.png)](http://travis-ci.org/mischa78/boxroom)
 [![Dependency Status](https://gemnasium.com/mischa78/boxroom.png?travis)](https://gemnasium.com/mischa78/boxroom)
 [![Code Climate](https://codeclimate.com/github/mischa78/boxroom.png)](https://codeclimate.com/github/mischa78/boxroom)
 
@@ -20,7 +20,7 @@ Requirements
 The requirements for running Boxroom are:
 
  * Ruby 2.0.0 or 1.9.3
- * Rails 4.0.0.rc1
+ * Rails 4.0.0
  * A database (e.g. MySQL or SQLite)
 
 

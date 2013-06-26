@@ -19,7 +19,7 @@ class PermittedParams < Struct.new(:params, :current_user)
 
   def user_attributes
     if current_user && current_user.member_of_admins?
-      [:name, :email, :password, :password_confirmation, :group_ids]
+      [:name, :email, :password, :password_confirmation, { :group_ids => [] }]
     else
       [:name, :email, :password, :password_confirmation]
     end
