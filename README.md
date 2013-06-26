@@ -92,7 +92,8 @@ ActionMailer::Base.default :from => 'Boxroom <yourname@yourdomain.com>'
 Languages
 ---------
 Thanks to [Rob Halff](https://github.com/rhalff), [Marcus Ilgner](https://github.com/milgner),
-[Jessica Marcon](https://github.com/marcontwm) and [Arnaud Sellenet](https://github.com/demental) Boxroom is now available in Dutch, German, Italian and French.
+[Jessica Marcon](https://github.com/marcontwm) and [Arnaud Sellenet](https://github.com/demental)
+Boxroom is now available in Dutch, German, Italian and French.
 
 English is the default. To change the language, open `config/application.rb` and set the language you desire:
 

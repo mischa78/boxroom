@@ -61,10 +61,16 @@ GEM
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+<<<<<<< HEAD
     mime-types (1.23)
     minitest (4.7.5)
     multi_json (1.7.7)
     paperclip (3.4.2)
+=======
+    mime-types (1.21)
+    multi_json (1.7.2)
+    paperclip (3.4.1)
+>>>>>>> master
       activemodel (>= 3.0.0)
       activerecord (>= 3.0.0)
       activesupport (>= 3.0.0)
