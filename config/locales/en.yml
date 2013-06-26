@@ -333,6 +333,7 @@
   share_link_could_not_be_sent: The download link could not be sent
   are_invalid_due_to: "is invalid due to %{email}"
   shared_successfully: The file was shared successfully.
+  shared_message: Message
 
   #shared/_header
   hello: Hello

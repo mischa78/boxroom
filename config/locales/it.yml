@@ -340,6 +340,7 @@
   share_link_could_not_be_sent: Il link per il download non è stato inviato
   are_invalid_due_to: " %{email} non è valido"
   shared_successfully: Il file è stato condiviso con successo.
+  shared_message: Messagio
 
   #shared/_header
   hello: Salve

@@ -340,6 +340,7 @@ de:
   download_link_could_not_be_sent: Die Download-URL konnte nicht versendet werden.
   are_invalid_due_to: "Die Adresse %{email} ist ungültig."
   shared_successfully: Die Datei wurde erfolgreich freigegeben.
+  shared_message: Nachricht
 
   #shared/_header
   hello: Hallo
