@@ -1,4 +1,5 @@
 class ShareLink < ActiveRecord::Base
+  belongs_to :user
   belongs_to :user_file
 
   validates_presence_of :emails, :link_expires_at

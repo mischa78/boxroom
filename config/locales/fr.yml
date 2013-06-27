@@ -329,6 +329,7 @@
   share_link_could_not_be_sent: Le lien n'a pu être envoyé
   are_invalid_due_to: "est invalide à cause de %{email}"
   shared_successfully: Le fichier a bien été partagé.
+  shared_message: Message
 
   #shared/_header
   hello: Bonjour

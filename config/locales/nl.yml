@@ -334,6 +334,7 @@ nl:
   share_link_could_not_be_sent: De download link kon niet verstuurd worden
   are_invalid_due_to: "is ongeldig vanwege %{email}"
   shared_successfully: De download link is verstuurd.
+  shared_message: Bericht
 
   #shared/_header
   hello: Hallo

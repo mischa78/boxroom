@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   has_and_belongs_to_many :groups
+  has_many :share_links  
 
   attr_accessor :password_confirmation, :password_required, :dont_clear_reset_password_token
 

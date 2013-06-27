@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130307082111) do
+ActiveRecord::Schema.define(version: 20130626210927) do
 
   create_table "folders", force: true do |t|
     t.string   "name"
@@ -47,6 +47,8 @@ ActiveRecord::Schema.define(version: 20130307082111) do
     t.integer  "user_file_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "message"
+    t.integer  "user_id"
   end
 
   create_table "user_files", force: true do |t|
