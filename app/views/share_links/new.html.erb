@@ -3,7 +3,6 @@
 <h1><%= content_for :title %></h1>
 <%= form_for [@file, @share_link], :url => { :action => 'create' } do |f| %>
   <%= f.error_messages :header_message => t(:share_link_could_not_be_sent) %>
-   <%= f.hidden_field :user_id, :value => current_user.id %> <!-- register the current user who send the file to share links -->
   <p>
     <%= t :you_are_about_to_share_the_following_file %>:<br>
     <span class="shared_file">

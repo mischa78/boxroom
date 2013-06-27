@@ -24,7 +24,7 @@ class ShareLinksController < ApplicationController
   # Note: @file and @folder are set in require_existing_file
   def create
     @share_link = @file.share_links.build(permitted_params.share_link)
-
+	@share_link.user = current_user
     if @share_link.save
       UserMailer.share_link_email(current_user, @share_link).deliver
       redirect_to @folder, :notice => t(:shared_successfully)
