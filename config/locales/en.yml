@@ -310,6 +310,7 @@
   sign_in: Sign in
 
   #share_links/index
+  shared_by: Shared by
   unshare: Unshare
 
   #share_links/new

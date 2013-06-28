@@ -311,6 +311,7 @@ nl:
   sign_in: Inloggen
 
   #share_links/index
+  shared_by: Gedeeld door
   unshare: Delen ongedaan maken
 
   #share_links/new

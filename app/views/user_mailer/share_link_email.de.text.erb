@@ -1,6 +1,6 @@
 Sehr geehrter Empfänger,
 
-<%= @user.email %> hat Ihnen eine Datei freigegeben:
+<%= @share_link.user.email %> hat Ihnen eine Datei freigegeben:
 
       <%= @share_link.user_file.attachment_file_name %> (<%= number_to_human_size(@share_link.user_file.attachment_file_size, :locale => I18n.locale) %>)
 

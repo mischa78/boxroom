@@ -306,6 +306,7 @@
   sign_in: Identification
 
   #share_links/index
+  shared_by: Partage par
   unshare: Annuler le partage
 
   #share_links/new
