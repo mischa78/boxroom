@@ -124,6 +124,7 @@ Contributors:
  * [Stephan Toggweiler](https://github.com/rheoli)
  * [Kale Worsley](https://github.com/kaleworsley)
  * [Arnaud Sellenet](https://github.com/demental)
+ * [Patrick Fratczak](https://github.com/patfrat)
 
 Donations:
 
