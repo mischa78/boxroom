@@ -14,7 +14,7 @@ class PermittedParams < Struct.new(:params, :current_user)
   end
 
   def share_link_attributes
-    [:emails, :link_expires_at, :message, :user_id]
+    [:emails, :link_expires_at, :message]
   end
 
   def user_attributes

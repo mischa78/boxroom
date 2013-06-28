@@ -1,19 +1,19 @@
 Gentile utente,
 
-L'utente <%= @user.name %> (<%= @user.email %>) ha condiviso un file con te.
+<%= @user.email %> ha condiviso un file con te:
 
-<%= @share_link.user_file.attachment_file_name %> - <%= number_to_human_size(@share_link.user_file.attachment_file_size, :locale => I18n.locale) %>
-
-<% if !@share_link.message.blank? %>
-<%= t(:shared_message) %>:
-<%= strip_tags(@share_link.message) %>
-<% end %>
+      <%= @share_link.user_file.attachment_file_name %> (<%= number_to_human_size(@share_link.user_file.attachment_file_size, :locale => I18n.locale) %>)
 
 Clicca sul seguente URL per scaricare il file:
 
-    <%= share_link_url(:id => @share_link.link_token) %>
+      <%= share_link_url(:id => @share_link.link_token) %>
 
 L'URL indicato sopra scadrà <%= l @share_link.link_expires_at, :format => :long %>.
+
+<% unless @share_link.message.blank? -%>
+=== <%= t(:shared_message) %>: ===
+<%= strip_tags(@share_link.message) %>
+<% end -%>
 
 --
 Boxroom

@@ -400,4 +400,4 @@
   # mailers/user_mailer
   signup_email_subject: '[Boxroom] Sign up invitation'
   reset_password_email_subject: '[Boxroom] Password reset instructions'
-  share_link_email_subject: '[Boxroom] Someone shared a file with you'
+  share_link_email_subject: '[Boxroom] %{email} shared a file with you'

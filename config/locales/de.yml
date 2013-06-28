@@ -407,4 +407,4 @@ de:
   # mailers/user_mailer
   signup_email_subject: '[Boxroom] Sign up invitation'
   reset_password_email_subject: '[Boxroom] Anleitung zum Ändern Ihres Kennworts'
-  download_link_email_subject: '[Boxroom] Jemand möchte Ihnen eine Datei freigeben'
+  share_link_email_subject: '[Boxroom] %{email} möchte Ihnen eine Datei freigeben'

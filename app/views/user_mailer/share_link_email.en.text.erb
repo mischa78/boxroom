@@ -1,19 +1,19 @@
 Dear recipient,
 
-User <%= @user.name %> (<%= @user.email %>) has shared a file with you.
+<%= @user.email %> has shared a file with you:
 
-<%= @share_link.user_file.attachment_file_name %> - <%= number_to_human_size(@share_link.user_file.attachment_file_size, :locale => I18n.locale) %>
-
-<% if !@share_link.message.blank? %>
-<%= t(:shared_message) %>:
-<%= strip_tags(@share_link.message) %>
-<% end %>
+      <%= @share_link.user_file.attachment_file_name %> (<%= number_to_human_size(@share_link.user_file.attachment_file_size, :locale => I18n.locale) %>)
 
 Use the following URL to download your file:
 
-    <%= share_link_url(:id => @share_link.link_token) %>
+      <%= share_link_url(:id => @share_link.link_token) %>
 
 The URL above will expire at <%= l @share_link.link_expires_at, :format => :time_only %> on <%= l @share_link.link_expires_at, :format => :date_only %>.
+
+<% unless @share_link.message.blank? -%>
+=== <%= t(:shared_message) %>: ===
+<%= strip_tags(@share_link.message) %>
+<% end -%>
 
 --
 Boxroom

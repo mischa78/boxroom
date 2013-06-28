@@ -406,5 +406,5 @@
 
   # mailers/user_mailer
   signup_email_subject: '[Boxroom] Sign up invitation'
-  share_link_email_subject: '[Boxroom] Qualcuno ha condiviso un file con te'
+  share_link_email_subject: '[Boxroom] %{email} ha condiviso un file con te'
   reset_password_email_subject: '[Boxroom] Istruzioni per modificare la password'

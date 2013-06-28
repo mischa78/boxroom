@@ -401,4 +401,4 @@ nl:
   # mailers/user_mailer
   signup_email_subject: '[Boxroom] Uitnodiging om aan te melden'
   reset_password_email_subject: '[Boxroom] Instructies om uw wachtwoord te resetten'
-  share_link_email_subject: '[Boxroom] Iemand heeft een bestand met u gedeeld'
+  share_link_email_subject: '[Boxroom] %{email} heeft een bestand met u gedeeld'

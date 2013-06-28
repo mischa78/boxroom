@@ -3,27 +3,25 @@
 <h1><%= content_for :title %></h1>
 
 <table>
-	<tr>
-		<th></th>
-		<th><%= t('activerecord.models.share_link.created_at') %></th>
-		<th><%= t('activerecord.models.user_file') %></th>
-		<th></th>
-		<th><%= t('activerecord.attributes.share_link.emails') %></th>
-		<th><%= t('activerecord.attributes.share_link.expires_at') %></th>
-		<th></th>
-	</tr>
+  <tr>
+    <th></th>
+    <th><%= t('activerecord.models.user_file') %></th>
+    <th><%= t('activerecord.attributes.share_link.emails') %></th>
+    <th><%= t('activerecord.attributes.share_link.expires_at') %></th>
+    <th></th>
+  </tr>
 <% @share_links.each do |share_link| -%>
-	<tr class="<%= cycle('even','odd') %>">
-		<td><%= image_tag file_icon(share_link.user_file.extension) %></td>
-		<td><%= l share_link.created_at, :format => :very_short %></td>    
-		<td class="file_name"><%= link_to share_link.user_file.attachment_file_name, share_link.user_file.folder, :title => "#{share_link.user_file.attachment_file_name} (#{share_link.user_file.folder.name})" %></td>
-		<td><% if !share_link.message.blank? %><%= image_tag("extend.png", :title => strip_tags(share_link.message)) %><% end %></td>    
-		<td>
-			<span class="share_link_emails" title="<%= share_link.emails %>"><% if share_link.user %><span class="share_link_sent_by"><%= share_link.user.email %></span><br /><% end %>
-			<%= truncate(share_link.emails, :length => 48) %>
-		</td>
-		<td><%= l share_link.link_expires_at, :format => :very_short %></td>
-		<td><%= link_to image_tag('delete.png', :alt => t(:delete_item)), share_link_path(share_link), :method => :delete, :data => { :confirm => t(:are_you_sure) }, :title => t(:unshare) %></td>
-	</tr>
+  <tr class="<%= cycle('even','odd') %>">
+    <td><%= image_tag file_icon(share_link.user_file.extension) %></td>
+    <td><%= l share_link.created_at, :format => :very_short %></td>    
+    <td class="file_name"><%= link_to share_link.user_file.attachment_file_name, share_link.user_file.folder, :title => "#{share_link.user_file.attachment_file_name} (#{share_link.user_file.folder.name})" %></td>
+    <td><% if !share_link.message.blank? %><%= image_tag("extend.png", :title => strip_tags(share_link.message)) %><% end %></td>    
+    <td>
+      <span class="share_link_emails" title="<%= share_link.emails %>"><% if share_link.user %><span class="share_link_sent_by"><%= share_link.user.email %></span><br /><% end %>
+      <%= truncate(share_link.emails, :length => 48) %>
+    </td>
+    <td><%= l share_link.link_expires_at, :format => :very_short %></td>
+    <td><%= link_to image_tag('delete.png', :alt => t(:delete_item)), share_link_path(share_link), :method => :delete, :data => { :confirm => t(:are_you_sure) }, :title => t(:unshare) %></td>
+  </tr>
 <% end -%>
 </table>
