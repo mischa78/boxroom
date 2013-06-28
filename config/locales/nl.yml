@@ -336,6 +336,7 @@ nl:
   are_invalid_due_to: "is ongeldig vanwege %{email}"
   shared_successfully: De download link is verstuurd.
   shared_message: Bericht
+  optional: Niet verplicht
 
   #shared/_header
   hello: Hallo

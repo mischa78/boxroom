@@ -335,6 +335,7 @@
   are_invalid_due_to: "is invalid due to %{email}"
   shared_successfully: The file was shared successfully.
   shared_message: Message
+  optional: Optional
 
   #shared/_header
   hello: Hello

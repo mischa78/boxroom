@@ -23,8 +23,8 @@
     </span>
   </p>
   <p>
-    <%= f.label :message, t(:shared_message) %>:<br />
-    <%= f.text_area :message, :class => 'share_message' %><br />
+    <%= f.label :message, t(:shared_message) %>: <span class="optional">(<%= t :optional %>)</span><br>
+    <%= f.text_area :message, :class => 'share_message' %>
   </p>
   <p>
     <%= f.label t(:link_expires) %>:<br>
