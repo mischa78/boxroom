@@ -43,7 +43,8 @@ GEM
     coffee-script-source (1.6.3)
     dynamic_form (1.1.4)
     erubis (2.7.0)
-    execjs (2.0.0)
+    execjs (1.4.0)
+      multi_json (~> 1.0)
     factory_girl (4.2.0)
       activesupport (>= 3.0.0)
     factory_girl_rails (4.2.1)
@@ -120,6 +121,7 @@ DEPENDENCIES
   acts_as_tree
   coffee-rails (~> 4.0.0)
   dynamic_form
+  execjs (= 1.4.0)
   factory_girl_rails
   jquery-fileupload-rails
   jquery-rails
