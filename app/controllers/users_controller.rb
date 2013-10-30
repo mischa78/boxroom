@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
-  before_filter :require_admin, :except => [:edit, :update]
-  before_filter :require_existing_user, :only => [:edit, :update, :destroy, :extend]
-  before_filter :require_deleted_user_isnt_admin, :only => :destroy
+  before_action :require_admin, :except => [:edit, :update]
+  before_action :require_existing_user, :only => [:edit, :update, :destroy, :extend]
+  before_action :require_deleted_user_isnt_admin, :only => :destroy
 
   def index
     @users = User.where.not(:name => nil).order('name')

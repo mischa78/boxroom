@@ -1,11 +1,11 @@
 class FilesController < ApplicationController
-  before_filter :require_existing_file, :only => [:show, :edit, :update, :destroy]
-  before_filter :require_existing_target_folder, :only => [:new, :create]
+  before_action :require_existing_file, :only => [:show, :edit, :update, :destroy]
+  before_action :require_existing_target_folder, :only => [:new, :create]
 
-  before_filter :require_create_permission, :only => [:new, :create]
-  before_filter :require_read_permission, :only => :show
-  before_filter :require_update_permission, :only => [:edit, :update]
-  before_filter :require_delete_permission, :only => :destroy
+  before_action :require_create_permission, :only => [:new, :create]
+  before_action :require_read_permission, :only => :show
+  before_action :require_update_permission, :only => [:edit, :update]
+  before_action :require_delete_permission, :only => :destroy
 
   # @file and @folder are set in require_existing_file
   def show

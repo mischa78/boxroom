@@ -1,5 +1,5 @@
 class PermissionsController < ApplicationController
-  before_filter :require_admin
+  before_action :require_admin
 
   def update_multiple
     if params[:permissions]

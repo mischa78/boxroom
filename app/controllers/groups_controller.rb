@@ -1,7 +1,7 @@
 class GroupsController < ApplicationController
-  before_filter :require_admin
-  before_filter :require_existing_group, :only => [:edit, :update, :destroy]
-  before_filter :require_group_isnt_admins_group, :only => [:edit, :update, :destroy]
+  before_action :require_admin
+  before_action :require_existing_group, :only => [:edit, :update, :destroy]
+  before_action :require_group_isnt_admins_group, :only => [:edit, :update, :destroy]
 
   def index
     @groups = Group.order(:name)

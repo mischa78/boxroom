@@ -1,9 +1,9 @@
 class ShareLinksController < ApplicationController
-  before_filter :require_admin, :only => [:index, :destroy]
-  before_filter :require_existing_file, :except => [:index, :destroy]
-  before_filter :require_existing_share_link, :only => :destroy
-  before_filter :require_read_permission, :only => [:new, :create]
-  skip_before_filter :require_login, :only => :show
+  before_action :require_admin, :only => [:index, :destroy]
+  before_action :require_existing_file, :except => [:index, :destroy]
+  before_action :require_existing_share_link, :only => :destroy
+  before_action :require_read_permission, :only => [:new, :create]
+  skip_before_action :require_login, :only => :show
 
   rescue_from ActiveRecord::RecordNotFound, NoMethodError, RuntimeError, :with => :redirect_to_root_or_signin_and_show_alert
 

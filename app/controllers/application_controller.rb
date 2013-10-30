@@ -1,8 +1,8 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
-  before_filter :require_admin_in_system
-  before_filter :require_login
+  before_action :require_admin_in_system
+  before_action :require_login
 
   helper_method :clipboard, :current_user, :signed_in?, :permitted_params
 

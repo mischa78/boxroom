@@ -1,6 +1,6 @@
 class SignupController < ApplicationController
-  before_filter :require_valid_token, :only => [:edit, :update]
-  skip_before_filter :require_login
+  before_action :require_valid_token, :only => [:edit, :update]
+  skip_before_action :require_login
 
   # Note: @user is set in require_valid_token
   def edit
