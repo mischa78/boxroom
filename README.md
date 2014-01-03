@@ -141,7 +141,7 @@ Icons:
 
 License
 -------
-Copyright (c) 2006-2013 Mischa Berger
+Copyright (c) 2006-2014 Mischa Berger
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the "Software"), to deal in
