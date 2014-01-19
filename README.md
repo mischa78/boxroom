@@ -108,6 +108,18 @@ config.i18n.default_locale = :fr # French
 It would be great to have many more languages. I am waiting for your pull requests.
 
 
+Roadmap
+-------
+
+These are the features I am planning to implement at some point:
+
+ * Functional tests
+ * Thumbnail view
+ * Full text search
+ * Extract uploaded zip files
+ * Batch create new users for admins
+
+
 Credits
 -------
 
