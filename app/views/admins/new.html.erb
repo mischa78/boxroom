@@ -7,7 +7,7 @@
 <%= form_for @user, :url => { :action => 'create' } do |f| %>
   <%= f.error_messages %>
   <p>
-    <%= f.label :name %>:<br>
+    <%= f.label :name, t(:username) %>:<br>
     <%= f.text_field :name, { :class => 'text_input' } %>
   </p>
   <p>
