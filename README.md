@@ -108,6 +108,18 @@ config.i18n.default_locale = :fr # French
 It would be great to have many more languages. I am waiting for your pull requests.
 
 
+JavaScript runtime
+------------------
+
+You need to have a JavaScript runtime installed to run Boxroom. Your system may already have a
+runtime installed, but if not you'll get an error message about a missing JavaScript runtime when
+running the install script. In that case uncomment the following line in the `Gemfile`:
+
+    # gem 'therubyracer', platforms: :ruby
+
+and try running `$ bundle install` and `$ bundle exec rake install` again.
+
+
 Roadmap
 -------
 
@@ -138,6 +150,7 @@ Contributors:
  * [Arnaud Sellenet](https://github.com/demental)
  * [Patrick Fratczak](https://github.com/patfrat)
  * [Alessandro Lepore](https://github.com/alepore)
+ * [Cayce Balara](https://github.com/Yardboy)
 
 Donations:
 
