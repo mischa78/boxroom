@@ -42,16 +42,16 @@ class UserFileTest < ActiveSupport::TestCase
 
   test 'attachment file name is unique' do
     file = create(:user_file)
-    file.update_attributes(:attachment_file_name => 'Test')
-    assert UserFile.exists?(:attachment_file_name => 'Test')
+    file.update_attributes(:attachment_file_name => 'Test.txt')
+    assert UserFile.exists?(:attachment_file_name => 'Test.txt')
 
     folder = create(:folder)
     file2 = folder.user_files.build(:attachment => fixture_file)
-    file2.attachment_file_name = 'Test'
+    file2.attachment_file_name = 'Test.txt'
     assert file2.save
 
     file3 = Folder.root.user_files.build(:attachment => fixture_file)
-    file3.attachment_file_name = 'Test'
+    file3.attachment_file_name = 'Test.txt'
     assert !file3.save
   end
 
@@ -59,11 +59,11 @@ class UserFileTest < ActiveSupport::TestCase
     file = create(:user_file)
 
     %w{< > : " / \ | ? *}.each do |invalid_character|
-      file.attachment_file_name = "Test#{invalid_character}"
+      file.attachment_file_name = "Test#{invalid_character}.txt"
       assert !file.save
     end
 
-    file.attachment_file_name = 'Test'
+    file.attachment_file_name = 'Test.txt'
     assert file.save
   end
 

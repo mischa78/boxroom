@@ -89,10 +89,10 @@ class ClipboardTest < ActiveSupport::TestCase
     file = create(:user_file)
     clipboard = Clipboard.new
     clipboard.add(file)
-    assert_not_equal clipboard.files.first.attachment_file_name, 'Name changed'
+    assert_not_equal clipboard.files.first.attachment_file_name, 'Name changed.txt'
 
-    file.update_attributes(:attachment_file_name => 'Name changed')
-    assert_equal clipboard.files.first.attachment_file_name, 'Name changed'
+    file.update_attributes(:attachment_file_name => 'Name changed.txt')
+    assert_equal clipboard.files.first.attachment_file_name, 'Name changed.txt'
   end
 
   test 'a deleted folder must also be deleted from the clipboard' do
