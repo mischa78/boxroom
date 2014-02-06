@@ -27,7 +27,7 @@ GEM
       tzinfo (~> 0.3.37)
     acts_as_tree (1.5.0)
       activerecord (>= 3.0.0)
-    arel (4.0.1)
+    arel (4.0.2)
     atomic (1.1.14)
     builder (3.1.4)
     climate_control (0.0.3)
@@ -124,7 +124,7 @@ DEPENDENCIES
   factory_girl_rails
   jquery-fileupload-rails
   jquery-rails
-  paperclip
+  paperclip (~> 3.0)
   rails (= 4.0.2)
   sass-rails (~> 4.0.0)
   sqlite3

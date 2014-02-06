@@ -13,7 +13,7 @@ gem 'jquery-rails'
 # App specific gems
 gem 'dynamic_form'
 gem 'acts_as_tree'
-gem 'paperclip'
+gem 'paperclip', '~> 3.0'
 gem 'jquery-fileupload-rails'
 
 group :test do
