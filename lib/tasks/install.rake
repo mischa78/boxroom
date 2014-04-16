@@ -5,19 +5,22 @@ task :install do
   system 'bundle exec rake db:migrate'
 
   puts "\n"
-  print 'Creating config/initializers/secret_token.rb... '
-  secret_token = Rails.root.join('config', 'initializers', 'secret_token.rb')
+  print 'Creating config/secrets.yml... '
+  secret_token = Rails.root.join('config', 'secrets.yml')
 
   # Only create if it doesn't exit yet
   if !File.exists?(secret_token)
     File.open(secret_token, 'w') do |f|
-      f.write "Boxroom::Application.config.secret_key_base = '#{SecureRandom.hex(64)}'"
+      %w{development test production}.each do |env|
+        f.write "#{env}:\n"
+        f.write "  secret_key_base: #{SecureRandom.hex(64)}\n"
+      end
     end
 
     puts 'OK'
   else
     puts "\n"
-    puts 'config/initializers/secret_token.rb already exists'
+    puts 'config/secrets.yml already exists'
   end
 
   puts "\n"
