@@ -9,7 +9,7 @@ class ShareLinkTest < ActiveSupport::TestCase
     assert_raise(ActiveRecord::RecordInvalid) { create(:share_link, :link_expires_at => '') }
   end
 
-  test 'emails is not longer than 256 characters' do
+  test 'emails is not longer than 255 characters' do
     share_link = create(:share_link)
 
     # 255 chars
