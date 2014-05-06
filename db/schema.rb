@@ -66,7 +66,7 @@ ActiveRecord::Schema.define(version: 20130628082245) do
     t.string   "email"
     t.string   "hashed_password"
     t.string   "password_salt"
-    t.boolean  "is_admin",                        limit: 255
+    t.boolean  "is_admin"
     t.string   "remember_token"
     t.string   "reset_password_token"
     t.datetime "reset_password_token_expires_at"
@@ -76,6 +76,6 @@ ActiveRecord::Schema.define(version: 20130628082245) do
     t.datetime "signup_token_expires_at"
   end
 
-  add_index "users", ["signup_token"], name: "index_users_on_signup_token"
+  add_index "users", ["signup_token"], name: "index_users_on_signup_token", using: :btree
 
 end
