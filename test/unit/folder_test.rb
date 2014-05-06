@@ -2,7 +2,7 @@ require 'test_helper'
 
 class FolderTest < ActiveSupport::TestCase
   def setup
-    Folder.instance_variable_set('@root_folder', nil)
+    clear_root_folder
   end
 
   test 'dependent files get deleted' do
