@@ -84,10 +84,6 @@ class Folder < ActiveRecord::Base
     @root_folder ||= find_by_name_and_parent_id('Root folder', nil)
   end
 
-  def self.clear_root!
-    @root_folder = nil
-  end
-
   private
 
   def check_for_parent

@@ -2,7 +2,7 @@ require 'test_helper'
 
 class UserFileTest < ActiveSupport::TestCase
   def setup
-    Folder.clear_root!
+    clear_root_folder
   end
 
   test 'dependent share links get deleted' do
