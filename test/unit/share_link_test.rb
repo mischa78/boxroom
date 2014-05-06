@@ -9,15 +9,15 @@ class ShareLinkTest < ActiveSupport::TestCase
     assert_raise(ActiveRecord::RecordInvalid) { create(:share_link, :link_expires_at => '') }
   end
 
-  test 'emails is not longer than 256 characters' do
+  test 'emails is not longer than 255 characters' do
     share_link = create(:share_link)
 
-    # 256 chars
-    share_link.emails = 'email@domain.com, another-email@domain.com, email@domain.com, another-email@domain.com, email@domain.com, another-email@domain.com, email@domain.com, another-email@domain.com, email@domain.com, another-email@domain.com, email@domain.com, another@domain.com'
+    # 255 chars
+    share_link.emails = 'email@domain.com, another-email@domain.com, email@domain.com, another-email@domain.com, email@domain.com, another-email@domain.com, email@domain.com, anotheremail@domain.com, email@domain.com, another-email@domain.com, email@domain.com, another@domain.com'
     assert share_link.save
 
-    # 257 chars
-    share_link.emails = 'email@domain.com, another-email@domain.com, email@domain.com, another-email@domain.com, email@domain.com, another-email@domain.com, email@domain.com, another-email@domain.com, email@domain.com, another-email@domain.com, email@domain.com, anothere@domain.com'
+    # 256 chars
+    share_link.emails = 'email@domain.com, another-email@domain.com, email@domain.com, another-email@domain.com, email@domain.com, another-email@domain.com, email@domain.com, anotheremail@domain.com, email@domain.com, another-email@domain.com, email@domain.com, anothere@domain.com'
     assert !share_link.save
   end
 
