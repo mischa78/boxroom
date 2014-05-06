@@ -1,6 +1,10 @@
 require 'test_helper'
 
 class UserFileTest < ActiveSupport::TestCase
+  def setup
+    Folder.clear_root!
+  end
+
   test 'dependent share links get deleted' do
     file1 = create(:user_file)
     assert_equal UserFile.all.count, 1
