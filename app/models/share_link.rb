@@ -3,7 +3,7 @@ class ShareLink < ActiveRecord::Base
   belongs_to :user_file
 
   validates_presence_of :emails, :link_expires_at
-  validates_length_of :emails, :maximum => 256
+  validates_length_of :emails, :maximum => 255
   validate :format_of_emails
 
   before_save :generate_token
