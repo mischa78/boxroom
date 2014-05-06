@@ -1,6 +1,10 @@
 require 'test_helper'
 
 class FolderTest < ActiveSupport::TestCase
+  def setup
+    clear_root_folder
+  end
+
   test 'dependent files get deleted' do
     folder1 = create(:folder)
     assert_equal Folder.all.count, 2 # Root folder gets created automatically
