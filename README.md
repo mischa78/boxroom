@@ -20,7 +20,7 @@ Requirements
 The requirements for running Boxroom are:
 
  * Ruby 2.1.1, 2.1.0, 2.0.0 or 1.9.3
- * Rails 4.1.1
+ * Rails 4.1.4
  * A database (e.g. MySQL or SQLite)
 
 
