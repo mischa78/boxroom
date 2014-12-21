@@ -13,25 +13,25 @@
 
 ActiveRecord::Schema.define(version: 20130628082245) do
 
-  create_table "folders", force: true do |t|
-    t.string   "name"
+  create_table "folders", force: :cascade do |t|
+    t.string   "name",       limit: 255
     t.integer  "parent_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "groups", force: true do |t|
-    t.string   "name"
+  create_table "groups", force: :cascade do |t|
+    t.string   "name",       limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "groups_users", id: false, force: true do |t|
+  create_table "groups_users", id: false, force: :cascade do |t|
     t.integer "group_id"
     t.integer "user_id"
   end
 
-  create_table "permissions", force: true do |t|
+  create_table "permissions", force: :cascade do |t|
     t.integer "folder_id"
     t.integer "group_id"
     t.boolean "can_create"
@@ -40,9 +40,9 @@ ActiveRecord::Schema.define(version: 20130628082245) do
     t.boolean "can_delete"
   end
 
-  create_table "share_links", force: true do |t|
-    t.string   "emails"
-    t.string   "link_token"
+  create_table "share_links", force: :cascade do |t|
+    t.string   "emails",          limit: 255
+    t.string   "link_token",      limit: 255
     t.datetime "link_expires_at"
     t.integer  "user_file_id"
     t.datetime "created_at"
@@ -51,9 +51,9 @@ ActiveRecord::Schema.define(version: 20130628082245) do
     t.integer  "user_id"
   end
 
-  create_table "user_files", force: true do |t|
-    t.string   "attachment_file_name"
-    t.string   "attachment_content_type"
+  create_table "user_files", force: :cascade do |t|
+    t.string   "attachment_file_name",    limit: 255
+    t.string   "attachment_content_type", limit: 255
     t.integer  "attachment_file_size"
     t.datetime "attachment_updated_at"
     t.integer  "folder_id"
@@ -61,21 +61,21 @@ ActiveRecord::Schema.define(version: 20130628082245) do
     t.datetime "updated_at"
   end
 
-  create_table "users", force: true do |t|
-    t.string   "name"
-    t.string   "email"
-    t.string   "hashed_password"
-    t.string   "password_salt"
-    t.boolean  "is_admin"
-    t.string   "remember_token"
-    t.string   "reset_password_token"
+  create_table "users", force: :cascade do |t|
+    t.string   "name",                            limit: 255
+    t.string   "email",                           limit: 255
+    t.string   "hashed_password",                 limit: 255
+    t.string   "password_salt",                   limit: 255
+    t.boolean  "is_admin",                        limit: 255
+    t.string   "remember_token",                  limit: 255
+    t.string   "reset_password_token",            limit: 255
     t.datetime "reset_password_token_expires_at"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "signup_token"
+    t.string   "signup_token",                    limit: 255
     t.datetime "signup_token_expires_at"
   end
 
-  add_index "users", ["signup_token"], name: "index_users_on_signup_token", using: :btree
+  add_index "users", ["signup_token"], name: "index_users_on_signup_token"
 
 end

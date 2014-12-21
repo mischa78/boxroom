@@ -10,7 +10,7 @@ class ResetPasswordController < ApplicationController
 
     unless user.nil?
       user.refresh_reset_password_token
-      UserMailer.reset_password_email(user).deliver
+      UserMailer.reset_password_email(user).deliver_now
     end
 
     redirect_to new_reset_password_url, :notice => t(:instruction_email_sent, :email => params[:email])

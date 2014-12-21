@@ -16,7 +16,7 @@ class UsersController < ApplicationController
     @user = User.new(permitted_params.user)
 
     if @user.save
-      UserMailer.signup_email(@user).deliver
+      UserMailer.signup_email(@user).deliver_now
       redirect_to users_url
     else
       render :action => 'new'
