@@ -97,7 +97,7 @@ JavaScript runtime
 ------------------
 
 You need to have a JavaScript runtime installed to run Boxroom. Your system may already have a
-runtime installed, but if not you'll get an error message about a missing JavaScript runtime when
+runtime installed, but if not, you'll get an error message about a missing JavaScript runtime when
 running the install script. In that case uncomment the following line in the `Gemfile`:
 
     # gem 'therubyracer', platforms: :ruby
