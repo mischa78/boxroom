@@ -20,7 +20,7 @@ Requirements
 The requirements for running Boxroom are:
 
  * Ruby 1.9.3 or newer
- * Rails 4.2.0
+ * Rails 4.2.1
  * A database (e.g. MySQL or SQLite)
 
 
@@ -35,21 +35,6 @@ Follow these steps:
  5. Start the server: `$ bundle exec rails server`
  6. Point your browser to http://localhost:3000/
  7. Enjoy!
-
-
-Upgrading to Rails 4
---------------------
-Follow these steps:
-
- 1. Make a backup of your current `boxroom` folder (e.g. by renaming it to `boxroom.bak`)
- 2. Extract, checkout or clone the Rails 4 version of Boxroom into a new folder
- 3. Copy the `uploads` folder from your backed up version to the new version
- 4. Copy `config/database.yml` from back up to the new version
- 5. When using SQLite: copy `db/development.sqlite3` and/or `db/production.sqlite3` from back up to the new version
- 6. Install necessary gems: `$ bundle install`
- 7. Run the install script: `$ bundle exec rake install`
-
-If you run into difficulties, please get in touch via the [issue tracker](https://github.com/mischa78/boxroom/issues/new).
 
 
 Mail settings
