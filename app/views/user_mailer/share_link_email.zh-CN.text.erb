@@ -1,0 +1,20 @@
+亲爱的收件人:
+
+<%= @share_link.user.email %> 与您共享了一个文件：
+
+      <%= @share_link.user_file.attachment_file_name %> (<%= number_to_human_size(@share_link.user_file.attachment_file_size, :locale => I18n.locale) %>)
+
+请用下面的链接下载文件：
+
+      <%= share_link_url(:id => @share_link.link_token) %>
+
+此链接会在<%= l @share_link.link_expires_at, :format => :time_only %>，<%= l @share_link.link_expires_at, :format => :date_only %>失效。
+
+<% unless @share_link.message.blank? -%>
+=== <%= t(:shared_message) %>: ===
+<%= strip_tags(@share_link.message) %>
+<% end -%>
+
+--
+Boxroom
+http://boxroomapp.com/
