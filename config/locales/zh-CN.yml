@@ -176,7 +176,7 @@
         header:
           one: "有1个错误导致%{model}无法被保存"
           other: "有%{count}个错误发生导致%{model}无法被保存"
-          body: "如下字段出现错误"
+        body: "如下字段出现错误"
 
       messages:
         taken: "已经被使用"
