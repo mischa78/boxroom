@@ -126,8 +126,8 @@ Contributors:
  * [Jessica Marcon](https://github.com/marcontwm)
  * [Marcus Ilgner](https://github.com/milgner)
  * [Rob Halff](https://github.com/rhalff)
- * [Ryan Michael](https://github.com/kerinin/boxroom)
- * [Thomas Volkmar Worm](https://github.com/tvw/)
+ * [Ryan Michael](https://github.com/kerinin)
+ * [Thomas Volkmar Worm](https://github.com/tvw)
  * [Joan Marc Carbo](https://github.com/jmcarbo)
  * Stian Haklev
  * Craig Box
@@ -138,6 +138,7 @@ Contributors:
  * [Alessandro Lepore](https://github.com/alepore)
  * [Cayce Balara](https://github.com/Yardboy)
  * [Burnaby John](https://github.com/john-coding)
+ * [Andreas Venturini](https://github.com/andreas-venturini)
 
 Donations:
 
