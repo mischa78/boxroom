@@ -10,11 +10,14 @@ class AdminsController < ApplicationController
     @user = User.new(permitted_params.user)
     @user.password_required = true
     @user.is_admin = true
-
-    if @user.save
-      redirect_to new_session_url, :notice => t(:admin_user_created_successfully)
+    if verify_recaptcha(@user)
+      if @user.save
+       redirect_to new_session_url, :notice => t(:admin_user_created_successfully)
+      else
+        render :action => 'new'
+      end
     else
-      render :action => 'new'
+        redirect_to new_session_url, :alert => t(:credentials_incorrect)
     end
   end
 
