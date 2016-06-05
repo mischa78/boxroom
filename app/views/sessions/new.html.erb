@@ -1,21 +1,9 @@
 <% content_for :title, t(:sign_in) -%>
 
-<h1><%= content_for :title %></h1>
-<%= form_tag(sessions_path) do %>
-  <p>
-    <%= label_tag :username, t(:username) %>:<br>
-    <%= text_field_tag :username, nil, :class => 'text_input' %>
-  </p>
-  <p>
-    <%= label_tag :password, t(:password) %>:<br>
-    <%= password_field_tag :password, nil, :class => 'text_input' %>
-  </p>
-  <p>
-    <%= check_box_tag :remember_me, 'true' %>
-    <%= label_tag :remember_me, t(:remember_me) %>
-  </p>
-  <p>
-    <%= submit_tag t(:sign_in) %> &nbsp; &mdash; &nbsp;
-    <%= link_to t(:reset_password), new_reset_password_path %>
-  </p>
+<%= bootstrap_form_tag url: sessions_path do |f| %>
+  <%= f.text_field :username, label: t(:username) %>
+  <%= f.password_field :password, label: t(:password) %>
+  <%= f.check_box :remember_me, lebel: t(:remember_me) %>
+  <%= f.submit t(:sign_in), class: "btn btn-success" %> &nbsp; &mdash; &nbsp;
+  <%= link_to t(:reset_password), new_reset_password_path %>
 <% end %>

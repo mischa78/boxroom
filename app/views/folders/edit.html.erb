@@ -1,6 +1,5 @@
 <% content_for :title, t(:rename_folder) -%>
 
-<h1><%= content_for :title %></h1>
-<%= form_for @folder do |f| %>
+<%= bootstrap_form_for @folder do |f| %>
   <%= render :partial => 'form', :locals => { :f => f } %>
 <% end %>

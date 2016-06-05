@@ -1,6 +1,5 @@
 <% content_for :title, t(:upload_file) -%>
 
-<h1><%= content_for :title %></h1>
 <%= form_for [@target_folder, @file], :url => { :action => 'create' } do |f| %>
   <p>
     <%= hidden_field_tag :target_folder_id, @target_folder.id %>
@@ -14,12 +13,15 @@
 <% end %>
 
 <script id="template-upload" type="text/x-tmpl">
-<p>
-  <%= image_tag 'spinner.gif', :class => 'spinner' %>
-  <%= image_tag 'failed.png', :class => 'failed', :style => 'display:none;' %>
-  <%= image_tag 'tick.png', :class => 'tick', :style => 'display:none;' %>
+<div>
+  <%= fa_icon 'ban', :class => 'failed', :style => 'display:none;' %>
+  <%= fa_icon 'check', :class => 'tick', :style => 'display:none;' %>
   <span class="status">Uploading <strong>{%= o.name %}</strong>...</span>
-  <span class="percentage">0%</span>
   <span class="exists_message red" style="display:none;"><strong><%= t(:exists_already) %></strong></span>
-</p>
+  <div class="progress">
+    <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
+      0%
+    </div>
+  </div>  
+</div>
 </script>

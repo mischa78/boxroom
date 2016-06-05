@@ -1,18 +1,8 @@
 <% content_for :title, t(:reset_password) -%>
 
-<h1><%= content_for :title %></h1>
-<%= form_for @user, :url => { :action => 'update' } do |f| %>
-  <%= f.error_messages %>
-  <p>
-    <%= label_tag :password, t(:password) %>:<br>
-    <%= f.password_field :password, { :class => 'text_input' } %>
-  </p>
-  <p>
-    <%= label_tag :confirm_password, t(:confirm_password) %>:<br>
-    <%= f.password_field :password_confirmation, { :class => 'text_input' } %>
-  </p>
-  <p>
-    <%= f.submit t(:reset_password) %> &nbsp; &mdash; &nbsp;
-    <%= link_to t(:back), new_session_path %>
-  </p>
+<%= bootstrap_form_for @user, :url => { :action => 'update' } do |f| %>
+  <%= f.password_field :password, label: t(:password) %>
+  <%= f.password_field :password_confirmation, label: t(:confirm_password) %>
+  <%= f.submit t(:reset_password), class: "btn btn-success" %> &nbsp; &mdash; &nbsp;
+  <%= link_to t(:back), new_session_path %>
 <% end %>

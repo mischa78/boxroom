@@ -2,12 +2,12 @@
 //= require jquery_ujs
 //= require jquery-fileupload/basic
 //= require jquery-fileupload/vendor/tmpl
+//= require bootstrap-sprockets
 //= require_self
 //= require_tree .
 
 $(window).load ->
-  fadeout '#notice'
-  fadeout '#alert'
+  fadeout '.alert-success'
 
 jQuery ->
   $('.back_link').on 'click', (e) ->

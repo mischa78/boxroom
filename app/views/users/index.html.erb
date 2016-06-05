@@ -1,45 +1,51 @@
 <% content_for :title, t(:users) -%>
 
-<h1><%= content_for :title %></h1>
-<p>
-  <span class="user_menu"><%= image_tag('user_add.png', :alt => t(:create_a_new_user)) %> <%= link_to t(:create_a_new_user), new_user_path %></span>
+<p class="toolbar">
+  <%= link_to fa_icon("user-plus", text: t(:create_a_new_user)), new_user_path,  class: "btn btn-success" %>
 </p>
 
 <h3><%= t :active_users %></h3>
-<table>
-  <tr>
-    <th></th>
-    <th><%= t :name %></th>
-    <th><%= t :email %></th>
-    <th></th>
-  </tr>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th></th>
+      <th><%= t :name %></th>
+      <th><%= t :email %></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
 <% @users.each do |user| -%>
   <tr class="<%= cycle('even','odd') %>">
-    <td><%= image_tag('user.png') %></td>
+    <td><%= fa_icon :user %></td>
     <td class="user_name"><%= user.name %></td>
     <td class="user_email"><%= user.email %></td>
-    <td>
-      <%= link_to image_tag('edit.png', :alt => t(:edit)), edit_user_path(user), :title => t(:edit) %>&nbsp;
-    <% unless user.is_admin -%>
-      <%= link_to image_tag('delete.png', :alt => t(:delete_item)), user_path(user), :method => :delete, :data => { :confirm => t(:are_you_sure) }, :title => t(:delete_item) %>
-    <% end -%>
+    <td>    
+      <%= link_to fa_icon("pencil"), edit_user_path(user),  class: "btn btn-warning btn-sm", title: t(:edit) %>
+      <% unless user.is_admin -%>
+        <%= link_to fa_icon("trash"), user_path(user),  class: "btn btn-danger btn-sm",  :method => :delete, :data => { :confirm => t(:are_you_sure) }, :title => t(:delete_item) %>
+      <% end -%>
     </td>
   </tr>
 <% end -%>
+  </tbody>
 </table>
 
 <% unless @new_users.blank? -%>
 <h3><%= t :invited_users %></h3>
-<table>
-  <tr>
-    <th></th>
-    <th><%= t :email %></th>
-    <th><%= t :expiration_date %></th>
-    <th></th>
-  </tr>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th></th>
+      <th><%= t :email %></th>
+      <th><%= t :expiration_date %></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
 <% @new_users.each do |user| -%>
   <tr class="<%= cycle('even','odd') %>">
-    <td><%= image_tag('user.png') %></td>
+    <td><%= fa_icon :user %></td>
     <td class="user_email"><%= user.email %></td>
     <td class="user_expiration">
     <% if user.signup_token_expires_at > Time.now -%>
@@ -49,12 +55,13 @@
     <% end -%>
     </td>
     <td>
-      <%= link_to image_tag('extend.png', :alt => t(:extend_expiration_date)), extend_user_path(user), :method => :put, :title => t(:extend_expiration_date) %>&nbsp;
+      <%= link_to fa_icon("calendar-plus-o"), extend_user_path(user),  class: "btn btn-default btn-sm", :method => :put, :title => t(:extend_expiration_date) %>
     <% unless user.is_admin -%>
-      <%= link_to image_tag('delete.png', :alt => t(:delete_item)), user_path(user), :method => :delete, :data => { :confirm => t(:are_you_sure) }, :title => t(:delete_item) %>
+      <%= link_to fa_icon("trash"), user_path(user),  class: "btn btn-danger btn-sm",  :method => :delete, :data => { :confirm => t(:are_you_sure) }, :title => t(:delete_item) %>
     <% end -%>
     </td>
   </tr>
 <% end -%>
+  </tbody>
 </table>
 <% end -%>

@@ -1,11 +1,6 @@
-<%= form_for @group do |f| %>
+<%= bootstrap_form_for @group do |f| %>
   <%= f.error_messages %>
-  <p>
-    <%= f.label :name %>:<br>
-    <%= f.text_field :name, { :class => 'text_input' } %>
-  </p>
-  <p>
-    <%= f.submit t(:save) %> &nbsp; &mdash; &nbsp;
-    <%= link_to t(:back), groups_url %>
-  </p>
+  <%= f.text_field :name, label: t(:name) %>
+  <%= f.primary t(:save) %> &nbsp; &mdash; &nbsp;
+  <%= link_to t(:back), groups_url %>
 <% end %>

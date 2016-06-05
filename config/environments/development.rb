@@ -50,7 +50,7 @@ Rails.application.configure do
   # }
 
   # Host
-  # config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 
   # From address
   # ActionMailer::Base.default :from => 'Boxroom <yourname@yourdomain.com>'

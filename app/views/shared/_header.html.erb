@@ -1,11 +1,37 @@
-<div id="header">
-  <% if signed_in? -%>
-  <div class="user_welcome">
-    <p>
-      <%= t :hello %>, <%= current_user.name %>!<br>
-      <%= link_to t(:settings), edit_user_path(current_user) %> | <%= link_to t(:sign_out), signout_path, :method => :delete %>
-    </p>
+<div class="navbar navbar-default navbar-static-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="<%= root_path %>"><%= image_tag('logo.png', :alt => 'Boxroom') %></a>
+    </div>
+    <div class="navbar-collapse collapse navbar-responsive-collapse">
+      <ul class="nav navbar-nav">
+        <% if signed_in? -%>
+          <li><%= link_to t(:folders), folders_path %></li>
+          <% if current_user.member_of_admins? -%>
+            <li><%= link_to t(:users), users_path %></li>
+            <li><%= link_to t(:groups), groups_path %></li>
+            <li><%= link_to t(:shared_files), share_links_path %></li>
+          <% end -%>
+        <% end -%>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <% if signed_in? -%>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= fa_icon "user", text: current_user.name %> <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li>
+                  <%= link_to fa_icon("cogs", text: t(:settings)), edit_user_path(current_user) %>
+                  <%= link_to fa_icon("power-off", text: t(:sign_out)), signout_path, :method => :delete %>
+              </li>
+            </ul>
+          </li>
+        <% end %>
+      </ul>
+    </div>
   </div>
-  <% end -%>
-  <%= link_to image_tag('logo.png', :alt => 'Boxroom'), root_path %>
 </div>

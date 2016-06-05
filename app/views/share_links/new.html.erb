@@ -1,48 +1,34 @@
 <% content_for :title, t(:share_file) -%>
 
-<h1><%= content_for :title %></h1>
-<%= form_for [@file, @share_link], :url => { :action => 'create' } do |f| %>
+
+<%= bootstrap_form_for [@file, @share_link], :url => { :action => 'create' } do |f| %>
   <%= f.error_messages :header_message => t(:share_link_could_not_be_sent) %>
-  <p>
-    <%= t :you_are_about_to_share_the_following_file %>:<br>
-    <span class="shared_file">
-      <%= image_tag(file_icon(@file.extension)) %>
-      <%= link_to @file.attachment_file_name, @folder %>
+  <%= t :you_are_about_to_share_the_following_file %>:<br />
+  <p class="shared_file">
+    <%= file_icon(@file) %>
+    <%= link_to @file.attachment_file_name, @folder %>
+  </p>
+  <%= f.text_area :emails, :class => 'emails_to_share_with', label: "#{t(:emails_to_share_with)} <span class=\"comma_seperated\">(#{t :comma_seperated})</span>".html_safe %>
+  <p class="char_counter">
+    <%= t :number_of_charachters %>:
+    <span id="counter">
+      <%= @share_link.emails.nil? ? 0 : @share_link.emails.length %>
     </span>
+    / 255
   </p>
-  <p>
-    <%= f.label :emails, t(:emails_to_share_with) %>:
-    <span class="comma_seperated">(<%= t :comma_seperated %>)</span><br>
-    <%= f.text_area :emails, :class => 'emails_to_share_with' %><br>
-    <span class="char_counter">
-      <%= t :number_of_charachters %>:
-      <span id="counter">
-        <%= @share_link.emails.nil? ? 0 : @share_link.emails.length %>
-      </span>
-      / 255
-    </span>
-  </p>
-  <p>
-    <%= f.label :message, t(:shared_message) %>: <span class="optional">(<%= t :optional %>)</span><br>
-    <%= f.text_area :message, :class => 'share_message' %>
-  </p>
-  <p>
-    <%= f.label t(:link_expires) %>:<br>
-    <%= f.select :link_expires_at, options_for_select([
-        [t(:tomorrow), 1.day.from_now.end_of_day],
-        [t(:three_days_from_now), 3.day.from_now.end_of_day],
-        [t(:one_week_from_now), 1.week.from_now.end_of_day],
-        [t(:ten_days_from_now), 10.days.from_now.end_of_day],
-        [t(:two_weeks_from_now), 2.weeks.from_now.end_of_day],
-        [t(:three_weeks_from_now), 3.weeks.from_now.end_of_day],
-        [t(:one_month_from_now), 1.month.from_now.end_of_day],
-        [t(:two_months_from_now), 2.months.from_now.end_of_day],
-        [t(:three_months_from_now), 3.months.from_now.end_of_day],
-        [t(:half_year_from_now), 6.months.from_now.end_of_day]
-    ], 2.weeks.from_now.end_of_day) %>
-  </p>
-  <p>
-    <%= f.submit t(:share) %> &nbsp; &mdash; &nbsp;
-    <%= link_to t(:back), @folder %>
-  </p>
+  <%= f.text_area :message, :class => 'share_message', label: "#{t :shared_message} <span class=\"optional\">(#{t :optional})</span>".html_safe %>
+  <%= f.select :link_expires_at, options_for_select([
+      [t(:tomorrow), 1.day.from_now.end_of_day],
+      [t(:three_days_from_now), 3.day.from_now.end_of_day],
+      [t(:one_week_from_now), 1.week.from_now.end_of_day],
+      [t(:ten_days_from_now), 10.days.from_now.end_of_day],
+      [t(:two_weeks_from_now), 2.weeks.from_now.end_of_day],
+      [t(:three_weeks_from_now), 3.weeks.from_now.end_of_day],
+      [t(:one_month_from_now), 1.month.from_now.end_of_day],
+      [t(:two_months_from_now), 2.months.from_now.end_of_day],
+      [t(:three_months_from_now), 3.months.from_now.end_of_day],
+      [t(:half_year_from_now), 6.months.from_now.end_of_day]
+  ], 2.weeks.from_now.end_of_day), label: t(:link_expires) %>
+  <%= f.submit t(:share) %> &nbsp; &mdash; &nbsp;
+  <%= link_to t(:back), @folder %>
 <% end %>

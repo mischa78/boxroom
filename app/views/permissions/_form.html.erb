@@ -1,6 +1,6 @@
 <%= form_tag update_multiple_permissions_path do %>
   <%= hidden_field_tag '_method', 'put' %>
-  <table>
+  <table class="table table-hover">
     <tr>
       <th></th>
       <th></th>
@@ -14,14 +14,14 @@
     <%= fields_for "permissions[]", permission do |f| %>
     <tr class="<%= cycle('even','odd') %>">
       <% if permission.group.admins_group? -%>
-        <td><%= image_tag('group_grey.png') %></td>
+        <td><%= fa_icon("users", class: "text-muted") %></td>
         <td class="disabled"><%= permission.group.name %></td>
         <td class="permission_column"><input type="checkbox" checked="checked" disabled="disabled" /></td>
         <td class="permission_column"><input type="checkbox" checked="checked" disabled="disabled" /></td>
         <td class="permission_column"><input type="checkbox" checked="checked" disabled="disabled" /></td>
         <td class="permission_column"><input type="checkbox" checked="checked" disabled="disabled" /></td>
       <% else -%>
-        <td><%= image_tag('group.png') %></td>
+        <td><%= fa_icon("users") %></td>
         <td><%= permission.group.name %></td>
         <td class="permission_column"><%= f.check_box :can_create %></td>
         <td class="permission_column"><%= f.check_box :can_read %></td>
@@ -33,7 +33,7 @@
     <% end -%>
   </table>
   <p class="permissions_button">
-    <%= submit_tag t(:save) %>
+    <%= submit_tag t(:save), class: "btn btn-success" %>
     <%= check_box_tag :recursive, true %> <%= t :apply_changes_to_subfolders %>
     &nbsp; &mdash; &nbsp;
     <%= link_to t(:back), '#', :class => 'back_link' %>

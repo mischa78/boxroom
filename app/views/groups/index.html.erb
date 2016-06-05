@@ -1,29 +1,32 @@
 <% content_for :title, t(:groups) -%>
 
-<h1><%= content_for :title %></h1>
-<p>
-  <span class="group_menu"><%= image_tag('group_add.png', :alt => t(:create_a_new_group)) %> <%= link_to t(:create_a_new_group), new_group_path %></span>
+<p class="toolbar">
+  <%= link_to fa_icon("users", text: t(:create_a_new_group)), new_group_path,  class: "btn btn-success" %>
 </p>
-<table>
-  <tr>
-    <th></th>
-    <th><%= t :name %></th>
-    <th></th>
-  </tr>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th></th>
+      <th><%= t :name %></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
 <% @groups.each do |group| -%>
   <tr class="<%= cycle('even','odd') %>">
   <% if group.admins_group? -%>
-    <td><%= image_tag('group_grey.png') %></td>
-    <td class="group_name disabled"><%= group.name %></td>
+    <td><%= fa_icon("users", class: "text-muted") %></td>
+    <td class="group_name text-muted"><%= group.name %></td>
     <td></td>
   <% else -%>
-    <td><%= image_tag('group.png') %></td>
+    <td><%= fa_icon("users") %></td>
     <td class="group_name"><%= group.name %></td>
     <td>
-      <%= link_to image_tag('edit.png', :alt => t(:edit)), edit_group_path(group), :title => t(:edit) %>&nbsp;
-      <%= link_to image_tag('delete.png', :alt => t(:delete_item)), group_path(group), :method => :delete, :data => { :confirm => t(:are_you_sure) }, :title => t(:delete_item) %>
+      <%= link_to fa_icon("pencil"), edit_group_path(group),  class: "btn btn-warning btn-sm", title: t(:edit) %>
+      <%= link_to fa_icon("trash"), group_path(group),  class: "btn btn-danger btn-sm",  :method => :delete, :data => { :confirm => t(:are_you_sure) }, :title => t(:delete_item) %>
     </td>
   <% end -%>
   </tr>
 <% end -%>
+  </tbody>
 </table>
