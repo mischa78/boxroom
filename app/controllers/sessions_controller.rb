@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
     user = User.authenticate(params[:username], params[:password])
 
     unless user.nil?
-      if params[:remember_me] == 'true'
+      if params[:remember_me] == '1'
         user.refresh_remember_token
         cookies[:auth_token] = { :value => user.remember_token, :expires => 2.weeks.from_now }
       end

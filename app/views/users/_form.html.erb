@@ -1,43 +1,26 @@
-<%= form_for @user do |f| %>
+<%= bootstrap_form_for @user do |f| %>
   <%= f.error_messages %>
   <% unless @user.new_record? -%>
-  <p>
-    <%= f.label :name %>:<br>
-    <%= f.text_field :name, { :class => 'text_input' } %>
-  </p>
+    <%= f.text_field :name, label: t(:name) %>
   <% end -%>
-  <p>
-    <%= f.label :email %>:<br>
-    <%= f.text_field :email, { :class => 'text_input' } %>
-  </p>
+    <%= f.text_field :email, label: t(:email) %>
   <% unless @user.new_record? -%>
-  <p>
-    <%= f.label :password %>:<br>
-    <%= f.password_field :password, { :class => 'text_input' } %>
-  </p>
-  <p>
-    <%= label_tag t(:confirm_password) %>:<br>
-    <%= f.password_field :password_confirmation, { :class => 'text_input' } %>
-  </p>
+    <%= f.password_field :password, label: t(:password) %>
+    <%= f.password_field :password_confirmation, label: t(:password_confirmation) %>
   <% end -%>
   <% if signed_in? && current_user.member_of_admins? -%>
-  <p>
-    <%= t :member_of_these_groups %>:
-    <span class="user_groups">
-    <% if @user.is_admin -%>
-      <span class="disabled">
-        <%= hidden_field_tag 'user[group_ids][]', Group.admins_group.id %>
-        <input type="checkbox" checked="checked" disabled="disabled" /><label>Admins</label>
-      </span>
-      <%= f.collection_check_boxes :group_ids, Group.all_except_admins, :id, :name %>
-    <% else -%>
-      <%= f.collection_check_boxes :group_ids, Group.all, :id, :name %>
-    <% end -%>
-    </span>
-  </p>
+    <%= f.form_group :group_ids, label: { text: t(:member_of_these_groups) } do %>
+      <% if @user.is_admin && @user == current_user %>
+         <%= hidden_field_tag 'user[group_ids][]', Group.admins_group.id %>      
+      <% end %>
+      <% Group.all.each do |group| %>
+        <div class="checkbox <%= "disabled" if @user.is_admin && @user == current_user && group.name == "Admins" %>">
+          <label for="<%= dom_id(group) %>"><%= check_box_tag "user[group_ids][]", group.id, @user.group_ids.include?(group.id), id: dom_id(group), disabled: @user.is_admin && @user == current_user && group.name == "Admins" %><%= group.name %></label>
+        </div>                    
+      <% end %>
+    <% end %>
   <% end -%>
-  <p>
-    <%= f.submit t(:save) %>
+    <%= f.primary t(:save) %>
   <% if @user != current_user -%>
     &nbsp; &mdash; &nbsp;
     <%= link_to t(:back), users_url %>

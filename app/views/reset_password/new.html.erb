@@ -1,16 +1,11 @@
 <% content_for :title, t(:reset_password) -%>
 
-<h1><%= content_for :title %></h1>
 <p>
   <%= render 'message' %>
 </p>
-<%= form_tag(reset_password_index_path) do %>
-  <p>
-    <%= label_tag :email, t(:email) %>:<br>
-    <%= text_field_tag :email, nil, :class => 'text_input' %>
-  </p>
-  <p>
-    <%= submit_tag t(:send_email) %> &nbsp; &mdash; &nbsp;
-    <%= link_to t(:back), new_session_path %>
-  </p>
+
+<%= bootstrap_form_tag url:reset_password_index_path do |f| %>
+  <%= f.text_field :email, :class => 'text_input', label: t(:email) %>
+  <%= f.submit t(:send_email), class: "btn btn-success" %> &nbsp; &mdash; &nbsp;
+  <%= link_to t(:back), new_session_path %>
 <% end %>
