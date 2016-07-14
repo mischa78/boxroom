@@ -1,7 +1,6 @@
-# US English translations for Ruby on Rails
+# ES Spanish translations for Boxroom
 #
-# Use this as the base for the locale file of your language.
-# see: https://github.com/svenfuchs/rails-i18n/blob/master/rails/locale/en-US.yml
+
 
 "es":
   date:
