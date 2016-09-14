@@ -11,6 +11,6 @@ class UserMailer < ActionMailer::Base
 
   def share_link_email(share_link)
     @share_link = share_link
-    mail(:to => share_link.user.email, :reply_to => share_link.user.email, :bcc => share_link.emails, :subject => t(:share_link_email_subject, :email => share_link.user.email))
+    mail(:to => share_link.user.email, :reply_to => share_link.user.email, :bcc => share_link.emails, :subject => t(:share_link_email_subject, :email => share_link.user.email+"("+share_link.user.name+")"))
   end
 end
