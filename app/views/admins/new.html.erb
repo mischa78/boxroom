@@ -11,15 +11,15 @@
     <%= f.text_field :name, { :class => 'text_input' } %>
   </p>
   <p>
-    <%= f.label :email %>:<br>
+    <%= f.label :email, t(:email) %>:<br>
     <%= f.text_field :email, { :class => 'text_input' } %>
   </p>
   <p>
-    <%= label_tag :password %>:<br>
+    <%= label_tag :password, t(:password) %>:<br>
     <%= f.password_field :password, { :class => 'text_input' } %>
   </p>
   <p>
-    <%= label_tag :confirm_password %>:<br>
+    <%= label_tag :confirm_password, t(:confirm_password) %>:<br>
     <%= f.password_field :password_confirmation, { :class => 'text_input' } %>
   </p>
   <p>
