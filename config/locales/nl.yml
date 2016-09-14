@@ -200,8 +200,10 @@ nl:
     attributes:
       folder:
         name: Naam
+        root_folder: Root folder
       group:
         name: Naam
+        admins: Admins
       share_link:
         emails: E-mailadressen
         expires_at: Vervaldatum

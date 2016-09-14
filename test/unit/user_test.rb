@@ -78,8 +78,8 @@ class UserTest < ActiveSupport::TestCase
 
   test 'root folder and admins group get created' do
     admin = create(:user, :is_admin => true)
-    assert_equal Folder.where(:name => 'Root folder').count, 1
-    assert_equal Group.where(:name => 'Admins').count, 1
+    assert_equal Folder.where(:name => Folder.human_attribute_name("folder.root_folder")).count, 1
+    assert_equal Group.where(:name => Group.human_attribute_name("group.admins") ).count, 1
     assert_equal admin.groups.count, 1
   end
 
@@ -167,7 +167,7 @@ class UserTest < ActiveSupport::TestCase
     user = create(:user)
     assert !user.member_of_admins?
 
-    user.groups << Group.find_by_name('Admins')
+    user.groups << Group.find_by_name(Group.human_attribute_name("group.admins") )
     assert user.member_of_admins?
   end
 

@@ -199,8 +199,10 @@
     attributes:
       folder:
         name: Name
+        root_folder: Root folder
       group:
         name: Name
+        admins: Admins
       share_link:
         emails: Email addresses
         expires_at: Expires
