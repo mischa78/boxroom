@@ -9,3 +9,4 @@ db/*.sqlite3
 log/*
 tmp/*
 uploads/*
+.idea
