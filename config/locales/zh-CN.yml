@@ -187,19 +187,21 @@
         format: "%{attribute} %{message}"
 
     models:
-      clipboard: 剪贴板
+      clipboard: 收藏夹
       folder: 文件夹
       group: 群组
       permission: 权限
-      share_link: 共享链接
+      share_link: 分享链接
       user: 用户
       user_file: 文件
 
     attributes:
       folder:
         name: 名称
+        root_folder: 根目录
       group:
         name: 名称
+        admins: 管理员组
       share_link:
         emails: 邮箱
         expires_at: 失效期
@@ -216,18 +218,18 @@
   # general
   back: 返回
   save: 保存
-  name: 名字
+  name: 姓名
   email: 邮箱
   submit: 提交
 
   your_changes_were_saved: "你的修改已保存"
-  already_deleted: "对不起, 但是%{type}已被删掉了."
+  already_deleted: "对不起，但是%{type}已被删掉了。"
 
   # admins/new
   create_admin: 新增管理员
-  no_administrator_yet: Boxroom还没有管理员。请在此新增一个。
-  create_admin_account: 新增管理员户头
-  admin_user_created_successfully: 管理员户头已添加成功。您可以登录了。
+  no_administrator_yet: 注：Boxroom还没有管理员，请在此新增一个。
+  create_admin_account: 新增管理员用户
+  admin_user_created_successfully: 管理员用户已添加成功，您可以登录了。
 
   # clipboard/_show
   folder: 文件夹
@@ -242,8 +244,8 @@
   move_file: 移动文件
   are_you_sure: 您确定?
   delete_item: 删除
-  remove_from_clipboard: 从剪贴板删除
-  clear_clipboard: 清空剪贴板
+  remove_from_clipboard: 从收藏夹删除
+  clear_clipboard: 清空收藏夹
 
   # files/edit
   rename_file: 重新命名文件
@@ -261,17 +263,17 @@
   new_folder: 新文件夹
 
   #folders/show
-  create_a_new_folder: 新增新文件夹
+  create_a_new_folder: 新建文件夹
   upload_a_file: 上传文件
   permissions: 权限
-  clipboard: 剪贴板
+  clipboard: 收藏夹
   size: 大小
   date_modified: 修改日期
   up: 上一层
   edit: 编辑
-  add_to_clipboard: 加到剪贴板
+  add_to_clipboard: 加到收藏夹
   download: 下载
-  share: 共享
+  share: 分享
 
   #groups/edit
   rename_group: 群组重新命名
@@ -297,7 +299,7 @@
 
   #reset_password/edit
   password: 密码
-  reset_password: 重设密码
+  reset_password: 重置密码
   send_email: 发送
 
   #signup/edit
@@ -309,14 +311,14 @@
   sign_in: 登录
 
   #share_links/index
-  shared_by: 共享人
-  unshare: 撤销共享
+  shared_by: 分享人
+  unshare: 撤销分享
 
   #share_links/new
-  this_share_link: 这个共享链接
-  share_file: 共享文件
-  you_are_about_to_share_the_following_file: 您就要共享以下文件
-  emails_to_share_with: 您想与之共享文件的人的邮箱地址
+  this_share_link: 这个分享链接
+  share_file: 分享文件
+  you_are_about_to_share_the_following_file: 您就要分享以下文件
+  emails_to_share_with: 您想与之分享文件的人的邮箱地址
   comma_seperated: 由逗号分隔的
   number_of_charachters: 字数
   link_expires: 过期
@@ -332,7 +334,7 @@
   half_year_from_now: 半年后
   share_link_could_not_be_sent: 不能发送出下载链接
   are_invalid_due_to: "因%{email}而无效"
-  shared_successfully: 成功共享文件
+  shared_successfully: 成功分享文件
   shared_message: 消息
   optional: 可选
 
@@ -344,10 +346,10 @@
   #shared/_menu
   folders: 文件夹
   users: 用户
-  shared_files: 共享的文件
+  shared_files: 分享的文件
 
   #users/_form
-  member_of_these_groups: 属于群组
+  member_of_these_groups: 所属群组
   confirm_password: 确认密码
 
   #users/index
@@ -361,15 +363,15 @@
   new_user: 新用户
 
   #admins/controller
-  admin_user_created_sucessfully: 管理员用户已添加好。可以登录了。
+  admin_user_created_sucessfully: 管理员用户已添加好，您可以登录了。
 
   #application_controller
   no_permissions_for_this_type: "您没有对%{type}的%{method}权限."
 
   # clipboard_controller
-  added_to_clipboard: 已成功添加到剪贴板。
-  could_not_copy: "不能拷贝。同样名字的%{type}已存在。"
-  could_not_move: "不能移动。同样名字的%{type}已存在。"
+  added_to_clipboard: 已成功添加到收藏夹。
+  could_not_copy: "不能拷贝，相同姓名的%{type}已存在。"
+  could_not_move: "不能移动，相同姓名的%{type}已存在。"
   cannot_move_to_own_subfolder: 您不能把文件夹放到其子文件夹里。
 
   # folders_controller
@@ -381,24 +383,24 @@
   admins_group_cannot_be_deleted: 管理员群组不能被删掉。
 
   # reset_password_controller
-  instruction_email_sent: "如果'%{email}'在本系统中，我们会发出邮件告诉您如何重设密码。"
-  password_reset_successfully: 您的密码已成功重设。您可以登录了。
-  reset_url_expired: 这个重设密码的网址已失效。请重试。
+  instruction_email_sent: "如果'%{email}'在本系统中，我们会发出邮件告诉您如何重置密码。"
+  password_reset_successfully: 您的密码已成功重置，您可以登录了。
+  reset_url_expired: 这个重置密码的网址已失效，请重试。
 
   # signup_controller
-  signed_up_successfully: 户头注册成功。您可以登录了。
-  sign_url_expired: 这个注册户头的网址已失效。请联系管理员。
+  signed_up_successfully: 用户注册成功，您可以登录了。
+  sign_url_expired: 这个注册用户的网址已失效，请联系管理员。
 
   # sessions_controller
-  credentials_incorrect: 用户名或密码不正确。请重试。
+  credentials_incorrect: 用户名或密码不正确，请重试。
 
   # users_controller
-  user_already_deleted: 有人已删掉此用户。您的操作已被撤销。
+  user_already_deleted: 有人已删掉此用户，您的操作已被撤销。
   admin_user_cannot_be_deleted: 此管理员不能被删除。
   edit_user: 编辑用户
   account_settings: 用户设置
 
   # mailers/user_mailer
   signup_email_subject: '[Boxroom] 注册邀请'
-  reset_password_email_subject: '[Boxroom] 重设密码的步骤'
-  share_link_email_subject: '[Boxroom] %{email}与您共享了文件'
+  reset_password_email_subject: '[Boxroom] 重置密码的步骤'
+  share_link_email_subject: '[Boxroom] %{email}与您分享了文件'

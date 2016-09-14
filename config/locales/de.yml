@@ -206,8 +206,10 @@ de:
     attributes:
       folder:
         name: Name
+        root_folder: Root folder
       group:
         name: Name
+        admins: Admins
       share_link:
         emails: E-Mail Adressen
         expires_at: Läuft ab am

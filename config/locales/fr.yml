@@ -145,6 +145,11 @@
         create: Créer un(e) %{model}
         submit: Enregistrer ce(tte) %{model}
         update: Modifier ce(tte) %{model}
+    attributes:
+      folder:
+        root_folder: Root folder
+      group:
+        admins: Admins
   number:
     currency:
       format:
