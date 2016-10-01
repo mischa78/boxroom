@@ -77,8 +77,9 @@ ActionMailer::Base.default :from => 'Boxroom <yourname@yourdomain.com>'
 Languages
 ---------
 Thanks to [Rob Halff](https://github.com/rhalff), [Marcus Ilgner](https://github.com/milgner),
-[Jessica Marcon](https://github.com/marcontwm), [Arnaud Sellenet](https://github.com/demental) and [Burnaby John](https://github.com/john-coding)
-Boxroom is now available in Dutch, German, Italian, French and Simplified Chinese.
+[Jessica Marcon](https://github.com/marcontwm), [Arnaud Sellenet](https://github.com/demental),
+[Burnaby John](https://github.com/john-coding) and [marcosantoniocaro](https://github.com/marcosantoniocaro)
+Boxroom is now available in Dutch, German, Italian, French, Simplified Chinese and Spanish.
 
 English is the default. To change the language, open `config/application.rb` and set the language you desire:
 
@@ -89,6 +90,7 @@ config.i18n.default_locale = :de # German
 config.i18n.default_locale = :it # Italian
 config.i18n.default_locale = :fr # French
 config.i18n.default_locale = :'zh-CN' # Simplified Chinese
+config.i18n.default_locale = :es # Spanish
 ```
 
 It would be great to have many more languages. I am waiting for your pull requests.
@@ -140,6 +142,8 @@ Contributors:
  * [Cayce Balara](https://github.com/Yardboy)
  * [Burnaby John](https://github.com/john-coding)
  * [Andreas Venturini](https://github.com/andreas-venturini)
+ * [marcosantoniocaro](https://github.com/marcosantoniocaro)
+ * [Claudio Ceballos Paz](https://github.com/claudiocebpaz)
 
 Donations:
 
