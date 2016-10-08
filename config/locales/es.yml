@@ -198,8 +198,10 @@
     attributes:
       folder:
         name: Nombre
+        root_folder: Root folder
       group:
         name: Nombre
+        admins: Admins
       share_link:
         emails: Correo electrónico
         expires_at: Expira
