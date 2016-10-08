@@ -101,8 +101,8 @@ class User < ActiveRecord::Base
   end
 
   def create_root_folder_and_admins_group
-    Folder.create(:name => Folder.human_attribute_name("folder.root_folder"))
-    groups << Group.create(:name => Group.human_attribute_name("group.admins") )
+    Folder.create(:name => Folder.human_attribute_name('folder.root_folder'))
+    groups << Group.create(:name => Group.human_attribute_name('group.admins') )
   end
 
   def dont_destroy_admin

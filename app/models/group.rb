@@ -10,15 +10,15 @@ class Group < ActiveRecord::Base
   before_destroy :dont_destroy_admins
 
   def admins_group?
-    name == Group.human_attribute_name("group.admins")
+    name == Group.human_attribute_name('group.admins')
   end
 
   def self.admins_group
-    where(:name => Group.human_attribute_name("group.admins")).first
+    where(:name => Group.human_attribute_name('group.admins')).first
   end
 
   def self.all_except_admins
-    where.not(:name => Group.human_attribute_name("group.admins"))
+    where.not(:name => Group.human_attribute_name('group.admins'))
   end
 
   private

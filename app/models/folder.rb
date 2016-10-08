@@ -81,13 +81,13 @@ class Folder < ActiveRecord::Base
   end
 
   def self.root
-    @root_folder ||= find_by_name_and_parent_id(Folder.human_attribute_name("folder.root_folder"), nil)
+    @root_folder ||= find_by_name_and_parent_id(Folder.human_attribute_name('folder.root_folder'), nil)
   end
 
   private
 
   def check_for_parent
-    raise 'Folders must have a parent.' if parent.nil? && name != Folder.human_attribute_name("folder.root_folder")
+    raise 'Folders must have a parent.' if parent.nil? && name != Folder.human_attribute_name('folder.root_folder')
   end
 
   def create_permissions
