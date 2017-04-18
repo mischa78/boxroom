@@ -23,6 +23,7 @@
     <%= f.password_field :password_confirmation, { :class => 'text_input' } %>
   </p>
   <p>
+    <%= recaptcha_tags %>
     <%= f.submit t(:create_admin_account) %>
   </p>
 <% end %>

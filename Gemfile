@@ -23,3 +23,5 @@ end
 group :test do
   gem 'factory_girl_rails'
 end
+
+gem 'recaptcha', '0.4.0', require: 'recaptcha/rails'

@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
 
   def create
     user = User.authenticate(params[:username], params[:password])
-
+  if verify_recaptcha(user)
     unless user.nil?
       if params[:remember_me] == 'true'
         user.refresh_remember_token
@@ -20,6 +20,10 @@ class SessionsController < ApplicationController
       log_failed_sign_in_attempt(Time.now, params[:username], request.remote_ip)
       redirect_to new_session_url, :alert => t(:credentials_incorrect)
     end
+  else
+    log_failed_sign_in_attempt(Time.now, params[:username], request.remote_ip)
+    redirect_to new_session_url, :alert => t(:credentials_incorrect)
+  end
   end
 
   def destroy
