@@ -1,5 +1,10 @@
 # Boxroom
 
+[![Build Status](https://api.travis-ci.org/mischa78/boxroom.png)](http://travis-ci.org/mischa78/boxroom)
+[![Dependency Status](https://gemnasium.com/mischa78/boxroom.png?travis)](https://gemnasium.com/mischa78/boxroom)
+[![Code Climate](https://codeclimate.com/github/mischa78/boxroom.png)](https://codeclimate.com/github/mischa78/boxroom)
+
+
 Security issue
 --------------
 An issue was discovered that gave users the possibility to access files they don't have read permissions for. To make sure that you are not affected by this do one of the following:
@@ -13,10 +18,9 @@ $ patch app/controllers/clipboard_controller.rb < clipboard_controller.patch
 $ patch app/controllers/files_controller.rb < files_controller.patch
 ```
 
-[![Build Status](https://api.travis-ci.org/mischa78/boxroom.png)](http://travis-ci.org/mischa78/boxroom)
-[![Dependency Status](https://gemnasium.com/mischa78/boxroom.png?travis)](https://gemnasium.com/mischa78/boxroom)
-[![Code Climate](https://codeclimate.com/github/mischa78/boxroom.png)](https://codeclimate.com/github/mischa78/boxroom)
 
+Intro
+-----
 Boxroom is a Rails application that aims to be a simple interface for managing and
 sharing files in a web browser. It lets users create folders and upload, download
 and share files. Admins can manage users, groups and permissions.
