@@ -1,5 +1,17 @@
 # Boxroom
 
+Security issue
+--------------
+An issue was discovered that gave users the possibility to access files they don't have read permissions for. To make sure that you are not affected by this do one of the following:
+
+ * Upgrade to the latest master branch source version
+ * Upgrade to [Boxroom v2.1](https://github.com/mischa78/boxroom/releases/tag/v2.1)
+ * Download [clipboard_contoller.patch](https://raw.githubusercontent.com/mischa78/boxroom/master/patches/clipboard_controller.patch) and [files_controller.patch](https://raw.githubusercontent.com/mischa78/boxroom/master/patches/files_controller.patch) and apply the patches as follows:
+
+    $ patch app/controllers/clipboard_controller.rb < clipboard_controller.patch
+    $ patch app/controllers/files_controller.rb < files_controller.patch
+
+
 [![Build Status](https://api.travis-ci.org/mischa78/boxroom.png)](http://travis-ci.org/mischa78/boxroom)
 [![Dependency Status](https://gemnasium.com/mischa78/boxroom.png?travis)](https://gemnasium.com/mischa78/boxroom)
 [![Code Climate](https://codeclimate.com/github/mischa78/boxroom.png)](https://codeclimate.com/github/mischa78/boxroom)
@@ -20,7 +32,7 @@ Requirements
 The requirements for running Boxroom are:
 
  * Ruby 2.1.0 or newer
- * Rails 4.2.7.1
+ * Rails 4.2.8
  * A database (e.g. MySQL or SQLite)
 
 
