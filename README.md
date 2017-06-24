@@ -8,9 +8,10 @@ An issue was discovered that gave users the possibility to access files they don
  * Upgrade to [Boxroom v2.1](https://github.com/mischa78/boxroom/releases/tag/v2.1)
  * Download [clipboard_contoller.patch](https://raw.githubusercontent.com/mischa78/boxroom/master/patches/clipboard_controller.patch) and [files_controller.patch](https://raw.githubusercontent.com/mischa78/boxroom/master/patches/files_controller.patch) and apply the patches as follows:
 
-    $ patch app/controllers/clipboard_controller.rb < clipboard_controller.patch
-    $ patch app/controllers/files_controller.rb < files_controller.patch
-
+```
+$ patch app/controllers/clipboard_controller.rb < clipboard_controller.patch
+$ patch app/controllers/files_controller.rb < files_controller.patch
+```
 
 [![Build Status](https://api.travis-ci.org/mischa78/boxroom.png)](http://travis-ci.org/mischa78/boxroom)
 [![Dependency Status](https://gemnasium.com/mischa78/boxroom.png?travis)](https://gemnasium.com/mischa78/boxroom)
