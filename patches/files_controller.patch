@@ -1,0 +1,20 @@
+diff --git a/app/controllers/files_controller.rb b/app/controllers/files_controller.rb
+index 9f9cd8a..22b3a5e 100644
+--- a/app/controllers/files_controller.rb
++++ b/app/controllers/files_controller.rb
+@@ -43,9 +43,12 @@ class FilesController < ApplicationController
+   end
+ 
+   def exists
+-    @file = UserFile.new(:attachment_file_name => params[:name].gsub(RESTRICTED_CHARACTERS, '_'))
+-    @file.folder_id = params[:folder]
+-    render :json => !@file.valid?
++    @folder = Folder.find(params[:folder])
++
++    if current_user.can_read @folder || current_user.can_write @folder
++      @file = @folder.user_files.build(:attachment_file_name => params[:name].gsub(RESTRICTED_CHARACTERS, '_'))
++      render :json => !@file.valid?
++    end
+   end
+ 
+   private
