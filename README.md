@@ -7,7 +7,7 @@
 
 Security issue
 --------------
-An issue was discovered that gave users the possibility of accessing files they don't have read permissions for. To make sure that you are not affected by this do one of the following:
+A bug was discovered that let users access files they don't have read permissions for. To make sure that you are not affected by this do one of the following:
 
  * Upgrade to the latest master branch source version
  * Upgrade to [Boxroom v2.1](https://github.com/mischa78/boxroom/releases/tag/v2.1)
