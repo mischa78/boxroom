@@ -288,7 +288,7 @@
   read_permission: Leer
   update_permission: Actualizar
   delete_permission: Borrar
-  apply_changes_to_subfolders: Aplicar cabios a las subcarpetas
+  apply_changes_to_subfolders: Aplicar cambios a las subcarpetas
 
   create: crear
   read: leer
