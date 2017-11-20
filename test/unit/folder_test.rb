@@ -27,7 +27,7 @@ class FolderTest < ActiveSupport::TestCase
   end
 
   test 'dependent permissions get deleted' do
-    root = create(:folder, :name => 'Root folder', :parent => nil) # Root folder
+    root = create(:folder, :name => Folder.human_attribute_name('folder.root_folder'), :parent => nil) # Root folder
     assert_equal Folder.all.count, 1
 
     3.times { create(:group) }
@@ -72,7 +72,7 @@ class FolderTest < ActiveSupport::TestCase
   end
 
   test 'permissions get created' do
-    root = create(:folder, :name => 'Root folder', :parent => nil) # Root folder
+    root = create(:folder, :name => Folder.human_attribute_name('folder.root_folder'), :parent => nil) # Root folder
     assert_equal Folder.all.count, 1
 
     create(:group)
@@ -201,7 +201,7 @@ class FolderTest < ActiveSupport::TestCase
 
     root = Folder.root
     assert root.is_root?
-    assert_equal root.name, 'Root folder'
+    assert_equal root.name, Folder.human_attribute_name('folder.root_folder')
     assert_nil root.parent
   end
 end

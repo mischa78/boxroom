@@ -35,7 +35,7 @@ class GroupTest < ActiveSupport::TestCase
     create(:folder)
     assert Folder.all.count > 0
 
-    group = create(:group, :name => 'Admins')
+    group = create(:group, :name => Group.human_attribute_name('group.admins') )
     assert_equal group.permissions.count, Folder.all.count
 
     group.permissions.each do |permission|
@@ -62,7 +62,7 @@ class GroupTest < ActiveSupport::TestCase
   end
 
   test 'cannot delete admins group' do
-    admins = create(:group, :name => 'Admins')
+    admins = create(:group, :name => Group.human_attribute_name('group.admins') )
     normal_group = create(:group)
 
     assert admins.admins_group?

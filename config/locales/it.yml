@@ -206,8 +206,10 @@
     attributes:
       folder:
         name: Nome
+        root_folder: Root folder
       group:
         name: Nome
+        admins: Admins
       share_link:
         emails: Indirizzo Email
         expires_at: Scade
