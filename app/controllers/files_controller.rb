@@ -45,7 +45,7 @@ class FilesController < ApplicationController
   def exists
     @folder = Folder.find(params[:folder])
 
-    if current_user.can_read @folder || current_user.can_write @folder
+    if current_user.can_read(@folder) || current_user.can_write(@folder)
       @file = @folder.user_files.build(:attachment_file_name => params[:name].gsub(RESTRICTED_CHARACTERS, '_'))
       render :json => !@file.valid?
     end
